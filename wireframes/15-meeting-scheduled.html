@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Scheduled - Neopeer</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <a href="../index.html" class="back-btn">← Back</a>
+            <h1>Meeting Scheduled</h1>
+            <div style="width: 60px;"></div>
+        </div>
+        <div class="wireframe-content">
+            <div style="text-align: center; padding: 20px 0;">
+                <div style="width: 80px; height: 80px; background: #27ae60; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5em;">
+                    ✓
+                </div>
+                <h2>Both Confirmed!</h2>
+                <p style="color: #7f8c8d; margin-top: 10px;">
+                    Your meeting with <span class="student-code">S0042</span> is scheduled
+                </p>
+            </div>
+            
+            <div class="card" style="border-color: #27ae60;">
+                <div class="card-header">
+                    <div class="card-title">Meeting Confirmed</div>
+                </div>
+                <div class="card-content" style="margin-top: 15px;">
+                    <p><strong>With:</strong> <span class="student-code">S0042</span></p>
+                    <p><strong>Date:</strong> Tuesday, December 17, 2024</p>
+                    <p><strong>Time:</strong> 2:00 PM - 3:00 PM</p>
+                    <p><strong>Duration:</strong> 1 hour</p>
+                    <p><strong>Format:</strong> Audio-only meeting</p>
+                    <p style="margin-top: 10px; font-size: 0.9em; color: #7f8c8d;">
+                        🔒 Identity will remain anonymous during the meeting
+                    </p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <div class="notification">
+                    <strong>Reminder</strong><br>
+                    You'll receive a reminder 15 minutes before the meeting. Join through the app when it's time!
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px;">
+                <button class="btn btn-primary" onclick="window.location.href='16-meeting-interface.html'">
+                    Join Meeting (When Ready)
+                </button>
+                <button class="btn btn-outline" style="margin-top: 10px;" onclick="window.location.href='14-icebreaker-questions.html'">
+                    Review Icebreaker Questions
+                </button>
+            </div>
+            
+            <div style="margin-top: 30px; padding: 15px; background: #f8f9fa; border-radius: 5px;">
+                <p style="font-size: 0.9em; color: #7f8c8d;">
+                    <strong>Note:</strong> The meeting will automatically take notes and send you a summary via WhatsApp after it ends.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

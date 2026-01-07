@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Neopeer</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../profile.js"></script>
+</head>
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <a href="21-settings.html" class="back-btn">← Back</a>
+            <h1>My Profile</h1>
+            <div style="width: 60px;"></div>
+        </div>
+        <div class="wireframe-content">
+            <div id="viewMode">
+                <h2>Anonymous Identity</h2>
+                
+                <div class="card" style="cursor: default;">
+                    <div class="card-content">
+                        <p><strong>Your Anonymous Name:</strong></p>
+                        <div class="student-code" id="displayAnonymousName" style="font-size: 1.5em; margin: 10px 0;">S0819</div>
+                        <p style="font-size: 0.9em; color: #7f8c8d;">
+                            This is how other students see you until mutual match. You can edit this anytime.
+                        </p>
+                    </div>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <button class="btn btn-primary" onclick="enableEditMode()">Edit Anonymous Name</button>
+                </div>
+
+                <h2>Profile Details</h2>
+                <div class="card" style="cursor: default;">
+                    <div class="card-content">
+                        <p style="font-size: 0.9em; color: #7f8c8d; margin-bottom: 15px;">
+                            Your actual profile details are kept private and only shared after a mutual match. This information helps us find better matches for you.
+                        </p>
+                        
+                        <div style="margin: 15px 0;">
+                            <label class="label">Full Name</label>
+                            <p id="displayFullName" style="padding: 10px; background: #f8f9fa; border-radius: 5px; color: #555;">Not set</p>
+                        </div>
+
+                        <div style="margin: 15px 0;">
+                            <label class="label">Email</label>
+                            <p id="displayEmail" style="padding: 10px; background: #f8f9fa; border-radius: 5px; color: #555;">Not set</p>
+                        </div>
+
+                        <div style="margin: 15px 0;">
+                            <label class="label">Bio</label>
+                            <p id="displayBio" style="padding: 10px; background: #f8f9fa; border-radius: 5px; color: #555; min-height: 60px;">Not set</p>
+                        </div>
+
+                        <div style="margin: 15px 0;">
+                            <label class="label">Interests</label>
+                            <p id="displayInterests" style="padding: 10px; background: #f8f9fa; border-radius: 5px; color: #555;">Not set</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <button class="btn btn-primary" onclick="enableEditProfileMode()">Edit Profile Details</button>
+                </div>
+
+                <div style="margin-top: 30px; padding: 15px; background: #e8f4f8; border-radius: 5px; border-left: 4px solid #3498db;">
+                    <p style="font-size: 0.9em; color: #2c3e50; margin: 0;">
+                        <strong>🔒 Privacy Note:</strong> Your actual profile details (name, email, bio, interests) are only visible to students after you both agree to connect. During matching and conversations, only your anonymous name is shown.
+                    </p>
+                </div>
+            </div>
+
+            <div id="editAnonymousMode" style="display: none;">
+                <h2>Edit Anonymous Name</h2>
+                
+                <div class="card" style="cursor: default;">
+                    <div class="card-content">
+                        <p style="font-size: 0.9em; color: #7f8c8d; margin-bottom: 15px;">
+                            Choose an anonymous name that will be visible to other students during matching. This can be a code, nickname, or any identifier you prefer.
+                        </p>
+                        
+                        <label class="label">Anonymous Name</label>
+                        <input type="text" id="editAnonymousName" class="input-field" placeholder="e.g., S0819, Alex_Code, Student_42" maxlength="20">
+                        <p style="font-size: 0.85em; color: #7f8c8d;">
+                            Maximum 20 characters. This will be visible to others during matching.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-secondary" onclick="cancelEditAnonymous()">Cancel</button>
+                    <button class="btn btn-primary" onclick="saveAnonymousName()">Save</button>
+                </div>
+            </div>
+
+            <div id="editProfileMode" style="display: none;">
+                <h2>Edit Profile Details</h2>
+                
+                <div class="card" style="cursor: default;">
+                    <div class="card-content">
+                        <p style="font-size: 0.9em; color: #7f8c8d; margin-bottom: 15px;">
+                            These details are private and only shared after a mutual match. They help us find better matches for you.
+                        </p>
+                        
+                        <label class="label">Full Name</label>
+                        <input type="text" id="editFullName" class="input-field" placeholder="Your full name">
+
+                        <label class="label">Email</label>
+                        <input type="email" id="editEmail" class="input-field" placeholder="your.email@example.com">
+
+                        <label class="label">Bio</label>
+                        <textarea id="editBio" class="textarea-field" placeholder="Tell us about yourself..." rows="4"></textarea>
+
+                        <label class="label">Interests</label>
+                        <input type="text" id="editInterests" class="input-field" placeholder="e.g., AI, Startups, Marketing, Research">
+                        <p style="font-size: 0.85em; color: #7f8c8d;">
+                            Separate multiple interests with commas
+                        </p>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-secondary" onclick="cancelEditProfile()">Cancel</button>
+                    <button class="btn btn-primary" onclick="saveProfileDetails()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Load and display profile data
+        function loadProfile() {
+            const profile = getProfile();
+            
+            // Display anonymous name
+            document.getElementById('displayAnonymousName').textContent = profile.anonymousName || 'S0819';
+            
+            // Display profile details
+            document.getElementById('displayFullName').textContent = profile.fullName || 'Not set';
+            document.getElementById('displayEmail').textContent = profile.email || 'Not set';
+            document.getElementById('displayBio').textContent = profile.bio || 'Not set';
+            document.getElementById('displayInterests').textContent = profile.interests || 'Not set';
+        }
+
+        function enableEditMode() {
+            document.getElementById('viewMode').style.display = 'none';
+            document.getElementById('editAnonymousMode').style.display = 'block';
+            
+            const profile = getProfile();
+            document.getElementById('editAnonymousName').value = profile.anonymousName || 'S0819';
+        }
+
+        function enableEditProfileMode() {
+            document.getElementById('viewMode').style.display = 'none';
+            document.getElementById('editProfileMode').style.display = 'block';
+            
+            const profile = getProfile();
+            document.getElementById('editFullName').value = profile.fullName || '';
+            document.getElementById('editEmail').value = profile.email || '';
+            document.getElementById('editBio').value = profile.bio || '';
+            document.getElementById('editInterests').value = profile.interests || '';
+        }
+
+        function cancelEditAnonymous() {
+            document.getElementById('viewMode').style.display = 'block';
+            document.getElementById('editAnonymousMode').style.display = 'none';
+        }
+
+        function cancelEditProfile() {
+            document.getElementById('viewMode').style.display = 'block';
+            document.getElementById('editProfileMode').style.display = 'none';
+        }
+
+        function saveAnonymousName() {
+            const anonymousName = document.getElementById('editAnonymousName').value.trim();
+            
+            if (!anonymousName) {
+                alert('Please enter an anonymous name.');
+                return;
+            }
+            
+            if (anonymousName.length > 20) {
+                alert('Anonymous name must be 20 characters or less.');
+                return;
+            }
+            
+            updateProfile({ anonymousName: anonymousName });
+            loadProfile();
+            cancelEditAnonymous();
+        }
+
+        function saveProfileDetails() {
+            const fullName = document.getElementById('editFullName').value.trim();
+            const email = document.getElementById('editEmail').value.trim();
+            const bio = document.getElementById('editBio').value.trim();
+            const interests = document.getElementById('editInterests').value.trim();
+            
+            // Email validation
+            if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            updateProfile({
+                fullName: fullName,
+                email: email,
+                bio: bio,
+                interests: interests
+            });
+            
+            loadProfile();
+            cancelEditProfile();
+        }
+
+        // Load profile on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            // Initialize profile if it doesn't exist
+            if (!getProfile()) {
+                initializeProfile();
+            }
+            loadProfile();
+        });
+    </script>
+</body>
+</html>

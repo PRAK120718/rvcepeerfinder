@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy & Data Consent - Neopeer</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../profile.js"></script>
+    <script src="../aspirations.js"></script>
+</head>
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <a href="00-otp-verification.html" class="back-btn">← Back</a>
+            <h1>Privacy & Consent</h1>
+            <div style="width: 60px;"></div>
+        </div>
+        <div class="wireframe-content">
+            <h2>Data Privacy & Consent</h2>
+            <p style="color: #7f8c8d; margin-bottom: 20px;">
+                To provide you with the best matching experience, we need your consent for data collection and processing.
+            </p>
+            
+            <div class="consent-checkbox required">
+                <input type="checkbox" id="dataCollection" required>
+                <label for="dataCollection">
+                    <strong>Data Collection Consent (Required)</strong>
+                    <div class="consent-text">
+                        I consent to Neopeer collecting and processing my personal information, voice recordings, 
+                        conversation data, and preferences to facilitate peer matching. 
+                        <a href="#" class="consent-link">Learn more</a>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="consent-checkbox required">
+                <input type="checkbox" id="voiceRecording" required>
+                <label for="voiceRecording">
+                    <strong>Voice Recording Consent (Required)</strong>
+                    <div class="consent-text">
+                        I consent to voice conversations being recorded and analyzed to understand my personality, 
+                        communication style, and aspirations for better matching. 
+                        <a href="#" class="consent-link">Learn more</a>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="consent-checkbox">
+                <input type="checkbox" id="meetingNotes">
+                <label for="meetingNotes">
+                    <strong>Meeting Notes & Transcription (Optional)</strong>
+                    <div class="consent-text">
+                        Allow automatic note-taking and transcription during meetings to help track discussions and 
+                        action items. You can disable this anytime.
+                    </div>
+                </label>
+            </div>
+            
+            <div class="consent-checkbox">
+                <input type="checkbox" id="whatsappSharing">
+                <label for="whatsappSharing">
+                    <strong>WhatsApp Summary Sharing (Optional)</strong>
+                    <div class="consent-text">
+                        Receive meeting summaries and updates via WhatsApp. You can change this preference later.
+                    </div>
+                </label>
+            </div>
+            
+            <div class="consent-checkbox">
+                <input type="checkbox" id="profileSharing">
+                <label for="profileSharing">
+                    <strong>Profile Sharing with Matched Peers (Optional)</strong>
+                    <div class="consent-text">
+                        Allow your profile information to be shared with matched peers after mutual connection. 
+                        You control what information is shared.
+                    </div>
+                </label>
+            </div>
+            
+            <div class="consent-checkbox">
+                <input type="checkbox" id="dataRetention">
+                <label for="dataRetention">
+                    <strong>Data Retention (Optional)</strong>
+                    <div class="consent-text">
+                        Allow Neopeer to retain your conversation data for 12 months to improve matching algorithms 
+                        and provide better recommendations. You can request deletion anytime.
+                    </div>
+                </label>
+            </div>
+            
+            <div style="margin-top: 30px; padding: 15px; background: #fff3cd; border-radius: 5px;">
+                <p style="font-size: 0.9em; color: #856404;">
+                    <strong>Your Privacy Rights:</strong> You can access, modify, or delete your data at any time 
+                    through Settings. Required consents are mandatory to use Neopeer's core features.
+                </p>
+            </div>
+            
+            <div style="margin-top: 30px;">
+                <button class="btn btn-primary" onclick="checkConsents()">
+                    I Agree & Continue
+                </button>
+                <a href="#" class="btn btn-secondary" style="display: block; margin-top: 10px; text-align: center;">
+                    Read Full Privacy Policy
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Check if user is authenticated
+        window.addEventListener('DOMContentLoaded', function() {
+            const isAuthenticated = localStorage.getItem('rvce_authenticated') === 'true';
+            if (!isAuthenticated) {
+                // Not authenticated, redirect to landing page
+                window.location.href = '00-landing.html';
+            }
+        });
+        
+        function checkConsents() {
+            const required = ['dataCollection', 'voiceRecording'];
+            const allChecked = required.every(id => document.getElementById(id).checked);
+            
+            if (!allChecked) {
+                alert('Please accept all required consents to continue.');
+                return;
+            }
+            
+            // Store consent preferences
+            const consents = {
+                dataCollection: document.getElementById('dataCollection').checked,
+                voiceRecording: document.getElementById('voiceRecording').checked,
+                meetingNotes: document.getElementById('meetingNotes').checked,
+                whatsappSharing: document.getElementById('whatsappSharing').checked,
+                profileSharing: document.getElementById('profileSharing').checked,
+                dataRetention: document.getElementById('dataRetention').checked
+            };
+            
+            localStorage.setItem('neopeer_consents', JSON.stringify(consents));
+            
+            // Check if user is first-time or existing
+            if (isFirstTimeUser()) {
+                // First-time user: go to onboarding
+                window.location.href = '00-first-time-onboarding.html';
+            } else {
+                // Existing user: go to aspiration selection
+                window.location.href = '00-aspiration-selection.html';
+            }
+        }
+    </script>
+</body>
+</html>

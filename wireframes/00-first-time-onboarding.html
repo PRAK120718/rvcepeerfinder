@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - RVCE Peer Finder</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../profile.js"></script>
+    <script src="../aspirations.js"></script>
+</head>
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <div style="width: 60px;"></div>
+            <h1>Welcome to RVCE Peer Finder</h1>
+            <div style="width: 60px;"></div>
+        </div>
+        <div class="wireframe-content">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <h2>Let's Get You Started</h2>
+                <p style="color: #7f8c8d; margin-top: 10px;">
+                    We'll help you set up your profile and create your first aspiration
+                </p>
+            </div>
+            
+            <div class="card" style="border-color: #3498db; background: #ebf5fb; margin-bottom: 30px;">
+                <div class="card-content">
+                    <p><strong>Step 1: Create Your Profile</strong></p>
+                    <p style="margin-top: 10px; font-size: 0.9em; color: #555;">
+                        Set up your basic profile information. You can always update this later.
+                    </p>
+                </div>
+            </div>
+            
+            <div style="margin-bottom: 30px;">
+                <label class="label">Anonymous Name (How others will see you)</label>
+                <input type="text" id="anonymousName" class="input-field" placeholder="e.g., S0819, Alex_Code" maxlength="20">
+                <p style="font-size: 0.85em; color: #7f8c8d; margin-top: -10px;">
+                    This will be visible to other students during matching. You can edit it later.
+                </p>
+            </div>
+            
+            <div class="card" style="border-color: #27ae60; background: #eafaf1; margin-bottom: 30px; margin-top: 30px;">
+                <div class="card-content">
+                    <p><strong>Step 2: Create Your First Aspiration</strong></p>
+                    <p style="margin-top: 10px; font-size: 0.9em; color: #555;">
+                        What are you looking to achieve? This could be finding a co-founder, research partner, 
+                        project collaborator, or any other goal.
+                    </p>
+                </div>
+            </div>
+            
+            <div style="margin-bottom: 30px;">
+                <label class="label">Aspiration Name</label>
+                <input type="text" id="aspirationName" class="input-field" placeholder="e.g., AI Startup Co-founder, Research Partner, etc.">
+                <p style="font-size: 0.85em; color: #7f8c8d; margin-top: -10px;">
+                    Give your aspiration a name to help you organize multiple goals later
+                </p>
+            </div>
+            
+            <div style="margin-bottom: 30px;">
+                <label class="label">Brief Description (Optional)</label>
+                <textarea id="aspirationDescription" class="textarea-field" placeholder="Tell us a bit about what you're looking for..." rows="3"></textarea>
+            </div>
+            
+            <div style="margin-top: 30px;">
+                <button class="btn btn-primary" onclick="completeOnboarding()">
+                    Continue to Conversation
+                </button>
+            </div>
+            
+            <div style="margin-top: 30px; padding: 15px; background: #f8f9fa; border-radius: 5px;">
+                <p style="font-size: 0.9em; color: #7f8c8d;">
+                    <strong>💡 Note:</strong> You'll have a voice conversation with your AI agent to explore this aspiration in detail. 
+                    You can create more aspirations later from your settings.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Check if user is authenticated
+        window.addEventListener('DOMContentLoaded', function() {
+            const isAuthenticated = localStorage.getItem('rvce_authenticated') === 'true';
+            if (!isAuthenticated) {
+                window.location.href = '00-landing.html';
+                return;
+            }
+            
+            // Check if user has already completed onboarding
+            const onboardingComplete = localStorage.getItem('neopeer_onboarding_complete') === 'true';
+            if (onboardingComplete && !isFirstTimeUser()) {
+                // User already completed onboarding, redirect to aspiration selection
+                window.location.href = '00-aspiration-selection.html';
+                return;
+            }
+            
+            // Initialize profile if it doesn't exist
+            if (!hasProfile()) {
+                initializeProfile();
+            }
+            
+            // Set default anonymous name if profile exists but name is not set
+            const profile = getProfile();
+            if (profile && (!profile.anonymousName || profile.anonymousName.startsWith('S') && profile.anonymousName.length === 5)) {
+                document.getElementById('anonymousName').value = profile.anonymousName || '';
+            }
+        });
+        
+        function completeOnboarding() {
+            const anonymousName = document.getElementById('anonymousName').value.trim();
+            const aspirationName = document.getElementById('aspirationName').value.trim();
+            const aspirationDescription = document.getElementById('aspirationDescription').value.trim();
+            
+            // Validate anonymous name
+            if (!anonymousName) {
+                alert('Please enter an anonymous name.');
+                document.getElementById('anonymousName').focus();
+                return;
+            }
+            
+            if (anonymousName.length > 20) {
+                alert('Anonymous name must be 20 characters or less.');
+                document.getElementById('anonymousName').focus();
+                return;
+            }
+            
+            // Validate aspiration name
+            if (!aspirationName) {
+                alert('Please enter a name for your aspiration.');
+                document.getElementById('aspirationName').focus();
+                return;
+            }
+            
+            // Save profile with anonymous name
+            updateProfile({ anonymousName: anonymousName });
+            
+            // Create first aspiration
+            const aspiration = addAspiration({
+                name: aspirationName,
+                description: aspirationDescription,
+                status: 'active'
+            });
+            
+            // Set as current aspiration
+            localStorage.setItem('current_aspiration', JSON.stringify({
+                id: aspiration.id,
+                name: aspiration.name,
+                createdAt: aspiration.createdAt
+            }));
+            
+            // Mark onboarding as complete
+            localStorage.setItem('neopeer_onboarding_complete', 'true');
+            
+            // Navigate to agent intro
+            window.location.href = '01-agent-intro.html';
+        }
+    </script>
+</body>
+</html>

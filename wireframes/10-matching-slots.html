@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matching Slots - Neopeer</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <a href="../index.html" class="back-btn">← Back</a>
+            <h1>Matching Slots</h1>
+            <div style="width: 60px;"></div>
+        </div>
+        <div class="wireframe-content">
+            <div class="loading" style="padding: 20px;">
+                <div class="spinner"></div>
+                <p>Finding matching time slots...</p>
+            </div>
+            
+            <div style="margin-top: 20px; display: none;" id="matches">
+                <div class="notification success">
+                    <strong>✓ Match Found!</strong><br>
+                    We found overlapping time slots with <span class="student-code">S0042</span>. Here's the earliest available option:
+                </div>
+                
+                <div class="card" style="border-color: #27ae60; background: #d4edda;">
+                    <div class="time-slot-header">
+                        <div>
+                            <div class="time-slot-date">Tuesday, Dec 17</div>
+                            <div class="time-slot-time">2:00 PM - 3:00 PM</div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #c3e6cb;">
+                        <p style="color: #155724;">
+                            <strong>This slot works for both of you!</strong>
+                        </p>
+                        <p style="color: #155724; margin-top: 5px; font-size: 0.9em;">
+                            Available in both your calendars
+                        </p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <button class="btn btn-primary" onclick="window.location.href='11-confirm-slot.html'">
+                        Confirm This Slot
+                    </button>
+                    <button class="btn btn-outline" style="margin-top: 10px;" onclick="window.location.href='12-suggest-alternative.html'">
+                        Suggest Different Time
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        setTimeout(() => {
+            document.querySelector('.loading').style.display = 'none';
+            document.getElementById('matches').style.display = 'block';
+        }, 2000);
+    </script>
+</body>
+</html>

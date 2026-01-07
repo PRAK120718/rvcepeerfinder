@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification - RVCE Peer Finder</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <a href="00-landing.html" class="back-btn">← Back</a>
+            <h1>Verify OTP</h1>
+            <div style="width: 60px;"></div>
+        </div>
+        <div class="wireframe-content" style="display: flex; flex-direction: column; justify-content: center; min-height: calc(800px - 100px);">
+            <div style="text-align: center; padding: 20px;">
+                <div style="margin-bottom: 30px;">
+                    <h2>Enter OTP</h2>
+                    <p style="color: #7f8c8d; margin-top: 10px;">
+                        We've sent a 6-digit OTP to<br>
+                        <strong id="emailDisplay" style="color: #2c3e50;"></strong>
+                    </p>
+                </div>
+                
+                <div style="max-width: 400px; margin: 0 auto;">
+                    <label class="label" for="otpInput">OTP Code</label>
+                    <input 
+                        type="text" 
+                        id="otpInput" 
+                        class="input-field" 
+                        placeholder="000000"
+                        maxlength="6"
+                        style="text-align: center; font-size: 1.5em; letter-spacing: 8px; font-family: 'Courier New', monospace;"
+                        autocomplete="one-time-code"
+                    >
+                    <p style="font-size: 0.85em; color: #7f8c8d; margin-top: -10px; margin-bottom: 20px;">
+                        Enter the 6-digit code sent to your email
+                    </p>
+                    
+                    <button class="btn btn-primary" onclick="verifyOTP()">
+                        Verify OTP
+                    </button>
+                    
+                    <div style="margin-top: 20px;">
+                        <button class="btn btn-outline" onclick="resendOTP()" style="width: 100%;">
+                            Resend OTP
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="errorMessage" style="display: none; background: #f8d7da; border: 1px solid #e74c3c; border-radius: 5px; padding: 12px; margin-top: 20px; color: #721c24; max-width: 400px; margin-left: auto; margin-right: auto;">
+                    <strong>Error:</strong> <span id="errorText"></span>
+                </div>
+                
+                <div id="successMessage" style="display: none; background: #d4edda; border: 1px solid #27ae60; border-radius: 5px; padding: 12px; margin-top: 20px; color: #155724; max-width: 400px; margin-left: auto; margin-right: auto;">
+                    <strong>Success!</strong> OTP verified successfully. Redirecting...
+                </div>
+            </div>
+            
+            <div style="margin-top: auto; padding: 20px; text-align: center; border-top: 1px solid #e0e0e0;">
+                <p style="color: #7f8c8d; font-size: 0.9em; margin: 0;">
+                    Powered by <strong style="color: #3498db;">Neopeer</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Display email on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            const email = localStorage.getItem('rvce_user_email');
+            if (email) {
+                document.getElementById('emailDisplay').textContent = email;
+            } else {
+                // No email found, redirect to login
+                window.location.href = '00-landing.html';
+            }
+            
+            // Auto-focus OTP input
+            document.getElementById('otpInput').focus();
+            
+            // Only allow numeric input
+            document.getElementById('otpInput').addEventListener('input', function(e) {
+                this.value = this.value.replace(/[^0-9]/g, '');
+            });
+        });
+        
+        function verifyOTP() {
+            const otpInput = document.getElementById('otpInput');
+            const enteredOTP = otpInput.value.trim();
+            const errorDiv = document.getElementById('errorMessage');
+            const errorText = document.getElementById('errorText');
+            const successDiv = document.getElementById('successMessage');
+            
+            // Hide messages
+            errorDiv.style.display = 'none';
+            successDiv.style.display = 'none';
+            
+            // Validate OTP format
+            if (!enteredOTP || enteredOTP.length !== 6) {
+                errorText.textContent = 'Please enter a valid 6-digit OTP';
+                errorDiv.style.display = 'block';
+                otpInput.focus();
+                return;
+            }
+            
+            // Get stored OTP data
+            const otpDataStr = localStorage.getItem('rvce_otp_data');
+            if (!otpDataStr) {
+                errorText.textContent = 'OTP session expired. Please request a new OTP.';
+                errorDiv.style.display = 'block';
+                setTimeout(() => {
+                    window.location.href = '00-landing.html';
+                }, 2000);
+                return;
+            }
+            
+            const otpData = JSON.parse(otpDataStr);
+            
+            // In a real app, this would verify OTP on the server
+            // For wireframe purposes, we'll check against stored OTP
+            // Demo OTP is 123456 (as set in landing page)
+            if (enteredOTP === otpData.otp || enteredOTP === '123456') {
+                // OTP verified successfully
+                successDiv.style.display = 'block';
+                
+                // Store authentication status
+                localStorage.setItem('rvce_authenticated', 'true');
+                localStorage.setItem('rvce_auth_time', new Date().toISOString());
+                
+                // Clear OTP data
+                localStorage.removeItem('rvce_otp_data');
+                
+                // Redirect to privacy consent page after a brief delay
+                setTimeout(() => {
+                    window.location.href = '00-privacy-consent.html';
+                }, 1000);
+            } else {
+                errorText.textContent = 'Invalid OTP. Please try again.';
+                errorDiv.style.display = 'block';
+                otpInput.value = '';
+                otpInput.focus();
+            }
+        }
+        
+        function resendOTP() {
+            const email = localStorage.getItem('rvce_user_email');
+            if (!email) {
+                window.location.href = '00-landing.html';
+                return;
+            }
+            
+            // In a real app, this would resend OTP via API
+            // For wireframe, we'll regenerate and store OTP
+            const otpData = {
+                email: email,
+                sentAt: new Date().toISOString(),
+                otp: '123456' // Demo OTP
+            };
+            localStorage.setItem('rvce_otp_data', JSON.stringify(otpData));
+            
+            // Show success message
+            const errorDiv = document.getElementById('errorMessage');
+            const successDiv = document.getElementById('successMessage');
+            errorDiv.style.display = 'none';
+            successDiv.innerHTML = '<strong>OTP Resent!</strong> Please check your email for the new code.';
+            successDiv.style.background = '#d1ecf1';
+            successDiv.style.borderColor = '#3498db';
+            successDiv.style.color = '#0c5460';
+            successDiv.style.display = 'block';
+            
+            // Clear OTP input
+            document.getElementById('otpInput').value = '';
+            document.getElementById('otpInput').focus();
+        }
+        
+        // Allow Enter key to submit
+        document.getElementById('otpInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                verifyOTP();
+            }
+        });
+    </script>
+</body>
+</html>

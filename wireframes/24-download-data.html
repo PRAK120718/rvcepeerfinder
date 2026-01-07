@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Data - Neopeer</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <a href="21-settings.html" class="back-btn">← Back</a>
+            <h1>Download My Data</h1>
+            <div style="width: 60px;"></div>
+        </div>
+        <div class="wireframe-content">
+            <h2>Export Your Data</h2>
+            <p style="color: #7f8c8d; margin-bottom: 20px;">
+                Request a copy of all your data stored in Neopeer. We'll prepare your data package 
+                and send it to your registered email.
+            </p>
+            
+            <div class="card">
+                <div class="card-content">
+                    <p><strong>Your data package will include:</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px; line-height: 1.8;">
+                        <li>Profile information and student code</li>
+                        <li>All aspiration profiles</li>
+                        <li>Agent conversation history and transcripts</li>
+                        <li>Voice recordings (if available)</li>
+                        <li>Match recommendations and interactions</li>
+                        <li>Scheduled meetings and history</li>
+                        <li>Meeting notes and summaries</li>
+                        <li>Privacy and consent preferences</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <label class="label">Format</label>
+                <select class="input-field">
+                    <option>JSON (Recommended - Complete data)</option>
+                    <option>CSV (Spreadsheet compatible)</option>
+                    <option>PDF (Human-readable format)</option>
+                </select>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <label class="label">Email Address</label>
+                <input type="email" class="input-field" placeholder="your.email@example.com" value="user@example.com">
+                <p style="font-size: 0.85em; color: #7f8c8d;">
+                    We'll send the download link to this email address
+                </p>
+            </div>
+            
+            <div style="margin-top: 30px;">
+                <button class="btn btn-primary" onclick="requestDownload()">
+                    Request Data Download
+                </button>
+            </div>
+            
+            <div style="margin-top: 20px; padding: 15px; background: #fff3cd; border-radius: 5px;">
+                <p style="font-size: 0.9em; color: #856404;">
+                    <strong>Processing Time:</strong> Your data package will be prepared within 24-48 hours. 
+                    You'll receive an email with a secure download link that expires in 7 days.
+                </p>
+            </div>
+            
+            <div style="margin-top: 30px; padding: 15px; background: #f8f9fa; border-radius: 5px;">
+                <p style="font-size: 0.9em; color: #7f8c8d;">
+                    <strong>Note:</strong> Large data packages may take longer to prepare. 
+                    If you don't receive the email within 48 hours, please contact support.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function requestDownload() {
+            alert('Data download request submitted. You will receive an email with your data package within 24-48 hours.');
+            window.location.href = '21-settings.html';
+        }
+    </script>
+</body>
+</html>

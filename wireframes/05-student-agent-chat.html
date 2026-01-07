@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Chat with Student Agent - Neopeer</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <a href="04-student-list.html" class="back-btn">← Back</a>
+            <h1 id="studentCode">S0042's Agent</h1>
+            <a href="21-settings.html" class="back-btn" style="font-size: 0.85em;">⚙️</a>
+        </div>
+        <div class="wireframe-content" style="padding: 0;">
+            <div style="padding: 15px 20px; background: #ebf5fb; border-bottom: 1px solid #e0e0e0;">
+                <p style="color: #2c3e50; font-size: 0.9em; text-align: center;">
+                    🎤 Voice conversation with <span id="codeDisplay">S0042</span>'s agent. Ask questions to learn about their goals and personality.
+                </p>
+            </div>
+            
+            <div class="voice-container">
+                <div class="voice-messages">
+                    <div class="voice-message agent">
+                        <div class="voice-bubble">
+                            <div>Hi! I'm <span id="agentCode">S0042</span>'s agent. What would you like to know?</div>
+                            <div class="voice-waveform">
+                                <div class="wave-bar" style="height: 15px;"></div>
+                                <div class="wave-bar" style="height: 20px;"></div>
+                                <div class="wave-bar" style="height: 25px;"></div>
+                                <div class="wave-bar" style="height: 20px;"></div>
+                                <div class="wave-bar" style="height: 18px;"></div>
+                            </div>
+                            <div class="voice-transcript">
+                                <em>Transcript: "Hi! I'm S0042's agent. What would you like to know?"</em>
+                            </div>
+                            <div class="voice-time">2:15 PM • 5s</div>
+                        </div>
+                    </div>
+                    
+                    <div class="voice-message user">
+                        <div class="voice-bubble">
+                            <div>What are their main goals and aspirations?</div>
+                            <div class="voice-waveform">
+                                <div class="wave-bar" style="height: 18px;"></div>
+                                <div class="wave-bar" style="height: 22px;"></div>
+                                <div class="wave-bar" style="height: 25px;"></div>
+                                <div class="wave-bar" style="height: 20px;"></div>
+                                <div class="wave-bar" style="height: 19px;"></div>
+                            </div>
+                            <div class="voice-transcript">
+                                <em>Transcript: "What are their main goals and aspirations?"</em>
+                            </div>
+                            <div class="voice-time">2:16 PM • 4s</div>
+                        </div>
+                    </div>
+                    
+                    <div class="voice-message agent">
+                        <div class="voice-bubble">
+                            <div>They're looking to co-found a tech startup, specifically interested in AI applications. 
+                            They have strong marketing skills but need a technical co-founder. They value accountability 
+                            and structured goal-setting.</div>
+                            <div class="voice-waveform">
+                                <div class="wave-bar" style="height: 16px;"></div>
+                                <div class="wave-bar" style="height: 21px;"></div>
+                                <div class="wave-bar" style="height: 23px;"></div>
+                                <div class="wave-bar" style="height: 19px;"></div>
+                                <div class="wave-bar" style="height: 17px;"></div>
+                            </div>
+                            <div class="voice-transcript">
+                                <em>Transcript: "They're looking to co-found a tech startup, specifically interested in AI applications. 
+                                They have strong marketing skills but need a technical co-founder. They value accountability 
+                                and structured goal-setting."</em>
+                            </div>
+                            <div class="voice-time">2:16 PM • 12s</div>
+                        </div>
+                    </div>
+                    
+                    <div class="voice-message user">
+                        <div class="voice-bubble">
+                            <div>How do they prefer to communicate and work?</div>
+                            <div class="voice-waveform">
+                                <div class="wave-bar" style="height: 19px;"></div>
+                                <div class="wave-bar" style="height: 24px;"></div>
+                                <div class="wave-bar" style="height: 26px;"></div>
+                                <div class="wave-bar" style="height: 21px;"></div>
+                                <div class="wave-bar" style="height: 20px;"></div>
+                            </div>
+                            <div class="voice-transcript">
+                                <em>Transcript: "How do they prefer to communicate and work?"</em>
+                            </div>
+                            <div class="voice-time">2:17 PM • 3s</div>
+                        </div>
+                    </div>
+                    
+                    <div class="voice-message agent">
+                        <div class="voice-bubble">
+                            <div>They prefer direct communication and structured meetings. They like to set clear goals 
+                            and track progress regularly. They work well with detail-oriented people who share 
+                            similar values around accountability.</div>
+                            <div class="voice-waveform">
+                                <div class="wave-bar" style="height: 17px;"></div>
+                                <div class="wave-bar" style="height: 22px;"></div>
+                                <div class="wave-bar" style="height: 24px;"></div>
+                                <div class="wave-bar" style="height: 20px;"></div>
+                                <div class="wave-bar" style="height: 18px;"></div>
+                            </div>
+                            <div class="voice-transcript">
+                                <em>Transcript: "They prefer direct communication and structured meetings. They like to set clear goals 
+                                and track progress regularly. They work well with detail-oriented people who share 
+                                similar values around accountability."</em>
+                            </div>
+                            <div class="voice-time">2:17 PM • 11s</div>
+                        </div>
+                    </div>
+                    
+                    <div class="voice-message user">
+                        <div class="voice-bubble">
+                            <div>What challenges are they currently facing?</div>
+                            <div class="voice-waveform">
+                                <div class="wave-bar" style="height: 20px;"></div>
+                                <div class="wave-bar" style="height: 25px;"></div>
+                                <div class="wave-bar" style="height: 27px;"></div>
+                                <div class="wave-bar" style="height: 22px;"></div>
+                                <div class="wave-bar" style="height: 21px;"></div>
+                            </div>
+                            <div class="voice-transcript">
+                                <em>Transcript: "What challenges are they currently facing?"</em>
+                            </div>
+                            <div class="voice-time">2:18 PM • 3s</div>
+                        </div>
+                    </div>
+                    
+                    <div class="voice-message agent">
+                        <div class="voice-bubble">
+                            <div>They have the marketing strategy and business model figured out but need someone with 
+                            strong technical skills to execute. They're also looking for someone who can challenge 
+                            their ideas constructively.</div>
+                            <div class="voice-waveform">
+                                <div class="wave-bar" style="height: 18px;"></div>
+                                <div class="wave-bar" style="height: 23px;"></div>
+                                <div class="wave-bar" style="height: 25px;"></div>
+                                <div class="wave-bar" style="height: 21px;"></div>
+                                <div class="wave-bar" style="height: 19px;"></div>
+                            </div>
+                            <div class="voice-transcript">
+                                <em>Transcript: "They have the marketing strategy and business model figured out but need someone with 
+                                strong technical skills to execute. They're also looking for someone who can challenge 
+                                their ideas constructively."</em>
+                            </div>
+                            <div class="voice-time">2:18 PM • 10s</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="voice-controls">
+                    <div class="voice-status" id="voiceStatus">Tap and hold to speak</div>
+                    <button class="voice-record-btn" id="recordBtn" onmousedown="startRecording()" onmouseup="stopRecording()" ontouchstart="startRecording()" ontouchend="stopRecording()">
+                        🎤
+                    </button>
+                    <div class="voice-actions">
+                        <button class="voice-action-btn" onclick="showInterestOptions()">
+                            Done
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Get student code from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const studentCode = urlParams.get('code') || 'S0042';
+        
+        // Update display with student code
+        document.getElementById('studentCode').textContent = studentCode + "'s Agent";
+        document.getElementById('codeDisplay').textContent = studentCode;
+        document.getElementById('agentCode').textContent = studentCode;
+        
+        let isRecording = false;
+        
+        function startRecording() {
+            isRecording = true;
+            const btn = document.getElementById('recordBtn');
+            const status = document.getElementById('voiceStatus');
+            btn.classList.add('recording');
+            btn.textContent = '⏹';
+            status.textContent = 'Recording... Tap to stop';
+            status.classList.add('recording');
+        }
+        
+        function stopRecording() {
+            if (isRecording) {
+                isRecording = false;
+                const btn = document.getElementById('recordBtn');
+                const status = document.getElementById('voiceStatus');
+                btn.classList.remove('recording');
+                btn.textContent = '🎤';
+                status.textContent = 'Processing your voice...';
+                status.classList.remove('recording');
+                
+                setTimeout(() => {
+                    status.textContent = 'Tap and hold to speak';
+                }, 2000);
+            }
+        }
+        
+        function showInterestOptions() {
+            window.location.href = '06-interest-indication.html?code=' + studentCode;
+        }
+    </script>
+</body>
+</html>

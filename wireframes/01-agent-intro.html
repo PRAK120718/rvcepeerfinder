@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Introduction - Neopeer</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <a href="../index.html" class="back-btn">← Back</a>
+            <h1>Neopeer</h1>
+            <div style="width: 60px;"></div>
+        </div>
+        <div class="wireframe-content">
+            <div style="text-align: center; padding: 40px 20px;">
+                <div style="width: 100px; height: 100px; background: #3498db; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5em;">
+                    🤖
+                </div>
+                <h2>Meet Your AI Agent</h2>
+                <p style="color: #7f8c8d; margin-top: 15px; line-height: 1.8;">
+                    I'm here to help you find like-minded peers who share your aspirations. 
+                    Let's start by getting to know you better.
+                </p>
+                <p style="color: #7f8c8d; margin-top: 10px; line-height: 1.8;">
+                    <strong>🎤 Voice Conversation:</strong> We'll have a voice conversation so I can understand 
+                    not just what you say, but how you say it - your personality, communication style, 
+                    and unique traits.
+                </p>
+                <p style="color: #7f8c8d; margin-top: 10px; line-height: 1.8;">
+                    Share your personality, struggles, and aspirations with me, and I'll help 
+                    connect you with the right people.
+                </p>
+                <button class="btn btn-primary" style="margin-top: 30px;" onclick="startConversation()">
+                    Start Conversation
+                </button>
+                <a href="21-settings.html" style="display: block; text-align: center; margin-top: 15px; color: #3498db; text-decoration: none;">
+                    ⚙️ Settings
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Check if user is authenticated
+        window.addEventListener('DOMContentLoaded', function() {
+            const isAuthenticated = localStorage.getItem('rvce_authenticated') === 'true';
+            if (!isAuthenticated) {
+                // Not authenticated, redirect to landing page
+                window.location.href = '00-landing.html';
+            }
+        });
+        
+        function startConversation() {
+            // Check if consent has already been given
+            const consents = JSON.parse(localStorage.getItem('neopeer_consents') || '{}');
+            const requiredConsents = consents.dataCollection && consents.voiceRecording;
+            
+            if (requiredConsents) {
+                // Consent already given, go directly to conversation
+                window.location.href = '02-agent-conversation.html';
+            } else {
+                // No consent yet, go to consent page first
+                window.location.href = '00-privacy-consent.html';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Time Slots - Neopeer</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <a href="../index.html" class="back-btn">← Back</a>
+            <h1>Schedule Meeting</h1>
+            <div style="width: 60px;"></div>
+        </div>
+        <div class="wireframe-content">
+            <h2>Share Your Available Time</h2>
+            <p style="color: #7f8c8d; margin-bottom: 20px;">
+                Select multiple time slots when you're available to meet with <span class="student-code">S0042</span>.
+            </p>
+            
+            <div style="margin-bottom: 20px;">
+                <label class="label">Select Date & Time Slots</label>
+                
+                <div class="time-slot">
+                    <div class="time-slot-header">
+                        <div>
+                            <div class="time-slot-date">Monday, Dec 16</div>
+                            <div class="time-slot-time">2:00 PM - 3:00 PM</div>
+                        </div>
+                        <input type="checkbox" style="width: 20px; height: 20px;">
+                    </div>
+                </div>
+                
+                <div class="time-slot">
+                    <div class="time-slot-header">
+                        <div>
+                            <div class="time-slot-date">Monday, Dec 16</div>
+                            <div class="time-slot-time">4:00 PM - 5:00 PM</div>
+                        </div>
+                        <input type="checkbox" style="width: 20px; height: 20px;">
+                    </div>
+                </div>
+                
+                <div class="time-slot">
+                    <div class="time-slot-header">
+                        <div>
+                            <div class="time-slot-date">Tuesday, Dec 17</div>
+                            <div class="time-slot-time">10:00 AM - 11:00 AM</div>
+                        </div>
+                        <input type="checkbox" style="width: 20px; height: 20px;">
+                    </div>
+                </div>
+                
+                <div class="time-slot">
+                    <div class="time-slot-header">
+                        <div>
+                            <div class="time-slot-date">Tuesday, Dec 17</div>
+                            <div class="time-slot-time">2:00 PM - 3:00 PM</div>
+                        </div>
+                        <input type="checkbox" style="width: 20px; height: 20px;">
+                    </div>
+                </div>
+                
+                <div class="time-slot">
+                    <div class="time-slot-header">
+                        <div>
+                            <div class="time-slot-date">Wednesday, Dec 18</div>
+                            <div class="time-slot-time">11:00 AM - 12:00 PM</div>
+                        </div>
+                        <input type="checkbox" style="width: 20px; height: 20px;">
+                    </div>
+                </div>
+            </div>
+            
+            <button class="btn btn-outline" style="width: 100%; margin-bottom: 10px;">
+                + Add More Time Slots
+            </button>
+            
+            <h2 style="margin-top: 30px;">Meeting Preferences</h2>
+            
+            <div class="consent-checkbox">
+                <input type="checkbox" id="meetingRecordingConsent" checked>
+                <label for="meetingRecordingConsent">
+                    <strong>Allow meeting recording and transcription (Optional)</strong>
+                    <div class="consent-text">
+                        Enable automatic note-taking during the meeting. Notes will be shared after the meeting ends.
+                        You can change this in settings.
+                    </div>
+                </label>
+            </div>
+            
+            <div class="consent-checkbox">
+                <input type="checkbox" id="whatsappSummaryConsent">
+                <label for="whatsappSummaryConsent">
+                    <strong>Send meeting summary via WhatsApp (Optional)</strong>
+                    <div class="consent-text">
+                        Receive meeting summary and notes via WhatsApp after the meeting.
+                    </div>
+                </label>
+            </div>
+            
+            <button class="btn btn-primary" onclick="submitSlots()" style="margin-top: 30px;">
+                Submit Time Slots
+            </button>
+            
+            <div style="margin-top: 20px; padding: 15px; background: #fff3cd; border-radius: 5px;">
+                <p style="font-size: 0.9em; color: #856404;">
+                    <strong>Note:</strong> <span class="student-code">S0042</span> will also share their available slots. 
+                    We'll find the earliest matching time for both of you.
+                </p>
+            </div>
+            
+            <script>
+                function submitSlots() {
+                    // Store meeting preferences
+                    const preferences = {
+                        recording: document.getElementById('meetingRecordingConsent').checked,
+                        whatsapp: document.getElementById('whatsappSummaryConsent').checked
+                    };
+                    localStorage.setItem('meeting_preferences', JSON.stringify(preferences));
+                    window.location.href = '10-matching-slots.html';
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>
