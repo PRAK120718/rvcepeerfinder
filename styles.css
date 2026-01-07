@@ -1,0 +1,853 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Navigation Page */
+.wireframe-nav {
+    display: grid;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.flow-section {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.flow-section h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+.nav-link {
+    display: block;
+    padding: 12px 15px;
+    margin: 8px 0;
+    background: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.nav-link:hover {
+    background: #2980b9;
+}
+
+.subtitle {
+    color: #7f8c8d;
+    font-size: 1.1em;
+    margin-top: 10px;
+}
+
+/* Wireframe Styles */
+.wireframe-container {
+    max-width: 414px;
+    margin: 20px auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    min-height: 800px;
+    position: relative;
+    overflow: hidden;
+}
+
+.wireframe-header {
+    background: #3498db;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.wireframe-header h1 {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.back-btn {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.back-btn:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+.wireframe-content {
+    padding: 20px;
+    min-height: calc(800px - 60px);
+}
+
+/* Typography */
+h2 {
+    color: #2c3e50;
+    margin: 20px 0 15px 0;
+    font-size: 1.3em;
+}
+
+p {
+    margin: 10px 0;
+    color: #555;
+}
+
+.label {
+    font-weight: 600;
+    color: #2c3e50;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Input Fields */
+.input-field {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.textarea-field {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    min-height: 120px;
+    font-family: inherit;
+    margin-bottom: 15px;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-primary {
+    background: #3498db;
+    color: white;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-primary:hover {
+    background: #2980b9;
+}
+
+.btn-secondary {
+    background: #95a5a6;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #7f8c8d;
+}
+
+.btn-success {
+    background: #27ae60;
+    color: white;
+}
+
+.btn-success:hover {
+    background: #229954;
+}
+
+.btn-danger {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #c0392b;
+}
+
+.btn-outline {
+    background: white;
+    color: #3498db;
+    border: 2px solid #3498db;
+}
+
+.btn-outline:hover {
+    background: #ecf0f1;
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn-group .btn {
+    flex: 1;
+}
+
+/* Cards */
+.card {
+    background: #f8f9fa;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px 0;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.card:hover {
+    border-color: #3498db;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.2);
+}
+
+.card.selected {
+    border-color: #3498db;
+    background: #ebf5fb;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.card-title {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1.1em;
+}
+
+.card-subtitle {
+    color: #7f8c8d;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.card-content {
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Chat Interface */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(800px - 120px);
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+    background: #f8f9fa;
+    margin: 0 -20px;
+    padding: 20px;
+}
+
+.message {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.message.user {
+    align-items: flex-end;
+}
+
+.message.agent {
+    align-items: flex-start;
+}
+
+.message-bubble {
+    max-width: 75%;
+    padding: 12px 16px;
+    border-radius: 18px;
+    word-wrap: break-word;
+}
+
+.message.user .message-bubble {
+    background: #3498db;
+    color: white;
+    border-bottom-right-radius: 4px;
+}
+
+.message.agent .message-bubble {
+    background: white;
+    color: #333;
+    border: 1px solid #e0e0e0;
+    border-bottom-left-radius: 4px;
+}
+
+.message-time {
+    font-size: 0.75em;
+    color: #999;
+    margin-top: 5px;
+}
+
+.chat-input {
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+    background: white;
+    border-top: 1px solid #e0e0e0;
+    margin: 0 -20px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.chat-input button {
+    padding: 10px 20px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* Student List */
+.student-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    cursor: pointer;
+}
+
+.student-item:last-child {
+    border-bottom: none;
+}
+
+.student-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #3498db;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    flex-shrink: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85em;
+    letter-spacing: 0.5px;
+}
+
+.student-info {
+    flex: 1;
+}
+
+.student-name {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.student-details {
+    font-size: 0.9em;
+    color: #7f8c8d;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.75em;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.badge-match {
+    background: #27ae60;
+    color: white;
+}
+
+.badge-pending {
+    background: #f39c12;
+    color: white;
+}
+
+/* Time Slots */
+.time-slot {
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.time-slot:hover {
+    border-color: #3498db;
+}
+
+.time-slot.selected {
+    border-color: #3498db;
+    background: #ebf5fb;
+}
+
+.time-slot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.time-slot-date {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.time-slot-time {
+    color: #7f8c8d;
+    font-size: 0.9em;
+}
+
+.time-slot-status {
+    font-size: 0.85em;
+    color: #27ae60;
+}
+
+/* Meeting Interface */
+.meeting-container {
+    height: calc(800px - 60px);
+    display: flex;
+    flex-direction: column;
+    background: #1a1a1a;
+    color: white;
+}
+
+.meeting-header {
+    padding: 15px 20px;
+    background: #2c2c2c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.meeting-participants {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.participant-box {
+    width: 200px;
+    height: 200px;
+    background: #3c3c3c;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+}
+
+.meeting-controls {
+    padding: 20px;
+    background: #2c2c2c;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.control-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: #3c3c3c;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.control-btn.active {
+    background: #e74c3c;
+}
+
+/* Notification */
+.notification {
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 15px 0;
+}
+
+.notification.success {
+    background: #d4edda;
+    border-color: #27ae60;
+}
+
+.notification.error {
+    background: #f8d7da;
+    border-color: #e74c3c;
+}
+
+/* Loading */
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: #7f8c8d;
+}
+
+.spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Footer Navigation */
+.wireframe-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    border-top: 1px solid #e0e0e0;
+    padding: 15px 20px;
+    display: flex;
+    gap: 10px;
+}
+
+/* Checkbox/Radio */
+.checkbox-group, .radio-group {
+    margin: 15px 0;
+}
+
+.checkbox-item, .radio-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    margin: 8px 0;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.checkbox-item:hover, .radio-item:hover {
+    border-color: #3498db;
+}
+
+.checkbox-item input, .radio-item input {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.consent-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 15px;
+    margin: 10px 0;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background: #f8f9fa;
+    transition: all 0.3s;
+}
+
+.consent-checkbox:hover {
+    border-color: #3498db;
+    background: #ebf5fb;
+}
+
+.consent-checkbox input[type="checkbox"] {
+    margin-top: 3px;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.consent-checkbox label {
+    flex: 1;
+    cursor: pointer;
+    font-size: 0.9em;
+    line-height: 1.6;
+}
+
+.consent-checkbox.required {
+    border-color: #e74c3c;
+    background: #fee;
+}
+
+.consent-text {
+    font-size: 0.85em;
+    color: #7f8c8d;
+    margin-top: 5px;
+    line-height: 1.5;
+}
+
+.consent-link {
+    color: #3498db;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Status Indicators */
+.status-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.status-indicator.online {
+    background: #27ae60;
+}
+
+.status-indicator.offline {
+    background: #95a5a6;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #7f8c8d;
+}
+
+.empty-state-icon {
+    font-size: 4em;
+    margin-bottom: 20px;
+    opacity: 0.3;
+}
+
+/* Voice Interface */
+.voice-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(800px - 120px);
+    padding: 20px;
+}
+
+.voice-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px 0;
+}
+
+.voice-message {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.voice-message.user {
+    align-items: flex-end;
+}
+
+.voice-message.agent {
+    align-items: flex-start;
+}
+
+.voice-bubble {
+    max-width: 80%;
+    padding: 20px;
+    border-radius: 20px;
+    position: relative;
+}
+
+.voice-message.user .voice-bubble {
+    background: #3498db;
+    color: white;
+    border-bottom-right-radius: 6px;
+}
+
+.voice-message.agent .voice-bubble {
+    background: #f8f9fa;
+    color: #333;
+    border: 2px solid #e0e0e0;
+    border-bottom-left-radius: 6px;
+}
+
+.voice-waveform {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.wave-bar {
+    width: 4px;
+    background: currentColor;
+    border-radius: 2px;
+    opacity: 0.6;
+    animation: wave 1.2s ease-in-out infinite;
+}
+
+.wave-bar:nth-child(2) { animation-delay: 0.1s; }
+.wave-bar:nth-child(3) { animation-delay: 0.2s; }
+.wave-bar:nth-child(4) { animation-delay: 0.3s; }
+.wave-bar:nth-child(5) { animation-delay: 0.4s; }
+.wave-bar:nth-child(6) { animation-delay: 0.5s; }
+.wave-bar:nth-child(7) { animation-delay: 0.6s; }
+
+@keyframes wave {
+    0%, 100% { height: 10px; }
+    50% { height: 30px; }
+}
+
+.voice-time {
+    font-size: 0.75em;
+    color: #999;
+    margin-top: 5px;
+}
+
+.voice-transcript {
+    margin-top: 10px;
+    font-size: 0.9em;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+.voice-controls {
+    padding: 20px;
+    background: white;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.voice-record-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: none;
+    background: #e74c3c;
+    color: white;
+    font-size: 1.8em;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.voice-record-btn.recording {
+    background: #27ae60;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.voice-record-btn:hover {
+    transform: scale(1.05);
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3); }
+    50% { box-shadow: 0 4px 20px rgba(39, 174, 96, 0.6); }
+}
+
+.voice-status {
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 0.9em;
+}
+
+.voice-status.recording {
+    color: #e74c3c;
+    font-weight: 600;
+}
+
+.voice-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.voice-action-btn {
+    padding: 8px 16px;
+    border: 2px solid #ddd;
+    background: white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: all 0.3s;
+}
+
+.voice-action-btn:hover {
+    border-color: #3498db;
+    color: #3498db;
+}
+
+.voice-action-btn.primary {
+    background: #3498db;
+    color: white;
+    border-color: #3498db;
+}
+
+.voice-action-btn.primary:hover {
+    background: #2980b9;
+}
+
+/* Student Code */
+.student-code {
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+}
