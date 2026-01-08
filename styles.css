@@ -851,3 +851,166 @@ p {
     font-size: 1.1em;
     letter-spacing: 1px;
 }
+
+/* Flow Chart Styles */
+.flow-chart {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-top: 30px;
+    overflow-x: auto;
+}
+
+.flow-chart h2 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-size: 1.5em;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+.flow-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    min-width: 800px;
+}
+
+.flow-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.flow-box {
+    background: #3498db;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 0.9em;
+    font-weight: 500;
+    text-align: center;
+    min-width: 150px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.flow-box:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.flow-box.first-time {
+    background: #27ae60;
+}
+
+.flow-box.first-time:hover {
+    background: #229954;
+}
+
+.flow-box.existing {
+    background: #9b59b6;
+}
+
+.flow-box.existing:hover {
+    background: #8e44ad;
+}
+
+.flow-box.alt-path {
+    background: #95a5a6;
+}
+
+.flow-box.alt-path:hover {
+    background: #7f8c8d;
+}
+
+.flow-arrow {
+    color: #3498db;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.flow-arrow.horizontal {
+    transform: rotate(90deg);
+    margin: 0 10px;
+}
+
+.flow-branch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+.flow-divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+.flow-divider-line {
+    flex: 1;
+    height: 2px;
+    background: #e0e0e0;
+    position: relative;
+}
+
+.flow-divider-line::after {
+    content: '↓';
+    position: absolute;
+    right: -10px;
+    top: -8px;
+    color: #3498db;
+    font-size: 1.2em;
+}
+
+.flow-label {
+    font-size: 0.8em;
+    color: #7f8c8d;
+    font-style: italic;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.flow-section-title {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    background: #ecf0f1;
+    border-radius: 5px;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .flow-chart {
+        padding: 15px;
+    }
+    
+    .flow-container {
+        min-width: 100%;
+    }
+    
+    .flow-row {
+        flex-direction: column;
+    }
+    
+    .flow-arrow.horizontal {
+        transform: rotate(0deg);
+        margin: 5px 0;
+    }
+}
