@@ -42,24 +42,18 @@
                 <label for="dataCollection">
                     <strong>Share Basic Information (Required)</strong>
                     <div class="consent-text">
-                        Allow us to use your profile and conversation data to find compatible peers. 
+                        Allow us to use your profile and data to find compatible peers. 
                         This helps us match you with people who share similar goals and values.
                         <a href="#" class="consent-link">Learn more</a>
                     </div>
                 </label>
             </div>
             
-            <div class="consent-checkbox required">
-                <input type="checkbox" id="voiceRecording" required>
-                <label for="voiceRecording">
-                    <strong>Voice Conversations (Required)</strong>
-                    <div class="consent-text">
-                        We'll have friendly voice conversations to understand your personality and communication style. 
-                        Think of it like talking to a helpful friend - we record these conversations only to better understand you 
-                        and find matches who'll work well with your style. No video recording is used.
-                        <a href="#" class="consent-link">Learn more</a>
-                    </div>
-                </label>
+            <div style="padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #3498db; margin-top: 20px;">
+                <p style="font-size: 0.9em; color: #2c3e50; margin: 0;">
+                    <strong>💡 Note:</strong> If you choose the AI Agent-Led discovery method, you'll be asked for voice recording consent 
+                    before starting the conversation. Self-based discovery doesn't require voice recording.
+                </p>
             </div>
             
             <div class="consent-checkbox">
@@ -127,18 +121,18 @@
         });
         
         function checkConsents() {
-            const required = ['dataCollection', 'voiceRecording'];
+            const required = ['dataCollection'];
             const allChecked = required.every(id => document.getElementById(id).checked);
             
             if (!allChecked) {
-                alert('Please accept all required consents to continue.');
+                alert('Please accept the required consent to continue.');
                 return;
             }
             
-            // Store consent preferences
+            // Store consent preferences (voice recording will be asked later for AI agent method)
             const consents = {
                 dataCollection: document.getElementById('dataCollection').checked,
-                voiceRecording: document.getElementById('voiceRecording').checked,
+                voiceRecording: false, // Will be set when user chooses AI agent method
                 meetingNotes: document.getElementById('meetingNotes').checked,
                 whatsappSharing: document.getElementById('whatsappSharing').checked,
                 profileSharing: document.getElementById('profileSharing').checked,

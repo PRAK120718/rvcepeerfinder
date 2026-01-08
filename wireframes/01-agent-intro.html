@@ -53,16 +53,15 @@
         });
         
         function startConversation() {
-            // Check if consent has already been given
+            // Check if voice consent has already been given
             const consents = JSON.parse(localStorage.getItem('neopeer_consents') || '{}');
-            const requiredConsents = consents.dataCollection && consents.voiceRecording;
             
-            if (requiredConsents) {
-                // Consent already given, go directly to conversation
+            if (consents.voiceRecording) {
+                // Voice consent already given, go directly to conversation
                 window.location.href = '02-agent-conversation.html';
             } else {
-                // No consent yet, go to consent page first
-                window.location.href = '00-privacy-consent.html';
+                // No voice consent yet, go to voice consent page
+                window.location.href = '36-voice-consent.html';
             }
         }
     </script>

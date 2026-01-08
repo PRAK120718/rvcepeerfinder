@@ -26,14 +26,16 @@
             </div>
             
             <div id="voiceConsentSection" style="padding: 15px 20px; background: #fff3cd; border-bottom: 1px solid #e0e0e0; display: none;">
-                <div class="consent-checkbox" style="margin: 0;">
-                    <input type="checkbox" id="voiceRecordingConsent" onchange="toggleRecordButton()">
-                    <label for="voiceRecordingConsent">
-                        <strong>I consent to voice recording</strong>
-                        <div class="consent-text">
-                            I understand that this conversation will be recorded and analyzed for matching purposes.
-                        </div>
-                    </label>
+                <div style="text-align: center;">
+                    <p style="color: #856404; font-size: 0.9em; margin-bottom: 10px;">
+                        <strong>⚠️ Voice Recording Consent Required</strong>
+                    </p>
+                    <p style="color: #856404; font-size: 0.85em; margin-bottom: 15px;">
+                        You need to provide voice recording consent to use the AI Agent-Led discovery method.
+                    </p>
+                    <button class="btn btn-primary" onclick="window.location.href='36-voice-consent.html'" style="padding: 8px 20px; font-size: 0.9em;">
+                        Provide Voice Consent
+                    </button>
                 </div>
             </div>
             
@@ -229,19 +231,22 @@
             }
         }
         
-        // Check if voice consent was given in privacy settings
+        // Check if voice consent was given
         const consents = JSON.parse(localStorage.getItem('neopeer_consents') || '{}');
         if (!consents.voiceRecording) {
+            // No voice consent, show message and disable recording
             document.getElementById('voiceConsentSection').style.display = 'block';
+            document.getElementById('recordBtn').disabled = true;
+            document.getElementById('recordBtn').style.opacity = '0.5';
         }
         
         let isRecording = false;
         
         function toggleRecordButton() {
-            const consentCheckbox = document.getElementById('voiceRecordingConsent');
-            const consent = consentCheckbox ? consentCheckbox.checked : consents.voiceRecording;
+            // This function is no longer needed as consent is handled on separate page
+            const consents = JSON.parse(localStorage.getItem('neopeer_consents') || '{}');
             const btn = document.getElementById('recordBtn');
-            if (!consent) {
+            if (!consents.voiceRecording) {
                 btn.disabled = true;
                 btn.style.opacity = '0.5';
             } else {
@@ -251,10 +256,10 @@
         }
         
         function startRecording() {
-            const consentCheckbox = document.getElementById('voiceRecordingConsent');
-            const consent = consentCheckbox ? consentCheckbox.checked : consents.voiceRecording;
-            if (!consent) {
-                alert('Please consent to voice recording to continue.');
+            const consents = JSON.parse(localStorage.getItem('neopeer_consents') || '{}');
+            if (!consents.voiceRecording) {
+                alert('Please provide voice recording consent first.');
+                window.location.href = '36-voice-consent.html';
                 return;
             }
             

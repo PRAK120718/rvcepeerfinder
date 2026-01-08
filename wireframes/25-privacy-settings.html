@@ -30,13 +30,14 @@
                 </label>
             </div>
             
-            <div class="consent-checkbox required">
+            <div class="consent-checkbox">
                 <input type="checkbox" id="voiceRecordingUpdate" checked>
                 <label for="voiceRecordingUpdate">
-                    <strong>Voice Recording (Required)</strong>
+                    <strong>Voice Recording (Required for AI Agent Method)</strong>
                     <div class="consent-text">
                         I consent to voice conversations being recorded and analyzed. 
-                        Required for personality-based matching.
+                        Only required if you use the AI Agent-Led discovery method. 
+                        Self-based discovery doesn't require this.
                     </div>
                 </label>
             </div>
@@ -124,11 +125,11 @@
         if (consents.dataRetention !== undefined) document.getElementById('dataRetentionUpdate').checked = consents.dataRetention;
         
         function savePrivacySettings() {
-            const required = ['dataCollectionUpdate', 'voiceRecordingUpdate'];
+            const required = ['dataCollectionUpdate'];
             const allRequired = required.every(id => document.getElementById(id).checked);
             
             if (!allRequired) {
-                alert('Please accept all required consents to continue using Neopeer.');
+                alert('Please accept the required consent (Data Collection) to continue using Neopeer.');
                 return;
             }
             
