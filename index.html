@@ -8,8 +8,149 @@
 </head>
 <body>
     <div class="container">
-        <h1>Neopeer App - Wireframe Navigation</h1>
+        <h1>RVCE Peer Finder - Wireframe Navigation</h1>
         <p class="subtitle">End-to-end wireframe flow</p>
+        
+        <!-- End-to-End Flow Chart -->
+        <div class="flow-chart">
+            <h2>📊 Complete App Flow Chart</h2>
+            <div class="flow-container">
+                <!-- Authentication Phase -->
+                <div class="flow-row">
+                    <div class="flow-section-title">Authentication</div>
+                </div>
+                <div class="flow-row">
+                    <a href="wireframes/00-landing.html" class="flow-box">Landing (RVCE Login)</a>
+                    <div class="flow-arrow horizontal">→</div>
+                    <a href="wireframes/00-otp-verification.html" class="flow-box">OTP Verification</a>
+                    <div class="flow-arrow horizontal">→</div>
+                    <a href="wireframes/00-privacy-consent.html" class="flow-box">Privacy Consent</a>
+                </div>
+                
+                <div class="flow-divider">
+                    <div class="flow-divider-line"></div>
+                </div>
+                
+                <!-- Onboarding Phase -->
+                <div class="flow-row">
+                    <div class="flow-section-title">Onboarding (Branching)</div>
+                </div>
+                <div class="flow-row">
+                    <div class="flow-branch">
+                        <a href="wireframes/00-first-time-onboarding.html" class="flow-box first-time">First-Time User<br/>Onboarding</a>
+                        <div class="flow-label">New User Path</div>
+                    </div>
+                    <div style="width: 30px;"></div>
+                    <div class="flow-branch">
+                        <a href="wireframes/00-aspiration-selection.html" class="flow-box existing">Aspiration Selection</a>
+                        <div class="flow-label">Existing User Path</div>
+                    </div>
+                </div>
+                
+                <div class="flow-divider">
+                    <div class="flow-divider-line"></div>
+                </div>
+                
+                <!-- Agent Conversation Phase -->
+                <div class="flow-row">
+                    <div class="flow-section-title">Agent Interaction</div>
+                </div>
+                <div class="flow-row">
+                    <a href="wireframes/01-agent-intro.html" class="flow-box">Agent Introduction</a>
+                    <div class="flow-arrow horizontal">→</div>
+                    <a href="wireframes/02-agent-conversation.html" class="flow-box">Voice Conversation</a>
+                    <div class="flow-arrow horizontal">→</div>
+                    <a href="wireframes/29-submit-conversation.html" class="flow-box">Submit Conversation</a>
+                </div>
+                
+                <div class="flow-divider">
+                    <div class="flow-divider-line"></div>
+                </div>
+                
+                <!-- Recommendations Phase -->
+                <div class="flow-row">
+                    <div class="flow-section-title">Matching & Recommendations</div>
+                </div>
+                <div class="flow-row">
+                    <a href="wireframes/04-student-list.html" class="flow-box">Top 10 Recommendations</a>
+                    <div class="flow-arrow horizontal">→</div>
+                    <a href="wireframes/05-student-agent-chat.html" class="flow-box">Chat with Student Agent</a>
+                    <div class="flow-arrow horizontal">→</div>
+                    <a href="wireframes/06-interest-indication.html" class="flow-box">Interest Indication</a>
+                </div>
+                
+                <div class="flow-row">
+                    <a href="wireframes/07-mutual-match.html" class="flow-box" style="background: #27ae60;">Mutual Match ✓</a>
+                    <div style="width: 20px;"></div>
+                    <a href="wireframes/08-no-match.html" class="flow-box alt-path">No Match ✗</a>
+                </div>
+                
+                <div class="flow-divider">
+                    <div class="flow-divider-line"></div>
+                </div>
+                
+                <!-- Scheduling Phase -->
+                <div class="flow-row">
+                    <div class="flow-section-title">Scheduling</div>
+                </div>
+                <div class="flow-row">
+                    <a href="wireframes/09-schedule-slots.html" class="flow-box">Share Time Slots</a>
+                    <div class="flow-arrow horizontal">→</div>
+                    <a href="wireframes/10-matching-slots.html" class="flow-box">Find Matching Slots</a>
+                    <div class="flow-arrow horizontal">→</div>
+                    <a href="wireframes/11-confirm-slot.html" class="flow-box">Confirm Slot</a>
+                </div>
+                <div class="flow-row">
+                    <a href="wireframes/12-suggest-alternative.html" class="flow-box alt-path">Suggest Alternative</a>
+                    <div style="width: 20px;"></div>
+                    <a href="wireframes/13-share-time-range.html" class="flow-box alt-path">Share Time Range</a>
+                </div>
+                
+                <div class="flow-divider">
+                    <div class="flow-divider-line"></div>
+                </div>
+                
+                <!-- Pre-Meeting Phase -->
+                <div class="flow-row">
+                    <div class="flow-section-title">Pre-Meeting</div>
+                </div>
+                <div class="flow-row">
+                    <a href="wireframes/14-icebreaker-questions.html" class="flow-box">Icebreaker Questions</a>
+                    <div class="flow-arrow horizontal">→</div>
+                    <a href="wireframes/15-meeting-scheduled.html" class="flow-box">Meeting Scheduled</a>
+                </div>
+                
+                <div class="flow-divider">
+                    <div class="flow-divider-line"></div>
+                </div>
+                
+                <!-- Meeting Phase -->
+                <div class="flow-row">
+                    <div class="flow-section-title">Meeting</div>
+                </div>
+                <div class="flow-row">
+                    <a href="wireframes/16-meeting-interface.html" class="flow-box">Meeting Interface</a>
+                    <div class="flow-arrow horizontal">→</div>
+                    <a href="wireframes/17-meeting-notes.html" class="flow-box">Meeting Notes</a>
+                </div>
+                
+                <div class="flow-divider">
+                    <div class="flow-divider-line"></div>
+                </div>
+                
+                <!-- Post-Meeting Phase -->
+                <div class="flow-row">
+                    <div class="flow-section-title">Post-Meeting</div>
+                </div>
+                <div class="flow-row">
+                    <a href="wireframes/18-consent-options.html" class="flow-box">Post-Meeting Consent</a>
+                    <div class="flow-arrow horizontal">→</div>
+                    <a href="wireframes/19-connected.html" class="flow-box" style="background: #27ae60;">Connected ✓</a>
+                    <div style="width: 20px;"></div>
+                    <a href="wireframes/20-partial-interest.html" class="flow-box alt-path">Partial Interest</a>
+                </div>
+            </div>
+        </div>
         
         <div class="wireframe-nav">
             <div class="flow-section">
