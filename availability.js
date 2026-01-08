@@ -164,3 +164,68 @@ function getAvailableSlotsForMatching(aspirationId) {
         !bookedSlotIds.has(slot.id) && !requestedSlotIds.has(slot.id)
     );
 }
+
+/**
+ * Find common time slots between two users' availability
+ * @param {Array} user1Slots - First user's available slots
+ * @param {Array} user2Slots - Second user's available slots
+ * @returns {Array} Common/matching slots
+ */
+function findCommonSlots(user1Slots, user2Slots) {
+    const commonSlots = [];
+    
+    user1Slots.forEach(slot1 => {
+        user2Slots.forEach(slot2 => {
+            // Check if slots are on the same date
+            if (slot1.date === slot2.date) {
+                // Parse times
+                const slot1Start = parseTime(slot1.startTime);
+                const slot1End = parseTime(slot1.endTime);
+                const slot2Start = parseTime(slot2.startTime);
+                const slot2End = parseTime(slot2.endTime);
+                
+                // Find overlap
+                const overlapStart = slot1Start > slot2Start ? slot1Start : slot2Start;
+                const overlapEnd = slot1End < slot2End ? slot1End : slot2End;
+                
+                // If there's an overlap (at least 30 minutes)
+                if (overlapStart < overlapEnd) {
+                    const overlapMinutes = (overlapEnd - overlapStart) / (1000 * 60);
+                    if (overlapMinutes >= 30) {
+                        commonSlots.push({
+                            date: slot1.date,
+                            startTime: formatTimeFromMinutes(overlapStart),
+                            endTime: formatTimeFromMinutes(overlapEnd),
+                            user1SlotId: slot1.id,
+                            user2SlotId: slot2.id
+                        });
+                    }
+                }
+            }
+        });
+    });
+    
+    return commonSlots;
+}
+
+/**
+ * Parse time string (HH:MM) to minutes since midnight
+ * @param {string} timeStr - Time string in HH:MM format
+ * @returns {number} Minutes since midnight
+ */
+function parseTime(timeStr) {
+    const [hours, minutes] = timeStr.split(':').map(Number);
+    return new Date(2000, 0, 1, hours, minutes).getTime();
+}
+
+/**
+ * Format time from milliseconds to HH:MM string
+ * @param {number} timeMs - Time in milliseconds
+ * @returns {string} Time string in HH:MM format
+ */
+function formatTimeFromMinutes(timeMs) {
+    const date = new Date(timeMs);
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    return `${hours}:${minutes}`;
+}
