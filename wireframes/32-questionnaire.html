@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire - RVCE Peer Finder</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../aspirations.js"></script>
+</head>
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <a href="00-aspiration-selection.html" class="back-btn">← Back</a>
+            <h1 id="aspirationTitle">Questionnaire</h1>
+            <div style="width: 60px;"></div>
+        </div>
+        <div class="wireframe-content">
+            <div style="padding: 15px; background: #e8f4f8; border-radius: 5px; border-left: 4px solid #3498db; margin-bottom: 25px;">
+                <p style="font-size: 0.9em; color: #2c3e50; margin: 0;">
+                    <strong>📋 Objective Questions</strong><br>
+                    Please answer these questions about your aspiration, struggles, and personality. 
+                    Based on your responses, we'll suggest the best matches for you.
+                </p>
+            </div>
+            
+            <form id="questionnaireForm">
+                <h2>Your Aspiration</h2>
+                
+                <div style="margin-bottom: 25px;">
+                    <label class="label">What is your primary goal or aspiration? (Select all that apply)</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="asp1" name="aspiration" value="startup-cofounder">
+                            <label for="asp1">Finding a startup co-founder</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="asp2" name="aspiration" value="research-partner">
+                            <label for="asp2">Academic research collaboration</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="asp3" name="aspiration" value="project-partner">
+                            <label for="asp3">Project or side project collaboration</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="asp4" name="aspiration" value="mentorship">
+                            <label for="asp4">Finding a mentor or mentee</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="asp5" name="aspiration" value="study-group">
+                            <label for="asp5">Study group or academic partnership</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="asp6" name="aspiration" value="other">
+                            <label for="asp6">Other (please specify)</label>
+                        </div>
+                    </div>
+                    <input type="text" id="aspirationOther" class="input-field" placeholder="Specify your aspiration..." style="margin-top: 10px; display: none;">
+                </div>
+                
+                <div style="margin-bottom: 25px;">
+                    <label class="label">What specific skills are you looking for in a partner? (Select all that apply)</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="skill1" name="skills" value="technical">
+                            <label for="skill1">Technical/Programming</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="skill2" name="skills" value="business">
+                            <label for="skill2">Business/Marketing</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="skill3" name="skills" value="design">
+                            <label for="skill3">Design/Creative</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="skill4" name="skills" value="research">
+                            <label for="skill4">Research/Academic</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="skill5" name="skills" value="operations">
+                            <label for="skill5">Operations/Management</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="skill6" name="skills" value="sales">
+                            <label for="skill6">Sales/Business Development</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2 style="margin-top: 30px;">Your Struggles & Challenges</h2>
+                
+                <div style="margin-bottom: 25px;">
+                    <label class="label">What are your main challenges or areas where you need help? (Select all that apply)</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="struggle1" name="struggles" value="technical-gaps">
+                            <label for="struggle1">Lack of technical skills</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="struggle2" name="struggles" value="business-gaps">
+                            <label for="struggle2">Lack of business/marketing skills</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="struggle3" name="struggles" value="accountability">
+                            <label for="struggle3">Need for accountability partner</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="struggle4" name="struggles" value="ideas-feedback">
+                            <label for="struggle4">Need someone to challenge ideas constructively</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="struggle5" name="struggles" value="execution">
+                            <label for="struggle5">Difficulty executing ideas</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="struggle6" name="struggles" value="motivation">
+                            <label for="struggle6">Lack of motivation or direction</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2 style="margin-top: 30px;">Your Personality & Work Style</h2>
+                
+                <div style="margin-bottom: 25px;">
+                    <label class="label">How do you prefer to communicate? (Select one)</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="comm1" name="communication" value="direct" required>
+                            <label for="comm1">Direct and to-the-point</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="comm2" name="communication" value="casual" required>
+                            <label for="comm2">Casual and friendly</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="comm3" name="communication" value="structured" required>
+                            <label for="comm3">Structured and formal</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="comm4" name="communication" value="flexible" required>
+                            <label for="comm4">Flexible, adapts to situation</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 25px;">
+                    <label class="label">How do you prefer to work? (Select all that apply)</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="work1" name="workStyle" value="structured-meetings">
+                            <label for="work1">Structured meetings with clear agendas</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="work2" name="workStyle" value="regular-checkins">
+                            <label for="work2">Regular check-ins and progress tracking</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="work3" name="workStyle" value="goal-oriented">
+                            <label for="work3">Goal-oriented and deadline-driven</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="work4" name="workStyle" value="flexible-schedule">
+                            <label for="work4">Flexible schedule and spontaneous collaboration</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="work5" name="workStyle" value="detail-oriented">
+                            <label for="work5">Detail-oriented and thorough</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="work6" name="workStyle" value="creative-brainstorming">
+                            <label for="work6">Creative brainstorming and open discussion</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 25px;">
+                    <label class="label">What values are most important to you in a collaboration? (Select top 3)</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="value1" name="values" value="accountability">
+                            <label for="value1">Accountability</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="value2" name="values" value="transparency">
+                            <label for="value2">Transparency</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="value3" name="values" value="reliability">
+                            <label for="value3">Reliability</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="value4" name="values" value="creativity">
+                            <label for="value4">Creativity</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="value5" name="values" value="constructive-feedback">
+                            <label for="value5">Constructive feedback</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="value6" name="values" value="mutual-respect">
+                            <label for="value6">Mutual respect</label>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.85em; color: #7f8c8d; margin-top: 5px;">Select exactly 3 values</p>
+                </div>
+                
+                <div style="margin-bottom: 25px;">
+                    <label class="label">Rate yourself on these traits (1 = Not at all, 5 = Very much)</label>
+                    
+                    <div style="margin: 15px 0;">
+                        <label style="display: block; margin-bottom: 8px;">Detail-oriented</label>
+                        <div style="display: flex; gap: 10px; justify-content: space-between;">
+                            <span style="font-size: 0.85em; color: #7f8c8d;">1</span>
+                            <input type="range" name="detailOriented" min="1" max="5" value="3" style="flex: 1;">
+                            <span style="font-size: 0.85em; color: #7f8c8d;">5</span>
+                            <span id="detailValue" style="min-width: 30px; text-align: center; font-weight: 600;">3</span>
+                        </div>
+                    </div>
+                    
+                    <div style="margin: 15px 0;">
+                        <label style="display: block; margin-bottom: 8px;">Goal-driven</label>
+                        <div style="display: flex; gap: 10px; justify-content: space-between;">
+                            <span style="font-size: 0.85em; color: #7f8c8d;">1</span>
+                            <input type="range" name="goalDriven" min="1" max="5" value="3" style="flex: 1;">
+                            <span style="font-size: 0.85em; color: #7f8c8d;">5</span>
+                            <span id="goalValue" style="min-width: 30px; text-align: center; font-weight: 600;">3</span>
+                        </div>
+                    </div>
+                    
+                    <div style="margin: 15px 0;">
+                        <label style="display: block; margin-bottom: 8px;">Creative thinking</label>
+                        <div style="display: flex; gap: 10px; justify-content: space-between;">
+                            <span style="font-size: 0.85em; color: #7f8c8d;">1</span>
+                            <input type="range" name="creative" min="1" max="5" value="3" style="flex: 1;">
+                            <span style="font-size: 0.85em; color: #7f8c8d;">5</span>
+                            <span id="creativeValue" style="min-width: 30px; text-align: center; font-weight: 600;">3</span>
+                        </div>
+                    </div>
+                    
+                    <div style="margin: 15px 0;">
+                        <label style="display: block; margin-bottom: 8px;">Structured approach</label>
+                        <div style="display: flex; gap: 10px; justify-content: space-between;">
+                            <span style="font-size: 0.85em; color: #7f8c8d;">1</span>
+                            <input type="range" name="structured" min="1" max="5" value="3" style="flex: 1;">
+                            <span style="font-size: 0.85em; color: #7f8c8d;">5</span>
+                            <span id="structuredValue" style="min-width: 30px; text-align: center; font-weight: 600;">3</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="margin-top: 30px;">
+                    Submit Questionnaire
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        let currentAspirationId = null;
+        
+        window.addEventListener('DOMContentLoaded', function() {
+            // Get current aspiration
+            const currentAspiration = JSON.parse(localStorage.getItem('current_aspiration') || 'null');
+            if (currentAspiration) {
+                currentAspirationId = currentAspiration.id;
+                document.getElementById('aspirationTitle').textContent = currentAspiration.name + ' - Questionnaire';
+            }
+            
+            // Show/hide "other" input for aspirations
+            document.getElementById('asp6').addEventListener('change', function() {
+                document.getElementById('aspirationOther').style.display = this.checked ? 'block' : 'none';
+            });
+            
+            // Update range slider values
+            document.querySelectorAll('input[type="range"]').forEach(slider => {
+                slider.addEventListener('input', function() {
+                    const valueSpan = document.getElementById(this.name + 'Value');
+                    if (valueSpan) {
+                        valueSpan.textContent = this.value;
+                    }
+                });
+            });
+            
+            // Validate values selection (exactly 3)
+            const valueCheckboxes = document.querySelectorAll('input[name="values"]');
+            valueCheckboxes.forEach(cb => {
+                cb.addEventListener('change', function() {
+                    const checked = document.querySelectorAll('input[name="values"]:checked').length;
+                    if (checked > 3) {
+                        alert('Please select exactly 3 values.');
+                        this.checked = false;
+                    }
+                });
+            });
+        });
+        
+        document.getElementById('questionnaireForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate required fields
+            const communication = document.querySelector('input[name="communication"]:checked');
+            if (!communication) {
+                alert('Please select your preferred communication style.');
+                return;
+            }
+            
+            const values = document.querySelectorAll('input[name="values"]:checked');
+            if (values.length !== 3) {
+                alert('Please select exactly 3 values.');
+                return;
+            }
+            
+            // Collect all responses
+            const responses = {
+                aspirationId: currentAspirationId,
+                aspirations: Array.from(document.querySelectorAll('input[name="aspiration"]:checked')).map(cb => cb.value),
+                aspirationOther: document.getElementById('aspirationOther').value.trim(),
+                skills: Array.from(document.querySelectorAll('input[name="skills"]:checked')).map(cb => cb.value),
+                struggles: Array.from(document.querySelectorAll('input[name="struggles"]:checked')).map(cb => cb.value),
+                communication: communication.value,
+                workStyle: Array.from(document.querySelectorAll('input[name="workStyle"]:checked')).map(cb => cb.value),
+                values: Array.from(values).map(cb => cb.value),
+                traits: {
+                    detailOriented: parseInt(document.querySelector('input[name="detailOriented"]').value),
+                    goalDriven: parseInt(document.querySelector('input[name="goalDriven"]').value),
+                    creative: parseInt(document.querySelector('input[name="creative"]').value),
+                    structured: parseInt(document.querySelector('input[name="structured"]').value)
+                },
+                submittedAt: new Date().toISOString()
+            };
+            
+            // Store responses
+            localStorage.setItem(`neopeer_questionnaire_${currentAspirationId}`, JSON.stringify(responses));
+            localStorage.setItem('neopeer_questionnaire_submitted', 'true');
+            
+            // Navigate to recommendations
+            window.location.href = '33-questionnaire-recommendations.html?aspiration=' + currentAspirationId;
+        });
+    </script>
+</body>
+</html>

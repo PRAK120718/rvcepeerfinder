@@ -33,6 +33,31 @@
             </div>
             
             <div style="margin-bottom: 30px;">
+                <label class="label">Your Name</label>
+                <input type="text" id="userName" class="input-field" placeholder="Enter your name">
+                <p style="font-size: 0.85em; color: #7f8c8d; margin-top: -10px;">
+                    Your agent will use this name when talking with you.
+                </p>
+            </div>
+            
+            <div style="margin-bottom: 30px;">
+                <label class="label">Gender</label>
+                <div style="display: flex; gap: 10px; margin-top: 10px;">
+                    <label style="flex: 1; padding: 12px; border: 2px solid #ddd; border-radius: 5px; text-align: center; cursor: pointer; transition: all 0.3s;" id="gender-male-label">
+                        <input type="radio" name="gender" value="male" id="gender-male" style="margin-right: 8px;">
+                        Male
+                    </label>
+                    <label style="flex: 1; padding: 12px; border: 2px solid #ddd; border-radius: 5px; text-align: center; cursor: pointer; transition: all 0.3s;" id="gender-female-label">
+                        <input type="radio" name="gender" value="female" id="gender-female" style="margin-right: 8px;">
+                        Female
+                    </label>
+                </div>
+                <p style="font-size: 0.85em; color: #7f8c8d; margin-top: 10px;">
+                    Your agent will use a voice that matches your gender preference.
+                </p>
+            </div>
+            
+            <div style="margin-bottom: 30px;">
                 <label class="label">Anonymous Name (How others will see you)</label>
                 <input type="text" id="anonymousName" class="input-field" placeholder="e.g., S0819, Alex_Code" maxlength="20">
                 <p style="font-size: 0.85em; color: #7f8c8d; margin-top: -10px;">
@@ -108,9 +133,24 @@
         });
         
         function completeOnboarding() {
+            const userName = document.getElementById('userName').value.trim();
+            const gender = document.querySelector('input[name="gender"]:checked');
             const anonymousName = document.getElementById('anonymousName').value.trim();
             const aspirationName = document.getElementById('aspirationName').value.trim();
             const aspirationDescription = document.getElementById('aspirationDescription').value.trim();
+            
+            // Validate user name
+            if (!userName) {
+                alert('Please enter your name.');
+                document.getElementById('userName').focus();
+                return;
+            }
+            
+            // Validate gender
+            if (!gender) {
+                alert('Please select your gender so we can set the right voice for your agent.');
+                return;
+            }
             
             // Validate anonymous name
             if (!anonymousName) {
@@ -132,8 +172,12 @@
                 return;
             }
             
-            // Save profile with anonymous name
-            updateProfile({ anonymousName: anonymousName });
+            // Save profile with user name, gender, and anonymous name
+            updateProfile({ 
+                fullName: userName,
+                gender: gender.value,
+                anonymousName: anonymousName 
+            });
             
             // Create first aspiration
             const aspiration = addAspiration({
@@ -152,9 +196,32 @@
             // Mark onboarding as complete
             localStorage.setItem('neopeer_onboarding_complete', 'true');
             
-            // Navigate to agent intro
-            window.location.href = '01-agent-intro.html';
+            // Check discovery method
+            const discoveryMethod = localStorage.getItem('neopeer_discovery_method') || 'ai-agent';
+            
+            if (discoveryMethod === 'self-based') {
+                // Navigate to questionnaire
+                window.location.href = '32-questionnaire.html';
+            } else {
+                // Navigate to agent intro
+                window.location.href = '01-agent-intro.html';
+            }
         }
+        
+        // Add visual feedback for gender selection
+        document.querySelectorAll('input[name="gender"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.querySelectorAll('[id^="gender-"]-label').forEach(label => {
+                    label.style.borderColor = '#ddd';
+                    label.style.background = 'white';
+                });
+                if (this.checked) {
+                    const labelId = this.id + '-label';
+                    document.getElementById(labelId).style.borderColor = '#3498db';
+                    document.getElementById(labelId).style.background = '#ebf5fb';
+                }
+            });
+        });
     </script>
 </body>
 </html>

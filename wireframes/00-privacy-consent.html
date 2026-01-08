@@ -16,18 +16,34 @@
             <div style="width: 60px;"></div>
         </div>
         <div class="wireframe-content">
+            <div style="padding: 20px; background: #e8f4f8; border-radius: 8px; border-left: 4px solid #3498db; margin-bottom: 25px;">
+                <h2 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.3em;">Your Privacy Rights</h2>
+                <p style="color: #2c3e50; line-height: 1.8; margin-bottom: 10px;">
+                    <strong>You're in control:</strong>
+                </p>
+                <ul style="margin-left: 20px; color: #2c3e50; line-height: 2;">
+                    <li>You can access, modify, or delete your data at any time through Settings</li>
+                    <li>You decide what information to share with matched peers</li>
+                    <li>All conversations and data are encrypted and stored securely</li>
+                    <li>You can opt-out of optional features anytime</li>
+                </ul>
+                <p style="color: #2c3e50; line-height: 1.8; margin-top: 15px; font-size: 0.9em;">
+                    We're committed to protecting your privacy and giving you full control over your data.
+                </p>
+            </div>
+            
             <h2>Data Privacy & Consent</h2>
             <p style="color: #7f8c8d; margin-bottom: 20px;">
-                To provide you with the best matching experience, we need your consent for data collection and processing.
+                To help you find the best matches, we need your permission to understand you better through conversations.
             </p>
             
             <div class="consent-checkbox required">
                 <input type="checkbox" id="dataCollection" required>
                 <label for="dataCollection">
-                    <strong>Data Collection Consent (Required)</strong>
+                    <strong>Share Basic Information (Required)</strong>
                     <div class="consent-text">
-                        I consent to Neopeer collecting and processing my personal information, voice recordings, 
-                        conversation data, and preferences to facilitate peer matching. 
+                        Allow us to use your profile and conversation data to find compatible peers. 
+                        This helps us match you with people who share similar goals and values.
                         <a href="#" class="consent-link">Learn more</a>
                     </div>
                 </label>
@@ -36,10 +52,11 @@
             <div class="consent-checkbox required">
                 <input type="checkbox" id="voiceRecording" required>
                 <label for="voiceRecording">
-                    <strong>Voice Recording Consent (Required)</strong>
+                    <strong>Voice Conversations (Required)</strong>
                     <div class="consent-text">
-                        I consent to voice conversations being recorded and analyzed to understand my personality, 
-                        communication style, and aspirations for better matching. 
+                        We'll have friendly voice conversations to understand your personality and communication style. 
+                        Think of it like talking to a helpful friend - we record these conversations only to better understand you 
+                        and find matches who'll work well with your style. No video recording is used.
                         <a href="#" class="consent-link">Learn more</a>
                     </div>
                 </label>
@@ -82,17 +99,10 @@
                 <label for="dataRetention">
                     <strong>Data Retention (Optional)</strong>
                     <div class="consent-text">
-                        Allow Neopeer to retain your conversation data for 12 months to improve matching algorithms 
-                        and provide better recommendations. You can request deletion anytime.
+                        Allow us to keep your conversation data for 12 months to improve our matching and provide better recommendations. 
+                        You can request deletion anytime.
                     </div>
                 </label>
-            </div>
-            
-            <div style="margin-top: 30px; padding: 15px; background: #fff3cd; border-radius: 5px;">
-                <p style="font-size: 0.9em; color: #856404;">
-                    <strong>Your Privacy Rights:</strong> You can access, modify, or delete your data at any time 
-                    through Settings. Required consents are mandatory to use Neopeer's core features.
-                </p>
             </div>
             
             <div style="margin-top: 30px;">
@@ -137,14 +147,8 @@
             
             localStorage.setItem('neopeer_consents', JSON.stringify(consents));
             
-            // Check if user is first-time or existing
-            if (isFirstTimeUser()) {
-                // First-time user: go to onboarding
-                window.location.href = '00-first-time-onboarding.html';
-            } else {
-                // Existing user: go to aspiration selection
-                window.location.href = '00-aspiration-selection.html';
-            }
+            // Navigate to discovery method selection
+            window.location.href = '31-discovery-method-selection.html';
         }
     </script>
 </body>

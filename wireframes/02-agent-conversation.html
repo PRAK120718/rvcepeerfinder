@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agent Conversation - Neopeer</title>
     <link rel="stylesheet" href="../styles.css">
+    <script src="../profile.js"></script>
 </head>
 <body>
     <div class="wireframe-container">
@@ -40,7 +41,7 @@
                 <div class="voice-messages">
                     <div class="voice-message agent">
                         <div class="voice-bubble">
-                            <div>Hi! I'm excited to learn about you. Let's start with your aspirations. 
+                            <div id="agentGreeting">Hi! I'm excited to learn about you. Let's start with your aspirations. 
                             What are you looking to achieve?</div>
                             <div class="voice-waveform">
                                 <div class="wave-bar" style="height: 15px;"></div>
@@ -200,6 +201,31 @@
             };
             if (aspirationNames[aspirationId]) {
                 document.getElementById('aspirationTitle').textContent = aspirationNames[aspirationId] + ' - Agent';
+            }
+        }
+        
+        // Load user profile and set agent voice/name
+        const profile = getProfile();
+        if (profile && profile.fullName) {
+            const userName = profile.fullName.split(' ')[0]; // Use first name
+            const gender = profile.gender || 'male';
+            
+            // Update greeting with user's name
+            const greeting = document.getElementById('agentGreeting');
+            if (greeting) {
+                greeting.textContent = `Hi ${userName}! I'm excited to learn about you. Let's start with your aspirations. What are you looking to achieve?`;
+            }
+            
+            // Store gender for voice selection (this would be used for actual voice synthesis)
+            localStorage.setItem('agent_voice_gender', gender);
+            
+            // Visual indicator of voice gender (in production, this would control actual voice)
+            if (gender === 'female') {
+                // Could add visual indicator for female voice
+                console.log('Agent will use female voice');
+            } else {
+                // Could add visual indicator for male voice
+                console.log('Agent will use male voice');
             }
         }
         

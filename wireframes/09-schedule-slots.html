@@ -11,7 +11,7 @@
 <body>
     <div class="wireframe-container">
         <div class="wireframe-header">
-            <a href="07-mutual-match.html" class="back-btn">← Back</a>
+            <a href="#" id="backLink" class="back-btn">← Back</a>
             <h1>Schedule Meeting</h1>
             <div style="width: 60px;"></div>
         </div>
@@ -120,10 +120,25 @@
             // Get student code and aspiration from URL or localStorage
             const urlParams = new URLSearchParams(window.location.search);
             otherStudentCode = urlParams.get('student') || 'S0042';
+            const requestId = urlParams.get('request');
+            
+            // Set back link based on context
+            const backLink = document.getElementById('backLink');
+            if (requestId) {
+                // Coming from meeting request acceptance
+                backLink.href = '35-meeting-request.html?request=' + requestId + '&student=' + otherStudentCode;
+            } else {
+                // Coming from mutual match (AI agent flow)
+                backLink.href = '07-mutual-match.html';
+            }
             
             // Get current aspiration
             const currentAspiration = JSON.parse(localStorage.getItem('current_aspiration') || 'null');
-            currentAspirationId = currentAspiration ? currentAspiration.id : '1';
+            if (urlParams.get('aspiration')) {
+                currentAspirationId = urlParams.get('aspiration');
+            } else {
+                currentAspirationId = currentAspiration ? currentAspiration.id : '1';
+            }
             
             // Update student code displays
             document.getElementById('otherStudentCode').textContent = otherStudentCode;

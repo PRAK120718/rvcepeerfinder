@@ -119,8 +119,16 @@
                 createdAt: aspiration.createdAt
             }));
             
-            // Navigate to agent intro
-            window.location.href = '01-agent-intro.html';
+            // Check discovery method
+            const discoveryMethod = localStorage.getItem('neopeer_discovery_method') || 'ai-agent';
+            
+            if (discoveryMethod === 'self-based') {
+                // Navigate to questionnaire
+                window.location.href = '32-questionnaire.html';
+            } else {
+                // Navigate to agent intro
+                window.location.href = '01-agent-intro.html';
+            }
         }
         
         function escapeHtml(text) {
