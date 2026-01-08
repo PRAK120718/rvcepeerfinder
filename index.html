@@ -25,6 +25,8 @@
                     <a href="wireframes/00-otp-verification.html" class="flow-box">OTP Verification</a>
                     <div class="flow-arrow horizontal">→</div>
                     <a href="wireframes/00-privacy-consent.html" class="flow-box">Privacy Consent</a>
+                    <div class="flow-arrow horizontal">→</div>
+                    <a href="wireframes/31-discovery-method-selection.html" class="flow-box">Discovery Method</a>
                 </div>
                 
                 <div class="flow-divider">
@@ -51,59 +53,67 @@
                     <div class="flow-divider-line"></div>
                 </div>
                 
-                <!-- Agent Conversation Phase -->
+                <!-- Discovery Method Branching -->
                 <div class="flow-row">
-                    <div class="flow-section-title">Agent Interaction</div>
+                    <div class="flow-section-title">Discovery Method (Two Paths)</div>
                 </div>
-                <div class="flow-row">
-                    <a href="wireframes/01-agent-intro.html" class="flow-box">Agent Introduction</a>
-                    <div class="flow-arrow horizontal">→</div>
-                    <a href="wireframes/02-agent-conversation.html" class="flow-box">Voice Conversation</a>
-                    <div class="flow-arrow horizontal">→</div>
-                    <a href="wireframes/29-submit-conversation.html" class="flow-box">Submit Conversation</a>
+                <div class="flow-row" style="align-items: flex-start;">
+                    <!-- AI Agent Path -->
+                    <div style="flex: 1; padding: 15px; background: #ebf5fb; border-radius: 8px; border-left: 4px solid #3498db; margin-right: 15px;">
+                        <div style="font-weight: 600; color: #2c3e50; margin-bottom: 15px; font-size: 0.95em; text-align: center;">🤖 AI Agent-Led (Paid)</div>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <a href="wireframes/01-agent-intro.html" class="flow-box" style="font-size: 0.9em; padding: 10px 15px;">Agent Intro</a>
+                            <div class="flow-arrow" style="margin: 3px 0;">↓</div>
+                            <a href="wireframes/02-agent-conversation.html" class="flow-box" style="font-size: 0.9em; padding: 10px 15px;">Voice Conversation</a>
+                            <div class="flow-arrow" style="margin: 3px 0;">↓</div>
+                            <a href="wireframes/29-submit-conversation.html" class="flow-box" style="font-size: 0.9em; padding: 10px 15px;">Submit</a>
+                            <div class="flow-arrow" style="margin: 3px 0;">↓</div>
+                            <a href="wireframes/04-student-list.html" class="flow-box" style="font-size: 0.9em; padding: 10px 15px;">Top 10 Recommendations</a>
+                            <div class="flow-arrow" style="margin: 3px 0;">↓</div>
+                            <a href="wireframes/05-student-agent-chat.html" class="flow-box" style="font-size: 0.9em; padding: 10px 15px;">Chat Student Agent</a>
+                            <div class="flow-arrow" style="margin: 3px 0;">↓</div>
+                            <a href="wireframes/06-interest-indication.html" class="flow-box" style="font-size: 0.9em; padding: 10px 15px;">Interest</a>
+                            <div class="flow-arrow" style="margin: 3px 0;">↓</div>
+                            <a href="wireframes/07-mutual-match.html" class="flow-box" style="font-size: 0.9em; padding: 10px 15px; background: #27ae60;">Mutual Match ✓</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Self-Based Path -->
+                    <div style="flex: 1; padding: 15px; background: #eafaf1; border-radius: 8px; border-left: 4px solid #27ae60;">
+                        <div style="font-weight: 600; color: #2c3e50; margin-bottom: 15px; font-size: 0.95em; text-align: center;">🔍 Self-Based (Free)</div>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <a href="wireframes/32-questionnaire.html" class="flow-box" style="font-size: 0.9em; padding: 10px 15px;">Questionnaire</a>
+                            <div class="flow-arrow" style="margin: 3px 0;">↓</div>
+                            <a href="wireframes/33-questionnaire-recommendations.html" class="flow-box" style="font-size: 0.9em; padding: 10px 15px;">Top 10 Recommendations</a>
+                            <div class="flow-arrow" style="margin: 3px 0;">↓</div>
+                            <a href="wireframes/33-questionnaire-recommendations.html" class="flow-box" style="font-size: 0.9em; padding: 10px 15px;">Select Students</a>
+                            <div class="flow-arrow" style="margin: 3px 0;">↓</div>
+                            <a href="wireframes/34-requests-sent.html" class="flow-box" style="font-size: 0.9em; padding: 10px 15px;">Send Requests</a>
+                            <div class="flow-arrow" style="margin: 3px 0;">↓</div>
+                            <a href="wireframes/35-meeting-request.html" class="flow-box" style="font-size: 0.9em; padding: 10px 15px;">Receive Request</a>
+                            <div class="flow-arrow" style="margin: 3px 0;">↓</div>
+                            <a href="wireframes/35-meeting-request.html" class="flow-box" style="font-size: 0.9em; padding: 10px 15px; background: #27ae60;">Accept Request ✓</a>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="flow-divider">
                     <div class="flow-divider-line"></div>
                 </div>
                 
-                <!-- Recommendations Phase -->
+                <!-- Scheduling Phase (Converged) -->
                 <div class="flow-row">
-                    <div class="flow-section-title">Matching & Recommendations</div>
+                    <div class="flow-section-title">Scheduling (Both Paths Converge)</div>
                 </div>
                 <div class="flow-row">
-                    <a href="wireframes/04-student-list.html" class="flow-box">Top 10 Recommendations</a>
-                    <div class="flow-arrow horizontal">→</div>
-                    <a href="wireframes/05-student-agent-chat.html" class="flow-box">Chat with Student Agent</a>
-                    <div class="flow-arrow horizontal">→</div>
-                    <a href="wireframes/06-interest-indication.html" class="flow-box">Interest Indication</a>
-                </div>
-                
-                <div class="flow-row">
-                    <a href="wireframes/07-mutual-match.html" class="flow-box" style="background: #27ae60;">Mutual Match ✓</a>
-                    <div style="width: 20px;"></div>
-                    <a href="wireframes/08-no-match.html" class="flow-box alt-path">No Match ✗</a>
-                </div>
-                
-                <div class="flow-divider">
-                    <div class="flow-divider-line"></div>
-                </div>
-                
-                <!-- Scheduling Phase -->
-                <div class="flow-row">
-                    <div class="flow-section-title">Scheduling</div>
-                </div>
-                <div class="flow-row">
-                    <a href="wireframes/09-schedule-slots.html" class="flow-box">Share Time Slots</a>
-                    <div class="flow-arrow horizontal">→</div>
-                    <a href="wireframes/10-matching-slots.html" class="flow-box">Find Matching Slots</a>
+                    <a href="wireframes/09-schedule-slots.html" class="flow-box">Check Calendars &<br/>Find Common Slots</a>
                     <div class="flow-arrow horizontal">→</div>
                     <a href="wireframes/11-confirm-slot.html" class="flow-box">Confirm Slot</a>
                 </div>
-                <div class="flow-row">
-                    <a href="wireframes/12-suggest-alternative.html" class="flow-box alt-path">Suggest Alternative</a>
+                <div class="flow-row" style="margin-top: 10px;">
+                    <a href="wireframes/09-schedule-slots.html" class="flow-box alt-path" style="font-size: 0.85em;">Show Other's Slots<br/>(No Common)</a>
                     <div style="width: 20px;"></div>
-                    <a href="wireframes/13-share-time-range.html" class="flow-box alt-path">Share Time Range</a>
+                    <a href="wireframes/09-schedule-slots.html" class="flow-box alt-path" style="font-size: 0.85em;">Request New Slots<br/>(Fallback)</a>
                 </div>
                 
                 <div class="flow-divider">
@@ -158,6 +168,7 @@
                 <a href="wireframes/00-landing.html" class="nav-link">Landing Page (RVCE Login)</a>
                 <a href="wireframes/00-otp-verification.html" class="nav-link">OTP Verification</a>
                 <a href="wireframes/00-privacy-consent.html" class="nav-link">Privacy & Data Consent</a>
+                <a href="wireframes/31-discovery-method-selection.html" class="nav-link">Discovery Method Selection</a>
                 <a href="wireframes/00-first-time-onboarding.html" class="nav-link">First-Time Onboarding</a>
                 <a href="wireframes/00-aspiration-selection.html" class="nav-link">Aspiration Selection</a>
                 <a href="wireframes/01-agent-intro.html" class="nav-link">Agent Introduction</a>
@@ -179,8 +190,12 @@
             
             <div class="flow-section">
                 <h2>2. Student Recommendations</h2>
-                <a href="wireframes/04-student-list.html" class="nav-link">Recommended Students List</a>
+                <a href="wireframes/04-student-list.html" class="nav-link">Recommended Students List (AI Agent)</a>
                 <a href="wireframes/05-student-agent-chat.html" class="nav-link">Chat with Student Agent</a>
+                <a href="wireframes/32-questionnaire.html" class="nav-link">Self-Based Questionnaire</a>
+                <a href="wireframes/33-questionnaire-recommendations.html" class="nav-link">Questionnaire Recommendations</a>
+                <a href="wireframes/34-requests-sent.html" class="nav-link">Requests Sent</a>
+                <a href="wireframes/35-meeting-request.html" class="nav-link">Meeting Request (Receive)</a>
             </div>
             
             <div class="flow-section">
