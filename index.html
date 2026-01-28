@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neopeer App - Wireframe Navigation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>RVCE Peer Finder - Wireframe Navigation</h1>
+        <p class="subtitle">End-to-end wireframe flow</p>
+
+        <!-- Vision Statement -->
+        <div
+            style="background: white; color: #2c3e50; padding: 25px; border-radius: 12px; margin: 30px 0; border-left: 8px solid #9b59b6; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+            <div
+                style="font-size: 0.8em; text-transform: uppercase; letter-spacing: 2px; color: #9b59b6; font-weight: bold; margin-bottom: 10px;">
+                Our Mission</div>
+            <p style="font-size: 1.25em; line-height: 1.6; margin: 0; font-weight: 500;">
+                To enable every student to improve their odds to achieve their aspiration by quickly becoming aware of
+                the right steps to take and actually taking the needed steps to the <span
+                    style="color: #9b59b6; font-weight: 800;">best of their capability</span>, irrespective of their
+                background.
+            </p>
+        </div>
+
+        <!-- End-to-End Flow Chart -->
+        <div class="flow-chart">
+            <h2>📊 Complete App Flow Chart</h2>
+            <div class="flow-container">
+                <!-- Authentication Phase -->
+                <div class="flow-row">
+                    <div class="flow-section-title">Authentication</div>
+                </div>
+                <div class="flow-row">
+                    <a href="wireframes/00-landing.html" class="flow-box">Landing (RVCE Login)</a>
+                    <div class="flow-arrow horizontal">→</div>
+                    <a href="wireframes/00-otp-verification.html" class="flow-box">OTP Verification</a>
+                    <div class="flow-arrow horizontal">→</div>
+                    <a href="wireframes/00-privacy-consent.html" class="flow-box">Privacy Consent</a>
+                    <div class="flow-arrow horizontal">→</div>
+                    <a href="wireframes/00-first-time-onboarding.html" class="flow-box">Onboarding & Aspiration</a>
+                </div>
+
+                <div class="flow-divider">
+                    <div class="flow-divider-line"></div>
+                </div>
+
+                <!-- Entry Point -->
+                <div class="flow-row">
+                    <a href="wireframes/00-landing.html" class="flow-box"
+                        style="background: #2c3e50; color: white; width: 250px;">🏠 Entry: landing.html (Student vs
+                        Mentor)</a>
+                </div>
+
+                <div class="flow-row" style="margin: 20px 0;">
+                    <div style="width: 50%; border-right: 2px dashed #ddd; height: 30px;"></div>
+                    <div style="width: 50%; height: 30px;"></div>
+                </div>
+
+                <!-- Parallel Worlds -->
+                <div class="flow-row" style="align-items: flex-start; gap: 40px;">
+
+                    <!-- STUDENT WORLD -->
+                    <div
+                        style="flex: 1; padding: 20px; border-radius: 12px; background: #ebf5fb; border: 2px solid #3498db;">
+                        <h3 style="color: #3498db; margin-top: 0; text-align: center; font-size: 1em;">👤 STUDENT WORLD
+                        </h3>
+                        <div
+                            style="display: flex; flex-direction: column; gap: 12px; align-items: center; margin-top: 15px;">
+                            <a href="wireframes/00-otp-verification.html" class="flow-box">OTP Login</a>
+                            <div class="flow-arrow">↓</div>
+                            <a href="wireframes/02-agent-conversation.html" class="flow-box">AI Chat Interview</a>
+                            <div class="flow-arrow">↓</div>
+                            <a href="wireframes/49-support-type-selection.html" class="flow-box"
+                                style="background: #f1c40f; font-weight: bold;">DECISION: Match Preference</a>
+
+                            <!-- Internal Student Branch -->
+                            <div style="display: flex; gap: 10px; width: 100%;">
+                                <div style="flex: 1; text-align: center;">
+                                    <div style="font-size: 0.6em; color: #7f8c8d;">Peer Path</div>
+                                    <a href="wireframes/04-student-list.html" class="flow-box"
+                                        style="font-size: 0.8em; padding: 6px;">Peer Matches</a>
+                                    <div class="flow-arrow" style="margin: 3px 0;">↓</div>
+                                    <div
+                                        style="padding: 5px; border: 1px solid #f1c40f; background: #fffde7; border-radius: 5px; font-size: 0.6em; font-weight: bold; text-align: center; color: #856404; margin-bottom: 3px;">
+                                        <a href="wireframes/66-commitment-payment.html"
+                                            style="text-decoration: none; color: inherit;">Commitment: Rs 49</a>
+                                    </div>
+                                    <div class="flow-arrow" style="margin: 3px 0;">↓</div>
+                                    <a href="wireframes/07-mutual-match.html" class="flow-box"
+                                        style="font-size: 0.75em; padding: 5px; background: #27ae60; color: white;">Match
+                                        ✓</a>
+                                </div>
+                                <div style="flex: 1; text-align: center;">
+                                    <div style="font-size: 0.6em; color: #7f8c8d;">Mentor Path</div>
+                                    <a href="wireframes/39-mentor-recommendations.html" class="flow-box"
+                                        style="font-size: 0.8em; padding: 6px; border-color: #e67e22;">Expert List</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MENTOR WORLD -->
+                    <div
+                        style="flex: 1; padding: 20px; border-radius: 12px; background: #fffcf5; border: 2px solid #e67e22;">
+                        <h3 style="color: #e67e22; margin-top: 0; text-align: center; font-size: 1em;">🌟 MENTOR WORLD
+                        </h3>
+                        <div
+                            style="display: flex; flex-direction: column; gap: 12px; align-items: center; margin-top: 15px;">
+                            <a href="wireframes/44-mentor-email-login.html" class="flow-box">Mentor Login</a>
+                            <div class="flow-arrow">↓</div>
+                            <a href="wireframes/38-mentor-agent-conversation.html" class="flow-box">AI Onboarding</a>
+                            <div class="flow-arrow">↓</div>
+                            <a href="wireframes/46-mentor-student-leads.html" class="flow-box"
+                                style="background: #e67e22; color: white;">Home Dashboard</a>
+                            <div class="flow-arrow">↓</div>
+                            <a href="wireframes/63-mentor-talks-to-student-agent.html" class="flow-box">Consult Student
+                                Agent</a>
+                            <div class="flow-arrow">↓</div>
+                            <a href="wireframes/47-mentor-schedule.html" class="flow-box">Set Availability</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Convergence -->
+                <div class="flow-divider">
+                    <div class="flow-divider-line" style="border-top: 3px solid #ddd;"></div>
+                    <div
+                        style="font-size: 0.8em; color: #999; font-weight: bold; background: white; padding: 0 15px; margin-top: -12px;">
+                        CONVERGENCE: THE SESSION</div>
+                </div>
+
+                <div class="flow-row">
+                    <a href="wireframes/64-mentor-video-call.html" class="flow-box"
+                        style="background: #2c3e50; color: white; width: 300px;">🎥 Expert Video Session (Screen 64)</a>
+                </div>
+                <div class="flow-row" style="margin-top: 10px;">
+                    <a href="wireframes/16-meeting-interface.html" class="flow-box"
+                        style="background: #2c3e50; color: white; width: 300px;">📞 Peer Audio Match (Screen 16)</a>
+                </div>
+
+                <div class="flow-row" style="margin-top: 20px;">
+                    <a href="wireframes/65-mentor-session-feedback.html" class="flow-box"
+                        style="border-color: #e67e22;">Expert Feedback</a>
+                    <div style="width: 20px;"></div>
+                    <a href="wireframes/55-video-call-feedback.html" class="flow-box"
+                        style="border-color: #3498db;">Student Feedback</a>
+                </div>
+                <div class="flow-row" style="margin-top: 20px;">
+                    <a href="wireframes/19-connected.html" class="flow-box"
+                        style="background: #27ae60; color: white; width: 300px;">🤝 Connection ✓ (Peer Cycle End)</a>
+                </div>
+
+                <div class="flow-divider">
+                    <div class="flow-divider-line" style="border-top: 3px dashed #9b59b6;"></div>
+                    <div
+                        style="font-size: 0.8em; color: #9b59b6; font-weight: bold; background: white; padding: 0 15px; margin-top: -12px;">
+                        CYCLE CULMINATION: SUCCESS SOP</div>
+                </div>
+
+                <div class="flow-row">
+                    <a href="wireframes/67-sop-dashboard.html" class="flow-box"
+                        style="background: #9b59b6; color: white; width: 300px;">🏆 SUCCESS SOP Dashboard (Screen
+                        67)</a>
+                </div>
+
+                <div class="flow-row" style="margin-top: 15px;">
+                    <a href="wireframes/68-sop-editor.html" class="flow-box" style="border-color: #9b59b6;">Refine &
+                        Edit SOP</a>
+                    <div class="flow-arrow horizontal">→</div>
+                    <a href="wireframes/69-sop-reminders-motivations.html" class="flow-box"
+                        style="border-color: #9b59b6;">Alerts & Coaching</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="wireframe-nav">
+            <div class="flow-section">
+                <h2>0. Authentication & Onboarding</h2>
+                <a href="wireframes/00-landing.html" class="nav-link">Landing Page (RVCE Login)</a>
+                <a href="wireframes/00-otp-verification.html" class="nav-link">OTP Verification</a>
+                <a href="wireframes/00-privacy-consent.html" class="nav-link">Privacy & Data Consent</a>
+                <a href="wireframes/00-first-time-onboarding.html" class="nav-link">First-Time Onboarding</a>
+                <a href="wireframes/00-aspiration-selection.html" class="nav-link">Aspiration Selection</a>
+                <a href="wireframes/01-agent-intro.html" class="nav-link">Agent Introduction</a>
+                <a href="wireframes/36-voice-consent.html" class="nav-link">Voice Recording Consent (AI Agent)</a>
+            </div>
+
+            <div class="flow-section">
+                <h2>1. Agent Conversation Flow</h2>
+                <a href="wireframes/02-agent-conversation.html" class="nav-link">Agent Conversation (Voice)</a>
+                <a href="wireframes/29-submit-conversation.html" class="nav-link">Submit Conversation Confirmation</a>
+                <a href="wireframes/03-agent-retry.html" class="nav-link">Re-attempt Conversation</a>
+            </div>
+
+            <div class="flow-section">
+                <h2>1b. Multiple Aspirations</h2>
+                <a href="wireframes/23-manage-aspirations.html" class="nav-link">Manage Aspirations</a>
+                <a href="wireframes/27-new-aspiration.html" class="nav-link">Create New Aspiration</a>
+                <a href="wireframes/30-aspiration-availability.html" class="nav-link">Aspiration Availability
+                    Calendar</a>
+            </div>
+
+            <div class="flow-section">
+                <h2>2. Student Recommendations</h2>
+                <a href="wireframes/04-student-list.html" class="nav-link">Recommended Students List (AI Agent)</a>
+                <a href="wireframes/05-student-agent-chat.html" class="nav-link">Chat with Student Agent</a>
+            </div>
+
+            <div class="flow-section">
+                <h2>3. Matching Flow</h2>
+                <a href="wireframes/06-interest-indication.html" class="nav-link">Interest Indication</a>
+                <a href="wireframes/07-mutual-match.html" class="nav-link">Mutual Match Found</a>
+                <a href="wireframes/08-no-match.html" class="nav-link">No Match / Decline</a>
+            </div>
+
+            <div class="flow-section">
+                <h2>4. Scheduling Flow</h2>
+                <a href="wireframes/09-schedule-slots.html" class="nav-link">Share Time Slots</a>
+                <a href="wireframes/10-matching-slots.html" class="nav-link">App Finds Matching Slots</a>
+                <a href="wireframes/11-confirm-slot.html" class="nav-link">Confirm Slot</a>
+                <a href="wireframes/12-suggest-alternative.html" class="nav-link">Suggest Alternative Slot</a>
+                <a href="wireframes/13-share-time-range.html" class="nav-link">Share Time Range</a>
+            </div>
+
+            <div class="flow-section">
+                <h2>5. Pre-Meeting</h2>
+                <a href="wireframes/14-icebreaker-questions.html" class="nav-link">Icebreaker Questions</a>
+                <a href="wireframes/15-meeting-scheduled.html" class="nav-link">Meeting Scheduled</a>
+            </div>
+
+            <div class="flow-section">
+                <h2>6. Meeting</h2>
+                <a href="wireframes/16-meeting-interface.html" class="nav-link">Meeting Interface (No Camera)</a>
+                <a href="wireframes/17-meeting-notes.html" class="nav-link">Meeting Notes/Summary</a>
+            </div>
+
+            <div class="flow-section">
+                <h2>7. Post-Meeting</h2>
+                <a href="wireframes/18-consent-options.html" class="nav-link">Post-Meeting Consent</a>
+                <a href="wireframes/19-connected.html" class="nav-link">Connected Status</a>
+                <a href="wireframes/20-partial-interest.html" class="nav-link">Partial Interest Notification</a>
+            </div>
+
+            <div class="flow-section" style="border-left: 5px solid #e67e22;">
+                <h2>8. Mentor & Expert Hub (Paid)</h2>
+                <div
+                    style="background: #fffcf5; padding: 15px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #ffeeba;">
+                    <p style="font-size: 0.85em; color: #e67e22; font-weight: bold; margin-bottom: 10px;">Primary
+                        Dashboard</p>
+                    <a href="wireframes/46-mentor-student-leads.html" class="nav-link"
+                        style="background: #e67e22;">Mentor Home Page (Dashboard)</a>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div>
+                        <p style="font-size: 0.75em; color: #7f8c8d; font-weight: bold; text-transform: uppercase;">
+                            Mentor Onboarding</p>
+                        <a href="wireframes/37-mentor-onboarding-intro.html" class="nav-link">Onboarding Intro</a>
+                        <a href="wireframes/44-mentor-email-login.html" class="nav-link">Email Login</a>
+                        <a href="wireframes/45-mentor-otp-verification.html" class="nav-link">OTP Verification</a>
+                        <a href="wireframes/38-mentor-agent-conversation.html" class="nav-link">AI Interview</a>
+                        <a href="wireframes/43-mentor-credential-verification.html" class="nav-link">Credential
+                            Check</a>
+                    </div>
+                    <div>
+                        <p style="font-size: 0.75em; color: #7f8c8d; font-weight: bold; text-transform: uppercase;">
+                            Session Execution</p>
+                        <a href="wireframes/63-mentor-talks-to-student-agent.html" class="nav-link">Agent
+                            Consultation</a>
+                        <a href="wireframes/47-mentor-schedule.html" class="nav-link">Scheduling Flow</a>
+                        <a href="wireframes/48-mentor-meeting-confirmed.html" class="nav-link"
+                            style="font-size: 0.8em;">Meeting Fixed</a>
+                        <a href="wireframes/64-mentor-video-call.html" class="nav-link" style="font-size: 0.8em;">Video
+                            Call (Expert)</a>
+                        <a href="wireframes/65-mentor-session-feedback.html" class="nav-link"
+                            style="font-size: 0.8em;">Mentor Feedback</a>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <p style="font-size: 0.75em; color: #7f8c8d; font-weight: bold; text-transform: uppercase;">Student
+                        View (Requesting Expert)</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <a href="wireframes/39-mentor-recommendations.html" class="nav-link"
+                            style="background: #3498db;">Expert List</a>
+                        <a href="wireframes/50-group-mentor-recommendations.html" class="nav-link"
+                            style="background: #3498db;">Group List</a>
+                        <a href="wireframes/42-mentor-success-profile.html" class="nav-link"
+                            style="background: #3498db;">Expert Profile</a>
+                        <a href="wireframes/41-video-call-request.html" class="nav-link"
+                            style="background: #3498db;">Booking Flow</a>
+                        <a href="wireframes/51-video-call-status.html" class="nav-link"
+                            style="background: #3498db;">Call Status</a>
+                        <a href="wireframes/52-video-call-payment.html" class="nav-link"
+                            style="background: #3498db;">RVCE-Pay</a>
+                        <a href="wireframes/54-video-call-interface.html" class="nav-link"
+                            style="background: #3498db;">Video Call</a>
+                        <a href="wireframes/55-video-call-feedback.html" class="nav-link"
+                            style="background: #3498db;">User Feedback</a>
+                    </div>
+                </div>
+
+                <div style="margin-top: 15px; padding-left: 10px; border-left: 2px solid #e67e22;">
+                    <p style="font-size: 0.8em; color: #e67e22; font-weight: bold; margin-bottom: 5px;">Sanjay Rao's
+                        Dedicated Flow (Full Pipeline)</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
+                        <a href="wireframes/56-sanjay-success-profile.html" class="nav-link"
+                            style="background: #fff; color: #e67e22; border: 1px solid #e67e22; font-size: 0.7em;">1.
+                            Success Profile</a>
+                        <a href="wireframes/57-sanjay-call-request.html" class="nav-link"
+                            style="background: #fff; color: #e67e22; border: 1px solid #e67e22; font-size: 0.7em;">2.
+                            Call Request</a>
+                        <a href="wireframes/58-sanjay-call-status.html" class="nav-link"
+                            style="background: #fff; color: #e67e22; border: 1px solid #e67e22; font-size: 0.7em;">3.
+                            Call Status</a>
+                        <a href="wireframes/59-sanjay-call-payment.html" class="nav-link"
+                            style="background: #fff; color: #e67e22; border: 1px solid #e67e22; font-size: 0.7em;">4.
+                            Session Payment</a>
+                        <a href="wireframes/60-sanjay-call-icebreakers.html" class="nav-link"
+                            style="background: #fff; color: #e67e22; border: 1px solid #e67e22; font-size: 0.7em;">5.
+                            Icebreakers</a>
+                        <a href="wireframes/61-sanjay-call-interface.html" class="nav-link"
+                            style="background: #fff; color: #e67e22; border: 1px solid #e67e22; font-size: 0.7em;">6.
+                            Video Call</a>
+                        <a href="wireframes/62-sanjay-call-feedback.html" class="nav-link"
+                            style="background: #fff; color: #e67e22; border: 1px solid #e67e22; font-size: 0.7em;">7.
+                            Feedback</a>
+                        <a href="wireframes/70-sanjay-next-steps.html" class="nav-link"
+                            style="background: #e67e22; color: #fff; border: 1px solid #e67e22; font-size: 0.7em;">8.
+                            Next Steps (Options)</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flow-section" style="border-left: 5px solid #9b59b6;">
+                <h2>10. Goal Execution (Success SOP)</h2>
+                <a href="wireframes/67-sop-dashboard.html" class="nav-link" style="background: #9b59b6;">SOP Dashboard
+                    (Primary)</a>
+                <a href="wireframes/68-sop-editor.html" class="nav-link">SOP Refinement Editor</a>
+                <a href="wireframes/69-sop-reminders-motivations.html" class="nav-link">Reminders & Coaching Style</a>
+            </div>
+
+            <div class="flow-section">
+                <h2>11. Settings & Data Management</h2>
+                <a href="wireframes/21-settings.html" class="nav-link">Settings</a>
+                <a href="wireframes/28-my-profile.html" class="nav-link">My Profile</a>
+                <a href="wireframes/22-delete-memory.html" class="nav-link">Delete Agent Memory</a>
+                <a href="wireframes/24-download-data.html" class="nav-link">Download My Data</a>
+                <a href="wireframes/25-privacy-settings.html" class="nav-link">Privacy Settings</a>
+                <a href="wireframes/26-delete-account.html" class="nav-link">Delete Account</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
