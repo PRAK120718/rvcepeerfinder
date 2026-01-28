@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Meeting - Mentor Flow</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .slot-pill {
+            display: inline-block;
+            padding: 8px 15px;
+            background: #eee;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .slot-pill.selected {
+            background: #e67e22;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header" style="background: #e67e22;">
+            <a href="46-mentor-student-leads.html" class="back-btn">←</a>
+            <h1>Schedule Meeting</h1>
+            <div style="width: 40px;"></div>
+        </div>
+        <div class="wireframe-content">
+            <div id="setupView">
+                <div style="margin-bottom: 25px;">
+                    <h2 id="targetTitle" style="margin-top: 0; border: none;">Suggest Slots for Group B-12</h2>
+                    <p style="color: #7f8c8d; font-size: 0.9em;">Pick your available slots. We will find overlapping
+                        times for the group.</p>
+                </div>
+
+                <div class="card" style="border-left: 4px solid #3498db; background: #ebf5fb;">
+                    <h3 style="font-size: 1em; color: #2980b9; margin-top: 0;">Step 1: Suggest Your Availability</h3>
+                    <div style="margin-top: 15px;">
+                        <p style="font-size: 0.85em; font-weight: 600;">Today (Dec 17)</p>
+                        <div class="slot-pill" onclick="this.classList.toggle('selected')">4:00 PM</div>
+                        <div class="slot-pill" onclick="this.classList.toggle('selected')">5:00 PM</div>
+                        <div class="slot-pill" onclick="this.classList.toggle('selected')">6:30 PM</div>
+                    </div>
+                    <div style="margin-top: 15px;">
+                        <p style="font-size: 0.85em; font-weight: 600;">Tomorrow (Dec 18)</p>
+                        <div class="slot-pill" onclick="this.classList.toggle('selected')">10:00 AM</div>
+                        <div class="slot-pill" onclick="this.classList.toggle('selected')">11:30 AM</div>
+                        <div class="slot-pill" onclick="this.classList.toggle('selected')">2:00 PM</div>
+                        <div class="slot-pill" onclick="this.classList.toggle('selected')">5:00 PM</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <button class="btn btn-primary" style="background: #e67e22;" onclick="findOverlaps()">Find
+                        Overlapping Slots</button>
+                </div>
+            </div>
+
+            <div id="overlapView" style="display: none;">
+                <div class="loading" id="loadingOverlaps">
+                    <div class="spinner"></div>
+                    <p>Checking group availability...</p>
+                </div>
+
+                <div id="results" style="display: none;">
+                    <div class="notification success">
+                        <strong>Overlapping Slots Found!</strong><br>
+                        These slots work for you and all 4 group members.
+                    </div>
+
+                    <div class="time-slot selected" style="border-color: #27ae60; background: #d4edda;">
+                        <div class="time-slot-header">
+                            <div>
+                                <div class="time-slot-date">Tomorrow, Dec 18</div>
+                                <div class="time-slot-time">2:00 PM - 3:00 PM</div>
+                            </div>
+                            <span class="badge" style="background: #27ae60; color: white;">Best Fit</span>
+                        </div>
+                    </div>
+
+                    <div class="time-slot" style="margin-top: 10px;">
+                        <div class="time-slot-header">
+                            <div>
+                                <div class="time-slot-date">Tomorrow, Dec 18</div>
+                                <div class="time-slot-time">5:00 PM - 6:00 PM</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <button class="btn btn-primary" style="background: #e67e22;" onclick="confirmMeeting()">Fix This
+                            Time Slot</button>
+                        <button class="btn btn-outline" style="margin-top: 10px;" onclick="location.reload()">Reset
+                            Availability</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Parse URL params
+        const params = new URLSearchParams(window.location.search);
+        const type = params.get('type') || 'group';
+        const target = params.get('target') || 'B-12';
+
+        document.getElementById('targetTitle').textContent = `Suggest Slots for ${type === 'group' ? 'Group ' + target : 'Student ' + target}`;
+
+        function findOverlaps() {
+            document.getElementById('setupView').style.display = 'none';
+            document.getElementById('overlapView').style.display = 'block';
+
+            setTimeout(() => {
+                document.getElementById('loadingOverlaps').style.display = 'none';
+                document.getElementById('results').style.display = 'block';
+            }, 1500);
+        }
+
+        function confirmMeeting() {
+            window.location.href = '48-mentor-meeting-confirmed.html';
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Conversation - Neopeer</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <a href="02-agent-conversation.html" class="back-btn">←</a>
+            <h1>Submit Conversation</h1>
+            <div style="width: 60px;"></div>
+        </div>
+        <div class="wireframe-content">
+            <div class="notification">
+                <strong>📋 Ready to Find Matches?</strong><br>
+                Please confirm that you're ready to submit your conversation for analysis.
+            </div>
+
+            <h2>What happens next?</h2>
+
+            <div class="card" style="cursor: default;">
+                <div class="card-content">
+                    <p style="margin-bottom: 15px;">
+                        <strong>1. Match Preference Selection</strong><br>
+                        You'll choose whether you want to find peers, experts, or both for your goal.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card" style="cursor: default;">
+                <div class="card-content">
+                    <p style="margin-bottom: 15px;">
+                        <strong>2. Conversation Analysis</strong><br>
+                        Your AI agent will analyze your conversation to understand your goals, personality, and
+                        preferences.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card" style="cursor: default;">
+                <div class="card-content">
+                    <p style="margin-bottom: 15px;">
+                        <strong>3. Agent Conversations</strong><br>
+                        Your agent will automatically converse with other students' agents and experts' agents to find
+                        compatible matches.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card" style="cursor: default;">
+                <div class="card-content">
+                    <p style="margin-bottom: 15px;">
+                        <strong>4. Top 10 Recommendations</strong><br>
+                        You'll receive your top 10 recommended matches, sorted by compatibility percentage in decreasing
+                        order.
+                    </p>
+                </div>
+            </div>
+
+            <div
+                style="padding: 15px; background: #e8f4f8; border-radius: 5px; border-left: 4px solid #3498db; margin: 20px 0;">
+                <p style="font-size: 0.9em; color: #2c3e50; margin: 0;">
+                    <strong>Note:</strong> This process may take a few moments. Your agent will work in the background
+                    to find the best matches for you.
+                </p>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <button class="btn btn-primary" onclick="confirmSubmit()">
+                    Yes, Submit Conversation
+                </button>
+                <button class="btn btn-secondary" style="margin-top: 10px;" onclick="goBack()">
+                    Cancel, Continue Conversation
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function confirmSubmit() {
+            // Store that conversation has been submitted
+            const conversationData = {
+                submittedAt: new Date().toISOString(),
+                status: 'submitted'
+            };
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const aspirationId = urlParams.get('aspiration');
+            const isNew = urlParams.get('new') === 'true';
+
+            localStorage.setItem('neopeer_conversation_submitted', JSON.stringify(conversationData));
+
+            // Navigate to support type selection page
+            let url = '49-support-type-selection.html';
+            if (aspirationId) {
+                url += '?aspiration=' + aspirationId;
+            }
+            if (isNew) {
+                url += (url.includes('?') ? '&' : '?') + 'new=true';
+            }
+
+            window.location.href = url;
+        }
+
+        function goBack() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const aspirationId = urlParams.get('aspiration');
+            const isNew = urlParams.get('new') === 'true';
+
+            let url = '02-agent-conversation.html';
+            if (aspirationId) {
+                url += '?aspiration=' + aspirationId;
+            }
+            if (isNew) {
+                url += (url.includes('?') ? '&' : '?') + 'new=true';
+            }
+
+            window.location.href = url;
+        }
+    </script>
+</body>
+
+</html>

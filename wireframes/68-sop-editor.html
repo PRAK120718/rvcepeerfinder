@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOP Editor - RVCE Peer Finder</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .edit-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .label {
+            display: block;
+            font-size: 0.8em;
+            font-weight: 600;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .rich-textarea {
+            width: 100%;
+            min-height: 100px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 0.9em;
+            font-family: inherit;
+            resize: vertical;
+        }
+
+        .ai-suggester {
+            background: #fff9e6;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.8em;
+            color: #856404;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wireframe-container" style="background: #f4f7f6;">
+        <div class="wireframe-header">
+            <a href="67-sop-dashboard.html" class="back-btn">←</a>
+            <h1>Refine SOP</h1>
+            <div style="width: 40px;"></div>
+        </div>
+        <div class="wireframe-content" style="padding: 15px;">
+
+            <div class="edit-card">
+                <div class="input-group">
+                    <label class="label">Section Title</label>
+                    <input type="text" class="input-field" value="Academic Mastery" style="margin-bottom: 0;">
+                </div>
+
+                <div class="input-group">
+                    <label class="label">Priority Items</label>
+                    <textarea class="rich-textarea">1. Clear DS Lab Internals (Focus on Linked Lists)
+2. Attend 85% ISE Theory Classes
+3. Complete Math backlogs by Week 12</textarea>
+                </div>
+
+                <div class="ai-suggester">
+                    <span>💡</span>
+                    <div>
+                        <strong>AI Suggestion:</strong> Based on your talk with Sanjay, he recommended focusing on "The
+                        Library Grind" for ISE theory. Should I add that to your roadmap?
+                        <div style="margin-top: 5px;">
+                            <button class="btn btn-primary"
+                                style="padding: 4px 10px; border-radius: 15px; background: #e67e22; border: none; font-size: 11px;">Accept
+                                Suggestion</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="edit-card">
+                <div class="input-group">
+                    <label class="label">New Milestone</label>
+                    <input type="text" class="input-field" placeholder="e.g., Finalize CV for Research"
+                        style="margin-bottom: 0;">
+                </div>
+                <button class="btn btn-secondary"
+                    style="width: auto; padding: 5px 15px; font-size: 0.8em; border-radius: 20px;">+ Add
+                    Milestone</button>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <button class="btn btn-primary" style="background: #2c3e50; border-radius: 25px;"
+                    onclick="window.location.href='67-sop-dashboard.html'">Save Success Plan</button>
+                <p style="text-align: center; font-size: 0.75em; color: #95a5a6; margin-top: 10px;">
+                    Changes will be reflected in your daily reminders and dashboard.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

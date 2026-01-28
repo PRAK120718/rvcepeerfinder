@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Success Profile - RVCE Peer Finder</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="wireframe-container" style="background: #fdfefe;">
+        <div class="wireframe-header">
+            <a href="39-mentor-recommendations.html" class="back-btn">←</a>
+            <h1>Expert Profile</h1>
+            <div style="width: 40px;"></div>
+        </div>
+        <div class="wireframe-content" style="padding: 0;">
+            <!-- Profile Top -->
+            <div style="background: #2c3e50; padding: 40px 20px; text-align: center; color: white;">
+                <div
+                    style="width: 80px; height: 80px; border-radius: 50%; background: #3498db; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; font-size: 2em; border: 4px solid rgba(255,255,255,0.2);">
+                    P.H.</div>
+                <h2 style="color: white; margin: 0; border: none;">Prof. Harshith V.</h2>
+                <p style="color: #bdc3c7; font-size: 0.9em; margin-top: 5px;">Subject Matter Expert • Neopeer Verified ✓
+                </p>
+                <div style="margin-top: 10px;">
+                    <span class="badge" title="Earned through 95%+ student satisfaction"
+                        style="background: #f1c40f; color: #2c3e50; font-weight: bold; border: none; padding: 5px 12px; border-radius: 12px; font-size: 0.8em;">🎖️
+                        Paid It Forward</span>
+                    <p style="font-size: 0.7em; color: #bdc3c7; margin-top: 4px;">Earned via verified student success
+                    </p>
+                </div>
+                <div style="margin-top: 15px; font-weight: bold; font-size: 1.2em; color: #2ecc71;">₹500 / session</div>
+            </div>
+
+            <div style="padding: 20px;">
+                <!-- Struggle & Personality -->
+                <div class="card" style="border: none; background: #fff5eb; border-left: 4px solid #e67e22;">
+                    <h3 style="color: #d35400; font-size: 1.1em; margin-bottom: 10px;">The Struggle</h3>
+                    <p style="font-size: 0.95em; color: #5d4037; font-style: italic;">
+                        "During my 3rd year at RVCE, I almost quit engineering due to overwhelming backlogs and
+                        financial stress. I felt lost and like a failure..."
+                    </p>
+                </div>
+
+                <div class="card" style="border: none; background: #ebf5fb; border-left: 4px solid #3498db;">
+                    <h3 style="color: #2980b9; font-size: 1.1em; margin-bottom: 10px;">The Achievement</h3>
+                    <p style="font-size: 0.95em; color: #34495e;">
+                        "I spent 14 hours a day in the library, developed a distributed systems framework now used by
+                        RVCE labs, and eventually became a Professor here to guide others."
+                    </p>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <h3 style="font-size: 1.1em; color: #2c3e50; margin-bottom: 10px;">Personality & Style</h3>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <span class="badge"
+                            style="background: #ecf0f1; color: #2c3e50; border: 1px solid #bdc3c7;">Patient
+                            Listener</span>
+                        <span class="badge"
+                            style="background: #ecf0f1; color: #2c3e50; border: 1px solid #bdc3c7;">Strict but
+                            Fair</span>
+                        <span class="badge"
+                            style="background: #ecf0f1; color: #2c3e50; border: 1px solid #bdc3c7;">Hands-on
+                            Support</span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <a href="41-video-call-request.html" class="btn btn-primary"
+                        style="background: #3498db; border-radius: 50px;">
+                        Request Video Call
+                    </a>
+                    <p style="text-align: center; font-size: 0.8em; color: #95a5a6; margin-top: 10px;">
+                        Usually responds within 2 hours
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            const params = new URLSearchParams(window.location.search);
+            const mentor = params.get('mentor');
+
+            if (mentor === 'sanjay') {
+                document.title = 'Sanjay Rao - Mentor Profile';
+                document.querySelector('h2').textContent = 'Sanjay Rao';
+                document.querySelector('p').textContent = 'Final Year Student • Neopeer Verified ✓';
+                document.querySelector('.student-avatar').textContent = 'S.R.';
+                document.querySelector('.student-avatar').style.background = '#e67e22';
+                document.querySelector('.btn-primary').textContent = 'Request Student Guidance';
+                document.querySelector('div[style*="₹500"]').textContent = '₹150 / session';
+                document.querySelector('.btn-primary').href = '57-sanjay-call-request.html';
+
+                // Update Struggle
+                document.querySelector('.card[style*="#fff5eb"] p').textContent =
+                    '"In my 2nd year, I nearly failed Engineering Mathematics. I felt I was in the wrong college, coming from a different background..."';
+
+                // Update Achievement
+                document.querySelector('.card[style*="#ebf5fb"] p').textContent =
+                    '"I found a senior who mentored me, practiced 100+ problems daily, and secured a 9.5 GPA along with an early internship at a top tech firm."';
+
+                // Update Personality
+                const badges = document.querySelectorAll('.badge[style*="#ecf0f1"]');
+                badges[0].textContent = 'Peer Perspective';
+                badges[1].textContent = 'Exam Strategy';
+                badges[2].textContent = 'Relatable Path';
+            } else if (mentor === 'ananya') {
+                document.title = 'Ananya K. - Mentor Profile';
+                document.querySelector('h2').textContent = 'Ananya K.';
+                document.querySelector('p').textContent = '3rd Year Student • Neopeer Verified ✓';
+                document.querySelector('.student-avatar').textContent = 'A.K.';
+                document.querySelector('.student-avatar').style.background = '#1abc9c';
+                document.querySelector('.btn-primary').textContent = 'Request Student Guidance';
+                document.querySelector('div[style*="₹500"]').textContent = '₹100 / session';
+
+                // Update Struggle
+                document.querySelector('.card[style*="#fff5eb"] p').textContent =
+                    '"I was extremely introverted and afraid to even ask a question in class. Competitive coding felt impossible..."';
+
+                // Update Achievement
+                document.querySelector('.card[style*="#ebf5fb"] p').textContent =
+                    '"I joined the Coding Club, pushed through the anxiety, and now I lead technical workshops for 100+ juniors."';
+
+                // Update Personality
+                const badges = document.querySelectorAll('.badge[style*="#ecf0f1"]');
+                badges[0].textContent = 'Introvert Friendly';
+                badges[1].textContent = 'Skill Builder';
+                badges[2].textContent = 'Encouraging';
+            } else if (mentor === 'varun') {
+                document.title = 'Varun K. - Mentor Profile';
+                document.querySelector('h2').textContent = 'Varun K.';
+                document.querySelector('p').textContent = 'RVCE Alumni • Neopeer Verified ✓';
+                document.querySelector('.student-avatar').textContent = 'V.K.';
+                document.querySelector('.student-avatar').style.background = '#8e44ad';
+                document.querySelector('.btn-primary').textContent = 'Request Technical Consult';
+                document.querySelector('div[style*="₹500"]').textContent = '₹300 / session';
+
+                // Remove PIF badge for non-PIF mentors
+                const pifBadge = document.querySelector('span[title*="satisfaction"]');
+                const pifText = document.querySelector('p[style*="Earned via"]');
+                if (pifBadge) pifBadge.style.display = 'none';
+                if (pifText) pifText.style.display = 'none';
+
+                // Update Struggle
+                document.querySelector('.card[style*="#fff5eb"] p').textContent =
+                    '"Coming from a non-CS background, I struggled to understand how various technologies fit together in a real-world stack."';
+
+                // Update Achievement
+                document.querySelector('.card[style*="#ebf5fb"] p').textContent =
+                    '"I built multiple side projects, contributed to OS, and now I specialize in helping students bridge technical gaps."';
+
+                // Update Personality
+                const badges = document.querySelectorAll('.badge[style*="#ecf0f1"]');
+                badges[0].textContent = 'Technical Depth';
+                badges[1].textContent = 'Fullstack Expert';
+                badges[2].textContent = 'Clear Roadmaps';
+            } else if (mentor === 'megha') {
+                document.title = 'Megha S. - Mentor Profile';
+                document.querySelector('h2').textContent = 'Megha S.';
+                document.querySelector('p').textContent = '4th Year Student • Neopeer Verified ✓';
+                document.querySelector('.student-avatar').textContent = 'M.S.';
+                document.querySelector('.student-avatar').style.background = '#d35400';
+                document.querySelector('.btn-primary').textContent = 'Request Design Review';
+                document.querySelector('div[style*="₹500"]').textContent = '₹120 / session';
+
+                // Remove PIF badge
+                const pifBadge = document.querySelector('span[title*="satisfaction"]');
+                const pifText = document.querySelector('p[style*="Earned via"]');
+                if (pifBadge) pifBadge.style.display = 'none';
+                if (pifText) pifText.style.display = 'none';
+
+                // Update Struggle
+                document.querySelector('.card[style*="#fff5eb"] p').textContent =
+                    '"I used to think that design was just about making things look pretty. I failed many project evaluations because of poor UX."';
+
+                // Update Achievement
+                document.querySelector('.card[style*="#ebf5fb"] p').textContent =
+                    '"I mastered design thinking, secured a UX internship, and now I mentor students on the importance of human-centered design."';
+
+                // Update Personality
+                const badges = document.querySelectorAll('.badge[style*="#ecf0f1"]');
+                badges[0].textContent = 'UX Specialist';
+                badges[1].textContent = 'Creative Thinker';
+                badges[2].textContent = 'Actionable Feedback';
+            } else if (mentor === 'rohit') {
+                document.title = 'Rohit P. - Mentor Profile';
+                document.querySelector('h2').textContent = 'Rohit P.';
+                document.querySelector('p').textContent = 'RVCE Alumni • Neopeer Verified ✓';
+                document.querySelector('.student-avatar').textContent = 'R.P.';
+                document.querySelector('.student-avatar').style.background = '#27ae60';
+                document.querySelector('.btn-primary').textContent = 'Request Cloud Training';
+                document.querySelector('div[style*="₹500"]').textContent = '₹400 / session';
+
+                // Remove PIF badge
+                const pifBadge = document.querySelector('span[title*="satisfaction"]');
+                const pifText = document.querySelector('p[style*="Earned via"]');
+                if (pifBadge) pifBadge.style.display = 'none';
+                if (pifText) pifText.style.display = 'none';
+
+                // Update Struggle
+                document.querySelector('.card[style*="#fff5eb"] p').textContent =
+                    '"Cloud computing felt like magic to me. I was overwhelmed by the sheer number of services and certifications available."';
+
+                // Update Achievement
+                document.querySelector('.card[style*="#ebf5fb"] p').textContent =
+                    '"I became an AWS Certified Architect and have successfully deployed infrastructure for startups. I can help you clarify your Cloud path."';
+
+                // Update Personality
+                const badges = document.querySelectorAll('.badge[style*="#ecf0f1"]');
+                badges[0].textContent = 'Certified Architect';
+                badges[1].textContent = 'Infrastructure Focus';
+                badges[2].textContent = 'Strategic Planner';
+            }
+        });
+    </script>
+</body>
+
+</html>

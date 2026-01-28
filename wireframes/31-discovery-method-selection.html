@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Discovery Method - RVCE Peer Finder</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <div style="width: 60px;"></div>
+            <h1>Choose Discovery Method</h1>
+            <div style="width: 60px;"></div>
+        </div>
+        <div class="wireframe-content">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <h2>Get Started with AI Agent</h2>
+                <p style="color: #7f8c8d; margin-top: 10px;">
+                    Experience the next generation of student matchmaking
+                </p>
+            </div>
+
+            <div class="card" style="border-color: #3498db; background: #ebf5fb; cursor: pointer; margin-bottom: 20px;"
+                onclick="selectDiscoveryMethod('ai-agent')">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">🤖 AI Agent-Led Discovery</div>
+                        <div class="card-subtitle">Recommended for best matches</div>
+                    </div>
+                    <span class="badge badge-match">Active</span>
+                </div>
+                <div class="card-content" style="margin-top: 15px;">
+                    <p style="font-size: 0.9em; color: #555; margin-bottom: 15px;">
+                        Have a natural voice conversation with an AI agent who understands your goals, personality, and
+                        preferences.
+                        The agent will automatically find and recommend the best matches for you.
+                    </p>
+                    <ul style="margin-left: 20px; font-size: 0.9em; color: #555; line-height: 2; margin-bottom: 15px;">
+                        <li>Personalized AI-powered matching</li>
+                        <li>Voice conversation for deeper understanding</li>
+                        <li>Automated match recommendations</li>
+                        <li>Higher quality matches</li>
+                    </ul>
+                    <div
+                        style="padding: 12px; background: #fff3cd; border-radius: 5px; border-left: 3px solid #f39c12;">
+                        <p style="font-size: 0.85em; color: #856404; margin: 0;">
+                            <strong>Exclusive Access</strong> • AI-led discovery is now our primary matching method
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; text-align: center;">
+                <button class="btn btn-primary" onclick="selectDiscoveryMethod('ai-agent')">Start AI
+                    Conversation</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function selectDiscoveryMethod(method) {
+            // Store discovery method preference
+            localStorage.setItem('neopeer_discovery_method', 'ai-agent');
+
+            // Navigate to first-time onboarding or aspiration selection
+            const onboardingComplete = localStorage.getItem('neopeer_onboarding_complete') === 'true';
+            if (onboardingComplete) {
+                window.location.href = '00-aspiration-selection.html';
+            } else {
+                window.location.href = '00-first-time-onboarding.html';
+            }
+        }
+
+        // Check if user is authenticated
+        window.addEventListener('DOMContentLoaded', function () {
+            const isAuthenticated = localStorage.getItem('rvce_authenticated') === 'true';
+            if (!isAuthenticated) {
+                window.location.href = '00-landing.html';
+            }
+        });
+    </script>
+</body>
+
+</html>

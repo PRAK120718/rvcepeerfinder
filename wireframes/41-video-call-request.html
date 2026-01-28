@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Call Request - RVCE Peer Finder</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <a href="42-mentor-success-profile.html" class="back-btn">←</a>
+            <h1>Request Video Session</h1>
+            <div style="width: 40px;"></div>
+        </div>
+        <div class="wireframe-content">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <div
+                    style="width: 60px; height: 60px; border-radius: 50%; background: #3498db; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                    P.H.</div>
+                <h2 style="border: none; margin: 0;">Prof. Harshith V.</h2>
+                <p style="color: #7f8c8d; font-size: 0.9em;">Fee: ₹500 for 45-min session</p>
+            </div>
+
+            <div class="card">
+                <div class="label">Choose Session Date</div>
+                <input type="date" class="input-field" value="2026-01-25">
+
+                <div class="label" style="margin-top: 15px;">Choose Slot</div>
+                <div class="time-slot selected">
+                    <div class="time-slot-header">
+                        <span class="time-slot-time">04:00 PM - 04:45 PM</span>
+                        <span class="time-slot-status">Available</span>
+                    </div>
+                </div>
+                <div class="time-slot">
+                    <div class="time-slot-header">
+                        <span class="time-slot-time">05:00 PM - 05:45 PM</span>
+                        <span class="time-slot-status">Available</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="label">What do you need help with?</div>
+                <textarea class="textarea-field"
+                    placeholder="e.g., I'm stuck on Step 3 of my SOP regarding Recursive Dynamic Programming..."></textarea>
+            </div>
+
+            <div
+                style="padding: 15px; background: #fff3cd; border-radius: 8px; margin: 20px 0; border: 1px solid #ffeeba;">
+                <p style="font-size: 0.85em; color: #856404; margin: 0;">
+                    <strong>Note:</strong> Payment will be processed through RVCE-Pay after the mentor accepts your
+                    request.
+                </p>
+            </div>
+
+            <button class="btn btn-primary" style="background: #3498db; border-radius: 50px;"
+                onclick="window.location.href='51-video-call-status.html'">
+                Send Video Call Request
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>

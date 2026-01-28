@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Aspiration - Neopeer</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../aspirations.js"></script>
+</head>
+
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <a href="javascript:history.back()" class="back-btn">←</a>
+            <h1>New Aspiration</h1>
+            <div style="width: 60px;"></div>
+        </div>
+        <div class="wireframe-content">
+            <h2>Create New Aspiration Profile</h2>
+            <p style="color: #7f8c8d; margin-bottom: 20px;">
+                Start a new conversation with your agent to explore a different aspiration.
+                This will create a separate profile with its own matches.
+            </p>
+
+            <div class="card" style="border-color: #3498db; background: #ebf5fb;">
+                <div class="card-content">
+                    <p><strong>What is an Aspiration Profile?</strong></p>
+                    <p style="margin-top: 10px; font-size: 0.9em; color: #555;">
+                        Each aspiration represents a different goal or project you're pursuing.
+                        You can have multiple active aspirations, each with:
+                    </p>
+                    <ul style="margin-left: 20px; margin-top: 10px; line-height: 1.8; font-size: 0.9em;">
+                        <li>Separate agent conversation memory</li>
+                        <li>Independent match recommendations</li>
+                        <li>Unique scheduling and meetings</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <label class="label">Give your aspiration a name (optional)</label>
+                <input type="text" class="input-field" placeholder="e.g., AI Startup, Research Project, etc."
+                    id="aspirationName">
+                <p style="font-size: 0.85em; color: #7f8c8d;">
+                    You can name it later if you prefer
+                </p>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <div class="consent-checkbox">
+                    <input type="checkbox" id="useExistingMemory">
+                    <label for="useExistingMemory">
+                        <strong>Use insights from previous conversations (Optional)</strong>
+                        <div class="consent-text">
+                            Allow the agent to reference your personality traits and preferences
+                            from other aspirations to speed up the conversation.
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <button class="btn btn-primary" onclick="startNewAspiration()">
+                    Start New Aspiration Conversation
+                </button>
+            </div>
+
+            <div style="margin-top: 30px; padding: 15px; background: #f8f9fa; border-radius: 5px;">
+                <p style="font-size: 0.9em; color: #7f8c8d;">
+                    <strong>Note:</strong> You'll go through a voice conversation with the agent to define
+                    this aspiration. All existing privacy and consent settings will apply.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function startNewAspiration() {
+            const name = document.getElementById('aspirationName').value;
+            const useMemory = document.getElementById('useExistingMemory').checked;
+
+            // Create and save aspiration
+            const aspiration = addAspiration({
+                name: name || 'New Aspiration',
+                description: '',
+                status: 'active'
+            });
+
+            // Set as current aspiration
+            localStorage.setItem('current_aspiration', JSON.stringify({
+                id: aspiration.id,
+                name: aspiration.name,
+                useExistingMemory: useMemory,
+                createdAt: aspiration.createdAt
+            }));
+
+            window.location.href = '02-agent-conversation.html?new=true';
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Notes - Neopeer</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <a href="../index.html" class="back-btn">←</a>
+            <h1>Meeting Summary</h1>
+            <div style="width: 60px;"></div>
+        </div>
+        <div class="wireframe-content">
+            <div class="notification success">
+                <strong>✓ Summary Generated</strong><br>
+                Your meeting notes have been sent to your WhatsApp!
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Meeting with <span class="student-code">S0042</span></div>
+                </div>
+                <div class="card-content" style="margin-top: 15px;">
+                    <p><strong>Date:</strong> Tuesday, December 17, 2024</p>
+                    <p><strong>Duration:</strong> 28 minutes</p>
+                    <p style="margin-top: 10px; font-size: 0.9em; color: #7f8c8d;">
+                        🔒 Identity remains anonymous - revealed only if both agree to connect
+                    </p>
+                </div>
+            </div>
+            
+            <h2>Meeting Summary</h2>
+            
+            <div class="card">
+                <div class="card-content">
+                    <p><strong>Key Topics Discussed:</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px; line-height: 1.8;">
+                        <li>Both parties interested in AI startup collaboration</li>
+                        <li><span class="student-code">S0042</span> has strong marketing background; you have technical expertise</li>
+                        <li>Discussion about accountability and structured goal-setting</li>
+                        <li>Shared interest in direct communication style</li>
+                        <li>Explored potential working relationship structure</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-content">
+                    <p><strong>Next Steps Discussed:</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px; line-height: 1.8;">
+                        <li>Follow-up conversation to dive deeper into technical requirements</li>
+                        <li><span class="student-code">S0042</span> will prepare a marketing strategy document</li>
+                        <li>You'll share your technical roadmap</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-content">
+                    <p><strong>Action Items:</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px; line-height: 1.8;">
+                        <li><strong>You:</strong> Share technical architecture overview</li>
+                        <li><strong><span class="student-code">S0042</span>:</strong> Prepare marketing strategy pitch</li>
+                        <li><strong>Both:</strong> Schedule follow-up meeting</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px;">
+                <button class="btn btn-primary" onclick="window.location.href='18-consent-options.html'">
+                    Continue
+                </button>
+            </div>
+            
+            <div id="whatsappNotice" style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 5px; display: none;">
+                <p style="font-size: 0.9em; color: #7f8c8d; text-align: center;">
+                    📱 A detailed summary has been sent to your WhatsApp number
+                </p>
+            </div>
+            
+            <script>
+                // Check if WhatsApp sharing was consented
+                const preferences = JSON.parse(localStorage.getItem('meeting_preferences') || '{}');
+                const consents = JSON.parse(localStorage.getItem('neopeer_consents') || '{}');
+                if (preferences.whatsapp || consents.whatsappSharing) {
+                    document.getElementById('whatsappNotice').style.display = 'block';
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>

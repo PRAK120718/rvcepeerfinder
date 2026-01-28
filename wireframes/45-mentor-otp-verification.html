@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification - RVCE Peer Finder</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .otp-input-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .otp-box {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header"
+            style="background: transparent; color: #2c3e50; border-bottom: 1px solid #e0e0e0;">
+            <a href="44-mentor-email-login.html" class="back-btn"
+                style="color: #2c3e50; background: rgba(0,0,0,0.05);">←</a>
+            <h1 style="color: #2c3e50;">Verification</h1>
+            <div style="width: 40px;"></div>
+        </div>
+        <div class="wireframe-content"
+            style="display: flex; flex-direction: column; justify-content: center; min-height: calc(800px - 100px);">
+            <div style="text-align: center; padding: 20px;">
+                <div style="margin-bottom: 20px;">
+                    <div style="font-size: 3em; margin-bottom: 20px;">📩</div>
+                    <h2 style="color: #2c3e50; font-size: 1.5em; margin-bottom: 10px;">Enter OTP</h2>
+                    <p style="color: #7f8c8d; font-size: 0.9em;">
+                        A verification code has been sent to your RVCE email.
+                    </p>
+                </div>
+
+                <div class="otp-input-group">
+                    <input type="text" class="otp-box" value="1" maxlength="1">
+                    <input type="text" class="otp-box" value="2" maxlength="1">
+                    <input type="text" class="otp-box" value="3" maxlength="1">
+                    <input type="text" class="otp-box" value="4" maxlength="1">
+                </div>
+
+                <div style="max-width: 400px; margin: 0 auto;">
+                    <button class="btn btn-primary" style="background: #e67e22;" onclick="verifyOTP()">
+                        Verify & Continue
+                    </button>
+                    <p style="margin-top: 20px; font-size: 0.85em; color: #95a5a6;">
+                        Didn't receive it? <a href="#"
+                            style="color: #e67e22; text-decoration: none; font-weight: bold;">Resend OTP</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function verifyOTP() {
+            // For wireframe, any action proceeds
+            window.location.href = '38-mentor-agent-conversation.html';
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Session - Mentor Hub</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: calc(800px - 100px);
+            background: #2c3e50;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-view {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: contrast(1.1);
+        }
+
+        .pip-view {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 100px;
+            height: 140px;
+            background: #333;
+            border-radius: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8em;
+            overflow: hidden;
+        }
+
+        .call-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            background: rgba(44, 62, 80, 0.8);
+            padding: 10px 25px;
+            border-radius: 40px;
+            backdrop-filter: blur(5px);
+        }
+
+        .control-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1.2em;
+        }
+
+        .header-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .tag {
+            background: rgba(39, 174, 96, 0.9);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wireframe-container" style="padding: 0;">
+        <div class="video-container">
+            <!-- Student/Group View -->
+            <img src="https://via.placeholder.com/400x800/e67e22/ffffff?text=Aspirants+Group+B-10" class="main-view"
+                id="mainParticipantView">
+
+            <div class="header-overlay">
+                <div class="tag" id="participantTag">● ASPIRANTS GROUP B-10</div>
+                <div
+                    style="background: rgba(0,0,0,0.5); color: white; padding: 5px 12px; border-radius: 4px; font-size: 0.75em;">
+                    Status: High Definition • Secure
+                </div>
+            </div>
+
+            <div class="pip-view">
+                <img src="https://via.placeholder.com/100x140/3498db/ffffff?text=You"
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+
+            <div class="call-controls">
+                <button class="control-btn" style="background: white; color: #2c3e50;">🎤</button>
+                <button class="control-btn" style="background: white; color: #2c3e50;">📷</button>
+                <button class="control-btn" style="background: #e74c3c; color: white;"
+                    onclick="window.location.href='65-mentor-session-feedback.html'">📞</button>
+                <button class="control-btn" style="background: white; color: #2c3e50;">💬</button>
+            </div>
+
+            <div
+                style="position: absolute; bottom: 100px; left: 20px; color: white; background: rgba(0,0,0,0.5); padding: 8px 15px; border-radius: 8px; font-size: 0.8em;">
+                🕒 Session: 55:20 remaining
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            const params = new URLSearchParams(window.location.search);
+            const title = params.get('title');
+            if (title) {
+                document.getElementById('participantTag').textContent = '● ' + title.toUpperCase();
+                document.getElementById('mainParticipantView').src = 'https://via.placeholder.com/400x800/e67e22/ffffff?text=' + encodeURIComponent(title);
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matching Students - RVCE Peer Finder</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="wireframe-container" style="background: #f8f9fa;">
+        <div class="wireframe-header" style="background: #e67e22;">
+            <a href="43-mentor-credential-verification.html" class="back-btn">←</a>
+            <h1>Mentor Dashboard</h1>
+            <a href="38-mentor-agent-conversation.html" class="back-btn"
+                style="font-size: 0.75em; padding: 6px 12px; width: auto; border-radius: 20px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.3);">
+                🔄 Get to Know You
+            </a>
+        </div>
+        <div class="wireframe-content">
+            <!-- Summary Stats -->
+            <div style="display: flex; gap: 10px; margin-bottom: 25px;">
+                <div class="card" style="flex: 1; margin: 0; padding: 12px; text-align: center; background: #fff;">
+                    <div style="font-size: 1.2em; font-weight: bold; color: #e67e22;">₹1,450</div>
+                    <div style="font-size: 0.7em; color: #95a5a6; text-transform: uppercase;">Earnings</div>
+                </div>
+                <div class="card" style="flex: 1; margin: 0; padding: 12px; text-align: center; background: #fff;">
+                    <div style="font-size: 1.2em; font-weight: bold; color: #27ae60;">4.9 ★</div>
+                    <div style="font-size: 0.7em; color: #95a5a6; text-transform: uppercase;">Rating</div>
+                </div>
+                <div class="card" style="flex: 1; margin: 0; padding: 12px; text-align: center; background: #fff;">
+                    <div style="font-size: 1.2em; font-weight: bold; color: #3498db;">12</div>
+                    <div style="font-size: 0.7em; color: #95a5a6; text-transform: uppercase;">Sessions</div>
+                </div>
+            </div>
+
+            <!-- Active/Upcoming Sessions -->
+            <h3
+                style="font-size: 0.9em; color: #7f8c8d; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">
+                Upcoming Sessions</h3>
+
+            <!-- Group Session (Incoming soon) -->
+            <div class="card" style="background: #ebf5fb; border-color: #3498db; margin-bottom: 15px;">
+                <div style="display: flex; justify-content: space-between; align-items: start;">
+                    <div>
+                        <span class="badge" style="background: #3498db; color: white; margin: 0 0 5px 0;">Starts in
+                            5m</span>
+                        <div style="font-weight: 700; color: #2c3e50;">Aspirants Group B-10</div>
+                        <p style="font-size: 0.8em; color: #7f8c8d; margin: 3px 0;">Today, 12:30 PM • 3 Students</p>
+                    </div>
+                    <button class="btn"
+                        style="background: #27ae60; color: white; font-size: 0.8em; padding: 8px 15px; border-radius: 20px;"
+                        onclick="window.location.href='64-mentor-video-call.html?title=Aspirants+Group+B-10'">Join
+                        Call</button>
+                </div>
+            </div>
+
+            <!-- Individual Session -->
+            <div class="card" style="background: white; border-color: #eee; margin-bottom: 25px;">
+                <div style="display: flex; justify-content: space-between; align-items: start;">
+                    <div>
+                        <span class="badge"
+                            style="background: #95a5a6; color: white; margin: 0 0 5px 0;">Scheduled</span>
+                        <div style="font-weight: 700; color: #2c3e50;">Student S1024</div>
+                        <p style="font-size: 0.8em; color: #7f8c8d; margin: 3px 0;">Tomorrow, 10:00 AM • 45m</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="color: #27ae60; font-weight: bold; font-size: 0.9em;">₹150</div>
+                        <p style="font-size: 0.7em; color: #95a5a6;">Escrow Active</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr style="border: none; border-top: 1px solid #eee; margin-bottom: 25px;">
+
+            <!-- Recommended Leads -->
+            <h3
+                style="font-size: 0.9em; color: #7f8c8d; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">
+                Recommended for You</h3>
+
+            <div class="card"
+                style="background: #fffcf5; border: 2px solid #e67e22; box-shadow: 0 4px 15px rgba(230, 126, 34, 0.1);">
+                <div style="display: flex; gap: 15px; align-items: start;">
+                    <div class="student-avatar"
+                        style="background: #2c3e50; display: flex; flex-direction: column; line-height: 1;">
+                        <span style="font-size: 0.8em;">👥</span>
+                        <span style="font-size: 0.6em; margin-top: 3px;">GROUP</span>
+                    </div>
+                    <div style="flex: 1;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div style="font-weight: 700; color: #2c3e50;">Aspirants Group B-12</div>
+                            <span class="badge" style="background: #e67e22; color: white; margin: 0;">4 Peers</span>
+                        </div>
+                        <p style="font-size: 0.8em; color: #7f8c8d; margin: 5px 0;">Theme: Internship Prep & DSA Mastery
+                        </p>
+                        <button class="btn btn-primary"
+                            onclick="window.location.href='63-mentor-talks-to-student-agent.html?type=group&target=B-12'"
+                            style="background: #2c3e50; font-size: 0.85em; padding: 10px; border-radius: 20px; margin-top: 15px;">
+                            Consult Student's Agent
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card"
+                style="background: white; border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 15px;">
+                <div style="display: flex; gap: 15px; align-items: start;">
+                    <div class="student-avatar" style="background: #e67e22;">S.1024</div>
+                    <div style="flex: 1;">
+                        <div style="font-weight: 600; color: #2c3e50;">Student S1024</div>
+                        <p style="font-size: 0.8em; color: #7f8c8d; margin: 3px 0;">3rd Year, ISE • Looking for DSA
+                            Roadmap</p>
+                        <button class="btn btn-primary"
+                            onclick="window.location.href='63-mentor-talks-to-student-agent.html?type=student&target=S1024'"
+                            style="background: #95a5a6; font-size: 0.85em; padding: 8px; border-radius: 20px; margin-top: 12px;">
+                            Consult Student's Agent
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px; padding: 20px;">
+                <p style="font-size: 0.8em; color: #95a5a6;">
+                    Matches are based on your <strong>'Get to Know You'</strong> interview data.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

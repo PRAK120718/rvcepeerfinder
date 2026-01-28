@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Availability - RVCE Peer Finder</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../aspirations.js"></script>
+    <script src="../availability.js"></script>
+</head>
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <a href="23-manage-aspirations.html" class="back-btn">←</a>
+            <h1 id="aspirationTitle">Manage Availability</h1>
+            <div style="width: 60px;"></div>
+        </div>
+        <div class="wireframe-content">
+            <div id="viewMode">
+                <div style="padding: 15px; background: #e8f4f8; border-radius: 5px; border-left: 4px solid #3498db; margin-bottom: 20px;">
+                    <p style="font-size: 0.9em; color: #2c3e50; margin: 0;">
+                        <strong>💡 Note:</strong> Set your availability for this aspiration. Only available slots (excluding booked/requested) will be shown to other users when scheduling meetings.
+                    </p>
+                </div>
+                
+                <div style="margin-bottom: 25px;">
+                    <button class="btn btn-primary" onclick="enableAddMode()">
+                        + Add Available Time Slots
+                    </button>
+                </div>
+                
+                <h2>Available Slots</h2>
+                <div id="availableSlotsList">
+                    <!-- Available slots will be loaded here -->
+                </div>
+                
+                <h2 style="margin-top: 30px;">Requested Slots</h2>
+                <div id="requestedSlotsList">
+                    <!-- Requested slots will be loaded here -->
+                </div>
+                
+                <h2 style="margin-top: 30px;">Booked Slots</h2>
+                <div id="bookedSlotsList">
+                    <!-- Booked slots will be loaded here -->
+                </div>
+            </div>
+            
+            <div id="addMode" style="display: none;">
+                <h2>Add Available Time Slots</h2>
+                <p style="color: #7f8c8d; margin-bottom: 20px;">
+                    Add time slots when you're available for meetings related to this aspiration.
+                </p>
+                
+                <div id="newSlotsContainer">
+                    <div class="new-slot-item" style="margin-bottom: 20px; padding: 15px; border: 2px solid #ddd; border-radius: 8px;">
+                        <label class="label">Date</label>
+                        <input type="date" class="input-field slot-date" required>
+                        
+                        <label class="label" style="margin-top: 15px;">Start Time</label>
+                        <input type="time" class="input-field slot-start-time" required>
+                        
+                        <label class="label" style="margin-top: 15px;">End Time</label>
+                        <input type="time" class="input-field slot-end-time" required>
+                        
+                        <button class="btn btn-danger" style="margin-top: 10px; width: 100%;" onclick="removeSlotItem(this)" style="display: none;">
+                            Remove
+                        </button>
+                    </div>
+                </div>
+                
+                <button class="btn btn-outline" onclick="addSlotItem()" style="width: 100%; margin-bottom: 20px;">
+                    + Add Another Slot
+                </button>
+                
+                <div class="btn-group">
+                    <button class="btn btn-secondary" onclick="cancelAddMode()">Cancel</button>
+                    <button class="btn btn-primary" onclick="saveNewSlots()">Save Slots</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let currentAspirationId = null;
+        
+        window.addEventListener('DOMContentLoaded', function() {
+            // Get aspiration ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            currentAspirationId = urlParams.get('aspiration');
+            
+            if (!currentAspirationId) {
+                alert('Aspiration ID not found. Redirecting...');
+                window.location.href = '23-manage-aspirations.html';
+                return;
+            }
+            
+            // Load aspiration details
+            const aspiration = getAspirationById(currentAspirationId);
+            if (aspiration) {
+                document.getElementById('aspirationTitle').textContent = aspiration.name + ' - Availability';
+            }
+            
+            // Load availability
+            loadAvailability();
+        });
+        
+        function loadAvailability() {
+            const availability = getAspirationAvailability(currentAspirationId);
+            
+            // Load available slots
+            loadAvailableSlots(availability.availableSlots);
+            
+            // Load requested slots
+            loadRequestedSlots(availability.requestedSlots);
+            
+            // Load booked slots
+            loadBookedSlots(availability.bookedSlots);
+        }
+        
+        function loadAvailableSlots(slots) {
+            const container = document.getElementById('availableSlotsList');
+            
+            if (slots.length === 0) {
+                container.innerHTML = '<p style="color: #7f8c8d; padding: 20px; text-align: center;">No available slots set. Add slots to get started.</p>';
+                return;
+            }
+            
+            container.innerHTML = slots.map(slot => {
+                const date = new Date(slot.date);
+                const dateStr = date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+                
+                return `
+                    <div class="time-slot" style="cursor: default;">
+                        <div class="time-slot-header">
+                            <div>
+                                <div class="time-slot-date">${dateStr}</div>
+                                <div class="time-slot-time">${formatTime(slot.startTime)} - ${formatTime(slot.endTime)}</div>
+                            </div>
+                            <button class="btn btn-danger" style="padding: 5px 15px; font-size: 0.85em;" onclick="removeSlot('${slot.id}')">
+                                Remove
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        function loadRequestedSlots(slots) {
+            const container = document.getElementById('requestedSlotsList');
+            
+            if (slots.length === 0) {
+                container.innerHTML = '<p style="color: #7f8c8d; padding: 20px; text-align: center;">No requested slots.</p>';
+                return;
+            }
+            
+            container.innerHTML = slots.map(slot => {
+                const date = new Date(slot.date);
+                const dateStr = date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+                
+                return `
+                    <div class="time-slot" style="cursor: default; border-color: #f39c12;">
+                        <div class="time-slot-header">
+                            <div>
+                                <div class="time-slot-date">${dateStr}</div>
+                                <div class="time-slot-time">${formatTime(slot.startTime)} - ${formatTime(slot.endTime)}</div>
+                                ${slot.studentCode ? `<div style="font-size: 0.85em; color: #7f8c8d; margin-top: 5px;">Requested by: <span class="student-code">${slot.studentCode}</span></div>` : ''}
+                            </div>
+                            <span class="badge badge-pending">Requested</span>
+                        </div>
+                        <div style="margin-top: 10px; display: flex; gap: 10px;">
+                            <button class="btn btn-success" style="padding: 5px 15px; font-size: 0.85em; flex: 1;" onclick="acceptRequest('${slot.id}')">
+                                Accept
+                            </button>
+                            <button class="btn btn-danger" style="padding: 5px 15px; font-size: 0.85em; flex: 1;" onclick="cancelRequest('${slot.id}')">
+                                Decline
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        function loadBookedSlots(slots) {
+            const container = document.getElementById('bookedSlotsList');
+            
+            if (slots.length === 0) {
+                container.innerHTML = '<p style="color: #7f8c8d; padding: 20px; text-align: center;">No booked slots.</p>';
+                return;
+            }
+            
+            container.innerHTML = slots.map(slot => {
+                const date = new Date(slot.date);
+                const dateStr = date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+                
+                return `
+                    <div class="time-slot" style="cursor: default; border-color: #27ae60; background: #eafaf1;">
+                        <div class="time-slot-header">
+                            <div>
+                                <div class="time-slot-date">${dateStr}</div>
+                                <div class="time-slot-time">${formatTime(slot.startTime)} - ${formatTime(slot.endTime)}</div>
+                                ${slot.studentCode ? `<div style="font-size: 0.85em; color: #7f8c8d; margin-top: 5px;">With: <span class="student-code">${slot.studentCode}</span></div>` : ''}
+                            </div>
+                            <span class="badge badge-match">Booked</span>
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <button class="btn btn-outline" style="padding: 5px 15px; font-size: 0.85em; width: 100%;" onclick="rescheduleSlot('${slot.id}')">
+                                Reschedule
+                            </button>
+                            <button class="btn btn-danger" style="padding: 5px 15px; font-size: 0.85em; width: 100%; margin-top: 10px;" onclick="cancelBooking('${slot.id}')">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        function formatTime(timeStr) {
+            if (!timeStr) return '';
+            const [hours, minutes] = timeStr.split(':');
+            const hour = parseInt(hours);
+            const ampm = hour >= 12 ? 'PM' : 'AM';
+            const displayHour = hour % 12 || 12;
+            return `${displayHour}:${minutes} ${ampm}`;
+        }
+        
+        function enableAddMode() {
+            document.getElementById('viewMode').style.display = 'none';
+            document.getElementById('addMode').style.display = 'block';
+            
+            // Set minimum date to today
+            const today = new Date().toISOString().split('T')[0];
+            document.querySelectorAll('.slot-date').forEach(input => {
+                input.min = today;
+            });
+        }
+        
+        function cancelAddMode() {
+            document.getElementById('viewMode').style.display = 'block';
+            document.getElementById('addMode').style.display = 'none';
+            // Reset form
+            document.getElementById('newSlotsContainer').innerHTML = document.getElementById('newSlotsContainer').innerHTML;
+        }
+        
+        function addSlotItem() {
+            const container = document.getElementById('newSlotsContainer');
+            const newItem = document.createElement('div');
+            newItem.className = 'new-slot-item';
+            newItem.style.cssText = 'margin-bottom: 20px; padding: 15px; border: 2px solid #ddd; border-radius: 8px;';
+            newItem.innerHTML = `
+                <label class="label">Date</label>
+                <input type="date" class="input-field slot-date" required>
+                
+                <label class="label" style="margin-top: 15px;">Start Time</label>
+                <input type="time" class="input-field slot-start-time" required>
+                
+                <label class="label" style="margin-top: 15px;">End Time</label>
+                <input type="time" class="input-field slot-end-time" required>
+                
+                <button class="btn btn-danger" style="margin-top: 10px; width: 100%;" onclick="removeSlotItem(this)">
+                    Remove
+                </button>
+            `;
+            
+            // Set minimum date
+            const today = new Date().toISOString().split('T')[0];
+            newItem.querySelector('.slot-date').min = today;
+            
+            container.appendChild(newItem);
+        }
+        
+        function removeSlotItem(button) {
+            const container = document.getElementById('newSlotsContainer');
+            if (container.children.length > 1) {
+                button.closest('.new-slot-item').remove();
+            } else {
+                alert('You need at least one slot. Use Cancel to exit.');
+            }
+        }
+        
+        function saveNewSlots() {
+            const slotItems = document.querySelectorAll('.new-slot-item');
+            const newSlots = [];
+            
+            slotItems.forEach(item => {
+                const date = item.querySelector('.slot-date').value;
+                const startTime = item.querySelector('.slot-start-time').value;
+                const endTime = item.querySelector('.slot-end-time').value;
+                
+                if (!date || !startTime || !endTime) {
+                    alert('Please fill in all fields for all slots.');
+                    return;
+                }
+                
+                if (startTime >= endTime) {
+                    alert('End time must be after start time.');
+                    return;
+                }
+                
+                newSlots.push({
+                    date: date,
+                    startTime: startTime,
+                    endTime: endTime
+                });
+            });
+            
+            if (newSlots.length === 0) {
+                alert('Please add at least one slot.');
+                return;
+            }
+            
+            // Save slots
+            addAvailableSlots(currentAspirationId, newSlots);
+            
+            // Reload and show view mode
+            loadAvailability();
+            cancelAddMode();
+        }
+        
+        function removeSlot(slotId) {
+            if (confirm('Are you sure you want to remove this available slot?')) {
+                removeAvailableSlot(currentAspirationId, slotId);
+                loadAvailability();
+            }
+        }
+        
+        function cancelRequest(slotId) {
+            if (confirm('Are you sure you want to decline this request?')) {
+                cancelRequestedSlot(currentAspirationId, slotId);
+                loadAvailability();
+            }
+        }
+        
+        function acceptRequest(slotId) {
+            // This would typically move to booked and notify the other user
+            // For now, just remove from requested
+            const availability = getAspirationAvailability(currentAspirationId);
+            const slot = availability.requestedSlots.find(s => s.id === slotId);
+            if (slot) {
+                addBookedSlot(currentAspirationId, {
+                    ...slot,
+                    requestedSlotId: slotId
+                });
+                cancelRequestedSlot(currentAspirationId, slotId);
+                loadAvailability();
+            }
+        }
+        
+        function cancelBooking(slotId) {
+            if (confirm('Are you sure you want to cancel this booked meeting?')) {
+                cancelBookedSlot(currentAspirationId, slotId);
+                loadAvailability();
+            }
+        }
+        
+        function rescheduleSlot(slotId) {
+            // This would open a reschedule dialog
+            alert('Reschedule functionality - would open reschedule dialog');
+        }
+    </script>
+</body>
+</html>

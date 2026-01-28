@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suggest Alternative - Neopeer</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <a href="../index.html" class="back-btn">←</a>
+            <h1>Suggest Alternative</h1>
+            <div style="width: 60px;"></div>
+        </div>
+        <div class="wireframe-content">
+            <h2>Choose Alternative Time</h2>
+            <p style="color: #7f8c8d; margin-bottom: 20px;">
+                Select a different time slot within the mutual available range.
+            </p>
+            
+            <div style="margin-bottom: 20px;">
+                <label class="label">Available Mutual Times</label>
+                <p style="font-size: 0.9em; color: #7f8c8d; margin-bottom: 15px;">
+                    These times work for both you and <span class="student-code">S0042</span>:
+                </p>
+                
+                <div class="time-slot">
+                    <div class="time-slot-header">
+                        <div>
+                            <div class="time-slot-date">Monday, Dec 16</div>
+                            <div class="time-slot-time">2:00 PM - 3:00 PM</div>
+                        </div>
+                        <input type="radio" name="alt-slot" style="width: 20px; height: 20px;">
+                    </div>
+                </div>
+                
+                <div class="time-slot">
+                    <div class="time-slot-header">
+                        <div>
+                            <div class="time-slot-date">Tuesday, Dec 17</div>
+                            <div class="time-slot-time">2:00 PM - 3:00 PM</div>
+                        </div>
+                        <input type="radio" name="alt-slot" style="width: 20px; height: 20px;">
+                    </div>
+                </div>
+                
+                <div class="time-slot">
+                    <div class="time-slot-header">
+                        <div>
+                            <div class="time-slot-date">Wednesday, Dec 18</div>
+                            <div class="time-slot-time">11:00 AM - 12:00 PM</div>
+                        </div>
+                        <input type="radio" name="alt-slot" style="width: 20px; height: 20px;">
+                    </div>
+                </div>
+            </div>
+            
+            <button class="btn btn-primary" onclick="window.location.href='11-confirm-slot.html'">
+                Suggest This Alternative
+            </button>
+            
+            <button class="btn btn-outline" style="margin-top: 10px;" onclick="window.location.href='13-share-time-range.html'">
+                Suggest Time Outside Mutual Range
+            </button>
+        </div>
+    </div>
+</body>
+</html>

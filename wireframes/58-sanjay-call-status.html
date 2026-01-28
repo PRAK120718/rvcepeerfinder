@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Status - RVCE Peer Finder</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <a href="javascript:history.back()" class="back-btn">←</a>
+            <h1>Status</h1>
+            <div style="width: 40px;"></div>
+        </div>
+        <div class="wireframe-content">
+            <div id="statusContainer"
+                style="padding: 20px; text-align: center; display: flex; flex-direction: column; justify-content: center; min-height: 400px;">
+                <div class="loading" id="loadingStatus">
+                    <div class="spinner"></div>
+                    <p>Waiting for Sanjay's response...</p>
+                </div>
+
+                <div id="acceptedView" style="display: none;">
+                    <div style="font-size: 4em; margin-bottom: 20px;">🎒</div>
+                    <h2 style="color: #27ae60; border: none;">Sanjay is Ready!</h2>
+                    <p style="color: #7f8c8d; margin-bottom: 30px;">
+                        Sanjay Rao has accepted your request. He's excited to share his math strategy with you!
+                    </p>
+                    <button class="btn btn-primary" style="background: #27ae60;"
+                        onclick="window.location.href='59-sanjay-call-payment.html'">Proceed to Payment (₹150)</button>
+                </div>
+
+                <div id="rejectedView" style="display: none;">
+                    <div style="font-size: 4em; margin-bottom: 20px;">📉</div>
+                    <h2 style="color: #e74c3c; border: none;">Sanjay is Busy</h2>
+                    <p style="color: #7f8c8d; margin-bottom: 30px;">
+                        Sanjay has a project submission and can't make this slot. Try another time?
+                    </p>
+                    <button class="btn btn-primary" onclick="window.location.href='57-sanjay-call-request.html'">Try
+                        Different Slot</button>
+                    <button class="btn btn-outline" style="margin-top: 10px;"
+                        onclick="window.location.href='39-mentor-recommendations.html'">Browse other peer
+                        mentors</button>
+                </div>
+
+                <div id="rescheduledView" style="display: none;">
+                    <div style="font-size: 4em; margin-bottom: 20px;">⏱️</div>
+                    <h2 style="color: #e67e22; border: none;">Sanjay Suggested a Change</h2>
+                    <p style="color: #7f8c8d; margin-bottom: 10px;">
+                        Sanjay suggests meeting later:
+                    </p>
+                    <div class="time-slot selected" style="margin-bottom: 30px;">
+                        <div class="time-slot-header">
+                            <span class="time-slot-time">Today • 08:00 PM - 08:45 PM</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" style="background: #e67e22;"
+                        onclick="window.location.href='59-sanjay-call-payment.html'">Confirm & Pay</button>
+                    <button class="btn btn-outline" style="margin-top: 10px;"
+                        onclick="window.location.href='57-sanjay-call-request.html'">Decline</button>
+                </div>
+            </div>
+
+            <!-- Debug Controls for Wireframe -->
+            <div style="margin-top: 50px; border-top: 1px dashed #ccc; padding-top: 20px;">
+                <p style="font-size: 0.7em; color: #999; text-align: center; margin-bottom: 10px;">[Wireframe Controls:
+                    Simulate সঞ্জয়'s Action]</p>
+                <div style="display: flex; gap: 10px; justify-content: center;">
+                    <button class="btn btn-outline" style="font-size: 0.7em; padding: 5px 10px;"
+                        onclick="showStatus('accepted')">Simulate Accept</button>
+                    <button class="btn btn-outline" style="font-size: 0.7em; padding: 5px 10px;"
+                        onclick="showStatus('rejected')">Simulate Reject</button>
+                    <button class="btn btn-outline" style="font-size: 0.7em; padding: 5px 10px;"
+                        onclick="showStatus('rescheduled')">Simulate Reschedule</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showStatus(type) {
+            document.getElementById('loadingStatus').style.display = 'none';
+            document.getElementById('acceptedView').style.display = 'none';
+            document.getElementById('rejectedView').style.display = 'none';
+            document.getElementById('rescheduledView').style.display = 'none';
+
+            document.getElementById(type + 'View').style.display = 'block';
+        }
+
+        setTimeout(() => {
+            if (document.getElementById('loadingStatus').style.display !== 'none') {
+                showStatus('accepted');
+            }
+        }, 1500);
+    </script>
+</body>
+
+</html>
