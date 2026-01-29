@@ -12,59 +12,63 @@
     <div class="wireframe-container">
         <div class="wireframe-header">
             <a href="javascript:history.back()" class="back-btn">←</a>
-            <h1>Connection Status</h1>
+            <h1>Match Found! 🎉</h1>
             <div style="width: 60px;"></div>
         </div>
         <div class="wireframe-content">
             <div style="text-align: center; padding: 20px 0;">
                 <div
                     style="width: 80px; height: 80px; background: #27ae60; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5em;">
-                    ✓
+                    🤝
                 </div>
-                <h2>Mutual Connection!</h2>
+                <h2>Congratulations!</h2>
                 <p style="color: #7f8c8d; margin-top: 10px;">
-                    Both of you want to connect
+                    You have found a Mutual Match!
                 </p>
             </div>
 
-            <div class="notification success">
-                <strong>✓ Identities Revealed</strong><br>
-                Since both of you chose to connect, your identities and contact information have been shared.
+            <div class="notification" style="background: #ebf5fb; border-left-color: #3498db; color: #2c3e50;">
+                <strong>🛡️ Anonymous Match Confirmed</strong><br>
+                You are now ready to interact!
             </div>
 
-            <div style="text-align: center; padding: 20px 0;">
-                <div
-                    style="width: 100px; height: 100px; background: #3498db; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5em;">
-                    👤
-                </div>
-                <h3 style="color: #2c3e50;">You're now connected with</h3>
-            </div>
-
-            <div class="card" style="border-color: #27ae60; background: #d4edda;">
-                <div class="card-header">
-                    <div class="card-title">Alex Sharma</div>
-                    <div style="font-size: 0.85em; color: #7f8c8d;">formerly <span class="student-code">S0042</span>
+            <div class="card" style="border-color: #3498db; background: #fff; margin-top: 20px;">
+                <div class="card-header" style="border-bottom: 1px solid #eee; padding-bottom: 10px;">
+                    <div>
+                        <div class="card-title">Student <span class="student-code">S0042</span></div>
+                        <div style="font-size: 0.85em; color: #7f8c8d;">85% Compatibility Match</div>
                     </div>
+                    <div style="font-size: 1.5em;">👤</div>
                 </div>
                 <div class="card-content" style="margin-top: 15px;">
-                    <p><strong>Email:</strong> alex.sharma@example.com</p>
-                    <p><strong>Phone:</strong> +1 (555) 123-4567</p>
-                    <p><strong>LinkedIn:</strong> linkedin.com/in/alexsharma</p>
-                    <p style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #c3e6cb;">
-                        <strong>Background:</strong> Marketing expert with entrepreneurial experience.
-                        Interested in AI startup collaboration. Values accountability and structured communication.
-                    </p>
+                    <!-- Interaction Tools -->
+                    <div
+                        style="display: flex; justify-content: space-around; margin-top: 5px; padding-top: 5px; border-top: 1px solid #eee;">
+                        <div style="text-align: center; cursor: pointer;">
+                            <div style="font-size: 1.8em; margin-bottom: 5px;">🤝</div>
+                            <div style="font-size: 0.7em; font-weight: 600; color: #3498db;">Connect Request</div>
+                        </div>
+                        <div style="text-align: center; cursor: pointer;">
+                            <div style="font-size: 1.8em; margin-bottom: 5px;">💬</div>
+                            <div style="font-size: 0.7em; font-weight: 600; color: #3498db;">Anonymous Chat</div>
+                        </div>
+                        <div style="text-align: center; cursor: pointer;"
+                            onclick="window.location.href='09-schedule-slots.html'">
+                            <div style="font-size: 1.8em; margin-bottom: 5px;">🎥</div>
+                            <div style="font-size: 0.7em; font-weight: 600; color: #3498db;">Schedule Call</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div style="margin-top: 20px;">
-                <div class="notification">
-                    <strong>Your information has been shared:</strong><br>
-                    Alex now has access to your contact details and profile as well.
-                </div>
+            <div style="margin-top: 25px; padding: 15px; background: #fff3cd; border-radius: 8px;">
+                <p style="font-size: 0.85em; color: #856404; margin: 0; text-align: center; line-height: 1.4;">
+                    <strong>⚠️ Accountability Notice:</strong> You are advised to schedule a call with the respective
+                    student and mutually take it from there.
+                </p>
             </div>
 
-            <div style="margin-top: 30px; display: flex; flex-direction: column; gap: 15px;">
+            <div style="margin-top: 30px; display: flex; flex-direction: column; gap: 12px;">
                 <button class="btn btn-primary" style="background: #9b59b6; border-color: #9b59b6;"
                     onclick="window.location.href='67-sop-dashboard.html'">
                     🚀 Generate Success SOP (Roadmap)
@@ -73,7 +77,8 @@
                     onclick="window.location.href='50-group-mentor-recommendations.html'">
                     🎓 Find a Mentor for Your Group
                 </button>
-                <button class="btn btn-outline" onclick="window.location.href='04-student-list.html'">
+                <button class="btn btn-outline" style="border-radius: 20px;"
+                    onclick="window.location.href='04-student-list.html'">
                     👥 Find More Connections
                 </button>
             </div>
