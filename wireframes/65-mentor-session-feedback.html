@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Feedback - Mentor Dashboard</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .option-card {
+            border: 2px solid #eee;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .option-card:hover {
+            border-color: #e67e22;
+            background: #fffcf9;
+        }
+
+        .option-card.selected {
+            border-color: #e67e22;
+            background: #fff5eb;
+            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.1);
+        }
+
+        .option-icon {
+            font-size: 2.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header" style="background: #e67e22;">
+            <div style="width: 40px;"></div>
+            <h1>Session Feedback</h1>
+            <div style="width: 40px;"></div>
+        </div>
+        <div class="wireframe-content">
+            <div style="text-align: center; margin-bottom: 40px; margin-top: 20px;">
+                <p style="color: #7f8c8d; font-size: 1.1em;">How was your session with the students?</p>
+            </div>
+
+            <div class="option-card" onclick="selectPath('satisfied')">
+                <div class="option-icon">✅</div>
+                <div style="flex: 1;">
+                    <div style="font-weight: 700; color: #2c3e50;">Satisfied</div>
+                    <p style="font-size: 0.85em; color: #7f8c8d; margin-top: 4px;">Session completed successfully. All
+                        doubts were addressed.</p>
+                </div>
+            </div>
+
+            <div class="option-card" onclick="selectPath('retry')">
+                <div class="option-icon">📈</div>
+                <div style="flex: 1;">
+                    <div style="font-weight: 700; color: #2c3e50;">Talk Again</div>
+                    <p style="font-size: 0.85em; color: #7f8c8d; margin-top: 4px;">Great dynamic! I'd like to schedule a
+                        follow-up to track their progress.</p>
+                </div>
+            </div>
+
+            <div class="option-card" onclick="selectPath('discontinue')">
+                <div class="option-icon">🛑</div>
+                <div style="flex: 1;">
+                    <div style="font-weight: 700; color: #2c3e50;">Discontinue</div>
+                    <p style="font-size: 0.85em; color: #7f8c8d; margin-top: 4px;">This match isn't ideal. I recommend
+                        they consult a different expert.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <button class="btn btn-primary" id="submitBtn" style="background: #e67e22;" disabled
+                    onclick="submitFeedback()">Submit Feedback</button>
+                <p style="text-align: center; margin-top: 15px; font-size: 0.85em; color: #95a5a6;">Your input helps
+                    improve student-mentor matching.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedPath = null;
+        function selectPath(path) {
+            selectedPath = path;
+            document.querySelectorAll('.option-card').forEach(card => card.classList.remove('selected'));
+            event.currentTarget.classList.add('selected');
+            document.getElementById('submitBtn').disabled = false;
+        }
+
+        function submitFeedback() {
+            window.location.href = '46-mentor-student-leads.html';
+        }
+    </script>
+</body>
+
+</html>

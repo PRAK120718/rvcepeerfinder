@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reminders & Motivations - RVCE Peer Finder</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .setting-row {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            border: 1px solid #eee;
+        }
+
+        .notification-preview {
+            background: #fff;
+            border-radius: 15px;
+            padding: 15px;
+            margin-top: 25px;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .app-dot {
+            width: 8px;
+            height: 8px;
+            background: #3498db;
+            border-radius: 50%;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+        }
+
+        .style-card {
+            flex: 1;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #eee;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .style-card.selected {
+            border-color: #3498db;
+            background: #ebf5fb;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wireframe-container" style="background: #f4f7f6;">
+        <div class="wireframe-header">
+            <a href="67-sop-dashboard.html" class="back-btn">←</a>
+            <h1>Reminders & Coach</h1>
+            <div style="width: 40px;"></div>
+        </div>
+        <div class="wireframe-content" style="padding: 15px;">
+
+            <h3 style="font-size: 0.9em; text-transform: uppercase; color: #7f8c8d; margin-bottom: 15px;">Alert Settings
+            </h3>
+
+            <div class="setting-row">
+                <div>
+                    <div style="font-weight: 600; font-size: 0.9em;">Session Prep Alerts</div>
+                    <div style="font-size: 0.75em; color: #7f8c8d;">Remind me 30 mins before calls</div>
+                </div>
+                <div class="switch" style="background: #27ae60; border-radius: 20px;"></div>
+            </div>
+
+            <div class="setting-row">
+                <div>
+                    <div style="font-weight: 600; font-size: 0.9em;">Daily SOP Nudges</div>
+                    <div style="font-size: 0.75em; color: #7f8c8d;">Morning success roadmap summary</div>
+                </div>
+                <div class="switch" style="background: #27ae60; border-radius: 20px;"></div>
+            </div>
+
+            <h3 style="font-size: 0.9em; text-transform: uppercase; color: #7f8c8d; margin: 25px 0 15px 0;">Coaching
+                Style</h3>
+            <div style="display: flex; gap: 10px;">
+                <div class="style-card selected">
+                    <div style="font-size: 1.5em;">🌊</div>
+                    <div style="font-weight: 600; font-size: 0.8em; margin-top: 5px;">Gently Pulled</div>
+                    <div style="font-size: 0.6em; color: #7f8c8d;">Supportive & Encouraging</div>
+                </div>
+                <div class="style-card">
+                    <div style="font-size: 1.5em;">🔥</div>
+                    <div style="font-weight: 600; font-size: 0.8em; margin-top: 5px;">Boldly Pushed</div>
+                    <div style="font-size: 0.6em; color: #7f8c8d;">Disciplined & Direct</div>
+                </div>
+            </div>
+
+            <h3 style="font-size: 0.9em; text-transform: uppercase; color: #7f8c8d; margin: 30px 0 10px 0;">Preview</h3>
+            <div class="notification-preview">
+                <div style="margin-left: 15px;">
+                    <div style="font-weight: bold; font-size: 0.85em;">RVCE Peer Finder • Just now</div>
+                    <div style="font-size: 0.8em; color: #2c3e50; margin-top: 4px;">👋 Hey! Remember your talk with
+                        PH-01? Today is the day to finalize that DS Lab intern report!</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <button class="btn btn-primary" style="background: #2c3e50; border-radius: 25px;"
+                    onclick="window.location.href='67-sop-dashboard.html'">Confirm Preferences</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

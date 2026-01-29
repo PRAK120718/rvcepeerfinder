@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delete Account - Neopeer</title>
     <link rel="stylesheet" href="../styles.css">
 </head>
+
 <body>
     <div class="wireframe-container">
         <div class="wireframe-header">
-            <a href="21-settings.html" class="back-btn">← Back</a>
+            <a href="javascript:history.back()" class="back-btn">←</a>
             <h1>Delete Account</h1>
             <div style="width: 60px;"></div>
         </div>
         <div class="wireframe-content">
             <div style="text-align: center; padding: 20px 0;">
-                <div style="width: 80px; height: 80px; background: #e74c3c; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5em;">
+                <div
+                    style="width: 80px; height: 80px; background: #e74c3c; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5em;">
                     ⚠️
                 </div>
                 <h2>Delete My Account</h2>
@@ -23,12 +26,12 @@
                     This action will permanently delete your Neopeer account
                 </p>
             </div>
-            
+
             <div class="notification error">
                 <strong>⚠️ Permanent Action</strong><br>
                 Deleting your account cannot be undone. All your data will be permanently removed.
             </div>
-            
+
             <div class="card">
                 <div class="card-content">
                     <p><strong>What will be deleted:</strong></p>
@@ -44,7 +47,7 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="card" style="border-color: #27ae60; background: #d4edda;">
                 <div class="card-content">
                     <p><strong>What happens to your connections:</strong></p>
@@ -55,48 +58,49 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div style="margin-top: 30px;">
                 <label class="label">Reason for deletion (optional)</label>
-                <textarea class="textarea-field" placeholder="Help us improve by sharing why you're leaving..."></textarea>
+                <textarea class="textarea-field"
+                    placeholder="Help us improve by sharing why you're leaving..."></textarea>
             </div>
-            
+
             <div class="consent-checkbox required" style="margin-top: 30px;">
                 <input type="checkbox" id="confirmAccountDelete">
                 <label for="confirmAccountDelete">
                     <strong>I understand this will permanently delete my account and all associated data</strong>
                     <div class="consent-text">
-                        By checking this box, I confirm that I want to permanently delete my Neopeer account 
+                        By checking this box, I confirm that I want to permanently delete my Neopeer account
                         and understand that this action cannot be undone.
                     </div>
                 </label>
             </div>
-            
+
             <div style="margin-top: 30px;">
                 <button class="btn btn-danger" onclick="confirmAccountDeletion()" style="width: 100%;">
                     Permanently Delete Account
                 </button>
-                <button class="btn btn-secondary" style="margin-top: 10px; width: 100%;" onclick="window.location.href='21-settings.html'">
+                <button class="btn btn-secondary" style="margin-top: 10px; width: 100%;" onclick="history.back()">
                     Cancel
                 </button>
             </div>
-            
+
             <div style="margin-top: 30px; padding: 15px; background: #f8f9fa; border-radius: 5px;">
                 <p style="font-size: 0.9em; color: #7f8c8d;">
-                    <strong>Alternative options:</strong> Instead of deleting, you could pause your account 
+                    <strong>Alternative options:</strong> Instead of deleting, you could pause your account
                     or delete just your agent memory. Consider these options in Settings.
                 </p>
             </div>
         </div>
     </div>
-    
+
     <script>
         function confirmAccountDeletion() {
             if (!document.getElementById('confirmAccountDelete').checked) {
                 alert('Please confirm that you understand this action is permanent.');
                 return;
             }
-            
+
             if (confirm('Are you absolutely sure you want to permanently delete your account? This cannot be undone.')) {
                 if (confirm('Final confirmation: This will delete ALL your data permanently. Continue?')) {
                     alert('Account deletion request submitted. Your account will be permanently deleted within 30 days. You will receive a confirmation email.');
@@ -106,4 +110,5 @@
         }
     </script>
 </body>
+
 </html>

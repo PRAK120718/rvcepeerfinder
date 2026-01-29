@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,16 +8,17 @@
     <link rel="stylesheet" href="../styles.css">
     <script src="../profile.js"></script>
 </head>
+
 <body>
     <div class="wireframe-container">
         <div class="wireframe-header">
-            <a href="../index.html" class="back-btn">← Back</a>
+            <a href="javascript:history.back()" class="back-btn">←</a>
             <h1>Settings</h1>
             <div style="width: 60px;"></div>
         </div>
         <div class="wireframe-content">
             <h2>My Profile</h2>
-            
+
             <div class="card" style="cursor: pointer;" onclick="window.location.href='28-my-profile.html'">
                 <div class="card-header">
                     <div>
@@ -26,19 +28,20 @@
                     <div style="color: #3498db; font-size: 1.5em;">→</div>
                 </div>
             </div>
-            
+
             <div class="card" style="cursor: default; margin-top: 15px;">
                 <div class="card-content">
                     <p><strong>Your Anonymous Name:</strong></p>
-                    <div class="student-code" id="displayAnonymousName" style="font-size: 1.5em; margin: 10px 0;">S0819</div>
+                    <div class="student-code" id="displayAnonymousName" style="font-size: 1.5em; margin: 10px 0;">S0819
+                    </div>
                     <p style="font-size: 0.9em; color: #7f8c8d;">
                         This is how other students see you until mutual connection
                     </p>
                 </div>
             </div>
-            
+
             <h2>Data Management</h2>
-            
+
             <div class="card" style="cursor: pointer;" onclick="window.location.href='22-delete-memory.html'">
                 <div class="card-header">
                     <div>
@@ -48,7 +51,7 @@
                     <div style="color: #3498db; font-size: 1.5em;">→</div>
                 </div>
             </div>
-            
+
             <div class="card" style="cursor: pointer;" onclick="window.location.href='23-manage-aspirations.html'">
                 <div class="card-header">
                     <div>
@@ -58,7 +61,7 @@
                     <div style="color: #3498db; font-size: 1.5em;">→</div>
                 </div>
             </div>
-            
+
             <div class="card" style="cursor: pointer;" onclick="window.location.href='24-download-data.html'">
                 <div class="card-header">
                     <div>
@@ -68,9 +71,9 @@
                     <div style="color: #3498db; font-size: 1.5em;">→</div>
                 </div>
             </div>
-            
+
             <h2>Privacy Settings</h2>
-            
+
             <div class="card" style="cursor: pointer;" onclick="window.location.href='25-privacy-settings.html'">
                 <div class="card-header">
                     <div>
@@ -80,9 +83,9 @@
                     <div style="color: #3498db; font-size: 1.5em;">→</div>
                 </div>
             </div>
-            
+
             <h2>Notifications</h2>
-            
+
             <div class="consent-checkbox">
                 <input type="checkbox" id="meetingReminders" checked>
                 <label for="meetingReminders">
@@ -92,7 +95,7 @@
                     </div>
                 </label>
             </div>
-            
+
             <div class="consent-checkbox">
                 <input type="checkbox" id="matchNotifications" checked>
                 <label for="matchNotifications">
@@ -102,7 +105,7 @@
                     </div>
                 </label>
             </div>
-            
+
             <div class="consent-checkbox">
                 <input type="checkbox" id="whatsappNotifications">
                 <label for="whatsappNotifications">
@@ -112,7 +115,7 @@
                     </div>
                 </label>
             </div>
-            
+
             <div style="margin-top: 40px;">
                 <button class="btn btn-danger" onclick="window.location.href='26-delete-account.html'">
                     Delete Account
@@ -120,18 +123,19 @@
             </div>
         </div>
     </div>
-    
+
     <script>
         // Load and display anonymous name from profile
-        window.addEventListener('DOMContentLoaded', function() {
+        window.addEventListener('DOMContentLoaded', function () {
             // Initialize profile if it doesn't exist
             if (!hasProfile()) {
                 initializeProfile();
             }
-            
+
             const anonymousName = getAnonymousName();
             document.getElementById('displayAnonymousName').textContent = anonymousName;
         });
     </script>
 </body>
+
 </html>

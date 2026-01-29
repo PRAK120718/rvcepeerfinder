@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Booking - RVCE Peer Finder</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <a href="javascript:history.back()" class="back-btn">←</a>
+            <h1>Payment</h1>
+            <div style="width: 40px;"></div>
+        </div>
+        <div class="wireframe-content">
+            <div class="card" style="margin-top: 20px;">
+                <h3 style="margin-top: 0; font-size: 1em; color: #7f8c8d; text-transform: uppercase;">Session Summary
+                </h3>
+                <div style="border-bottom: 1px solid #eee; padding: 15px 0;">
+                    <p style="margin: 0; color: #2c3e50; font-weight: 600;">Expert Mentor PH-01</p>
+                    <p style="margin: 5px 0 0 0; color: #7f8c8d; font-size: 0.85em;">Advanced Distributed Systems
+                        Consult</p>
+                </div>
+                <div style="padding: 15px 0;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                        <span style="color: #7f8c8d;">Session Fee</span>
+                        <span style="font-weight: 600;">₹500.00</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: #7f8c8d;">App Service Fee</span>
+                        <span style="font-weight: 600;">₹0.00</span>
+                    </div>
+                </div>
+                <div
+                    style="border-top: 1px solid #eee; padding-top: 15px; display: flex; justify-content: space-between; font-size: 1.2em; font-weight: 700; color: #27ae60;">
+                    <span>Total Amount</span>
+                    <span>₹500.00</span>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 30px; font-size: 1em; color: #2c3e50;">RVCE-Pay</h3>
+            <div class="card" style="border-color: #3498db; background: #f0f7fb;">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div
+                        style="width: 40px; height: 40px; background: #3498db; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                        R</div>
+                    <div style="flex: 1;">
+                        <div style="font-weight: 600; color: #3498db;">Student Wallet Balance</div>
+                        <div style="font-size: 0.85em; color: #7f8c8d;">Available: ₹1,240.00</div>
+                    </div>
+                    <div style="color: #27ae60; font-weight: bold;">✓</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <button class="btn btn-primary" onclick="processPayment()">Confirm & Pay</button>
+                <p style="text-align: center; color: #95a5a6; font-size: 0.8em; margin-top: 15px;">
+                    🔒 Secure payment via RVCE Administrative Services
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function processPayment() {
+            const btn = document.querySelector('.btn-primary');
+            btn.textContent = 'Processing...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                window.location.href = '53-video-call-icebreakers.html';
+            }, 1500);
+        }
+    </script>
+</body>
+
+</html>

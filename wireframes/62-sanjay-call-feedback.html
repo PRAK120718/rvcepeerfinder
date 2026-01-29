@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Sanjay Rao</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .option-card {
+            border: 2px solid #eee;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .option-card:hover {
+            border-color: #e67e22;
+            background: #fffcf9;
+        }
+
+        .option-card.selected {
+            border-color: #e67e22;
+            background: #fff5eb;
+        }
+
+        .option-icon {
+            font-size: 2.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <div style="width: 40px;"></div>
+            <h1>How was SR-01?</h1>
+            <div style="width: 40px;"></div>
+        </div>
+        <div class="wireframe-content">
+            <div style="text-align: center; margin-bottom: 40px; margin-top: 20px;">
+                <p style="color: #7f8c8d; font-size: 1.1em;">Your feedback helps mentors grow and keeps RVCE Peer Finder
+                    great!</p>
+            </div>
+
+            <div class="option-card" onclick="selectPath('satisfied')">
+                <div class="option-icon">🙌</div>
+                <div style="flex: 1;">
+                    <div style="font-weight: 700; color: #2c3e50;">Super Helpful!</div>
+                    <p style="font-size: 0.85em; color: #7f8c8d; margin-top: 4px;">The instructor explained it far
+                        better than
+                        the textbooks ever could.</p>
+                </div>
+            </div>
+
+            <div class="option-card" onclick="selectPath('retry')">
+                <div class="option-icon">🎒</div>
+                <div style="flex: 1;">
+                    <div style="font-weight: 700; color: #2c3e50;">Worth another session!</div>
+                    <p style="font-size: 0.85em; color: #7f8c8d; margin-top: 4px;">I'd love to follow up with him once I
+                        finish my next assignment.</p>
+                </div>
+            </div>
+
+            <div class="option-card" onclick="selectPath('unsatisfied')">
+                <div class="option-icon">😕</div>
+                <div style="flex: 1;">
+                    <div style="font-weight: 700; color: #2c3e50;">Not quite clear</div>
+                    <p style="font-size: 0.85em; color: #7f8c8d; margin-top: 4px;">It was okay, but I might need a
+                        different perspective next time.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <button class="btn btn-primary" id="submitBtn" style="background: #e67e22;" disabled
+                    onclick="submitFeedback()">Submit Feedback</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedPath = null;
+        function selectPath(path) {
+            selectedPath = path;
+            document.querySelectorAll('.option-card').forEach(card => card.classList.remove('selected'));
+            event.currentTarget.classList.add('selected');
+            document.getElementById('submitBtn').disabled = false;
+        }
+
+        function submitFeedback() {
+            if (selectedPath === 'satisfied') {
+                window.location.href = '70-mentor-next-steps.html';
+            } else if (selectedPath === 'retry') {
+                window.location.href = '57-sanjay-call-request.html?retry=true';
+            } else {
+                window.location.href = '39-mentor-recommendations.html';
+            }
+        }
+    </script>
+</body>
+
+</html>

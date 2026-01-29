@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Login - RVCE Peer Finder</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header"
+            style="background: transparent; color: #2c3e50; border-bottom: 1px solid #e0e0e0;">
+            <a href="37-mentor-onboarding-intro.html" class="back-btn"
+                style="color: #2c3e50; background: rgba(0,0,0,0.05);">←</a>
+            <h1 style="color: #2c3e50;">Mentor Login</h1>
+            <div style="width: 40px;"></div>
+        </div>
+        <div class="wireframe-content"
+            style="display: flex; flex-direction: column; justify-content: center; min-height: calc(800px - 100px);">
+            <div style="text-align: center; padding: 20px;">
+                <div style="margin-bottom: 40px;">
+                    <div style="font-size: 3em; margin-bottom: 20px;">🔒</div>
+                    <h2 style="color: #2c3e50; font-size: 1.5em; margin-bottom: 10px;">Security Check</h2>
+                    <p style="color: #7f8c8d; font-size: 0.95em;">
+                        Please verify your RVCE email to continue your mentor journey.
+                    </p>
+                </div>
+
+                <div style="text-align: left; max-width: 400px; margin: 0 auto;">
+                    <label class="label" for="email">RVCE Email Address</label>
+                    <input type="email" id="email" class="input-field" placeholder="your.name@rvce.edu.in">
+                    <button class="btn btn-primary" style="background: #e67e22;" onclick="sendOTP()">
+                        Send Verification Code
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function sendOTP() {
+            const email = document.getElementById('email').value.trim();
+            if (email && email.endsWith('@rvce.edu.in')) {
+                localStorage.setItem('mentor_pending_email', email);
+                window.location.href = '45-mentor-otp-verification.html';
+            } else {
+                alert('Please enter a valid RVCE email address (@rvce.edu.in)');
+            }
+        }
+    </script>
+</body>
+
+</html>

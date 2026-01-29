@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Settings - Neopeer</title>
     <link rel="stylesheet" href="../styles.css">
 </head>
+
 <body>
     <div class="wireframe-container">
         <div class="wireframe-header">
-            <a href="21-settings.html" class="back-btn">← Back</a>
+            <a href="javascript:history.back()" class="back-btn">←</a>
             <h1>Privacy Settings</h1>
             <div style="width: 60px;"></div>
         </div>
@@ -18,30 +20,30 @@
             <p style="color: #7f8c8d; margin-bottom: 20px;">
                 Manage your consent preferences and data sharing settings.
             </p>
-            
+
             <div class="consent-checkbox required">
                 <input type="checkbox" id="dataCollectionUpdate" checked>
                 <label for="dataCollectionUpdate">
                     <strong>Data Collection (Required)</strong>
                     <div class="consent-text">
-                        I consent to Neopeer collecting and processing my personal information. 
+                        I consent to Neopeer collecting and processing my personal information.
                         Required for core functionality.
                     </div>
                 </label>
             </div>
-            
+
             <div class="consent-checkbox">
                 <input type="checkbox" id="voiceRecordingUpdate" checked>
                 <label for="voiceRecordingUpdate">
                     <strong>Voice Recording (Required for AI Agent Method)</strong>
                     <div class="consent-text">
-                        I consent to voice conversations being recorded and analyzed. 
-                        Only required if you use the AI Agent-Led discovery method. 
+                        I consent to voice conversations being recorded and analyzed.
+                        Only required if you use the AI Agent-Led discovery method.
                         Self-based discovery doesn't require this.
                     </div>
                 </label>
             </div>
-            
+
             <div class="consent-checkbox">
                 <input type="checkbox" id="meetingNotesUpdate" checked>
                 <label for="meetingNotesUpdate">
@@ -51,7 +53,7 @@
                     </div>
                 </label>
             </div>
-            
+
             <div class="consent-checkbox">
                 <input type="checkbox" id="whatsappSharingUpdate">
                 <label for="whatsappSharingUpdate">
@@ -61,7 +63,7 @@
                     </div>
                 </label>
             </div>
-            
+
             <div class="consent-checkbox">
                 <input type="checkbox" id="profileSharingUpdate" checked>
                 <label for="profileSharingUpdate">
@@ -71,7 +73,7 @@
                     </div>
                 </label>
             </div>
-            
+
             <div class="consent-checkbox">
                 <input type="checkbox" id="dataRetentionUpdate" checked>
                 <label for="dataRetentionUpdate">
@@ -81,7 +83,7 @@
                     </div>
                 </label>
             </div>
-            
+
             <div class="consent-checkbox">
                 <input type="checkbox" id="analyticsConsent">
                 <label for="analyticsConsent">
@@ -91,20 +93,20 @@
                     </div>
                 </label>
             </div>
-            
+
             <div style="margin-top: 30px;">
                 <button class="btn btn-primary" onclick="savePrivacySettings()">
                     Save Privacy Settings
                 </button>
             </div>
-            
+
             <div style="margin-top: 30px; padding: 15px; background: #fff3cd; border-radius: 5px;">
                 <p style="font-size: 0.9em; color: #856404;">
-                    <strong>Important:</strong> Changing required consents may limit app functionality. 
+                    <strong>Important:</strong> Changing required consents may limit app functionality.
                     Some features require specific permissions to work properly.
                 </p>
             </div>
-            
+
             <div style="margin-top: 20px;">
                 <a href="#" style="color: #3498db; text-decoration: underline; font-size: 0.9em;">
                     View Full Privacy Policy
@@ -112,27 +114,27 @@
             </div>
         </div>
     </div>
-    
+
     <script>
         // Load existing consents
         const consents = JSON.parse(localStorage.getItem('neopeer_consents') || '{}');
-        
+
         if (consents.dataCollection !== undefined) document.getElementById('dataCollectionUpdate').checked = consents.dataCollection;
         if (consents.voiceRecording !== undefined) document.getElementById('voiceRecordingUpdate').checked = consents.voiceRecording;
         if (consents.meetingNotes !== undefined) document.getElementById('meetingNotesUpdate').checked = consents.meetingNotes;
         if (consents.whatsappSharing !== undefined) document.getElementById('whatsappSharingUpdate').checked = consents.whatsappSharing;
         if (consents.profileSharing !== undefined) document.getElementById('profileSharingUpdate').checked = consents.profileSharing;
         if (consents.dataRetention !== undefined) document.getElementById('dataRetentionUpdate').checked = consents.dataRetention;
-        
+
         function savePrivacySettings() {
             const required = ['dataCollectionUpdate'];
             const allRequired = required.every(id => document.getElementById(id).checked);
-            
+
             if (!allRequired) {
                 alert('Please accept the required consent (Data Collection) to continue using Neopeer.');
                 return;
             }
-            
+
             const updatedConsents = {
                 dataCollection: document.getElementById('dataCollectionUpdate').checked,
                 voiceRecording: document.getElementById('voiceRecordingUpdate').checked,
@@ -142,11 +144,12 @@
                 dataRetention: document.getElementById('dataRetentionUpdate').checked,
                 analytics: document.getElementById('analyticsConsent').checked
             };
-            
+
             localStorage.setItem('neopeer_consents', JSON.stringify(updatedConsents));
             alert('Privacy settings saved successfully!');
             window.location.href = '21-settings.html';
         }
     </script>
 </body>
+
 </html>

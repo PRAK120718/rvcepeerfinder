@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Feedback - RVCE Peer Finder</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .option-card {
+            border: 2px solid #eee;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .option-card:hover {
+            border-color: #3498db;
+            background: #f7faff;
+        }
+
+        .option-card.selected {
+            border-color: #3498db;
+            background: #ebf5fb;
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);
+        }
+
+        .option-icon {
+            font-size: 2.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <div style="width: 40px;"></div>
+            <h1>How was your session?</h1>
+            <div style="width: 40px;"></div>
+        </div>
+        <div class="wireframe-content">
+            <div style="text-align: center; margin-bottom: 40px; margin-top: 20px;">
+                <p style="color: #7f8c8d; font-size: 1.1em;">Your feedback helps us maintain mentor quality at RVCE.</p>
+            </div>
+
+            <div class="option-card" onclick="selectPath('satisfied')">
+                <div class="option-icon">😊</div>
+                <div style="flex: 1;">
+                    <div style="font-weight: 700; color: #2c3e50;">Satisfied</div>
+                    <p style="font-size: 0.85em; color: #7f8c8d; margin-top: 4px;">My doubts were cleared and I'm ready
+                        for the next step on my SOP.</p>
+                </div>
+            </div>
+
+            <div class="option-card" onclick="selectPath('retry')">
+                <div class="option-icon">📈</div>
+                <div style="flex: 1;">
+                    <div style="font-weight: 700; color: #2c3e50;">Satisfied + Follow-up</div>
+                    <p style="font-size: 0.85em; color: #7f8c8d; margin-top: 4px;">Excellent session! I'd like to book
+                        another slot to complete my Roadmap.</p>
+                </div>
+                <span class="badge" style="background: #e67e22; color: white;">Popular</span>
+            </div>
+
+            <div class="option-card" onclick="selectPath('unsatisfied')">
+                <div class="option-icon">😕</div>
+                <div style="flex: 1;">
+                    <div style="font-weight: 700; color: #2c3e50;">Unsatisfied</div>
+                    <p style="font-size: 0.85em; color: #7f8c8d; margin-top: 4px;">The session didn't meet my
+                        expectations. I would like a refund or intervention.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <button class="btn btn-primary" id="submitBtn" style="background: #34495e;" disabled
+                    onclick="window.location.href='67-sop-dashboard.html'">Submit & Update Roadmap</button>
+                <p style="text-align: center; margin-top: 15px; font-size: 0.85em; color: #95a5a6;">Funds are held for
+                    24h for unsatisfied cases.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedPath = null;
+        function selectPath(path) {
+            selectedPath = path;
+            document.querySelectorAll('.option-card').forEach(card => card.classList.remove('selected'));
+            event.currentTarget.classList.add('selected');
+            document.getElementById('submitBtn').disabled = false;
+        }
+
+        function submitFeedback() {
+            if (selectedPath === 'retry') {
+                window.location.href = '41-video-call-request.html?retry=true';
+            } else {
+                window.location.href = '67-sop-dashboard.html';
+            }
+        }
+    </script>
+</body>
+
+</html>

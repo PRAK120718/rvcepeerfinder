@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Aspirations - Neopeer</title>
     <link rel="stylesheet" href="../styles.css">
 </head>
+
 <body>
     <div class="wireframe-container">
         <div class="wireframe-header">
-            <a href="21-settings.html" class="back-btn">← Back</a>
+            <a href="javascript:history.back()" class="back-btn">←</a>
             <h1>My Aspirations</h1>
-            <button class="back-btn" onclick="window.location.href='27-new-aspiration.html'" style="font-size: 0.85em;">+ New</button>
+            <button class="back-btn" onclick="window.location.href='27-new-aspiration.html'"
+                style="font-size: 0.85em;">+ New</button>
         </div>
         <div class="wireframe-content">
             <p style="color: #7f8c8d; margin-bottom: 20px;">
-                You can explore multiple aspirations simultaneously. Each aspiration has its own agent conversation 
+                You can explore multiple aspirations simultaneously. Each aspiration has its own agent conversation
                 and receives separate match recommendations.
             </p>
-            
+
             <div class="card selected">
                 <div class="card-header">
                     <div>
@@ -29,23 +32,27 @@
                 </div>
                 <div class="card-content" style="margin-top: 10px;">
                     <p style="font-size: 0.9em; color: #555;">
-                        Looking for a technical co-founder with marketing and business development skills. 
+                        Looking for a technical co-founder with marketing and business development skills.
                         Focus on AI applications and startup collaboration.
                     </p>
                     <div style="margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
-                        <button class="btn btn-primary" style="width: auto; padding: 8px 20px; margin: 0;" onclick="window.location.href='04-student-list.html?aspiration=1'">
+                        <button class="btn btn-primary" style="width: auto; padding: 8px 20px; margin: 0;"
+                            onclick="window.location.href='04-student-list.html?aspiration=1'">
                             View Matches
                         </button>
-                        <button class="btn btn-outline" style="width: auto; padding: 8px 20px; margin: 0;" onclick="window.location.href='02-agent-conversation.html?aspiration=1'">
+                        <button class="btn btn-outline" style="width: auto; padding: 8px 20px; margin: 0;"
+                            onclick="window.location.href='02-agent-conversation.html?aspiration=1'">
                             Edit
                         </button>
-                        <button class="btn btn-outline" style="width: auto; padding: 8px 20px; margin: 0; border-color: #27ae60; color: #27ae60;" onclick="window.location.href='30-aspiration-availability.html?aspiration=1'">
+                        <button class="btn btn-outline"
+                            style="width: auto; padding: 8px 20px; margin: 0; border-color: #27ae60; color: #27ae60;"
+                            onclick="window.location.href='30-aspiration-availability.html?aspiration=1'">
                             📅 Availability
                         </button>
                     </div>
                 </div>
             </div>
-            
+
             <div class="card">
                 <div class="card-header">
                     <div>
@@ -56,61 +63,68 @@
                 </div>
                 <div class="card-content" style="margin-top: 10px;">
                     <p style="font-size: 0.9em; color: #555;">
-                        Seeking academic research partners for machine learning projects. 
+                        Seeking academic research partners for machine learning projects.
                         Looking for complementary expertise in deep learning and NLP.
                     </p>
                     <div style="margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
-                        <button class="btn btn-primary" style="width: auto; padding: 8px 20px; margin: 0;" onclick="window.location.href='04-student-list.html?aspiration=2'">
+                        <button class="btn btn-primary" style="width: auto; padding: 8px 20px; margin: 0;"
+                            onclick="window.location.href='04-student-list.html?aspiration=2'">
                             View Matches
                         </button>
-                        <button class="btn btn-outline" style="width: auto; padding: 8px 20px; margin: 0;" onclick="window.location.href='02-agent-conversation.html?aspiration=2'">
+                        <button class="btn btn-outline" style="width: auto; padding: 8px 20px; margin: 0;"
+                            onclick="window.location.href='02-agent-conversation.html?aspiration=2'">
                             Edit
                         </button>
-                        <button class="btn btn-outline" style="width: auto; padding: 8px 20px; margin: 0; border-color: #27ae60; color: #27ae60;" onclick="window.location.href='30-aspiration-availability.html?aspiration=2'">
+                        <button class="btn btn-outline"
+                            style="width: auto; padding: 8px 20px; margin: 0; border-color: #27ae60; color: #27ae60;"
+                            onclick="window.location.href='30-aspiration-availability.html?aspiration=2'">
                             📅 Availability
                         </button>
                     </div>
                 </div>
             </div>
-            
+
             <div class="card">
                 <div class="card-header">
                     <div>
                         <div class="card-title">🎨 Creative Project Partner</div>
                         <div class="card-subtitle">Paused • 3 matches found</div>
                     </div>
-                    <span style="background: #95a5a6; color: white; padding: 4px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600;">Paused</span>
+                    <span
+                        style="background: #95a5a6; color: white; padding: 4px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600;">Paused</span>
                 </div>
                 <div class="card-content" style="margin-top: 10px;">
                     <p style="font-size: 0.9em; color: #555;">
-                        Looking for a creative partner for a multimedia storytelling project. 
+                        Looking for a creative partner for a multimedia storytelling project.
                         Paused - will resume later.
                     </p>
                     <div style="margin-top: 15px; display: flex; gap: 10px;">
                         <button class="btn btn-outline" style="width: auto; padding: 8px 20px; margin: 0;">
                             Resume
                         </button>
-                        <button class="btn btn-outline" style="width: auto; padding: 8px 20px; margin: 0; color: #e74c3c; border-color: #e74c3c;">
+                        <button class="btn btn-outline"
+                            style="width: auto; padding: 8px 20px; margin: 0; color: #e74c3c; border-color: #e74c3c;">
                             Delete
                         </button>
                     </div>
                 </div>
             </div>
-            
+
             <div style="margin-top: 30px;">
                 <button class="btn btn-primary" onclick="window.location.href='27-new-aspiration.html'">
                     + Create New Aspiration
                 </button>
             </div>
-            
+
             <div style="margin-top: 30px; padding: 15px; background: #f8f9fa; border-radius: 5px;">
                 <p style="font-size: 0.9em; color: #7f8c8d;">
-                    <strong>💡 How it works:</strong> Each aspiration maintains separate conversations with your agent 
-                    and generates unique match recommendations. You can switch between them anytime or work on multiple 
+                    <strong>💡 How it works:</strong> Each aspiration maintains separate conversations with your agent
+                    and generates unique match recommendations. You can switch between them anytime or work on multiple
                     aspirations simultaneously.
                 </p>
             </div>
         </div>
     </div>
 </body>
+
 </html>

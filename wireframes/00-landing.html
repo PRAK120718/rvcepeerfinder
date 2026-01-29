@@ -1,19 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RVCE Peer Finder - Login</title>
     <link rel="stylesheet" href="../styles.css">
 </head>
+
 <body>
     <div class="wireframe-container">
-        <div class="wireframe-header" style="background: transparent; color: #2c3e50; border-bottom: 1px solid #e0e0e0;">
-            <div style="width: 60px;"></div>
-            <h1 style="color: #2c3e50;">RVCE Peer Finder</h1>
-            <div style="width: 60px;"></div>
+        <!-- Mentor Banner inside App UI -->
+        <div
+            style="background: linear-gradient(135deg, #2c3e50, #34495e); color: white; padding: 12px 15px; border-bottom: 2px solid #3498db; width: 100%;">
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div>
+                    <h4 style="color: #3498db; margin: 0; font-size: 0.95em;">🌟 Become a Mentor</h4>
+                    <p style="color: #bdc3c7; margin: 2px 0 0 0; font-size: 0.75em; line-height: 1.2;">
+                        Help like-aspirational, like-background students curate their path to success.
+                    </p>
+                </div>
+                <a href="37-mentor-onboarding-intro.html"
+                    style="padding: 6px 12px; font-weight: bold; font-size: 0.75em; background: #e67e22; border-radius: 20px; text-decoration: none; color: white; display: inline-block; width: fit-content; align-self: flex-start; box-shadow: 0 2px 0 #d35400;">
+                    Join now and get paid
+                </a>
+            </div>
         </div>
-        <div class="wireframe-content" style="display: flex; flex-direction: column; justify-content: center; min-height: calc(800px - 100px);">
+        <!-- Mentor Banner is now the header -->
+        <div class="wireframe-content"
+            style="display: flex; flex-direction: column; justify-content: center; min-height: calc(800px - 100px);">
             <div style="text-align: center; padding: 20px;">
                 <div style="margin-bottom: 40px;">
                     <h2 style="color: #2c3e50; font-size: 2em; margin-bottom: 10px;">RVCE Peer Finder</h2>
@@ -21,37 +36,34 @@
                         Connect with like-minded peers from RVCE
                     </p>
                 </div>
-                
-                <div style="background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 15px; margin-bottom: 30px;">
+
+                <div
+                    style="background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 15px; margin-bottom: 30px;">
                     <p style="color: #856404; font-size: 0.9em; margin: 0;">
                         <strong>⚠️ RVCE Email Required</strong><br>
                         Only RVCE email IDs (@rvce.edu.in) are allowed for login
                     </p>
                 </div>
-                
+
                 <div style="text-align: left; max-width: 400px; margin: 0 auto;">
                     <label class="label" for="email">RVCE Email Address</label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        class="input-field" 
-                        placeholder="your.name@rvce.edu.in"
-                        autocomplete="email"
-                    >
+                    <input type="email" id="email" class="input-field" placeholder="your.name@rvce.edu.in"
+                        autocomplete="email">
                     <p style="font-size: 0.85em; color: #7f8c8d; margin-top: -10px; margin-bottom: 20px;">
                         Enter your official RVCE email address
                     </p>
-                    
+
                     <button class="btn btn-primary" onclick="sendOTP()">
                         Send OTP
                     </button>
                 </div>
-                
-                <div id="errorMessage" style="display: none; background: #f8d7da; border: 1px solid #e74c3c; border-radius: 5px; padding: 12px; margin-top: 20px; color: #721c24; max-width: 400px; margin-left: auto; margin-right: auto;">
+
+                <div id="errorMessage"
+                    style="display: none; background: #f8d7da; border: 1px solid #e74c3c; border-radius: 5px; padding: 12px; margin-top: 20px; color: #721c24; max-width: 400px; margin-left: auto; margin-right: auto;">
                     <strong>Error:</strong> <span id="errorText"></span>
                 </div>
             </div>
-            
+
             <div style="margin-top: auto; padding: 20px; text-align: center; border-top: 1px solid #e0e0e0;">
                 <p style="color: #7f8c8d; font-size: 0.9em; margin: 0;">
                     Powered by <strong style="color: #3498db;">Neopeer</strong>
@@ -59,17 +71,17 @@
             </div>
         </div>
     </div>
-    
+
     <script>
         function sendOTP() {
             const emailInput = document.getElementById('email');
             const email = emailInput.value.trim();
             const errorDiv = document.getElementById('errorMessage');
             const errorText = document.getElementById('errorText');
-            
+
             // Hide error message
             errorDiv.style.display = 'none';
-            
+
             // Validate email format
             if (!email) {
                 errorText.textContent = 'Please enter your RVCE email address';
@@ -77,7 +89,7 @@
                 emailInput.focus();
                 return;
             }
-            
+
             // Validate RVCE email domain
             const rvceEmailPattern = /^[a-zA-Z0-9._-]+@rvce\.edu\.in$/i;
             if (!rvceEmailPattern.test(email)) {
@@ -86,10 +98,10 @@
                 emailInput.focus();
                 return;
             }
-            
+
             // Store email in localStorage
             localStorage.setItem('rvce_user_email', email);
-            
+
             // In a real app, this would send OTP to the email
             // For wireframe purposes, we'll simulate this and go to OTP page
             // Simulate OTP sending (in production, this would be an API call)
@@ -101,22 +113,23 @@
                 otp: '123456'
             };
             localStorage.setItem('rvce_otp_data', JSON.stringify(otpData));
-            
+
             // Navigate to OTP verification page
             window.location.href = '00-otp-verification.html';
         }
-        
+
         // Allow Enter key to submit
-        document.getElementById('email').addEventListener('keypress', function(e) {
+        document.getElementById('email').addEventListener('keypress', function (e) {
             if (e.key === 'Enter') {
                 sendOTP();
             }
         });
-        
+
         // Auto-focus email input on load
-        window.addEventListener('DOMContentLoaded', function() {
+        window.addEventListener('DOMContentLoaded', function () {
             document.getElementById('email').focus();
         });
     </script>
 </body>
+
 </html>
