@@ -98,15 +98,26 @@
             <!-- Suggestions will be loaded here -->
         </div>
 
-        <div
-            style="padding: 24px; background: var(--bg-surface); border-top: 1px solid var(--border); display: flex; gap: 12px; align-items: center;">
-            <input type="text" id="userInput" class="input-field" placeholder="Ask a question..."
-                style="margin-bottom: 0; border-radius: 30px;">
-            <button class="btn btn-primary"
-                style="width: 48px; height: 48px; border-radius: 50%; padding: 0; margin-top: 0;"
-                onclick="handleSend()">
-                <span style="font-size: 1.2em;">↑</span>
-            </button>
+        <div class="voice-controls"
+            style="padding: 20px; background: var(--bg-surface); border-top: 1px solid var(--border);">
+            <div id="voiceStatus"
+                style="text-align: center; font-size: 0.8em; color: var(--text-dim); margin-bottom: 10px;">Tap to speak
+                with the agent</div>
+            <div class="visualizer" id="visualizer">
+                <div class="bar" style="animation-delay: -0.4s"></div>
+                <div class="bar" style="animation-delay: -0.2s"></div>
+                <div class="bar" style="animation-delay: 0s"></div>
+                <div class="bar" style="animation-delay: -0.2s"></div>
+                <div class="bar" style="animation-delay: -0.4s"></div>
+            </div>
+            <div style="display: flex; gap: 12px; align-items: center; justify-content: center;">
+                <input type="text" id="userInput" class="input-field" placeholder="Type a message..."
+                    style="margin-bottom: 0; border-radius: 30px; flex: 1;">
+                <button class="voice-record-btn" id="recordBtn" onclick="toggleRecording()"
+                    style="width: 50px; height: 50px; margin: 0;">
+                    <div class="mic-core"></div>
+                </button>
+            </div>
         </div>
 
         <div style="padding: 16px 24px 32px; background: var(--bg-surface); text-align: center;">
@@ -181,6 +192,34 @@
                 chat.appendChild(agentMsg);
                 chat.scrollTop = chat.scrollHeight;
             }, 1500);
+        }
+
+        let isRecording = false;
+
+        function toggleRecording() {
+            const btn = document.getElementById('recordBtn');
+            const status = document.getElementById('voiceStatus');
+            const visualizer = document.getElementById('visualizer');
+
+            isRecording = !isRecording;
+
+            if (isRecording) {
+                btn.classList.add('recording');
+                visualizer.classList.add('recording');
+                status.textContent = 'Recording... Tap to stop';
+                status.classList.add('recording');
+            } else {
+                btn.classList.remove('recording');
+                visualizer.classList.remove('recording');
+                status.textContent = 'Processing your voice...';
+                status.classList.remove('recording');
+
+                setTimeout(() => {
+                    status.textContent = 'Tap to speak with the agent';
+                    // Simulate voice-to-text
+                    sendMessage("Can you tell me more about their 'Library Grind' method?");
+                }, 2000);
+            }
         }
 
         function bookSession() {

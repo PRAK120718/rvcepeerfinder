@@ -28,10 +28,20 @@
             </div>
         </div>
         <div class="wireframe-content" style="padding: 0;">
-            <div style="padding: 15px 20px; background: #ebf5fb; border-bottom: 1px solid #e0e0e0;">
-                <p style="color: var(--primary); font-size: 0.9em; text-align: center; font-weight: 600;">
-                    🎙️ Speak naturally, let's craft your path
-                </p>
+            <div
+                style="padding: 15px 20px; background: rgba(99, 102, 241, 0.05); border-bottom: 1px solid var(--border);">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    <div class="modern-mic-container" style="width: 40px; height: 40px; margin: 0; box-shadow: none;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                        </svg>
+                    </div>
+                    <p style="color: var(--primary); font-size: 0.9em; margin: 0; font-weight: 700;">
+                        Speak naturally
+                    </p>
+                </div>
             </div>
 
             <div id="voiceConsentSection"
@@ -190,9 +200,16 @@
 
                 <div class="voice-controls">
                     <div class="voice-status" id="voiceStatus">Tap and hold to speak</div>
+                    <div class="visualizer" id="visualizer">
+                        <div class="bar" style="animation-delay: -0.4s"></div>
+                        <div class="bar" style="animation-delay: -0.2s"></div>
+                        <div class="bar" style="animation-delay: 0s"></div>
+                        <div class="bar" style="animation-delay: -0.2s"></div>
+                        <div class="bar" style="animation-delay: -0.4s"></div>
+                    </div>
                     <button class="voice-record-btn" id="recordBtn" onmousedown="startRecording()"
                         onmouseup="stopRecording()" ontouchstart="startRecording()" ontouchend="stopRecording()">
-                        🎤
+                        <div class="mic-core"></div>
                     </button>
                     <div class="voice-actions">
                         <button class="voice-action-btn primary" onclick="submitConversation()">
@@ -284,9 +301,10 @@
             isRecording = true;
             const btn = document.getElementById('recordBtn');
             const status = document.getElementById('voiceStatus');
+            const visualizer = document.getElementById('visualizer');
             btn.classList.add('recording');
-            btn.textContent = '⏹';
-            status.textContent = 'Recording... Tap to stop';
+            visualizer.classList.add('recording');
+            status.textContent = 'Recording... Release to stop';
             status.classList.add('recording');
         }
 
@@ -295,8 +313,9 @@
                 isRecording = false;
                 const btn = document.getElementById('recordBtn');
                 const status = document.getElementById('voiceStatus');
+                const visualizer = document.getElementById('visualizer');
                 btn.classList.remove('recording');
-                btn.textContent = '🎤';
+                visualizer.classList.remove('recording');
                 status.textContent = 'Processing your voice...';
                 status.classList.remove('recording');
 

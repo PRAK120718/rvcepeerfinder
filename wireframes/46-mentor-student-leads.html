@@ -10,15 +10,32 @@
 
 <body>
     <div class="wireframe-container" style="background: #f8f9fa;">
-        <div class="wireframe-header" style="background: #e67e22;">
+        <div class="wireframe-header" style="background: var(--bg-surface); border-bottom: 1px solid var(--border);">
             <a href="43-mentor-credential-verification.html" class="back-btn">←</a>
-            <h1>Mentor Dashboard</h1>
-            <a href="38-mentor-agent-conversation.html" class="back-btn"
-                style="font-size: 0.75em; padding: 6px 12px; width: auto; border-radius: 20px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.3);">
-                🔄 Get to Know You
-            </a>
+            <h1 style="color: var(--text-main); margin-left: -5px;">Mentor Dashboard</h1>
+            <div style="width: 44px;"></div> <!-- Balanced spacing -->
         </div>
-        <div class="wireframe-content">
+        <div class="wireframe-content" style="padding-top: 24px;">
+            <!-- Profile Refinement Card -->
+            <div class="card"
+                style="background: linear-gradient(135deg, #e67e22, #d35400); color: white; border: none; margin: 0 0 28px 0; padding: 24px; box-shadow: 0 10px 30px rgba(230, 126, 34, 0.15); position: relative; overflow: hidden;">
+                <div style="position: absolute; right: -20px; top: -20px; opacity: 0.1; font-size: 100px;">🔄</div>
+                <div
+                    style="display: flex; justify-content: space-between; align-items: flex-end; position: relative; z-index: 1;">
+                    <div style="flex: 1;">
+                        <h4 style="margin: 0; font-size: 1.15em; font-weight: 800; letter-spacing: -0.2px;">Refine Your
+                            Insights</h4>
+                        <p
+                            style="margin: 8px 0 16px 0; font-size: 0.85em; color: rgba(255,255,255,0.9); line-height: 1.5; max-width: 85%;">
+                            Better student matches come from shared context. Let's update your journey story.
+                        </p>
+                        <a href="38-mentor-agent-conversation.html" class="btn"
+                            style="background: white; color: #e67e22; border-radius: 30px; padding: 10px 24px; font-size: 0.85em; font-weight: 800; display: inline-flex; width: auto; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                            Update Now
+                        </a>
+                    </div>
+                </div>
+            </div>
             <!-- Summary Stats -->
             <div style="display: flex; gap: 10px; margin-bottom: 25px;">
                 <div class="card" style="flex: 1; margin: 0; padding: 12px; text-align: center; background: #fff;">

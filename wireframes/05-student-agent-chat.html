@@ -1,40 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voice Chat with Student Agent - Neopeer</title>
     <link rel="stylesheet" href="../styles.css">
 </head>
+
 <body>
     <div class="wireframe-container">
         <div class="wireframe-header">
             <a href="04-student-list.html" class="back-btn">←</a>
             <h1 id="studentCode">S0042's Agent</h1>
-            <button class="back-btn" style="font-size: 0.85em;" onclick="toggleSummary()" id="summaryToggleBtn">📄 Summary</button>
+            <button class="back-btn" style="font-size: 0.85em;" onclick="toggleSummary()" id="summaryToggleBtn">📄
+                Summary</button>
         </div>
         <div class="wireframe-content" style="padding: 0;">
             <!-- Detailed Summary Section -->
-            <div id="summarySection" style="display: none; padding: 20px; background: white; border-bottom: 1px solid #e0e0e0; max-height: 400px; overflow-y: auto;">
+            <div id="summarySection"
+                style="display: none; padding: 20px; background: white; border-bottom: 1px solid #e0e0e0; max-height: 400px; overflow-y: auto;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
                     <h2 style="margin: 0; color: #2c3e50;">Detailed Summary</h2>
-                    <button class="btn btn-secondary" onclick="toggleSummary()" style="padding: 5px 15px; font-size: 0.85em;">Close</button>
+                    <button class="btn btn-secondary" onclick="toggleSummary()"
+                        style="padding: 5px 15px; font-size: 0.85em;">Close</button>
                 </div>
-                
+
                 <div id="summaryContent">
                     <!-- Summary content will be loaded here -->
                 </div>
             </div>
-            
-            <div style="padding: 15px 20px; background: #ebf5fb; border-bottom: 1px solid #e0e0e0;">
-                <p style="color: #2c3e50; font-size: 0.9em; text-align: center;">
-                    🎤 Voice conversation with <span id="codeDisplay">S0042</span>'s agent. Ask questions to learn about their goals and personality.
-                    <span id="summaryHint" style="display: none; margin-top: 5px; display: block; font-size: 0.85em; color: #7f8c8d;">
-                        💡 Tap "📄 Summary" to view detailed information before asking questions.
-                    </span>
-                </p>
+
+            <div
+                style="padding: 15px 20px; background: rgba(99, 102, 241, 0.05); border-bottom: 1px solid var(--border);">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    <div class="modern-mic-container" style="width: 40px; height: 40px; margin: 0; box-shadow: none;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                        </svg>
+                    </div>
+                    <p style="color: var(--primary); font-size: 0.9em; margin: 0; font-weight: 700;">
+                        Voice chat with <span id="codeDisplay">S0042</span>'s agent
+                    </p>
+                </div>
             </div>
-            
+
             <div class="voice-container">
                 <div class="voice-messages">
                     <div class="voice-message agent">
@@ -53,7 +65,7 @@
                             <div class="voice-time">2:15 PM • 5s</div>
                         </div>
                     </div>
-                    
+
                     <div class="voice-message user">
                         <div class="voice-bubble">
                             <div>What are their main goals and aspirations?</div>
@@ -70,12 +82,13 @@
                             <div class="voice-time">2:16 PM • 4s</div>
                         </div>
                     </div>
-                    
+
                     <div class="voice-message agent">
                         <div class="voice-bubble">
-                            <div>They're looking to co-found a tech startup, specifically interested in AI applications. 
-                            They have strong marketing skills but need a technical co-founder. They value accountability 
-                            and structured goal-setting.</div>
+                            <div>They're looking to co-found a tech startup, specifically interested in AI applications.
+                                They have strong marketing skills but need a technical co-founder. They value
+                                accountability
+                                and structured goal-setting.</div>
                             <div class="voice-waveform">
                                 <div class="wave-bar" style="height: 16px;"></div>
                                 <div class="wave-bar" style="height: 21px;"></div>
@@ -84,14 +97,16 @@
                                 <div class="wave-bar" style="height: 17px;"></div>
                             </div>
                             <div class="voice-transcript">
-                                <em>Transcript: "They're looking to co-found a tech startup, specifically interested in AI applications. 
-                                They have strong marketing skills but need a technical co-founder. They value accountability 
-                                and structured goal-setting."</em>
+                                <em>Transcript: "They're looking to co-found a tech startup, specifically interested in
+                                    AI applications.
+                                    They have strong marketing skills but need a technical co-founder. They value
+                                    accountability
+                                    and structured goal-setting."</em>
                             </div>
                             <div class="voice-time">2:16 PM • 12s</div>
                         </div>
                     </div>
-                    
+
                     <div class="voice-message user">
                         <div class="voice-bubble">
                             <div>How do they prefer to communicate and work?</div>
@@ -108,12 +123,12 @@
                             <div class="voice-time">2:17 PM • 3s</div>
                         </div>
                     </div>
-                    
+
                     <div class="voice-message agent">
                         <div class="voice-bubble">
-                            <div>They prefer direct communication and structured meetings. They like to set clear goals 
-                            and track progress regularly. They work well with detail-oriented people who share 
-                            similar values around accountability.</div>
+                            <div>They prefer direct communication and structured meetings. They like to set clear goals
+                                and track progress regularly. They work well with detail-oriented people who share
+                                similar values around accountability.</div>
                             <div class="voice-waveform">
                                 <div class="wave-bar" style="height: 17px;"></div>
                                 <div class="wave-bar" style="height: 22px;"></div>
@@ -122,14 +137,15 @@
                                 <div class="wave-bar" style="height: 18px;"></div>
                             </div>
                             <div class="voice-transcript">
-                                <em>Transcript: "They prefer direct communication and structured meetings. They like to set clear goals 
-                                and track progress regularly. They work well with detail-oriented people who share 
-                                similar values around accountability."</em>
+                                <em>Transcript: "They prefer direct communication and structured meetings. They like to
+                                    set clear goals
+                                    and track progress regularly. They work well with detail-oriented people who share
+                                    similar values around accountability."</em>
                             </div>
                             <div class="voice-time">2:17 PM • 11s</div>
                         </div>
                     </div>
-                    
+
                     <div class="voice-message user">
                         <div class="voice-bubble">
                             <div>What challenges are they currently facing?</div>
@@ -146,12 +162,12 @@
                             <div class="voice-time">2:18 PM • 3s</div>
                         </div>
                     </div>
-                    
+
                     <div class="voice-message agent">
                         <div class="voice-bubble">
-                            <div>They have the marketing strategy and business model figured out but need someone with 
-                            strong technical skills to execute. They're also looking for someone who can challenge 
-                            their ideas constructively.</div>
+                            <div>They have the marketing strategy and business model figured out but need someone with
+                                strong technical skills to execute. They're also looking for someone who can challenge
+                                their ideas constructively.</div>
                             <div class="voice-waveform">
                                 <div class="wave-bar" style="height: 18px;"></div>
                                 <div class="wave-bar" style="height: 23px;"></div>
@@ -160,19 +176,29 @@
                                 <div class="wave-bar" style="height: 19px;"></div>
                             </div>
                             <div class="voice-transcript">
-                                <em>Transcript: "They have the marketing strategy and business model figured out but need someone with 
-                                strong technical skills to execute. They're also looking for someone who can challenge 
-                                their ideas constructively."</em>
+                                <em>Transcript: "They have the marketing strategy and business model figured out but
+                                    need someone with
+                                    strong technical skills to execute. They're also looking for someone who can
+                                    challenge
+                                    their ideas constructively."</em>
                             </div>
                             <div class="voice-time">2:18 PM • 10s</div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="voice-controls">
                     <div class="voice-status" id="voiceStatus">Tap and hold to speak</div>
-                    <button class="voice-record-btn" id="recordBtn" onmousedown="startRecording()" onmouseup="stopRecording()" ontouchstart="startRecording()" ontouchend="stopRecording()">
-                        🎤
+                    <div class="visualizer" id="visualizer">
+                        <div class="bar" style="animation-delay: -0.4s"></div>
+                        <div class="bar" style="animation-delay: -0.2s"></div>
+                        <div class="bar" style="animation-delay: 0s"></div>
+                        <div class="bar" style="animation-delay: -0.2s"></div>
+                        <div class="bar" style="animation-delay: -0.4s"></div>
+                    </div>
+                    <button class="voice-record-btn" id="recordBtn" onmousedown="startRecording()"
+                        onmouseup="stopRecording()" ontouchstart="startRecording()" ontouchend="stopRecording()">
+                        <div class="mic-core"></div>
                     </button>
                     <div class="voice-actions">
                         <button class="voice-action-btn" onclick="showInterestOptions()">
@@ -183,58 +209,58 @@
             </div>
         </div>
     </div>
-    
+
     <script>
         // Get student code from URL parameter
         const urlParams = new URLSearchParams(window.location.search);
         const studentCode = urlParams.get('code') || 'S0042';
-        
+
         // Update display with student code
         document.getElementById('studentCode').textContent = studentCode + "'s Agent";
         document.getElementById('codeDisplay').textContent = studentCode;
         document.getElementById('agentCode').textContent = studentCode;
-        
+
         // Load student summary
         loadStudentSummary(studentCode);
-        
+
         let isRecording = false;
         let summaryVisible = false;
-        
-        function startRecording() {
-            isRecording = true;
-            const btn = document.getElementById('recordBtn');
-            const status = document.getElementById('voiceStatus');
-            btn.classList.add('recording');
-            btn.textContent = '⏹';
-            status.textContent = 'Recording... Tap to stop';
-            status.classList.add('recording');
-        }
-        
+
+        isRecording = true;
+        const btn = document.getElementById('recordBtn');
+        const status = document.getElementById('voiceStatus');
+        const visualizer = document.getElementById('visualizer');
+        btn.classList.add('recording');
+        visualizer.classList.add('recording');
+        status.textContent = 'Recording... Release to stop';
+        status.classList.add('recording');
+
         function stopRecording() {
             if (isRecording) {
                 isRecording = false;
                 const btn = document.getElementById('recordBtn');
                 const status = document.getElementById('voiceStatus');
+                const visualizer = document.getElementById('visualizer');
                 btn.classList.remove('recording');
-                btn.textContent = '🎤';
+                visualizer.classList.remove('recording');
                 status.textContent = 'Processing your voice...';
                 status.classList.remove('recording');
-                
+
                 setTimeout(() => {
                     status.textContent = 'Tap and hold to speak';
                 }, 2000);
             }
         }
-        
+
         function showInterestOptions() {
             window.location.href = '06-interest-indication.html?code=' + studentCode;
         }
-        
+
         function toggleSummary() {
             summaryVisible = !summaryVisible;
             const summarySection = document.getElementById('summarySection');
             const toggleBtn = document.getElementById('summaryToggleBtn');
-            
+
             if (summaryVisible) {
                 summarySection.style.display = 'block';
                 toggleBtn.textContent = '✕ Close';
@@ -245,21 +271,21 @@
                 toggleBtn.style.background = 'rgba(255,255,255,0.2)';
             }
         }
-        
+
         function loadStudentSummary(studentCode) {
             // In production, this would fetch from API
             // For demo, use stored summaries or defaults
             const summaryKey = `neopeer_student_summary_${studentCode}`;
             let summary = JSON.parse(localStorage.getItem(summaryKey) || 'null');
-            
+
             if (!summary) {
                 // Default summary based on student code
                 summary = getDefaultSummary(studentCode);
             }
-            
+
             displaySummary(summary);
         }
-        
+
         function getDefaultSummary(studentCode) {
             // Default summaries for demo purposes
             const summaries = {
@@ -306,17 +332,17 @@
                     ]
                 }
             };
-            
+
             return summaries[studentCode] || {
                 aspirations: ["Not specified"],
                 struggles: ["Not specified"],
                 personality: ["Not specified"]
             };
         }
-        
+
         function displaySummary(summary) {
             const content = document.getElementById('summaryContent');
-            
+
             content.innerHTML = `
                 <div style="margin-bottom: 25px;">
                     <h3 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em; border-bottom: 2px solid #3498db; padding-bottom: 5px;">
@@ -355,4 +381,5 @@
         }
     </script>
 </body>
+
 </html>

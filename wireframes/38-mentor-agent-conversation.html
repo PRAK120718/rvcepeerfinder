@@ -11,14 +11,22 @@
 <body>
     <div class="wireframe-container">
         <div class="wireframe-header">
-            <a href="45-mentor-otp-verification.html" class="back-btn">←</a>
+            <a href="43-mentor-credential-verification.html" class="back-btn">←</a>
             <h1>'Get to Know You' Interview</h1>
             <div class="status-indicator online"></div>
         </div>
 
         <div class="voice-container" id="consentSection">
             <div style="padding: 30px; text-align: center;">
-                <div style="font-size: 3em; margin-bottom: 20px;">🎙️</div>
+                <div class="modern-mic-container">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                        <line x1="12" y1="19" x2="12" y2="23"></line>
+                        <line x1="8" y1="23" x2="16" y2="23"></line>
+                    </svg>
+                </div>
                 <p style="color: #7f8c8d; line-height: 1.6; margin-bottom: 25px;">
                     To help us match you with the right students, we need to understand your journey, struggles, and
                     personality.
@@ -48,8 +56,15 @@
                 <div id="recordingLabel" style="font-size: 0.9em; color: #e74c3c; font-weight: 600; display: none;">
                     Recording Story...
                 </div>
+                <div class="visualizer" id="visualizer">
+                    <div class="bar" style="animation-delay: -0.4s"></div>
+                    <div class="bar" style="animation-delay: -0.2s"></div>
+                    <div class="bar" style="animation-delay: 0s"></div>
+                    <div class="bar" style="animation-delay: -0.2s"></div>
+                    <div class="bar" style="animation-delay: -0.4s"></div>
+                </div>
                 <button class="voice-record-btn" id="recordBtn" onclick="toggleRecording()">
-                    🎤
+                    <div class="mic-core"></div>
                 </button>
                 <p style="font-size: 0.8em; color: #7f8c8d; text-align: center;">
                     Tap to speak about your personality, achievements, and struggles.
@@ -115,15 +130,18 @@
         function toggleRecording() {
             const btn = document.getElementById('recordBtn');
             const label = document.getElementById('recordingLabel');
+            const visualizer = document.getElementById('visualizer');
             const messages = document.getElementById('interviewMessages');
 
             isRecording = !isRecording;
 
             if (isRecording) {
                 btn.classList.add('recording');
+                visualizer.classList.add('recording');
                 label.style.display = 'block';
             } else {
                 btn.classList.remove('recording');
+                visualizer.classList.remove('recording');
                 label.style.display = 'none';
 
                 // Add simulated user response
@@ -156,7 +174,7 @@
 
         function finishInterview() {
             localStorage.setItem('neopeer_is_mentor_pending', 'true');
-            window.location.href = '43-mentor-credential-verification.html';
+            window.location.href = '72-mentor-verification-progress.html';
         }
     </script>
 </body>

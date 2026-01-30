@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification Progress - Neopeer</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .progress-container {
+            width: 100%;
+            height: 8px;
+            background: var(--bg-card);
+            border-radius: 4px;
+            margin: 40px 0 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .status-card {
+            display: none;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .pulse-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wireframe-container" style="background: var(--bg-surface);">
+        <div class="wireframe-header">
+            <div style="width: 40px;"></div>
+            <h1>Verification</h1>
+            <div style="width: 40px;"></div>
+        </div>
+
+        <div class="wireframe-content" style="text-align: center; padding-top: 60px;">
+            <div id="pendingState">
+                <div class="pulse-icon" style="background: rgba(99, 102, 241, 0.1); color: var(--primary);">
+                    ⏳
+                </div>
+                <h2 id="statusTitle">Analyzing Your Story</h2>
+                <p id="statusDesc" style="color: var(--text-dim); font-size: 0.9em;">Checking for
+                    RVCE-specific context and subject mastery.</p>
+
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <div id="progressText" style="font-size: 0.8em; color: var(--text-dim); font-weight: 700;">0%</div>
+            </div>
+
+            <div id="successState" class="status-card">
+                <div class="pulse-icon" style="background: rgba(34, 197, 94, 0.1); color: #22c55e;">
+                    ✓
+                </div>
+                <h2>Profile Verified!</h2>
+                <p style="color: var(--text-dim); font-size: 0.9em; margin-bottom: 40px;">Your success story has been
+                    authenticated. You're now a verified Neopeer Mentor.</p>
+                <button class="btn btn-primary" onclick="window.location.href='46-mentor-student-leads.html'"
+                    style="border-radius: 30px;">
+                    Continue to Dashboard
+                </button>
+            </div>
+
+            <div id="failureState" class="status-card">
+                <div class="pulse-icon" style="background: rgba(239, 68, 68, 0.1); color: #ef4444;">
+                    !
+                </div>
+                <h2>Details Required</h2>
+                <p style="color: var(--text-dim); font-size: 0.9em; margin-bottom: 24px;">Your story lacks the specific
+                    RVCE context or subject depth we need for high-quality matching.</p>
+                <div
+                    style="background: rgba(0,0,0,0.03); padding: 16px; border-radius: 12px; text-align: left; margin-bottom: 32px;">
+                    <p style="font-size: 0.8em; color: var(--text-main); margin: 0;"><strong>Tip:</strong> Mention
+                        specific lab names, professors, or RVCE-specific hurdles (like the Library Grind) to improve
+                        your match score.</p>
+                </div>
+                <button class="btn btn-primary" onclick="window.location.href='38-mentor-agent-conversation.html'"
+                    style="border-radius: 30px; background: #2c3e50;">
+                    Refine My Story
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const progressBar = document.getElementById('progressBar');
+            const progressText = document.getElementById('progressText');
+            const statusTitle = document.getElementById('statusTitle');
+            const successState = document.getElementById('successState');
+            const failureState = document.getElementById('failureState');
+            const pendingState = document.getElementById('pendingState');
+
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(interval);
+                    finalizeVerification();
+                }
+                progressBar.style.width = progress + '%';
+                progressText.textContent = Math.round(progress) + '%';
+
+                if (progress > 40) statusTitle.textContent = "Validating Subject Mastery";
+                if (progress > 80) statusTitle.textContent = "Finalizing Match Profile";
+            }, 300);
+
+            function finalizeVerification() {
+                // Determine result (usually success for demo, can be forced via URL)
+                const params = new URLSearchParams(window.location.search);
+                const forceFail = params.get('fail') === 'true';
+
+                setTimeout(() => {
+                    pendingState.style.display = 'none';
+                    if (forceFail) {
+                        failureState.style.display = 'block';
+                    } else {
+                        successState.style.display = 'block';
+                    }
+                }, 500);
+            }
+        });
+    </script>
+</body>
+
+</html>
