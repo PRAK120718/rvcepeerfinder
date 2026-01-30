@@ -8,18 +8,18 @@
     <link rel="stylesheet" href="../styles.css">
     <style>
         .sop-section {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-left: 5px solid #3498db;
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            margin-bottom: 24px;
+            border: 1px solid var(--border);
         }
 
         .sop-item {
             display: flex;
-            gap: 12px;
-            padding: 12px 0;
-            border-bottom: 1px solid #f0f0f0;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
         }
 
         .sop-item:last-child {
@@ -27,54 +27,69 @@
         }
 
         .progress-bar {
-            height: 8px;
-            background: #e0e0e0;
-            border-radius: 4px;
+            height: 12px;
+            background: var(--bg-card);
+            border-radius: 6px;
             overflow: hidden;
-            margin: 10px 0;
+            margin: 12px 0;
+            border: 1px solid var(--border);
         }
 
         .progress-fill {
             height: 100%;
-            background: #27ae60;
+            background: var(--primary);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
             width: 35%;
         }
 
         .ai-badge {
-            background: #ebf5fb;
-            color: #3498db;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.75em;
-            font-weight: 600;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            padding: 6px 12px;
+            border-radius: 30px;
+            font-size: 0.7em;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
     </style>
 </head>
 
 <body>
-    <div class="wireframe-container" style="background: #f4f7f6;">
+    <div class="wireframe-container">
         <div class="wireframe-header">
-            <a href="00-aspiration-selection.html" class="back-btn">🏠</a>
+            <a href="00-aspiration-selection.html" class="back-btn">←</a>
             <h1>Success SOP</h1>
-            <a href="68-sop-editor.html" class="back-btn"
-                style="font-size: 0.8em; width: auto; padding: 5px 10px; border-radius: 20px; background: rgba(255,255,255,0.2);">Edit</a>
-        </div>
-        <div class="wireframe-content" style="padding: 15px;">
-
-            <div style="margin-bottom: 25px;">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <h2 style="border: none; margin: 0;">My Roadmap</h2>
-                    <span class="ai-badge">AI Generated</span>
+            <div class="menu-dropdown">
+                <div class="hamburger-btn">
+                    <div class="hamburger-line"></div>
+                    <div class="hamburger-line"></div>
+                    <div class="hamburger-line"></div>
                 </div>
-                <p style="color: #7f8c8d; font-size: 0.9em; margin-top: 5px;">Based on your CSE Aspiration & Mentor
-                    Match with Expert Mentor PH-01.</p>
+                <div class="menu-content">
+                    <a href="68-sop-editor.html">Edit Roadmap</a>
+                    <a href="23-manage-aspirations.html">Manage Aspirations</a>
+                    <a href="21-settings.html">Journey Settings</a>
+                </div>
+            </div>
+        </div>
+        <div class="wireframe-content" style="padding: 24px;">
 
-                <div style="background: white; padding: 15px; border-radius: 12px; margin-top: 15px;">
-                    <div style="display: flex; justify-content: space-between; font-size: 0.85em; margin-bottom: 5px;">
-                        <span>Overall Progress</span>
-                        <span style="font-weight: bold; color: #27ae60;">35%</span>
+            <div style="margin-bottom: 32px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h2 style="margin: 0; font-size: 1.4em;">My Roadmap</h2>
+                    <span class="ai-badge">AI Sync ✓</span>
+                </div>
+                <p style="color: var(--text-dim); font-size: 0.9em; margin-top: 8px;">
+                    Optimized for <strong>CSE Aspiration</strong> & Expert PH-01.
+                </p>
+
+                <div class="card" style="margin-top: 24px; padding: 24px; cursor: default;">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.85em; margin-bottom: 8px;">
+                        <span style="font-weight: 700; color: var(--text-dim);">TOTAL PROGRESS</span>
+                        <span style="font-weight: 800; color: var(--primary);">35%</span>
                     </div>
-                    <div class="progress-bar">
+                    <div class="progress-bar" style="margin: 0;">
                         <div class="progress-fill"></div>
                     </div>
                 </div>
@@ -82,56 +97,63 @@
 
             <!-- Academic SOP -->
             <div class="sop-section">
-                <h3 style="margin-top: 0; font-size: 1.1em; color: #2c3e50;">📚 Academic Mastery</h3>
+                <h3
+                    style="margin-top: 0; font-size: 1em; color: var(--text-main); text-transform: uppercase; letter-spacing: 1px;">
+                    📖 Academic Mastery</h3>
                 <div class="sop-item">
-                    <input type="checkbox" checked>
+                    <input type="checkbox" checked style="accent-color: var(--primary); width: 18px; height: 18px;">
                     <div>
-                        <div style="font-weight: 600; font-size: 0.9em;">Clear DS Lab Internals</div>
-                        <div style="font-size: 0.75em; color: #7f8c8d;">Priority: High • Focus on Linked Lists</div>
+                        <div style="font-weight: 700; font-size: 0.95em;">Clear DS Lab Internals</div>
+                        <div style="font-size: 0.8em; color: var(--text-dim);">Priority: HIGH • Focus on Linked Lists
+                        </div>
                     </div>
                 </div>
                 <div class="sop-item">
-                    <input type="checkbox">
+                    <input type="checkbox" style="accent-color: var(--primary); width: 18px; height: 18px;">
                     <div>
-                        <div style="font-weight: 600; font-size: 0.9em;">Attend 5 ISE Theory Classes</div>
-                        <div style="font-size: 0.75em; color: #7f8c8d;">Target: 85% Attendance</div>
+                        <div style="font-weight: 700; font-size: 0.95em;">Attend 5 ISE Theory Classes</div>
+                        <div style="font-size: 0.8em; color: var(--text-dim);">Target: 85% Attendance</div>
                     </div>
                 </div>
             </div>
 
             <!-- Career SOP -->
-            <div class="sop-section" style="border-left-color: #e67e22;">
-                <h3 style="margin-top: 0; font-size: 1.1em; color: #2c3e50;">🚀 Career & Placement</h3>
+            <div class="sop-section">
+                <h3
+                    style="margin-top: 0; font-size: 1em; color: var(--text-main); text-transform: uppercase; letter-spacing: 1px;">
+                    ✨ Career Edge</h3>
                 <div class="sop-item">
-                    <input type="checkbox" checked>
+                    <input type="checkbox" checked style="accent-color: var(--primary); width: 18px; height: 18px;">
                     <div>
-                        <div style="font-weight: 600; font-size: 0.9em;">Update SOP with Mentor Feedback</div>
-                        <div style="font-size: 0.75em; color: #7f8c8d;">Status: Draft Review Pending</div>
+                        <div style="font-weight: 700; font-size: 0.95em;">Consultation Follow-up</div>
+                        <div style="font-size: 0.8em; color: var(--text-dim);">Refining roadmap with Expert tips</div>
                     </div>
                 </div>
                 <div class="sop-item">
-                    <input type="checkbox">
+                    <input type="checkbox" style="accent-color: var(--primary); width: 18px; height: 18px;">
                     <div>
-                        <div style="font-weight: 600; font-size: 0.9em;">Apply for 2 Research Internships</div>
-                        <div style="font-size: 0.75em; color: #7f8c8d;">Recommended: IISc, IITB</div>
+                        <div style="font-weight: 700; font-size: 0.95em;">Research Internships</div>
+                        <div style="font-size: 0.8em; color: var(--text-dim);">Target: IISc / IITB Applications</div>
                     </div>
                 </div>
             </div>
 
             <!-- Motivation Prompt -->
             <div
-                style="background: #2c3e50; color: white; padding: 15px; border-radius: 12px; text-align: center; margin-bottom: 20px;">
-                <div style="font-size: 1.2em; margin-bottom: 8px;">💡 Morning Motivation</div>
-                <p style="font-size: 0.85em; font-style: italic; opacity: 0.9;">"The struggle you're in today is
-                    developing the strength you need for tomorrow."</p>
-                <button class="btn"
-                    style="background: white; color: #2c3e50; font-size: 0.8em; padding: 5px 15px; border-radius: 20px; margin-top: 10px;"
-                    onclick="window.location.href='69-sop-reminders-motivations.html'">Set Alerts</button>
+                style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(139, 92, 246, 0.05)); color: var(--text-main); padding: 24px; border-radius: var(--radius-lg); text-align: center; margin-bottom: 24px; border: 1px solid rgba(99, 102, 241, 0.1);">
+                <div
+                    style="font-size: 0.9em; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--primary); margin-bottom: 12px;">
+                    ✨ Morning Nudge</div>
+                <p style="font-size: 1em; font-style: italic; color: var(--text-main); line-height: 1.5; opacity: 0.8;">
+                    "The struggle you're in today is developing the strength you need for tomorrow."</p>
+                <button class="btn btn-primary"
+                    style="background: var(--primary); color: #fff; font-size: 0.8em; padding: 10px 24px; margin-top: 16px; width: auto;"
+                    onclick="window.location.href='69-sop-reminders-motivations.html'">Set Smart Alerts</button>
             </div>
 
-            <div style="text-align: center; margin-top: 20px;">
-                <button class="btn btn-secondary" style="font-size: 0.8em; border-radius: 20px;"
-                    onclick="window.location.href='68-sop-editor.html'">+ Add New Section</button>
+            <div style="text-align: center; margin-top: 32px;">
+                <button class="btn btn-outline" style="font-size: 0.85em; border-radius: 16px; width: 100%;"
+                    onclick="window.location.href='68-sop-editor.html'">+ Add Custom Milestone</button>
             </div>
 
         </div>

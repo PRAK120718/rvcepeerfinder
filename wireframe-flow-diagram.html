@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neopeer App - End-to-End Wireframe Flow</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #f4f7f6;
+            padding: 40px;
+            font-family: 'Inter', -apple-system, sans-serif;
+        }
+
+        .diagram-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #7f8c8d;
+        }
+
+        .mermaid {
+            display: flex;
+            justify-content: center;
+        }
+
+        .back-nav {
+            margin-bottom: 20px;
+        }
+
+        .btn-back {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="back-nav">
+        <a href="index.html" class="btn-back">← Back to Dashboard</a>
+    </div>
+
+    <div class="diagram-card">
+        <div class="header">
+            <h1>Architecture & Logic Flow</h1>
+            <p>Comprehensive End-to-End Student and Mentor Journey</p>
+        </div>
+
+        <div class="mermaid">
+            graph TD
+            %% Entry & Auth
+            Landing[00-landing.html] --> OTP[00-otp-verification.html]
+            OTP --> Privacy[00-privacy-consent.html]
+            Privacy --> Onboarding[00-first-time-onboarding.html]
+            Onboarding --> Aspiration[00-aspiration-selection.html]
+
+            %% AI Agent Discovery
+            Aspiration --> AgentIntro[01-agent-intro.html]
+            AgentIntro --> VoiceConsent[36-voice-consent.html]
+            VoiceConsent --> AgentConv[02-agent-conversation.html]
+            AgentConv --> SubmitConv[29-submit-conversation.html]
+            SubmitConv --> MatchPref[49-support-type-selection.html]
+
+            %% Branching
+            MatchPref --> PeerPath{Peer Path}
+            MatchPref --> MentorPath{Mentor Path}
+
+            %% Peer Path
+            PeerPath --> StudentList[04-student-list.html]
+            StudentList --> |Vet| StudentAgent[05-student-agent-chat.html]
+            StudentAgent --> StudentList
+            StudentList --> Interest[06-interest-indication.html]
+            Interest --> MutualMatch[07-mutual-match.html]
+            MutualMatch --> CommitPay[66-commitment-payment.html]
+            CommitPay --> Scheduling[09-13 Scheduling Flow]
+            Scheduling --> PeerIce[14-icebreaker-questions.html]
+            PeerIce --> Scheduled[15-meeting-scheduled.html]
+            Scheduled --> PeerMeeting[16-meeting-interface.html]
+            PeerMeeting --> Notes[17-meeting-notes.html]
+            Notes --> PostConsent[18-consent-options.html]
+            PostConsent --> MatchConfirmed[19-connected.html]
+            MatchConfirmed --> SOPHub
+
+            %% Mentor Path
+            MentorPath --> MentorRecs[39-mentor-recommendations.html]
+            MentorPath --> GroupMentor[50-group-mentor-recommendations.html]
+            MentorRecs --> ExpertProfile[42-mentor-success-profile.html]
+            MentorRecs --> SR01Profile[56-sanjay-success-profile.html]
+
+            ExpertProfile --> AgentVetting[71-student-talks-to-mentor-agent.html]
+            SR01Profile --> AgentVetting
+
+            AgentVetting --> ExpertBooking[41-booking / 57-booking]
+            ExpertBooking --> ExpertStatus[51-status / 58-status]
+            ExpertStatus --> ExpertPay[52-pay / 59-pay]
+            ExpertPay --> ExpertIce[53-icebreakers / 60-icebreakers]
+            ExpertIce --> ExpertCall[54-interface / 61-interface]
+            ExpertCall --> ExpertFeed[55-feedback / 62-feedback]
+            ExpertFeed --> NextSteps[70-mentor-next-steps.html]
+            NextSteps --> SOPHub
+
+            %% Culmination
+            SOPHub[67-sop-dashboard.html] --> SOPEdit[68-sop-editor.html]
+            SOPHub --> SOPAlerts[69-sop-reminders-motivations.html]
+            SOPEdit --> SOPHub
+            SOPAlerts --> SOPHub
+
+            %% Mentor POV
+            Landing --> MentorLogin[44-mentor-email-login.html]
+            MentorLogin --> MentorOTP[45-mentor-otp-verification.html]
+            MentorOTP --> MentorOnboard[38-mentor-agent-conversation.html]
+            MentorOnboard --> CredCheck[43-mentor-credential-verification.html]
+            CredCheck --> MentorHome[46-mentor-student-leads.html]
+            MentorHome --> MentorAgent[63-mentor-talks-to-student-agent.html]
+            MentorHome --> MentorSched[47-mentor-schedule.html]
+            MentorSched --> ExpertCall
+            ExpertCall --> MentorFeed[65-mentor-session-feedback.html]
+            MentorFeed --> MentorHome
+
+            %% Styling
+            style Landing fill:#2c3e50,color:white
+            style MatchPref fill:#f1c40f,color:black,stroke-width:2px
+            style SOPHub fill:#9b59b6,color:white,stroke-width:2px
+            style MatchConfirmed fill:#27ae60,color:white
+            style SR01Profile fill:#e67e22,color:white
+            style ExpertProfile fill:#3498db,color:white
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+    </script>
+</body>
+
+</html>

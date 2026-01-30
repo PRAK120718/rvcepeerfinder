@@ -10,63 +10,63 @@
 
 <body>
     <div class="wireframe-container">
-        <!-- Mentor Banner inside App UI -->
-        <div
-            style="background: linear-gradient(135deg, #2c3e50, #34495e); color: white; padding: 12px 15px; border-bottom: 2px solid #3498db; width: 100%;">
-            <div style="display: flex; flex-direction: column; gap: 8px;">
-                <div>
-                    <h4 style="color: #3498db; margin: 0; font-size: 0.95em;">🌟 Become a Mentor</h4>
-                    <p style="color: #bdc3c7; margin: 2px 0 0 0; font-size: 0.75em; line-height: 1.2;">
-                        Help like-aspirational, like-background students curate their path to success.
-                    </p>
-                </div>
-                <a href="37-mentor-onboarding-intro.html"
-                    style="padding: 6px 12px; font-weight: bold; font-size: 0.75em; background: #e67e22; border-radius: 20px; text-decoration: none; color: white; display: inline-block; width: fit-content; align-self: flex-start; box-shadow: 0 2px 0 #d35400;">
-                    Join now and get paid
+        <!-- Mentor Teaser -->
+        <div style="padding: 24px 24px 0 24px;">
+            <div class="card"
+                style="background: linear-gradient(135deg, #F9FAFB, #F3F4F6); border-color: var(--border); margin: 0; padding: 20px;">
+                <h4
+                    style="color: var(--primary); margin: 0; font-size: 0.9em; letter-spacing: 1px; text-transform: uppercase;">
+                    ✨ Help the Community</h4>
+                <p style="color: var(--text-dim); margin: 4px 0 15px 0; font-size: 0.8em; line-height: 1.4;">
+                    Help others navigate the RVCE journey and get paid for your expertise.
+                </p>
+                <a href="37-mentor-onboarding-intro.html" class="btn btn-primary"
+                    style="width: auto; padding: 10px 20px; font-size: 0.75em; border-radius: 12px; background: var(--primary); box-shadow: none; margin-top: 0;">
+                    Join now
                 </a>
             </div>
         </div>
-        <!-- Mentor Banner is now the header -->
+
         <div class="wireframe-content"
-            style="display: flex; flex-direction: column; justify-content: center; min-height: calc(800px - 100px);">
-            <div style="text-align: center; padding: 20px;">
-                <div style="margin-bottom: 40px;">
-                    <h2 style="color: #2c3e50; font-size: 2em; margin-bottom: 10px;">RVCE Peer Finder</h2>
-                    <p style="color: #7f8c8d; font-size: 1.1em;">
-                        Connect with like-minded peers from RVCE
+            style="display: flex; flex-direction: column; justify-content: center; min-height: 700px;">
+            <div style="text-align: center;">
+                <div style="margin-bottom: 48px;">
+                    <div
+                        style="width: 80px; height: 80px; background: var(--primary); border-radius: 24px; margin: 0 auto 24px; display: flex; align-items: center; justify-content: center; font-size: 2.5em; transform: rotate(-5deg); box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);">
+                        🧑‍🤝‍🧑</div>
+                    <h2 style="font-size: 2.2em; margin-bottom: 8px;">Neopeer</h2>
+                    <p style="font-size: 1em; color: var(--text-dim);">
+                        The RVCE Peer Network.
                     </p>
                 </div>
 
                 <div
-                    style="background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 15px; margin-bottom: 30px;">
-                    <p style="color: #856404; font-size: 0.9em; margin: 0;">
-                        <strong>⚠️ RVCE Email Required</strong><br>
-                        Only RVCE email IDs (@rvce.edu.in) are allowed for login
+                    style="background: rgba(245, 158, 11, 0.05); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 16px; padding: 16px; margin-bottom: 32px;">
+                    <p style="color: #F59E0B; font-size: 0.85em; margin: 0; font-weight: 600;">
+                        🔒 RVCE Login Required<br>
+                        <span style="font-weight: 400; opacity: 0.8;">Use your @rvce.edu.in email to proceed.</span>
                     </p>
                 </div>
 
-                <div style="text-align: left; max-width: 400px; margin: 0 auto;">
-                    <label class="label" for="email">RVCE Email Address</label>
+                <div style="text-align: left;">
+                    <label class="label">College Email</label>
                     <input type="email" id="email" class="input-field" placeholder="your.name@rvce.edu.in"
-                        autocomplete="email">
-                    <p style="font-size: 0.85em; color: #7f8c8d; margin-top: -10px; margin-bottom: 20px;">
-                        Enter your official RVCE email address
-                    </p>
+                        style="margin-bottom: 24px;">
 
                     <button class="btn btn-primary" onclick="sendOTP()">
-                        Send OTP
+                        Get Started
                     </button>
                 </div>
 
                 <div id="errorMessage"
-                    style="display: none; background: #f8d7da; border: 1px solid #e74c3c; border-radius: 5px; padding: 12px; margin-top: 20px; color: #721c24; max-width: 400px; margin-left: auto; margin-right: auto;">
+                    style="display: none; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 12px; padding: 14px; margin-top: 24px; color: #ef4444; font-size: 0.9em;">
                     <strong>Error:</strong> <span id="errorText"></span>
                 </div>
             </div>
 
-            <div style="margin-top: auto; padding: 20px; text-align: center; border-top: 1px solid #e0e0e0;">
-                <p style="color: #7f8c8d; font-size: 0.9em; margin: 0;">
-                    Powered by <strong style="color: #3498db;">Neopeer</strong>
+            <div style="margin-top: 64px; text-align: center;">
+                <p style="color: var(--text-dim); font-size: 0.85em; margin: 0; opacity: 0.6;">
+                    Built for <strong style="color: var(--text-main);">RVCE Explorers</strong>
                 </p>
             </div>
         </div>
