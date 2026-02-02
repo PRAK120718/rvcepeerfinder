@@ -63,17 +63,20 @@
 
         <div class="wireframe-content" style="text-align: center; padding-top: 60px;">
             <div id="pendingState">
-                <div class="pulse-icon" style="background: rgba(99, 102, 241, 0.1); color: var(--primary);">
-                    ⏳
+                <div class="pulse-icon" style="background: rgba(230, 126, 34, 0.1); color: #e67e22;">
+                    🛡️
                 </div>
-                <h2 id="statusTitle">Analyzing Your Story</h2>
-                <p id="statusDesc" style="color: var(--text-dim); font-size: 0.9em;">Checking for
-                    RVCE-specific context and subject mastery.</p>
+                <h2 id="statusTitle">Verification in Progress</h2>
+                <p id="statusDesc" style="color: var(--text-dim); font-size: 0.9em; margin-bottom: 30px;">
+                    Our team is reviewing your introductory call and credentials.<br>
+                    <strong>Estimated wait: 24 - 48 hours</strong>
+                </p>
 
                 <div class="progress-container">
                     <div class="progress-bar" id="progressBar"></div>
                 </div>
-                <div id="progressText" style="font-size: 0.8em; color: var(--text-dim); font-weight: 700;">0%</div>
+                <div id="progressText" style="font-size: 0.8em; color: var(--text-dim); font-weight: 700;">Update Status
+                    in real-time</div>
             </div>
 
             <div id="successState" class="status-card">
@@ -81,10 +84,10 @@
                     ✓
                 </div>
                 <h2>Profile Verified!</h2>
-                <p style="color: var(--text-dim); font-size: 0.9em; margin-bottom: 40px;">Your success story has been
+                <p style="color: var(--text-dim); font-size: 0.9em; margin-bottom: 40px;">Your credentials have been
                     authenticated. You're now a verified Neopeer Mentor.</p>
                 <button class="btn btn-primary" onclick="window.location.href='46-mentor-student-leads.html'"
-                    style="border-radius: 30px;">
+                    style="border-radius: 30px; background: #e67e22;">
                     Continue to Dashboard
                 </button>
             </div>
@@ -93,18 +96,17 @@
                 <div class="pulse-icon" style="background: rgba(239, 68, 68, 0.1); color: #ef4444;">
                     !
                 </div>
-                <h2>Details Required</h2>
-                <p style="color: var(--text-dim); font-size: 0.9em; margin-bottom: 24px;">Your story lacks the specific
-                    RVCE context or subject depth we need for high-quality matching.</p>
+                <h2>Verification Pending</h2>
+                <p style="color: var(--text-dim); font-size: 0.9em; margin-bottom: 24px;">We need a little more
+                    information to finalize your profile.</p>
                 <div
                     style="background: rgba(0,0,0,0.03); padding: 16px; border-radius: 12px; text-align: left; margin-bottom: 32px;">
-                    <p style="font-size: 0.8em; color: var(--text-main); margin: 0;"><strong>Tip:</strong> Mention
-                        specific lab names, professors, or RVCE-specific hurdles (like the Library Grind) to improve
-                        your match score.</p>
+                    <p style="font-size: 0.8em; color: var(--text-main); margin: 0;"><strong>Next Step:</strong> Please
+                        check your email for a follow-up request regarding your identity verification.</p>
                 </div>
-                <button class="btn btn-primary" onclick="window.location.href='38-mentor-agent-conversation.html'"
+                <button class="btn btn-primary" onclick="window.location.href='38-mentor-schedule-call.html'"
                     style="border-radius: 30px; background: #2c3e50;">
-                    Refine My Story
+                    Reschedule Call
                 </button>
             </div>
         </div>

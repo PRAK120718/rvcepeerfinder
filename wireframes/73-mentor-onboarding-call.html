@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification Call - Neopeer</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .video-call-layout {
+            height: 100vh;
+            background: #0f172a;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .remote-video {
+            flex: 1;
+            background: #1e293b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .local-video {
+            position: absolute;
+            bottom: 100px;
+            right: 20px;
+            width: 120px;
+            height: 180px;
+            background: #475569;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        .call-controls {
+            height: 100px;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .control-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            color: white;
+        }
+
+        .control-btn.end-call {
+            background: #ef4444;
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .control-btn.end-call:hover {
+            background: #dc2626;
+        }
+
+        .status-overlay {
+            position: absolute;
+            top: 40px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 8px 16px;
+            border-radius: 50px;
+        }
+
+        .live-tag {
+            background: #ef4444;
+            color: white;
+            font-size: 0.7em;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .mentor-name {
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+        }
+
+        .talking-indicator {
+            width: 12px;
+            height: 12px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 1s infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="video-call-layout">
+        <!-- Status -->
+        <div class="status-overlay">
+            <div class="live-tag">Live</div>
+            <div class="mentor-name">Nitin (Neopeer Admin)</div>
+            <div class="talking-indicator"></div>
+        </div>
+
+        <!-- Main Video Area -->
+        <div class="remote-video">
+            <div style="text-align: center;">
+                <div
+                    style="width: 120px; height: 120px; background: #334155; border-radius: 50%; margin: 0 auto 24px; display: flex; align-items: center; justify-content: center; font-size: 3em; border: 4px solid #475569;">
+                    👨‍💼
+                </div>
+                <h3>Verifying Credentials...</h3>
+                <p style="color: #94a3b8; font-size: 0.9em;">Introductory Verification Call in Progress</p>
+            </div>
+
+            <!-- Picture in Picture (User) -->
+            <div class="local-video">
+                <div
+                    style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 2em; background: #64748b;">
+                    👤
+                </div>
+                <div
+                    style="position: absolute; bottom: 8px; left: 8px; font-size: 0.6em; background: rgba(0,0,0,0.5); padding: 2px 6px; border-radius: 4px;">
+                    You (Mentor)</div>
+            </div>
+        </div>
+
+        <!-- Call Controls -->
+        <div class="call-controls">
+            <button class="control-btn">🎤</button>
+            <button class="control-btn">📹</button>
+            <button class="control-btn">🖥️</button>
+            <button class="control-btn end-call" onclick="endCall()">📞</button>
+        </div>
+    </div>
+
+    <script>
+        function endCall() {
+            // Simulate ending call and moving to final verification state
+            window.location.href = '72-mentor-verification-progress.html';
+        }
+
+        // Auto-end call after 5 seconds for wireframe demo
+        setTimeout(() => {
+            console.log("Call finishing...");
+            // Optionally auto-redirect or wait for user to click
+        }, 5000);
+    </script>
+</body>
+
+</html>
