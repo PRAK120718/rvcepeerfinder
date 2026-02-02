@@ -13,7 +13,7 @@
     <div class="wireframe-container">
         <div class="wireframe-header">
             <a href="01-agent-intro.html" class="back-btn">←</a>
-            <h1>Voice Recording Consent</h1>
+            <h1>'Get to Know You' Consent</h1>
             <div style="width: 60px;"></div>
         </div>
         <div class="wireframe-content">
@@ -24,31 +24,27 @@
                     <strong>You're in control:</strong>
                 </p>
                 <ul style="margin-left: 20px; color: #2c3e50; line-height: 2;">
-                    <li>You can stop recording at any time during the conversation</li>
-                    <li>Recordings are encrypted and stored securely</li>
-                    <li>You can request deletion of recordings anytime</li>
-                    <li>Recordings are only used for matching purposes</li>
-                    <li>No video recording is used - only voice</li>
+                    <li>Your details are encrypted and stored securely</li>
+                    <li>You can request deletion of details anytime</li>
+                    <li>Your details are only used for matching purposes</li>
                 </ul>
             </div>
 
-            <h2>Voice Conversation Consent</h2>
+            <h2>'Get to Know You' Consent</h2>
             <p style="color: #7f8c8d; margin-bottom: 20px;">
-                The AI Agent-Led discovery method uses voice conversations to understand your personality,
-                communication style, and aspirations for better matching.
+                The 'Get to Know You' interview helps us understand your unique journey,
+                aspirations, and character to find your most compatible peer matches.
             </p>
 
             <div class="consent-checkbox required">
                 <input type="checkbox" id="voiceRecording" required>
                 <label for="voiceRecording">
-                    <strong>I consent to voice recording</strong>
+                    <strong>I consent to the 'Get to Know You' interview</strong>
                     <div class="consent-text">
-                        I understand that my voice conversations with the AI agent will be recorded and analyzed
-                        to understand my personality, communication style, and aspirations. This helps find better
-                        matches.
-                        Think of it like talking to a helpful friend - we record these conversations only to better
-                        understand you
-                        and find matches who'll work well with your style. No video recording is used.
+                        I understand that my responses will be used to understand my background,
+                        journey phase, and personality. This ensures high-compatibility matching.
+                        Think of it like sharing your story with a trusted guide - we use these
+                        details only to find peers who truly align with your style of work and ambitions.
                         <a href="#" class="consent-link">Learn more</a>
                     </div>
                 </label>
@@ -75,7 +71,7 @@
             const consents = JSON.parse(localStorage.getItem('neopeer_consents') || '{}');
             if (consents.voiceRecording) {
                 // Already consented, go directly to conversation
-                window.location.href = '02-agent-conversation.html';
+                window.location.href = '02-get-to-know-you.html';
             }
         });
 
@@ -83,7 +79,7 @@
             const voiceConsent = document.getElementById('voiceRecording').checked;
 
             if (!voiceConsent) {
-                alert('Please accept voice recording consent to use the AI Agent-Led discovery method.');
+                alert('Please accept the consent to use the AI Agent-Led discovery method.');
                 return;
             }
 
@@ -93,7 +89,7 @@
             localStorage.setItem('neopeer_consents', JSON.stringify(consents));
 
             // Navigate to agent conversation
-            window.location.href = '02-agent-conversation.html';
+            window.location.href = '02-get-to-know-you.html';
         }
 
         function goToDiscoveryMethod() {

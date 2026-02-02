@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get to Know You - RVCE Peer Finder</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../profile.js"></script>
+</head>
+
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <a href="01-agent-intro.html" class="back-btn">←</a>
+            <h1 id="flowTitle">Profile Interview</h1>
+            <div style="width: 40px;"></div>
+        </div>
+        <div class="wireframe-content" style="padding: 0;">
+            <div id="progressHeader"
+                style="padding: 12px 20px; background: rgba(99, 102, 241, 0.05); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between;">
+                <div id="stepLabel" style="font-size: 0.8em; font-weight: 700; color: var(--primary);">GETTING STARTED
+                </div>
+                <div id="progressBar"
+                    style="flex: 1; height: 4px; background: #e2e8f0; margin: 0 15px; border-radius: 2px; overflow: hidden;">
+                    <div id="progressFill"
+                        style="width: 10%; height: 100%; background: var(--primary); transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                    </div>
+                </div>
+            </div>
+
+            <div class="voice-container" style="display: flex; flex-direction: column; height: calc(100vh - 110px);">
+                <div class="voice-messages" id="chatContainer"
+                    style="padding: 20px; flex: 1; overflow-y: auto; scroll-behavior: smooth;">
+                    <!-- Chat messages will be injected here -->
+                </div>
+
+                <div id="inputArea"
+                    style="padding: 20px; background: white; border-top: 1px solid var(--border); border-top-left-radius: 24px; border-top-right-radius: 24px; box-shadow: 0 -10px 25px rgba(0,0,0,0.05);">
+                    <div id="chipContainer" style="display: none; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
+                        <!-- Selection chips -->
+                    </div>
+                    <div id="rangeInputContainer" style="display: none; margin-bottom: 20px;">
+                        <input type="range" id="userRange" min="1" max="10" step="1" style="width: 100%;">
+                        <div
+                            style="display: flex; justify-content: space-between; font-size: 0.8em; color: var(--text-dim); margin-top: 8px;">
+                            <span>Casual</span>
+                            <span id="rangeVal" style="font-weight: 700; color: var(--primary);">5</span>
+                            <span>Committed</span>
+                        </div>
+                    </div>
+                    <div id="textInputContainer" style="display: none;">
+                        <input type="text" id="userInput" class="input-field" placeholder="Share briefly..."
+                            style="margin-bottom: 12px; border-radius: 12px; height: 50px; font-size: 1em;">
+                    </div>
+                    <button class="btn btn-primary" id="actionBtn" onclick="handleAction()"
+                        style="border-radius: 16px; width: 100%; height: 52px; font-weight: 700; font-size: 1.1em; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);">
+                        Get Started
+                    </button>
+                    <p id="hintText"
+                        style="font-size: 0.8em; color: var(--text-dim); text-align: center; margin-top: 15px; font-weight: 500;">
+                        Let's tailor your journey.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const chatContainer = document.getElementById('chatContainer');
+        const chipContainer = document.getElementById('chipContainer');
+        const textInputContainer = document.getElementById('textInputContainer');
+        const rangeInputContainer = document.getElementById('rangeInputContainer');
+        const userInput = document.getElementById('userInput');
+        const userRange = document.getElementById('userRange');
+        const rangeVal = document.getElementById('rangeVal');
+        const actionBtn = document.getElementById('actionBtn');
+        const hintText = document.getElementById('hintText');
+        const progressFill = document.getElementById('progressFill');
+        const stepLabel = document.getElementById('stepLabel');
+
+        userRange.oninput = function () { rangeVal.textContent = this.value; }
+
+        let currentPhase = 'intro'; // intro, basics, inquiry, reflection, finish
+        let currentStep = 0;
+        let selectedTraitCategories = [];
+        let traitsToAnswer = [];
+        let currentChoice = null;
+
+        const questionPool = {
+            'Basic': [
+                { key: 'branch', type: 'select', q: "Which branch are you in at RVCE?", options: ['CSE', 'ISE', 'ECE', 'EEE', 'TCE', 'ME', 'CV', 'BT'] },
+                { key: 'year', type: 'select', q: "Which year of study are you in?", options: ['1st Year', '2nd Year', '3rd Year', '4th Year'] },
+                { key: 'background', type: 'select', q: "What best describes your academic background?", options: ['Technical/STEM', 'Self-taught', 'Academic Research', 'Product-focused'] },
+                { key: 'struggles', type: 'select', q: "What's the main hurdle you're facing?", options: ['Technical Skills', 'Time Management', 'Networking', 'Resource Access'] }
+            ],
+            'Personality': [
+                { key: 'p_style', type: 'select', q: "How would you describe your personality in a group?", options: ['Analytical', 'Creative', 'Organized', 'Spontaneous'] },
+                { key: 'p_mentality', type: 'select', q: "What is your core mentality?", options: ['Growth Mindset', 'Results Oriented', 'Highly Resilient', 'Disciplined'] },
+                { key: 'p_workstyle', type: 'select', q: "What is your preferred style of work?", options: ['Deep Solo Work', 'Collaborative Bursts', 'Highly Structured', 'Flexible/Agile'] }
+            ],
+            'Aspiration': [
+                { key: 'a_seriousness', type: 'range', q: "How serious are you about this specific goal (1-10)?" },
+                { key: 'a_learnings', type: 'select', q: "What is your primary source of learning?", options: ['Project-based', 'Theoretical', 'Industry/Hands-on', 'Mentorship'] }
+            ],
+            'Achievements': [
+                { key: 'ach_status', type: 'select', q: "What is your most notable achievement area?", options: ['Hackathons', 'Published Research', 'Open Source', 'Internships', 'CGPA'] },
+                { key: 'ach_creds', type: 'select', q: "Which credentials do you value most?", options: ['Skills/Portfolio', 'Certifications', 'Experience', 'Theoretical Depth'] }
+            ],
+            'Journey Phase': [
+                { key: 'bp_phase', type: 'select', q: "Which phase of your journey are you in?", options: ['Exploration', 'Skill Building', 'Execution', 'Optimization'] }
+            ]
+        };
+
+        const categoryDescriptions = {
+            'Personality': 'Mentality and work style.',
+            'Aspiration': 'Goal seriousness and learning source.',
+            'Achievements': 'Achievement areas and credentials.',
+            'Journey Phase': 'Current stage of progress.'
+        };
+
+        function addMessage(text, side = 'agent') {
+            const msg = document.createElement('div');
+            msg.className = `voice-message ${side} msg-animate`;
+            msg.innerHTML = `<div class="voice-bubble">${text}</div>`;
+            chatContainer.appendChild(msg);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        function handleAction() {
+            if (currentPhase === 'intro') startBasics();
+            else if (currentPhase === 'basics') submitAnswer(questionPool['Basic'][currentStep], askNextBasic);
+            else if (currentPhase === 'inquiry') confirmCategories();
+            else if (currentPhase === 'reflection') submitAnswer(traitsToAnswer[currentStep], askNextReflection);
+        }
+
+        function startBasics() {
+            currentPhase = 'basics';
+            currentStep = 0;
+            stepLabel.textContent = "PHASE 1: THE BASICS";
+            addMessage("Hello! Let's start with objective details to define your context.");
+            askNextBasic();
+        }
+
+        function renderInput(question) {
+            textInputContainer.style.display = 'none';
+            chipContainer.style.display = 'none';
+            rangeInputContainer.style.display = 'none';
+            currentChoice = null;
+
+            if (question.type === 'select') {
+                chipContainer.style.display = 'flex';
+                chipContainer.innerHTML = '';
+
+                // Add predefined options
+                question.options.forEach(opt => {
+                    const chip = document.createElement('div');
+                    chip.className = 'date-chip';
+                    chip.textContent = opt;
+                    chip.onclick = () => {
+                        const chips = chipContainer.querySelectorAll('.date-chip');
+                        chips.forEach(c => c.classList.remove('selected'));
+                        chip.classList.add('selected');
+                        currentChoice = opt;
+                        textInputContainer.style.display = 'none'; // Hide if previously shown for 'Other'
+                    };
+                    chipContainer.appendChild(chip);
+                });
+
+                // Add "Others" option
+                const otherChip = document.createElement('div');
+                otherChip.className = 'date-chip';
+                otherChip.textContent = 'Other...';
+                otherChip.onclick = () => {
+                    const chips = chipContainer.querySelectorAll('.date-chip');
+                    chips.forEach(c => c.classList.remove('selected'));
+                    otherChip.classList.add('selected');
+                    currentChoice = 'Other...';
+                    textInputContainer.style.display = 'block';
+                    userInput.value = '';
+                    userInput.placeholder = "Please specify...";
+                    userInput.focus();
+                };
+                chipContainer.appendChild(otherChip);
+
+            } else if (question.type === 'range') {
+                rangeInputContainer.style.display = 'block';
+                userRange.value = 5;
+                rangeVal.textContent = 5;
+            } else {
+                textInputContainer.style.display = 'block';
+                userInput.value = '';
+                userInput.placeholder = "Share briefly...";
+                userInput.focus();
+            }
+        }
+
+        function askNextBasic() {
+            const pool = questionPool['Basic'];
+            if (currentStep < pool.length) {
+                const q = pool[currentStep];
+                addMessage(q.q);
+                renderInput(q);
+                actionBtn.textContent = "Confirm";
+                hintText.textContent = `Question ${currentStep + 1} of ${pool.length}`;
+                progressFill.style.width = `${(currentStep + 1) / (pool.length + 3) * 100}%`;
+            } else {
+                startInquiry();
+            }
+        }
+
+        function submitAnswer(question, nextFn) {
+            let val = "";
+            if (question.type === 'select') {
+                if (!currentChoice) { alert("Please select an option."); return; }
+                if (currentChoice === 'Other...') {
+                    val = userInput.value.trim();
+                    if (!val) { alert("Please specify your answer."); return; }
+                } else {
+                    val = currentChoice;
+                }
+            } else if (question.type === 'range') {
+                val = userRange.value;
+            } else {
+                val = userInput.value.trim();
+                if (!val) return;
+            }
+
+            addMessage(val, 'user');
+            textInputContainer.style.display = 'none';
+            chipContainer.style.display = 'none';
+            rangeInputContainer.style.display = 'none';
+            currentStep++;
+            setTimeout(nextFn, 600);
+        }
+
+        function startInquiry() {
+            currentPhase = 'inquiry';
+            currentStep = 0;
+            stepLabel.textContent = "PHASE 2: VETTING CRITERIA";
+            progressFill.style.width = "40%";
+            addMessage("Now, what objective criteria do you value in others?");
+
+            // Set all detailed categories for vetting
+            selectedTraitCategories = ['Personality', 'Aspiration', 'Achievements', 'Journey Phase'];
+            traitsToAnswer = [];
+            selectedTraitCategories.forEach(cat => {
+                traitsToAnswer = traitsToAnswer.concat(questionPool[cat]);
+            });
+
+            askNextVettingQuestion();
+        }
+
+        function askNextVettingQuestion() {
+            if (currentStep < traitsToAnswer.length) {
+                const q = traitsToAnswer[currentStep];
+                // Prefix the question to clarify we are asking about the OTHER person
+                addMessage(`<strong>Vetting - ${q.key.split('_')[1] || q.key}:</strong> What do you look for in a peer/mentor regarding this?`);
+                renderInput(q);
+                actionBtn.textContent = "Confirm Criteria";
+                hintText.textContent = `Vetting Requirement ${currentStep + 1} of ${traitsToAnswer.length}`;
+            } else {
+                addMessage("Criteria locked. Now, answer these same questions to ensure an objective match.");
+                setTimeout(() => {
+                    currentStep = 0;
+                    currentPhase = 'reflection';
+                    stepLabel.textContent = "PHASE 3: SELF-REFLECT";
+                    askNextReflection();
+                }, 1000);
+            }
+        }
+
+        function confirmCategories() {
+            submitAnswer(traitsToAnswer[currentStep], askNextVettingQuestion);
+        }
+
+        function askNextReflection() {
+            if (currentStep < traitsToAnswer.length) {
+                const q = traitsToAnswer[currentStep];
+                addMessage(q.q);
+                renderInput(q);
+                actionBtn.textContent = "Submit to Analysis";
+                hintText.textContent = `Factor ${currentStep + 1} of ${traitsToAnswer.length}`;
+                progressFill.style.width = `${40 + ((currentStep + 1) / traitsToAnswer.length * 55)}%`;
+            } else {
+                finishInterview();
+            }
+        }
+
+        function finishInterview() {
+            currentPhase = 'finish';
+            stepLabel.textContent = "INTERVIEW COMPLETE";
+            progressFill.style.width = "100%";
+            addMessage("Objective data captured. I'm now processing this through my discovery algorithm.");
+            addMessage("I've found the top matches who satisfy your vetting criteria precisely.");
+
+            actionBtn.textContent = "Analyze Matches →";
+            actionBtn.onclick = () => window.location.href = '04-student-list.html';
+            hintText.textContent = "Decision tree data finalized";
+        }
+
+        window.onload = () => {
+            const isAuthenticated = localStorage.getItem('rvce_authenticated') === 'true';
+            if (!isAuthenticated) window.location.href = '00-landing.html';
+            const consents = JSON.parse(localStorage.getItem('neopeer_consents') || '{}');
+            if (!consents.voiceRecording) window.location.href = '36-voice-consent.html';
+            addMessage("Welcome. Let's make your journey objective.");
+        };
+    </script>
+
+    <style>
+        .voice-bubble {
+            background: #f8fafc;
+            color: #1e293b;
+            padding: 14px 18px;
+            border-radius: 20px;
+            max-width: 85%;
+            font-size: 0.95em;
+            line-height: 1.5;
+            border: 1px solid #f1f5f9;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+            position: relative;
+        }
+
+        .user .voice-bubble {
+            background: var(--primary);
+            color: white;
+            border-top-right-radius: 4px;
+            margin-left: auto;
+            border: none;
+        }
+
+        .agent .voice-bubble {
+            border-top-left-radius: 4px;
+        }
+
+        .msg-animate {
+            animation: slideIn 0.3s ease-out forwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .date-chip {
+            border: 1px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            background: white;
+            color: #64748b;
+            border-radius: 16px;
+            padding: 10px 16px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        .date-chip.selected {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 3px;
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+        }
+    </style>
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile Summary - RVCE Peer Finder</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <a href="04-student-list.html" class="back-btn">←</a>
+            <h1 id="studentCode">S0042's Profile</h1>
+            <div style="width: 40px;"></div>
+        </div>
+
+        <div class="wireframe-content" style="background: #f8fafc; display: flex; flex-direction: column;">
+            <div id="summarySection"
+                style="padding: 24px; background: white; border-radius: 20px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); margin: 20px; flex: 1;">
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <div
+                        style="width: 80px; height: 80px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8em; font-weight: 700; margin: 0 auto 15px; box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);">
+                        <span id="initials">S</span>
+                    </div>
+                    <h2 id="studentTitle" style="margin: 0; color: #1e293b; font-size: 1.4em;">Student <span
+                            id="codeDisplay">S0042</span></h2>
+                    <p style="color: #64748b; font-size: 0.9em; margin-top: 4px;">Verified Peer Profile</p>
+                </div>
+
+                <div id="summaryContent" style="margin-bottom: 30px;">
+                    <!-- Summary content will be loaded here -->
+                </div>
+
+                <button class="btn btn-primary" onclick="showInterestOptions()"
+                    style="width: 100%; border-radius: 16px; height: 52px; font-weight: 700; font-size: 1.1em; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);">
+                    Indicate Interest →
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get student code from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const studentCode = urlParams.get('code') || 'S0042';
+
+        // Update display with student code
+        document.getElementById('studentCode').textContent = studentCode + "'s Profile";
+        document.getElementById('codeDisplay').textContent = studentCode;
+        document.getElementById('initials').textContent = studentCode.charAt(0);
+
+        // Load student summary
+        loadStudentSummary(studentCode);
+
+        function showInterestOptions() {
+            window.location.href = '06-interest-indication.html?code=' + studentCode;
+        }
+
+        function loadStudentSummary(studentCode) {
+            const summaries = {
+                'S0042': {
+                    basics: {
+                        branch: "CSE",
+                        year: "3rd Year",
+                        background: "Product-focused",
+                        struggles: "Time Management"
+                    },
+                    personality: {
+                        style: "Analytical",
+                        mentality: "Growth Mindset",
+                        workstyle: "Deep Solo Work"
+                    },
+                    aspiration: {
+                        seriousness: "9/10",
+                        learnings: "Project-based (Building a health-tech app)"
+                    },
+                    achievements: {
+                        status: "Hackathons (Winner of RVCE Hack 2025)",
+                        creds: "Skills/Portfolio"
+                    },
+                    phase: "Execution"
+                },
+                'S0127': {
+                    basics: {
+                        branch: "ISE",
+                        year: "4th Year",
+                        background: "Technical/STEM",
+                        struggles: "Networking"
+                    },
+                    personality: {
+                        style: "Organized",
+                        mentality: "Disciplined",
+                        workstyle: "Collaborative Bursts"
+                    },
+                    aspiration: {
+                        seriousness: "8/10",
+                        learnings: "Theoretical (AI Research papers)"
+                    },
+                    achievements: {
+                        status: "Published Research",
+                        creds: "Experience"
+                    },
+                    phase: "Optimization"
+                }
+            };
+
+            const summary = summaries[studentCode] || summaries['S0042'];
+            displaySummary(summary);
+        }
+
+        function displaySummary(summary) {
+            const content = document.getElementById('summaryContent');
+
+            content.innerHTML = `
+                <div style="margin-bottom: 30px;">
+                    <h3 style="color: var(--primary); margin-bottom: 12px; font-size: 0.9em; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 1px solid #f1f5f9; padding-bottom: 8px; font-weight: 800;">
+                        Phase 1: The Basics
+                    </h3>
+                    <div style="display: grid; grid-template-columns: 1fr; gap: 12px; font-size: 0.95em; color: #475569;">
+                        <div style="padding: 12px; background: #f8fafc; border-radius: 12px;"><strong>Branch & Year:</strong> ${summary.basics.branch}, ${summary.basics.year}</div>
+                        <div style="padding: 12px; background: #f8fafc; border-radius: 12px;"><strong>Academic Lens:</strong> ${summary.basics.background}</div>
+                        <div style="padding: 12px; background: #f8fafc; border-radius: 12px;"><strong>Primary Hurdle:</strong> ${summary.basics.struggles}</div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 30px;">
+                    <h3 style="color: var(--primary); margin-bottom: 12px; font-size: 0.9em; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 1px solid #f1f5f9; padding-bottom: 8px; font-weight: 800;">
+                        Phase 2: Personality & Collaboration
+                    </h3>
+                    <div style="font-size: 0.95em; line-height: 1.6; color: #475569; display: flex; flex-direction: column; gap: 10px;">
+                        <div style="padding: 12px; border-left: 4px solid var(--primary); background: #f8fafc; border-radius: 0 12px 12px 0;">
+                            <strong>Analytical Style:</strong> Describes themselves as ${summary.personality.style} in group settings.
+                        </div>
+                        <div style="padding: 12px; border-left: 4px solid var(--primary); background: #f8fafc; border-radius: 0 12px 12px 0;">
+                            <strong>Mentality:</strong> Operates with a ${summary.personality.mentality}.
+                        </div>
+                        <div style="padding: 12px; border-left: 4px solid var(--primary); background: #f8fafc; border-radius: 0 12px 12px 0;">
+                            <strong>Work Rhythm:</strong> Prefers ${summary.personality.workstyle}.
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <h3 style="color: var(--primary); margin-bottom: 12px; font-size: 0.9em; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 1px solid #f1f5f9; padding-bottom: 8px; font-weight: 800;">
+                        Phase 3: Journey Depth
+                    </h3>
+                    <div style="font-size: 0.95em; line-height: 1.6; color: #475569; display: grid; grid-template-columns: 1fr; gap: 12px;">
+                        <div style="background: white; border: 1px solid #e2e8f0; padding: 15px; border-radius: 16px;">
+                            <div style="font-size: 0.8em; color: #94a3b8; font-weight: 700; margin-bottom: 4px;">GOAL SERIOUSNESS</div>
+                            <div style="font-size: 1.2em; color: var(--primary); font-weight: 800;">${summary.aspiration.seriousness}</div>
+                        </div>
+                        <p><strong>Primary Learning Flow:</strong> ${summary.aspiration.learnings}</p>
+                        <p><strong>Proud Achievement:</strong> ${summary.achievements.status}</p>
+                        <p><strong>Values Above All:</strong> ${summary.achievements.creds}</p>
+                        <p><strong>Current Stage:</strong> <span style="background: #e2e8f0; padding: 4px 10px; border-radius: 20px; font-size: 0.85em; font-weight: 700;">${summary.phase.toUpperCase()}</span></p>
+                    </div>
+                </div>
+                
+                <div style="padding: 16px; background: rgba(99, 102, 241, 0.03); border-radius: 16px; border: 1px solid rgba(99, 102, 241, 0.1); margin-top: 10px;">
+                    <p style="font-size: 0.85em; color: #6366f1; margin: 0; line-height: 1.4;">
+                        <strong>High Match Confidence:</strong> This student's 'Get to Know You' answers align with your stated discovery criteria.
+                    </p>
+                </div>
+            `;
+        }
+    </script>
+</body>
+
+</html>

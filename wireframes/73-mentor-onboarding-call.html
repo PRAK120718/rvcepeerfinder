@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Onboarding Call - Neopeer</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <a href="43-mentor-credential-verification.html" class="back-btn">←</a>
+            <h1>Final Step</h1>
+            <div style="width: 40px;"></div>
+        </div>
+        <div class="wireframe-content">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <div style="font-size: 3.5em; margin-bottom: 20px;">🗓️</div>
+                <h2>Schedule Your GTKY Interview</h2>
+                <p style="color: #7f8c8d; margin-top: 10px; line-height: 1.5;">
+                    To maintain high quality and trust, every mentor has a short 15-min 'Get to Know You' interview with
+                    the Neopeer team.
+                </p>
+            </div>
+
+            <div class="card" style="border-left: 5px solid #e67e22; margin-bottom: 25px;">
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 15px;">Pick a Time Slot</div>
+
+                <div class="time-slot" onclick="selectSlot(this)" style="cursor: pointer; margin-bottom: 12px;">
+                    <div class="time-slot-header">
+                        <div>
+                            <div class="time-slot-date">Tuesday, Feb 3rd</div>
+                            <div class="time-slot-time">4:00 PM - 4:15 PM</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-slot" onclick="selectSlot(this)" style="cursor: pointer; margin-bottom: 12px;">
+                    <div class="time-slot-header">
+                        <div>
+                            <div class="time-slot-date">Wednesday, Feb 4th</div>
+                            <div class="time-slot-time">11:00 AM - 11:15 AM</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-slot" onclick="selectSlot(this)" style="cursor: pointer;">
+                    <div class="time-slot-header">
+                        <div>
+                            <div class="time-slot-date">Thursday, Feb 5th</div>
+                            <div class="time-slot-time">2:30 PM - 2:45 PM</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="padding: 15px; background: #ebf5fb; border-radius: 8px; margin-bottom: 30px;">
+                <p style="font-size: 0.85em; color: #2980b9; margin: 0; line-height: 1.4;">
+                    <strong>💡 What to expect:</strong> We'll chat about your background, the struggles you've faced,
+                    and how you want to help peers. This helps us write your authentic Success Story.
+                </p>
+            </div>
+
+            <button id="confirmBtn" class="btn btn-primary" style="background: #e67e22; border-radius: 50px;" disabled
+                onclick="window.location.href='72-mentor-verification-progress.html'">
+                Confirm & Submit Profile
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function selectSlot(element) {
+            document.querySelectorAll('.time-slot').forEach(slot => {
+                slot.style.borderColor = '#eee';
+                slot.style.background = 'white';
+            });
+            element.style.borderColor = '#e67e22';
+            element.style.background = '#fffaf5';
+            document.getElementById('confirmBtn').disabled = false;
+        }
+    </script>
+</body>
+
+</html>

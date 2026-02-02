@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What are you looking for? - RVCE Peer Finder</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <a href="00-aspiration-selection.html" class="back-btn">←</a>
+            <h1>Your Goal</h1>
+            <div style="width: 40px;"></div>
+        </div>
+        <div class="wireframe-content">
+            <div style="text-align: center; margin-bottom: 32px;">
+                <h2 style="font-size: 1.5em;">What are you looking for?</h2>
+                <p style="color: var(--text-dim); margin-top: 8px;">
+                    We'll tailor your discovery journey based on your choice.
+                </p>
+            </div>
+
+            <div class="card"
+                style="cursor: pointer; margin-bottom: 20px; border-color: var(--primary); background: rgba(99, 102, 241, 0.05);"
+                onclick="selectGoal('peer')">
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <div style="font-size: 2em;">🤝</div>
+                    <div>
+                        <div style="font-weight: 700; color: var(--text-main);">Find a Peer</div>
+                        <div style="font-size: 0.85em; color: var(--text-dim);">Build with someone at your level.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="cursor: pointer; margin-bottom: 20px;" onclick="selectGoal('mentor')">
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <div style="font-size: 2em;">🎯</div>
+                    <div>
+                        <div style="font-weight: 700; color: var(--text-main);">Find a Mentor</div>
+                        <div style="font-size: 0.85em; color: var(--text-dim);">Get guidance from someone ahead.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="cursor: pointer; margin-bottom: 20px;" onclick="selectGoal('both')">
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <div style="font-size: 2em;">🚀</div>
+                    <div>
+                        <div style="font-weight: 700; color: var(--text-main);">Both Peer & Mentor</div>
+                        <div style="font-size: 0.85em; color: var(--text-dim);">The complete support system.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <button class="btn btn-primary" style="width: 100%; border-radius: 16px;" onclick="proceed()">
+                    Continue
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selected = 'peer';
+
+        function selectGoal(goal) {
+            selected = goal;
+            // Visual update
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.style.borderColor = 'var(--border)';
+                card.style.background = 'white';
+            });
+
+            const selectedCard = event.currentTarget;
+            selectedCard.style.borderColor = 'var(--primary)';
+            selectedCard.style.background = 'rgba(99, 102, 241, 0.05)';
+        }
+
+        function proceed() {
+            localStorage.setItem('neopeer_search_goal', selected);
+            window.location.href = '01-agent-intro.html';
+        }
+
+        // Check auth
+        window.addEventListener('DOMContentLoaded', () => {
+            const isAuthenticated = localStorage.getItem('rvce_authenticated') === 'true';
+            if (!isAuthenticated) window.location.href = '00-landing.html';
+        });
+    </script>
+</body>
+
+</html>
