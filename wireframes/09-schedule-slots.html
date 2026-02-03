@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <script src="../aspirations.js"></script>
     <script src="../availability.js"></script>
 </head>
+
 <body>
     <div class="wireframe-container">
         <div class="wireframe-header">
@@ -20,26 +22,27 @@
             <div id="commonSlotsView">
                 <h2>Available Time Slots</h2>
                 <p style="color: #7f8c8d; margin-bottom: 20px;">
-                    Based on your availability and <span class="student-code" id="otherStudentCode">S0042</span>'s availability, here are the matching time slots:
+                    Based on your availability and <span class="student-code" id="otherStudentCode">S0042</span>'s
+                    availability, here are the matching time slots:
                 </p>
-                
+
                 <div id="commonSlotsList">
                     <!-- Common slots will be loaded here -->
                 </div>
-                
+
                 <h2 style="margin-top: 30px;">Meeting Preferences</h2>
-                
+
                 <div class="consent-checkbox">
-                    <input type="checkbox" id="meetingRecordingConsent" checked>
-                    <label for="meetingRecordingConsent">
-                        <strong>Allow meeting recording and transcription (Optional)</strong>
+                    <input type="checkbox" id="automaticNotesConsent" checked>
+                    <label for="automaticNotesConsent">
+                        <strong>Enable automatic meeting notes (Optional)</strong>
                         <div class="consent-text">
-                            Enable automatic note-taking during the meeting. Notes will be shared after the meeting ends.
-                            You can change this in settings.
+                            Transcribe the meeting and generate summary notes automatically. Perfect for staying present
+                            in the conversation.
                         </div>
                     </label>
                 </div>
-                
+
                 <div class="consent-checkbox">
                     <input type="checkbox" id="whatsappSummaryConsent">
                     <label for="whatsappSummaryConsent">
@@ -49,26 +52,28 @@
                         </div>
                     </label>
                 </div>
-                
+
                 <button class="btn btn-primary" onclick="submitSelectedSlot()" style="margin-top: 30px;">
                     Confirm Selected Slot
                 </button>
             </div>
-            
+
             <!-- Other Student's Slots View (No Common Slots) -->
             <div id="otherStudentSlotsView" style="display: none;">
-                <div style="padding: 15px; background: #fff3cd; border-radius: 5px; border-left: 4px solid #f39c12; margin-bottom: 20px;">
+                <div
+                    style="padding: 15px; background: #fff3cd; border-radius: 5px; border-left: 4px solid #f39c12; margin-bottom: 20px;">
                     <p style="font-size: 0.9em; color: #856404; margin: 0;">
                         <strong>⚠️ No Common Slots Found</strong><br>
-                        We couldn't find matching time slots. Here are the time slots <span class="student-code" id="otherStudentCode2">S0042</span> is available:
+                        We couldn't find matching time slots. Here are the time slots <span class="student-code"
+                            id="otherStudentCode2">S0042</span> is available:
                     </p>
                 </div>
-                
+
                 <h2>Other Student's Available Slots</h2>
                 <div id="otherStudentSlotsList">
                     <!-- Other student's slots will be loaded here -->
                 </div>
-                
+
                 <div style="margin-top: 20px;">
                     <button class="btn btn-primary" onclick="selectOtherStudentSlot()">
                         Select from These Slots
@@ -78,31 +83,33 @@
                     </button>
                 </div>
             </div>
-            
+
             <!-- Request New Slots View -->
             <div id="requestSlotsView" style="display: none;">
                 <h2>Request Time Slots</h2>
                 <p style="color: #7f8c8d; margin-bottom: 20px;">
-                    The suggested time slots don't work for you? Request <span class="student-code" id="otherStudentCode3">S0042</span> to consider these time slots:
+                    The suggested time slots don't work for you? Request <span class="student-code"
+                        id="otherStudentCode3">S0042</span> to consider these time slots:
                 </p>
-                
+
                 <div id="newSlotsContainer">
-                    <div class="new-slot-item" style="margin-bottom: 20px; padding: 15px; border: 2px solid #ddd; border-radius: 8px;">
+                    <div class="new-slot-item"
+                        style="margin-bottom: 20px; padding: 15px; border: 2px solid #ddd; border-radius: 8px;">
                         <label class="label">Date</label>
                         <input type="date" class="input-field slot-date" required>
-                        
+
                         <label class="label" style="margin-top: 15px;">Start Time</label>
                         <input type="time" class="input-field slot-start-time" required>
-                        
+
                         <label class="label" style="margin-top: 15px;">End Time</label>
                         <input type="time" class="input-field slot-end-time" required>
                     </div>
                 </div>
-                
+
                 <button class="btn btn-outline" onclick="addSlotItem()" style="width: 100%; margin-bottom: 20px;">
                     + Add Another Slot
                 </button>
-                
+
                 <div class="btn-group">
                     <button class="btn btn-secondary" onclick="goBackToOtherStudentSlots()">Back</button>
                     <button class="btn btn-primary" onclick="submitRequestedSlots()">Send Request</button>
@@ -110,18 +117,18 @@
             </div>
         </div>
     </div>
-    
+
     <script>
         let currentAspirationId = null;
         let otherStudentCode = 'S0042';
         let selectedSlotId = null;
-        
-        window.addEventListener('DOMContentLoaded', function() {
+
+        window.addEventListener('DOMContentLoaded', function () {
             // Get student code and aspiration from URL or localStorage
             const urlParams = new URLSearchParams(window.location.search);
             otherStudentCode = urlParams.get('student') || 'S0042';
             const requestId = urlParams.get('request');
-            
+
             // Set back link based on context
             const backLink = document.getElementById('backLink');
             if (requestId) {
@@ -131,7 +138,7 @@
                 // Coming from mutual match (AI agent flow)
                 backLink.href = '07-mutual-match.html';
             }
-            
+
             // Get current aspiration
             const currentAspiration = JSON.parse(localStorage.getItem('current_aspiration') || 'null');
             if (urlParams.get('aspiration')) {
@@ -139,26 +146,26 @@
             } else {
                 currentAspirationId = currentAspiration ? currentAspiration.id : '1';
             }
-            
+
             // Update student code displays
             document.getElementById('otherStudentCode').textContent = otherStudentCode;
             document.getElementById('otherStudentCode2').textContent = otherStudentCode;
             document.getElementById('otherStudentCode3').textContent = otherStudentCode;
-            
+
             // Load and compare availability
             loadAndCompareAvailability();
         });
-        
+
         function loadAndCompareAvailability() {
             // Get current user's available slots
             const userSlots = getAvailableSlotsForMatching(currentAspirationId);
-            
+
             // Get other student's available slots (simulated - in production, this would be from API)
             const otherStudentSlots = getOtherStudentAvailability(otherStudentCode, currentAspirationId);
-            
+
             // Find common slots
             const commonSlots = findCommonSlots(userSlots, otherStudentSlots);
-            
+
             if (commonSlots.length > 0) {
                 // Show common slots
                 showCommonSlots(commonSlots);
@@ -167,7 +174,7 @@
                 showOtherStudentSlots(otherStudentSlots);
             }
         }
-        
+
         function getOtherStudentAvailability(studentCode, aspirationId) {
             // In production, this would fetch from API
             // For demo, return some sample slots
@@ -176,14 +183,14 @@
             if (stored) {
                 return JSON.parse(stored);
             }
-            
+
             // Return default sample slots
             const today = new Date();
             const tomorrow = new Date(today);
             tomorrow.setDate(tomorrow.getDate() + 1);
             const dayAfter = new Date(today);
             dayAfter.setDate(dayAfter.getDate() + 2);
-            
+
             return [
                 {
                     id: 'other_1',
@@ -205,18 +212,18 @@
                 }
             ];
         }
-        
+
         function showCommonSlots(slots) {
             document.getElementById('commonSlotsView').style.display = 'block';
             document.getElementById('otherStudentSlotsView').style.display = 'none';
             document.getElementById('requestSlotsView').style.display = 'none';
-            
+
             const container = document.getElementById('commonSlotsList');
             container.innerHTML = slots.map((slot, index) => {
                 const date = new Date(slot.date);
                 const dateStr = date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
                 const timeStr = formatTime(slot.startTime) + ' - ' + formatTime(slot.endTime);
-                
+
                 return `
                     <div class="time-slot" style="cursor: pointer;" onclick="selectCommonSlot(${index})" id="slot_${index}">
                         <div class="time-slot-header">
@@ -229,27 +236,27 @@
                     </div>
                 `;
             }).join('');
-            
+
             // Store slots for later use
             window.commonSlots = slots;
         }
-        
+
         function showOtherStudentSlots(slots) {
             document.getElementById('commonSlotsView').style.display = 'none';
             document.getElementById('otherStudentSlotsView').style.display = 'block';
             document.getElementById('requestSlotsView').style.display = 'none';
-            
+
             const container = document.getElementById('otherStudentSlotsList');
             if (slots.length === 0) {
                 container.innerHTML = '<p style="color: #7f8c8d; padding: 20px; text-align: center;">No available slots found.</p>';
                 return;
             }
-            
+
             container.innerHTML = slots.map((slot, index) => {
                 const date = new Date(slot.date);
                 const dateStr = date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
                 const timeStr = formatTime(slot.startTime) + ' - ' + formatTime(slot.endTime);
-                
+
                 return `
                     <div class="time-slot" style="cursor: pointer;" onclick="selectOtherStudentSlotIndex(${index})" id="other_slot_${index}">
                         <div class="time-slot-header">
@@ -262,10 +269,10 @@
                     </div>
                 `;
             }).join('');
-            
+
             window.otherStudentSlots = slots;
         }
-        
+
         function formatTime(timeStr) {
             if (!timeStr) return '';
             const [hours, minutes] = timeStr.split(':');
@@ -274,7 +281,7 @@
             const displayHour = hour % 12 || 12;
             return `${displayHour}:${minutes} ${ampm}`;
         }
-        
+
         function selectCommonSlot(index) {
             document.querySelectorAll('#commonSlotsList .time-slot').forEach((slot, i) => {
                 if (i === index) {
@@ -287,7 +294,7 @@
             });
             selectedSlotId = index;
         }
-        
+
         function selectOtherStudentSlotIndex(index) {
             document.querySelectorAll('#otherStudentSlotsList .time-slot').forEach((slot, i) => {
                 if (i === index) {
@@ -300,56 +307,56 @@
             });
             selectedSlotId = index;
         }
-        
+
         function submitSelectedSlot() {
             if (selectedSlotId === null) {
                 alert('Please select a time slot.');
                 return;
             }
-            
+
             const slot = window.commonSlots[selectedSlotId];
             const preferences = {
-                recording: document.getElementById('meetingRecordingConsent').checked,
+                automaticNotes: document.getElementById('automaticNotesConsent').checked,
                 whatsapp: document.getElementById('whatsappSummaryConsent').checked
             };
-            
+
             localStorage.setItem('meeting_preferences', JSON.stringify(preferences));
             localStorage.setItem('selected_meeting_slot', JSON.stringify(slot));
-            
+
             window.location.href = '11-confirm-slot.html';
         }
-        
+
         function selectOtherStudentSlot() {
             if (selectedSlotId === null) {
                 alert('Please select a time slot.');
                 return;
             }
-            
+
             const slot = window.otherStudentSlots[selectedSlotId];
             localStorage.setItem('selected_meeting_slot', JSON.stringify(slot));
-            
+
             // This would request the other student to accept this slot
             window.location.href = '11-confirm-slot.html';
         }
-        
+
         function showRequestSlotsView() {
             document.getElementById('commonSlotsView').style.display = 'none';
             document.getElementById('otherStudentSlotsView').style.display = 'none';
             document.getElementById('requestSlotsView').style.display = 'block';
-            
+
             // Set minimum date to today
             const today = new Date().toISOString().split('T')[0];
             document.querySelectorAll('.slot-date').forEach(input => {
                 input.min = today;
             });
         }
-        
+
         function goBackToOtherStudentSlots() {
             document.getElementById('commonSlotsView').style.display = 'none';
             document.getElementById('otherStudentSlotsView').style.display = 'block';
             document.getElementById('requestSlotsView').style.display = 'none';
         }
-        
+
         function addSlotItem() {
             const container = document.getElementById('newSlotsContainer');
             const newItem = document.createElement('div');
@@ -369,52 +376,53 @@
                     Remove
                 </button>
             `;
-            
+
             const today = new Date().toISOString().split('T')[0];
             newItem.querySelector('.slot-date').min = today;
             container.appendChild(newItem);
         }
-        
+
         function removeSlotItem(button) {
             const container = document.getElementById('newSlotsContainer');
             if (container.children.length > 1) {
                 button.closest('.new-slot-item').remove();
             }
         }
-        
+
         function submitRequestedSlots() {
             const slotItems = document.querySelectorAll('#requestSlotsView .new-slot-item');
             const requestedSlots = [];
-            
+
             slotItems.forEach(item => {
                 const date = item.querySelector('.slot-date').value;
                 const startTime = item.querySelector('.slot-start-time').value;
                 const endTime = item.querySelector('.slot-end-time').value;
-                
+
                 if (!date || !startTime || !endTime) {
                     alert('Please fill in all fields for all slots.');
                     return;
                 }
-                
+
                 if (startTime >= endTime) {
                     alert('End time must be after start time.');
                     return;
                 }
-                
+
                 requestedSlots.push({ date, startTime, endTime });
             });
-            
+
             if (requestedSlots.length === 0) {
                 alert('Please add at least one slot.');
                 return;
             }
-            
+
             // Store requested slots
             localStorage.setItem('requested_meeting_slots', JSON.stringify(requestedSlots));
-            
+
             // Navigate to confirmation or next step
             window.location.href = '11-confirm-slot.html';
         }
     </script>
 </body>
+
 </html>

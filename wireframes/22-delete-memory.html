@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete Agent Memory - Neopeer</title>
+    <title>Delete My Data - Neopeer</title>
     <link rel="stylesheet" href="../styles.css">
 </head>
 
@@ -12,7 +12,7 @@
     <div class="wireframe-container">
         <div class="wireframe-header">
             <a href="javascript:history.back()" class="back-btn">←</a>
-            <h1>Delete Agent Memory</h1>
+            <h1>Delete My Data</h1>
             <div style="width: 60px;"></div>
         </div>
         <div class="wireframe-content">
@@ -21,9 +21,9 @@
                     style="width: 80px; height: 80px; background: #e74c3c; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5em;">
                     🗑️
                 </div>
-                <h2>Delete Agent Conversation History</h2>
+                <h2>Delete My Platform Data</h2>
                 <p style="color: #7f8c8d; margin-top: 10px;">
-                    This will permanently delete all your conversation history with your AI agent
+                    This will permanently delete your profile details, conversation history, and matching insights.
                 </p>
             </div>
 
@@ -71,8 +71,8 @@
             </div>
 
             <div style="margin-top: 30px;">
-                <button class="btn btn-danger" onclick="confirmDeleteMemory()" style="width: 100%;">
-                    Delete Agent Memory
+                <button class="btn btn-danger" onclick="confirmDeleteData()" style="width: 100%;">
+                    Delete My Data
                 </button>
                 <button class="btn btn-secondary" style="margin-top: 10px; width: 100%;" onclick="history.back()">
                     Cancel
@@ -89,15 +89,15 @@
     </div>
 
     <script>
-        function confirmDeleteMemory() {
+        function confirmDeleteData() {
             if (!document.getElementById('confirmDelete').checked) {
                 alert('Please confirm that you understand this action is permanent.');
                 return;
             }
 
-            if (confirm('Are you absolutely sure you want to delete all agent conversation history? This cannot be undone.')) {
+            if (confirm('Are you absolutely sure you want to delete all your data? This cannot be undone.')) {
                 // Simulate deletion
-                alert('Agent memory has been deleted successfully. You can start a new conversation anytime.');
+                alert('Your data has been deleted successfully.');
                 window.location.href = '21-settings.html';
             }
         }

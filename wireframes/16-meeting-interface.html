@@ -19,8 +19,7 @@
                     </div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 10px;">
-                    <span id="recordingStatus" style="font-size: 0.85em; color: #27ae60;">● Recording</span>
-                    <span style="font-size: 0.85em;">00:25:30</span>
+                    <span style="font-size: 0.85em; color: #95a5a6;">🕒 Session in progress</span>
                 </div>
             </div>
 
@@ -91,15 +90,7 @@
     </div>
 
     <script>
-        // Check meeting preferences for recording consent
-        const preferences = JSON.parse(localStorage.getItem('meeting_preferences') || '{}');
-        if (!preferences.recording) {
-            const recordingStatus = document.getElementById('recordingStatus');
-            if (recordingStatus) {
-                recordingStatus.textContent = '● Not Recording';
-                recordingStatus.style.color = '#95a5a6';
-            }
-        }
+        // Meeting preferences logic (if any specific to the UI interaction)
     </script>
 </body>
 
