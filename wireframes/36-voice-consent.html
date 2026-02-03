@@ -12,7 +12,7 @@
 <body>
     <div class="wireframe-container">
         <div class="wireframe-header">
-            <a href="01-agent-intro.html" class="back-btn">←</a>
+            <a href="01-onboarding-overview.html" class="back-btn">←</a>
             <h1>'Get to Know You' Consent</h1>
             <div style="width: 60px;"></div>
         </div>
@@ -79,7 +79,7 @@
             const voiceConsent = document.getElementById('voiceRecording').checked;
 
             if (!voiceConsent) {
-                alert('Please accept the consent to use the AI Agent-Led discovery method.');
+                alert('Please accept the consent to use the System-Led discovery method.');
                 return;
             }
 
@@ -88,7 +88,7 @@
             consents.voiceRecording = true;
             localStorage.setItem('neopeer_consents', JSON.stringify(consents));
 
-            // Navigate to agent conversation
+            // Navigate to onboarding interview
             window.location.href = '02-get-to-know-you.html';
         }
 

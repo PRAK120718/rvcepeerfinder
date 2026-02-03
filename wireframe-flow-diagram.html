@@ -71,17 +71,19 @@
         <div class="mermaid">
             graph TD
             %% Entry & Auth
-            Landing[00-landing.html] --> OTP[00-otp-verification.html]
+            Landing[00-landing.html] --> VP[valueproposition.html]
+            VP --> Login[00-landing.html]
+            Login --> OTP[00-otp-verification.html]
             OTP --> Privacy[00-privacy-consent.html]
             Privacy --> Onboarding[00-first-time-onboarding.html]
             Onboarding --> Aspiration[00-aspiration-selection.html]
 
-            %% AI Agent Discovery
-            Aspiration --> AgentIntro[01-agent-intro.html]
-            AgentIntro --> VoiceConsent[36-voice-consent.html]
-            VoiceConsent --> AgentConv[02-agent-conversation.html]
-            AgentConv --> SubmitConv[29-submit-conversation.html]
-            SubmitConv --> MatchPref[49-support-type-selection.html]
+            %% Human-led Onboarding
+            Aspiration --> OnboardOverview[01-onboarding-overview.html]
+            OnboardOverview --> ChatConsent[36-voice-consent.html]
+            ChatConsent --> GTKYChat[02-get-to-know-you.html]
+            GTKYChat --> SubmitGTKY[29-submit-conversation.html]
+            SubmitGTKY --> MatchPref[49-support-type-selection.html]
 
             %% Branching
             MatchPref --> PeerPath{Peer Path}
@@ -89,8 +91,8 @@
 
             %% Peer Path
             PeerPath --> StudentList[04-student-list.html]
-            StudentList --> |Vet| StudentAgent[05-student-agent-chat.html]
-            StudentAgent --> StudentList
+            StudentList --> |Review| StudentSummary[05-student-summary.html]
+            StudentSummary --> StudentList
             StudentList --> Interest[06-interest-indication.html]
             Interest --> MutualMatch[07-mutual-match.html]
             MutualMatch --> CommitPay[66-commitment-payment.html]
@@ -103,16 +105,16 @@
             PostConsent --> MatchConfirmed[19-connected.html]
             MatchConfirmed --> SOPHub
 
-            %% Mentor Path
+            %% Mentor Path (Student Perspective)
             MentorPath --> MentorRecs[39-mentor-recommendations.html]
             MentorPath --> GroupMentor[50-group-mentor-recommendations.html]
             MentorRecs --> ExpertProfile[42-mentor-success-profile.html]
             MentorRecs --> SR01Profile[56-sanjay-success-profile.html]
 
-            ExpertProfile --> AgentVetting[71-student-talks-to-mentor-agent.html]
-            SR01Profile --> AgentVetting
+            ExpertProfile --> ReviewAspiration[71-student-reviews-mentor.html]
+            SR01Profile --> ReviewAspiration
 
-            AgentVetting --> ExpertBooking[41-booking / 57-booking]
+            ReviewAspiration --> ExpertBooking[41-booking / 57-booking]
             ExpertBooking --> ExpertStatus[51-status / 58-status]
             ExpertStatus --> ExpertPay[52-pay / 59-pay]
             ExpertPay --> ExpertIce[53-icebreakers / 60-icebreakers]
@@ -130,22 +132,43 @@
             %% Mentor POV
             Landing --> MentorLogin[44-mentor-email-login.html]
             MentorLogin --> MentorOTP[45-mentor-otp-verification.html]
-            MentorOTP --> MentorOnboard[38-mentor-agent-conversation.html]
+            MentorOTP --> MentorOnboard[38-mentor-onboarding-chat.html]
             MentorOnboard --> CredCheck[43-mentor-credential-verification.html]
-            CredCheck --> MentorHome[46-mentor-student-leads.html]
-            MentorHome --> MentorAgent[63-mentor-talks-to-student-agent.html]
+            CredCheck --> MentorScheduleCall[73-mentor-onboarding-call.html]
+            MentorScheduleCall --> MentorVerify[72-mentor-verification-progress.html]
+            MentorVerify --> MentorHome[46-mentor-student-leads.html]
+            MentorHome --> MentorReview[63-mentor-reviews-aspiration.html]
             MentorHome --> MentorSched[47-mentor-schedule.html]
             MentorSched --> ExpertCall
             ExpertCall --> MentorFeed[65-mentor-session-feedback.html]
             MentorFeed --> MentorHome
 
             %% Styling
-            style Landing fill:#2c3e50,color:white
-            style MatchPref fill:#f1c40f,color:black,stroke-width:2px
-            style SOPHub fill:#9b59b6,color:white,stroke-width:2px
-            style MatchConfirmed fill:#27ae60,color:white
-            style SR01Profile fill:#e67e22,color:white
-            style ExpertProfile fill:#3498db,color:white
+
+            %% Class Definitions for High Contrast
+            classDef default fill:#ffffff,stroke:#333,stroke-width:1px,color:#1a202c
+            classDef highlight fill:#2c3e50,color:#ffffff
+            classDef specialized fill:#6366f1,color:#ffffff
+            classDef choice fill:#f1c40f,color:#000000,stroke-width:2px
+            classDef success fill:#27ae60,color:#ffffff
+            classDef mentor fill:#e67e22,color:#ffffff
+            classDef peer fill:#3498db,color:#ffffff
+            classDef purple fill:#9b59b6,color:#ffffff
+
+            %% Applying Classes
+            class Landing highlight
+            class VP specialized
+            class MatchPref choice
+            class SOPHub purple
+            class MatchConfirmed success
+            class SR01Profile mentor
+            class ExpertProfile peer
+            class PeerMeeting highlight
+            class Scheduled highlight
+            class MentorOnboard mentor
+            class MentorHome mentor
+            class MentorVerify mentor
+            class MentorScheduleCall mentor
         </div>
     </div>
 

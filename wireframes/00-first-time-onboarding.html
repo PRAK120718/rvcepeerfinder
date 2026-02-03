@@ -36,7 +36,7 @@
                 <label class="label">Your Name</label>
                 <input type="text" id="userName" class="input-field" placeholder="Enter your name">
                 <p style="font-size: 0.85em; color: #7f8c8d; margin-top: -10px;">
-                    Your agent will use this name when talking with you.
+                    Your guide will use this name when talking with you.
                 </p>
             </div>
             
@@ -53,7 +53,7 @@
                     </label>
                 </div>
                 <p style="font-size: 0.85em; color: #7f8c8d; margin-top: 10px;">
-                    Your agent will use a voice that matches your gender preference.
+                    Your guide will use a voice that matches your gender preference.
                 </p>
             </div>
             
@@ -96,7 +96,7 @@
             
             <div style="margin-top: 30px; padding: 15px; background: #f8f9fa; border-radius: 5px;">
                 <p style="font-size: 0.9em; color: #7f8c8d;">
-                    <strong>💡 Note:</strong> You'll have a voice conversation with your AI agent to explore this aspiration in detail. 
+                    <strong>💡 Note:</strong> You'll have a voice conversation with your system to explore this aspiration in detail. 
                     You can create more aspirations later from your settings.
                 </p>
             </div>
@@ -148,7 +148,7 @@
             
             // Validate gender
             if (!gender) {
-                alert('Please select your gender so we can set the right voice for your agent.');
+                alert('Please select your gender so we can set the right voice for your guide.');
                 return;
             }
             
@@ -204,7 +204,7 @@
                 window.location.href = '32-questionnaire.html';
             } else {
                 // Navigate to agent intro
-                window.location.href = '01-agent-intro.html';
+                window.location.href = '01-onboarding-overview.html';
             }
         }
         
