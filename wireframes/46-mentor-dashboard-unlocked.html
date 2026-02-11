@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Dashboard - Neopeer</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="wireframe-container" style="background: #f8f9fa;">
+        <div class="wireframe-header" style="background: var(--bg-surface); border-bottom: 2px solid #f1c40f;">
+            <a href="00-landing.html" class="back-btn">←</a>
+            <h1 style="color: var(--text-main); margin-left: -5px;">Mentor Dashboard</h1>
+            <div style="width: 44px; display: flex; align-items: center; justify-content: center; font-size: 1.2em;">🎖️
+            </div>
+        </div>
+        <div class="wireframe-content" style="padding-top: 24px;">
+
+            <!-- Badge Status (UNLOCKED) -->
+            <div class="card" style="margin-bottom: 24px; border-left: 5px solid #27ae60; background: #f0fdf4;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <div
+                            style="font-weight: 800; color: #2c3e50; font-size: 0.95em; display: flex; align-items: center; gap: 8px;">
+                            <span style="font-size: 1.2em;">🎖️</span> Paid It Forward Badge
+                        </div>
+                        <p style="font-size: 0.75em; color: #166534; margin-top: 4px;">
+                            <strong>ACTIVE:</strong> Professional pricing enabled.
+                        </p>
+                    </div>
+                    <div class="badge" style="background: #27ae60; color: white; font-size: 0.65em; margin: 0;">UNLOCKED
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary Stats (UNLOCKED) -->
+            <div style="display: flex; gap: 10px; margin-bottom: 25px;">
+                <div class="card"
+                    style="flex: 1; margin: 0; padding: 12px; text-align: center; background: #fff; border: 1px solid #eee;">
+                    <div style="font-size: 1.2em; font-weight: bold; color: #e67e22;">₹2,450</div>
+                    <div style="font-size: 0.7em; color: #95a5a6; text-transform: uppercase;">Earnings</div>
+                </div>
+                <div class="card"
+                    style="flex: 1; margin: 0; padding: 12px; text-align: center; background: #fff; border: 1px solid #eee;">
+                    <div style="font-size: 1.2em; font-weight: bold; color: #27ae60;">5.0 ★</div>
+                    <div style="font-size: 0.7em; color: #95a5a6; text-transform: uppercase;">Rating</div>
+                </div>
+                <div class="card"
+                    style="flex: 1; margin: 0; padding: 12px; text-align: center; background: #fff; border: 1px solid #eee;">
+                    <div style="font-size: 1.2em; font-weight: bold; color: #3498db;">15</div>
+                    <div style="font-size: 0.7em; color: #95a5a6; text-transform: uppercase;">Sessions</div>
+                </div>
+            </div>
+
+            <!-- Pricing Settings (UNLOCKED) -->
+            <div class="card" style="background: #fff; border: 2px solid #f1c40f; margin-bottom: 25px;">
+                <h4
+                    style="font-size: 0.85em; color: #2c3e50; margin-top: 0; display: flex; align-items: center; gap: 6px;">
+                    ⚙️ Professional Pricing Settings
+                </h4>
+                <div style="margin-top: 15px;">
+                    <label
+                        style="font-size: 0.75em; color: #2c3e50; display: block; margin-bottom: 8px; font-weight: 600;">Your
+                        Hourly Rate (₹)</label>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <input type="text" value="150"
+                            style="flex: 1; padding: 10px; border-radius: 8px; border: 1px solid #e67e22; background: white; color: #2c3e50; font-size: 0.9em; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                        <button class="btn"
+                            style="background: #e67e22; color: white; padding: 10px 15px; border-radius: 8px; font-size: 0.8em;">Save</button>
+                    </div>
+                </div>
+                <p style="font-size: 0.7em; color: #27ae60; margin-top: 10px; font-weight: 600;">
+                    ✓ Custom pricing active. Platform fee is 5%.
+                </p>
+            </div>
+
+            <!-- Active Sessions -->
+            <h3
+                style="font-size: 0.9em; color: #7f8c8d; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">
+                Upcoming Sessions</h3>
+
+            <div class="card" style="background: white; border-color: #eee; margin-bottom: 15px;">
+                <div style="display: flex; justify-content: space-between; align-items: start;">
+                    <div>
+                        <span class="badge" style="background: #e67e22; color: white; margin: 0 0 5px 0;">Paid
+                            Session</span>
+                        <div style="font-weight: 700; color: #2c3e50;">Student S.1025</div>
+                        <p style="font-size: 0.8em; color: #7f8c8d; margin: 3px 0;">Feb 12, 11:30 AM • 30m</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="color: #27ae60; font-weight: bold; font-size: 1.1em;">₹150</div>
+                        <p style="font-size: 0.7em; color: #95a5a6;">Escrow Active</p>
+                    </div>
+                </div>
+                <button class="btn btn-outline"
+                    style="width: 100%; margin-top: 12px; font-size: 0.85em; padding: 8px; border-radius: 20px;">Join
+                    via RVCE-Bridge</button>
+            </div>
+
+            <!-- Recommended Leads -->
+            <h3
+                style="font-size: 0.9em; color: #7f8c8d; text-transform: uppercase; letter-spacing: 1px; margin: 25px 0 15px;">
+                Recommended Leads</h3>
+
+            <div class="card"
+                style="background: white; border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 15px;">
+                <div style="display: flex; gap: 15px; align-items: start;">
+                    <div class="student-avatar" style="background: #e67e22;">S.1026</div>
+                    <div style="flex: 1;">
+                        <div style="font-weight: 600; color: #2c3e50;">Student S.1026</div>
+                        <p style="font-size: 0.8em; color: #7f8c8d; margin: 3px 0;">Looking for Career Path Advice</p>
+                        <button class="btn btn-primary" onclick="alert('Reviewing student profile...')"
+                            style="background: #2c3e50; font-size: 0.85em; padding: 8px; border-radius: 20px; margin-top: 12px;">
+                            Review & Propose Session
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px; padding: 20px;">
+                <p style="font-size: 0.8em; color: #95a5a6;">
+                    Verified by Neopeer
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

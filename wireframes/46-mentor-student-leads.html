@@ -16,18 +16,50 @@
             <div style="width: 44px;"></div> <!-- Balanced spacing -->
         </div>
         <div class="wireframe-content" style="padding-top: 24px;">
+            <!-- Badge Progression & Stats -->
+            <div class="card" style="margin-bottom: 24px; border-left: 5px solid #f1c40f; background: #fffdf5;">
+                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+                    <div>
+                        <div
+                            style="font-weight: 800; color: #2c3e50; font-size: 0.95em; display: flex; align-items: center; gap: 8px;">
+                            <span style="font-size: 1.2em;">🎖️</span> Paid It Forward Badge
+                        </div>
+                        <p style="font-size: 0.75em; color: #7f8c8d; margin-top: 4px;">
+                            Unlocks the ability to <strong>set your own hourly rate</strong>.
+                        </p>
+                    </div>
+                    <div class="badge" style="background: #e5e7eb; color: #6b7280; font-size: 0.65em; margin: 0;">LOCKED
+                    </div>
+                </div>
+
+                <div
+                    style="background: #e2e8f0; height: 8px; border-radius: 4px; overflow: hidden; margin-bottom: 10px;">
+                    <div style="width: 66%; height: 100%; background: #f1c40f;"></div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div style="font-size: 0.75em; font-weight: 600; color: #2c3e50;">
+                        2 / 3 <span style="color: #f1c40f;">★★★★★</span> Ratings received
+                    </div>
+                    <div style="font-size: 0.7em; color: #95a5a6;">1 more to unlock pricing • <a
+                            href="46-mentor-dashboard-unlocked.html"
+                            style="color: #6366f1; text-decoration: none;">[Simulate Unlock]</a></div>
+                </div>
+            </div>
+
             <!-- Summary Stats -->
             <div style="display: flex; gap: 10px; margin-bottom: 25px;">
-                <div class="card" style="flex: 1; margin: 0; padding: 12px; text-align: center; background: #fff;">
-                    <div style="font-size: 1.2em; font-weight: bold; color: #e67e22;">₹1,450</div>
-                    <div style="font-size: 0.7em; color: #95a5a6; text-transform: uppercase;">Earnings</div>
+                <div class="card"
+                    style="flex: 1; margin: 0; padding: 12px; text-align: center; background: #f8f9fa; border: 1px dashed #cbd5e1;">
+                    <div style="font-size: 1.2em; font-weight: bold; color: #94a3b8;">₹0</div>
+                    <div style="font-size: 0.65em; color: #94a3b8; text-transform: uppercase;">Pricing Locked</div>
                 </div>
                 <div class="card" style="flex: 1; margin: 0; padding: 12px; text-align: center; background: #fff;">
-                    <div style="font-size: 1.2em; font-weight: bold; color: #27ae60;">4.9 ★</div>
+                    <div style="font-size: 1.2em; font-weight: bold; color: #27ae60;">5.0 ★</div>
                     <div style="font-size: 0.7em; color: #95a5a6; text-transform: uppercase;">Rating</div>
                 </div>
                 <div class="card" style="flex: 1; margin: 0; padding: 12px; text-align: center; background: #fff;">
-                    <div style="font-size: 1.2em; font-weight: bold; color: #3498db;">12</div>
+                    <div style="font-size: 1.2em; font-weight: bold; color: #3498db;">2</div>
                     <div style="font-size: 0.7em; color: #95a5a6; text-transform: uppercase;">Sessions</div>
                 </div>
             </div>
@@ -63,8 +95,9 @@
                         <p style="font-size: 0.8em; color: #7f8c8d; margin: 3px 0;">Tomorrow, 10:00 AM • 45m</p>
                     </div>
                     <div style="text-align: right;">
-                        <div style="color: #27ae60; font-weight: bold; font-size: 0.9em;">₹150</div>
-                        <p style="font-size: 0.7em; color: #95a5a6;">Escrow Active</p>
+                        <span class="badge"
+                            style="background: rgba(39, 174, 96, 0.1); color: #27ae60; font-size: 0.65em; margin: 0;">FREE</span>
+                        <p style="font-size: 0.6em; color: #95a5a6; margin-top: 4px;">Voluntary Step</p>
                     </div>
                 </div>
             </div>
@@ -113,6 +146,29 @@
                         </button>
                     </div>
                 </div>
+            </div>
+
+            <!-- Pricing Settings (Locked) -->
+            <div class="card" style="background: white; border: 1px solid #eee; margin-top: 25px; opacity: 0.8;">
+                <h4
+                    style="font-size: 0.85em; color: #2c3e50; margin-top: 0; display: flex; align-items: center; gap: 6px;">
+                    ⚙️ Pricing & Payouts
+                </h4>
+                <div style="margin-top: 15px;">
+                    <label style="font-size: 0.75em; color: #7f8c8d; display: block; margin-bottom: 8px;">Your Hourly
+                        Rate (₹)</label>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <input type="text" value="0" disabled
+                            style="flex: 1; padding: 10px; border-radius: 8px; border: 1px solid #e2e8f0; background: #f8faec; color: #94a3b8; font-size: 0.9em; box-shadow: none;">
+                        <div class="badge"
+                            style="background: #f1c40f; color: #2c3e50; font-size: 0.6em; margin: 0; padding: 4px 8px;">
+                            Badge Required</div>
+                    </div>
+                </div>
+                <p style="font-size: 0.7em; color: #95a5a6; margin-top: 10px; line-height: 1.4;">
+                    Once you earn the <strong>'Paid It Forward'</strong> badge with 3 high-quality ratings, you can
+                    enable custom pricing for your professional sessions.
+                </p>
             </div>
 
             <div style="text-align: center; margin-top: 30px; padding: 20px;">
