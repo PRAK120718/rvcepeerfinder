@@ -4,13 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RVCE Peer Finder - Login</title>
+    <title>Neopeer - Login</title>
     <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body>
+<body style="background: var(--bg-main);">
     <div class="wireframe-container">
-
         <div class="wireframe-content"
             style="display: flex; flex-direction: column; justify-content: center; min-height: 700px;">
             <div style="text-align: center;">
@@ -18,11 +17,14 @@
                     <div
                         style="width: 80px; height: 80px; background: var(--primary); border-radius: 24px; margin: 0 auto 24px; display: flex; align-items: center; justify-content: center; font-size: 2.5em; transform: rotate(-5deg); box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);">
                         🧑‍🤝‍🧑</div>
-                    <h2 style="font-size: 2.2em; margin-bottom: 8px;">Neopeer</h2>
+                    <h1
+                        style="font-size: 3.2em; font-weight: 800; color: var(--primary); margin-bottom: 32px; letter-spacing: -1.5px; display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;">
+                        Neopeer <span
+                            style="font-size: 0.25em; font-weight: 800; color: #fff; background: #000; padding: 4px 10px; border-radius: 8px; letter-spacing: 0.8px; text-transform: uppercase;">Bold
+                            Dreams Unlocked.</span></h1>
                     <p
-                        style="font-size: 1em; color: var(--text-dim); max-width: 300px; margin: 0 auto; line-height: 1.4;">
-                        One goal. Limited time.<br>
-                        Accelerate with the right mentors and peers.<br>
+                        style="font-size: 0.95em; color: var(--text-dim); max-width: 320px; margin: 0 auto; line-height: 1.5; font-weight: 400;">
+                        Verified mentors and peers walking your path from day one.<br>
                     </p>
                     <div style="margin-top: 20px;">
                         <a href="valueproposition.html"
@@ -31,18 +33,11 @@
                     </div>
                 </div>
 
-                <div
-                    style="background: rgba(245, 158, 11, 0.05); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 16px; padding: 16px; margin-bottom: 32px;">
-                    <p style="color: #F59E0B; font-size: 0.85em; margin: 0; font-weight: 600;">
-                        🔒 RVCE Login Required<br>
-                        <span style="font-weight: 400; opacity: 0.8;">Use your @rvce.edu.in email to proceed.</span>
-                    </p>
-                </div>
 
                 <div
                     style="text-align: left; background: var(--bg-card); padding: 24px; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow);">
                     <label class="label" style="font-weight: 600;">Student Email</label>
-                    <input type="email" id="email" class="input-field" placeholder="your.name@rvce.edu.in"
+                    <input type="email" id="email" class="input-field" placeholder="your.email@example.com"
                         style="margin-bottom: 24px; background: var(--bg-surface); border-color: var(--border-light);">
 
                     <button class="btn btn-primary" onclick="sendOTP()"
@@ -97,17 +92,9 @@
             errorDiv.style.display = 'none';
 
             // Validate email format
-            if (!email) {
-                errorText.textContent = 'Please enter your RVCE email address';
-                errorDiv.style.display = 'block';
-                emailInput.focus();
-                return;
-            }
-
-            // Validate RVCE email domain
-            const rvceEmailPattern = /^[a-zA-Z0-9._-]+@rvce\.edu\.in$/i;
-            if (!rvceEmailPattern.test(email)) {
-                errorText.textContent = 'Please enter a valid RVCE email address (@rvce.edu.in)';
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email)) {
+                errorText.textContent = 'Please enter a valid email address';
                 errorDiv.style.display = 'block';
                 emailInput.focus();
                 return;
