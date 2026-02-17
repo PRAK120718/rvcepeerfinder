@@ -493,6 +493,180 @@
                 <a href="wireframes/26-delete-account.html" class="nav-link">Delete Account</a>
             </div>
         </div>
+        <!-- Detailed Discovery Engine Logic Diagram -->
+        <div
+            style="margin: 64px 0; padding: 48px; background: #fdfefe; border-radius: var(--radius-lg); border: 2px solid #e2e8f0; box-shadow: var(--shadow);">
+            <div style="text-align: center; margin-bottom: 48px;">
+                <div
+                    style="font-size: 0.8em; text-transform: uppercase; letter-spacing: 3px; color: var(--primary); font-weight: 800; margin-bottom: 12px;">
+                    Technical Architecture</div>
+                <h2 style="font-size: 2.2em; font-weight: 800; color: #1e293b; margin: 0;">The Discovery Engine Logic
+                </h2>
+                <p style="color: #64748b; margin-top: 12px; font-size: 1.1em;">A 3-phase high-conviction matching
+                    framework</p>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 40px; max-width: 900px; margin: 0 auto;">
+
+                <!-- Phase 1: Context Sync -->
+                <div style="display: flex; gap: 32px; align-items: flex-start;">
+                    <div
+                        style="width: 50px; height: 50px; background: var(--primary); color: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0; font-size: 1.2em;">
+                        1</div>
+                    <div style="flex: 1;">
+                        <h3 style="font-size: 1.3em; font-weight: 800; color: #1e293b; margin-bottom: 16px;">Phase 1:
+                            Context Sync</h3>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                            <div
+                                style="background: white; border: 1px solid #e2e8f0; padding: 16px; border-radius: var(--radius-md);">
+                                <div style="font-size: 0.7em; color: #94a3b8; font-weight: 800; margin-bottom: 8px;">
+                                    BASICS CAPTURE</div>
+                                <ul style="margin: 0; padding: 0 0 0 16px; font-size: 0.85em; color: #475569;">
+                                    <li>Branch (CSE, ISE, ECE, EEE, etc.)</li>
+                                    <li>Year (1st - 4th Yr)</li>
+                                </ul>
+                            </div>
+                            <div
+                                style="background: white; border: 1px solid #e2e8f0; padding: 16px; border-radius: var(--radius-md);">
+                                <div style="font-size: 0.7em; color: #94a3b8; font-weight: 800; margin-bottom: 8px;">
+                                    ACADEMIC LENS</div>
+                                <ul style="margin: 0; padding: 0 0 0 16px; font-size: 0.85em; color: #475569;">
+                                    <li>Background (Technical, Product, etc.)</li>
+                                    <li>Primary Hurdle (Skills, Networking, etc.)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="width: 2px; height: 30px; background: #e2e8f0; margin-left: 24px;"></div>
+
+                <!-- Phase 2: Vetting Filter -->
+                <div style="display: flex; gap: 32px; align-items: flex-start;">
+                    <div
+                        style="width: 50px; height: 50px; background: #2c3e50; color: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0; font-size: 1.2em;">
+                        2</div>
+                    <div style="flex: 1;">
+                        <h3 style="font-size: 1.3em; font-weight: 800; color: #1e293b; margin-bottom: 16px;">Phase 2:
+                            Vetting Filter (Preferences)</h3>
+                        <p style="font-size: 0.95em; color: #64748b; line-height: 1.6; margin-bottom: 20px;">Users
+                            define
+                            the <strong>objective traits</strong> they require in a peer/mentor.</p>
+                        <div style="background: #f1f5f9; padding: 24px; border-radius: var(--radius-md);">
+                            <div
+                                style="font-size: 0.75em; font-weight: 800; color: #475569; margin-bottom: 16px; text-transform: uppercase;">
+                                Vetting Categories</div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                                <span
+                                    style="background: white; padding: 8px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 700; border: 1px solid #e2e8f0;">Personality</span>
+                                <span
+                                    style="background: white; padding: 8px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 700; border: 1px solid #e2e8f0;">Aspiration</span>
+                                <span
+                                    style="background: white; padding: 8px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 700; border: 1px solid #e2e8f0;">Achievements</span>
+                                <span
+                                    style="background: white; padding: 8px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 700; border: 1px solid #e2e8f0;">Journey
+                                    Phase</span>
+                                <span
+                                    style="background: #e2e8f0; padding: 8px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 700; color: #64748b;">+
+                                    Other (Subjective)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="width: 2px; height: 30px; background: #e2e8f0; margin-left: 24px;"></div>
+
+                <!-- Phase 3: Alignment Logic -->
+                <div style="display: flex; gap: 32px; align-items: flex-start;">
+                    <div
+                        style="width: 50px; height: 50px; background: #27ae60; color: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0; font-size: 1.2em;">
+                        3</div>
+                    <div style="flex: 1;">
+                        <h3 style="font-size: 1.3em; font-weight: 800; color: #1e293b; margin-bottom: 16px;">Phase 3:
+                            Alignment Check (Matching)</h3>
+                        <div
+                            style="background: rgba(39, 174, 96, 0.05); border: 2px solid rgba(39, 174, 96, 0.1); padding: 24px; border-radius: var(--radius-md);">
+                            <div style="display: grid; grid-template-columns: 1fr 40px 1fr; align-items: center;">
+                                <div style="text-align: center;">
+                                    <div
+                                        style="font-size: 0.7em; color: #27ae60; font-weight: 800; margin-bottom: 8px;">
+                                        USER A</div>
+                                    <div
+                                        style="background: white; padding: 12px; border-radius: 12px; border: 1px solid #27ae60; font-size: 0.85em; font-weight: 700;">
+                                        Self-Reflection</div>
+                                </div>
+                                <div style="text-align: center; color: #27ae60; font-size: 1.2em; font-weight: 800;">↔
+                                </div>
+                                <div style="text-align: center;">
+                                    <div
+                                        style="font-size: 0.7em; color: #27ae60; font-weight: 800; margin-bottom: 8px;">
+                                        USER B</div>
+                                    <div
+                                        style="background: white; padding: 12px; border-radius: 12px; border: 1px solid #27ae60; font-size: 0.85em; font-weight: 700;">
+                                        Vetting Filter</div>
+                                </div>
+                            </div>
+                            <p style="font-size: 0.85em; color: #64748b; margin-top: 20px; text-align: center;">
+                                Matches only trigger when <strong>A's reflection</strong> satisfies <strong>B's
+                                    vetting</strong> AND <strong>B's reflection</strong> satisfies <strong>A's
+                                    vetting</strong>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Full Reference Decision Tree -->
+                <div style="margin-top: 48px; border-top: 1px solid #e2e8f0; padding-top: 32px;">
+                    <div
+                        style="font-size: 0.75em; font-weight: 800; color: #94a3b8; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px;">
+                        Full Algorithm Reference (Question Pool)</div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                        <!-- Category: Basics -->
+                        <div style="background: white; padding: 20px; border-radius: 12px; border: 1px solid #f1f5f9;">
+                            <h4 style="font-size: 0.9em; font-weight: 800; color: var(--primary); margin-bottom: 12px;">
+                                1. Basics</h4>
+                            <div style="font-size: 0.85em; color: #475569; line-height: 1.6;">
+                                <p><strong>Branch:</strong> CSE, ISE, ECE, EEE, TCE, ME, CV, BT</p>
+                                <p><strong>Year:</strong> 1st, 2nd, 3rd, 4th Year</p>
+                                <p><strong>Background:</strong> Technical, Self-taught, Research, Product-focused</p>
+                                <p><strong>Main Hurdle:</strong> Skills, Time Management, Networking, Resources</p>
+                            </div>
+                        </div>
+
+                        <!-- Category: Personality -->
+                        <div style="background: white; padding: 20px; border-radius: 12px; border: 1px solid #f1f5f9;">
+                            <h4 style="font-size: 0.9em; font-weight: 800; color: #2c3e50; margin-bottom: 12px;">2.
+                                Personality</h4>
+                            <div style="font-size: 0.85em; color: #475569; line-height: 1.6;">
+                                <p><strong>Style:</strong> Analytical, Creative, Organized, Spontaneous</p>
+                                <p><strong>Mentality:</strong> Growth, Results, Resilient, Disciplined</p>
+                                <p><strong>Workstyle:</strong> Deep Solo, Collaborative, Structured, Flexible</p>
+                            </div>
+                        </div>
+
+                        <!-- Category: Aspiration -->
+                        <div style="background: white; padding: 20px; border-radius: 12px; border: 1px solid #f1f5f9;">
+                            <h4 style="font-size: 0.9em; font-weight: 800; color: #27ae60; margin-bottom: 12px;">3.
+                                Aspiration</h4>
+                            <div style="font-size: 0.85em; color: #475569; line-height: 1.6;">
+                                <p><strong>Seriousness:</strong> Range 1 - 10</p>
+                                <p><strong>Source:</strong> Project-based, Theoretical, Hands-on, Mentorship</p>
+                            </div>
+                        </div>
+
+                        <!-- Category: Achievements -->
+                        <div style="background: white; padding: 20px; border-radius: 12px; border: 1px solid #f1f5f9;">
+                            <h4 style="font-size: 0.9em; font-weight: 800; color: #e67e22; margin-bottom: 12px;">4.
+                                Achievements</h4>
+                            <div style="font-size: 0.85em; color: #475569; line-height: 1.6;">
+                                <p><strong>Area:</strong> Hackathons, Research, Open Source, Internships, CGPA</p>
+                                <p><strong>Value:</strong> Portfolio, Certifications, Experience, Depth</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 

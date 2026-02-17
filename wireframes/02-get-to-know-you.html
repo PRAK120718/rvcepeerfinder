@@ -89,26 +89,13 @@
 
         const questionPool = {
             'Basic': [
-                { key: 'branch', type: 'select', q: "Which branch are you in at RVCE?", options: ['CSE', 'ISE', 'ECE', 'EEE', 'TCE', 'ME', 'CV', 'BT'] },
-                { key: 'year', type: 'select', q: "Which year of study are you in?", options: ['1st Year', '2nd Year', '3rd Year', '4th Year'] },
-                { key: 'background', type: 'select', q: "What best describes your academic background?", options: ['Technical/STEM', 'Self-taught', 'Academic Research', 'Product-focused'] },
-                { key: 'struggles', type: 'select', q: "What's the main hurdle you're facing?", options: ['Technical Skills', 'Time Management', 'Networking', 'Resource Access'] }
+                { key: 'branch', type: 'select', q: "Which branch are you in at RVCE?", options: ['CSE', 'ISE', 'ECE', 'EEE', 'TCE', 'ME', 'CV', 'BT'] }
             ],
             'Personality': [
-                { key: 'p_style', type: 'select', q: "How would you describe your personality in a group?", options: ['Analytical', 'Creative', 'Organized', 'Spontaneous'] },
-                { key: 'p_mentality', type: 'select', q: "What is your core mentality?", options: ['Growth Mindset', 'Results Oriented', 'Highly Resilient', 'Disciplined'] },
-                { key: 'p_workstyle', type: 'select', q: "What is your preferred style of work?", options: ['Deep Solo Work', 'Collaborative Bursts', 'Highly Structured', 'Flexible/Agile'] }
+                { key: 'p_mentality', type: 'select', q: "What is your core mentality?", options: ['Growth Mindset', 'Results Oriented', 'Highly Resilient', 'Disciplined'] }
             ],
             'Aspiration': [
-                { key: 'a_seriousness', type: 'range', q: "How serious are you about this specific goal (1-10)?" },
-                { key: 'a_learnings', type: 'select', q: "What is your primary source of learning?", options: ['Project-based', 'Theoretical', 'Industry/Hands-on', 'Mentorship'] }
-            ],
-            'Achievements': [
-                { key: 'ach_status', type: 'select', q: "What is your most notable achievement area?", options: ['Hackathons', 'Published Research', 'Open Source', 'Internships', 'CGPA'] },
-                { key: 'ach_creds', type: 'select', q: "Which credentials do you value most?", options: ['Skills/Portfolio', 'Certifications', 'Experience', 'Theoretical Depth'] }
-            ],
-            'Journey Phase': [
-                { key: 'bp_phase', type: 'select', q: "Which phase of your journey are you in?", options: ['Exploration', 'Skill Building', 'Execution', 'Optimization'] }
+                { key: 'a_seriousness', type: 'range', q: "How serious are you about this specific goal (1-10)?" }
             ]
         };
 
@@ -241,11 +228,13 @@
             progressFill.style.width = "40%";
             addMessage("Now, what objective criteria do you value in others?");
 
-            // Set all detailed categories for vetting
-            selectedTraitCategories = ['Personality', 'Aspiration', 'Achievements', 'Journey Phase'];
+            // Set specific categories for vetting in demo
+            selectedTraitCategories = ['Personality', 'Aspiration'];
             traitsToAnswer = [];
             selectedTraitCategories.forEach(cat => {
-                traitsToAnswer = traitsToAnswer.concat(questionPool[cat]);
+                if (questionPool[cat]) {
+                    traitsToAnswer = traitsToAnswer.concat(questionPool[cat]);
+                }
             });
 
             askNextVettingQuestion();
