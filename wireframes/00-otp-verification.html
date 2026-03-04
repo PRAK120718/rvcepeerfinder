@@ -144,9 +144,9 @@
                 // Clear OTP data
                 localStorage.removeItem('rvce_otp_data');
 
-                // Redirect to privacy consent page after a brief delay
+                // Redirect to professional DPDP consent page after a brief delay
                 setTimeout(() => {
-                    window.location.href = '00-privacy-consent.html';
+                    window.location.href = '00-overall-consent.html';
                 }, 1000);
             } else {
                 errorText.textContent = 'Invalid OTP. Please try again.';

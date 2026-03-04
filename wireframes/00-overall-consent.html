@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consent & Data Privacy - NeoPeer</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body {
+            background: #000;
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .consent-card {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 24px;
+            padding: 32px;
+            margin-top: 24px;
+            max-height: 60vh;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #333 #111;
+        }
+
+        .consent-card::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .consent-card::-webkit-scrollbar-track {
+            background: #111;
+        }
+
+        .consent-card::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 3px;
+        }
+
+        .section-title {
+            color: var(--primary);
+            font-size: 0.8em;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .consent-text {
+            font-size: 0.9em;
+            line-height: 1.6;
+            color: #ccc;
+            margin-bottom: 24px;
+        }
+
+        .consent-text strong {
+            color: #fff;
+        }
+
+        .highlight-box {
+            background: rgba(99, 102, 241, 0.1);
+            border-left: 3px solid var(--primary);
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            font-size: 0.85em;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-top: 24px;
+            cursor: pointer;
+        }
+
+        .checkbox-container input {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            accent-color: var(--primary);
+        }
+
+        .checkbox-label {
+            font-size: 0.85em;
+            color: #aaa;
+            line-height: 1.4;
+        }
+
+        .btn-disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body style="background: var(--bg-main);">
+    <div class="wireframe-container">
+        <div class="wireframe-content"
+            style="display: flex; flex-direction: column; justify-content: flex-start; min-height: 800px; padding-top: 40px;">
+
+            <div style="text-align: center; margin-bottom: 32px;">
+                <div
+                    style="font-size: 2em; margin-bottom: 16px; background: rgba(99, 102, 241, 0.1); width: 60px; height: 60px; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; border: 1px solid rgba(99, 102, 241, 0.2);">
+                    🛡️</div>
+                <h1
+                    style="font-size: 1.8em; font-weight: 800; color: var(--text-main); letter-spacing: -1px; margin-bottom: 8px;">
+                    Data Privacy & Consent</h1>
+                <p style="color: var(--text-dim); font-size: 0.9em;">Aligned with India's DPDP Act, 2023</p>
+            </div>
+
+            <div class="consent-card" style="background: var(--bg-surface); border-color: var(--border);">
+                <div class="section-title"><span>📌</span> 1. Introduction</div>
+                <div class="consent-text">
+                    NeoPeer (“we”, “our”, “us”) respects your privacy and is committed to protecting your personal data
+                    in accordance with the <strong>Digital Personal Data Protection Act, 2023</strong> and Rules, 2025.
+                </div>
+
+                <div class="section-title"><span>📌</span> 2. Types of Data We Collect</div>
+                <div class="consent-text">
+                    <strong>A. Identity & Contact:</strong> Name, email, phone number, profile photo.<br>
+                    <strong>B. Education & Aspiration:</strong> Current course, institution, goals, prep details.<br>
+                    <strong>C. Behavioral & Preference:</strong> Onboarding responses, usage patterns.<br>
+                    <strong>D. Contextual:</strong> Challenges faced, feedback scores.
+                </div>
+
+                <div class="highlight-box">
+                    We adhere to <strong>Data Minimisation</strong>: we collect only data necessary for the stated
+                    purposes of matching mentors and peers.
+                </div>
+
+                <div class="section-title"><span>📌</span> 3. Purpose of Collection</div>
+                <div class="consent-text">
+                    Your data is processed for: User onboarding, peer/mentor matching, providing notifications,
+                    improving product quality, and legal compliance.
+                </div>
+
+                <div class="section-title"><span>📌</span> 4. Withdrawal of Consent</div>
+                <div class="consent-text">
+                    You may withdraw your consent at any time via account settings or by emailing our Data Protection
+                    Officer. Processing of your data will stop immediately upon valid withdrawal.
+                </div>
+
+                <div class="section-title"><span>📌</span> 5. Account Deletion (Right to Erasure)</div>
+                <div class="consent-text">
+                    Under the DPDP Act, you have the <strong>Right to Erasure</strong>. You can request the deletion of
+                    your account and all associated personal data at any time through the "Delete Account" option in
+                    settings.
+                </div>
+
+                <div class="section-title"><span>📌</span> 6. Grievance Redressal</div>
+                <div class="consent-text">
+                    If you have any grievances regarding the processing of your personal data, you may contact our
+                    <strong>Grievance Officer</strong> at: <br>
+                    <strong>Email:</strong> grievance@neopeer.app<br>
+                    We will acknowledge your grievance within 24 hours and resolve it within the statutory period.
+                </div>
+
+                <div class="section-title"><span>📌</span> 7. Verifiable Consent</div>
+                <div class="consent-text" style="margin-bottom: 0;">
+                    If you are a <strong>minor (under 18)</strong>, we require verifiable consent from a parent or
+                    lawful guardian before processing your data.
+                </div>
+            </div>
+
+            <div style="margin-top: 24px;">
+                <label class="checkbox-container">
+                    <input type="checkbox" id="consentCheck" onchange="toggleButton()">
+                    <span class="checkbox-label">
+                        I provide free, informed, specific, and unambiguous consent for NeoPeer to process my data for
+                        the purposes stated above.
+                    </span>
+                </label>
+            </div>
+
+            <div style="margin-top: 32px;">
+                <button id="agreeBtn" class="btn btn-primary btn-disabled" disabled onclick="handleAgree()"
+                    style="width: 100%; border-radius: 16px; height: 56px; font-weight: 800; font-size: 1.1em; background: var(--primary); color: #fff; border: none;">
+                    I Agree & Continue
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function toggleButton() {
+            const check = document.getElementById('consentCheck');
+            const btn = document.getElementById('agreeBtn');
+            if (check.checked) {
+                btn.classList.remove('btn-disabled');
+                btn.disabled = false;
+            } else {
+                btn.classList.add('btn-disabled');
+                btn.disabled = true;
+            }
+        }
+
+        function handleAgree() {
+            // Store consent timestamp
+            localStorage.setItem('neopeer_consent_given', new Date().toISOString());
+            // Proceed to onboarding intro
+            window.location.href = '01-onboarding-overview.html';
+        }
+    </script>
+</body>
+
+</html>
