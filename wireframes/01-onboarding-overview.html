@@ -11,7 +11,7 @@
 <body>
     <div class="wireframe-container">
         <div class="wireframe-header">
-            <a href="00-aspiration-selection.html" class="back-btn">←</a>
+            <a href="32-peer-mentor-selection.html" class="back-btn">←</a>
             <h1>Neopeer</h1>
             <div style="width: 60px;"></div>
         </div>
@@ -54,8 +54,8 @@
             // Check if voice consent has already been given
             const consents = JSON.parse(localStorage.getItem('neopeer_consents') || '{}');
 
-            if (consents.voiceRecording) {
-                // Voice consent already given, go directly to conversation
+            if (consents.voiceRecording || true) { // Always show interview in this demo flow
+                // Go directly to conversation/interview
                 window.location.href = '02-get-to-know-you.html';
             } else {
                 // No voice consent yet, go to 'Get to Know You' consent page
