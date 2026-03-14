@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Request Status - RVCE Peer Finder</title>
+    <title>Call Status - SR-01</title>
     <link rel="stylesheet" href="../styles.css">
+    <link rel="manifest" href="../manifest.json">
 </head>
 
 <body>
@@ -50,8 +51,8 @@
                 <div id="rescheduledView" style="display: none;">
                     <div style="font-size: 4em; margin-bottom: 20px;">⏱️</div>
                     <h2 style="color: #e67e22; border: none;">SR-01 Suggested a Change</h2>
-                    <p style="color: #7f8c8d; margin-bottom: 10px;">
-                        SR-01 suggests meeting later:
+                    <p style="color: #7f8c8d; margin-top: 10px;">
+                        Your request to talk to <span class="student-code">SR-01</span>
                     </p>
                     <div class="time-slot selected" style="margin-bottom: 30px;">
                         <div class="time-slot-header">
@@ -97,6 +98,7 @@
             }
         }, 1500);
     </script>
+    <script src="../pwa-init.js"></script>
 </body>
 
 </html>

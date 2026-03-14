@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback - Sanjay Rao</title>
+    <title>Feedback - SR-01</title>
     <link rel="stylesheet" href="../styles.css">
+    <link rel="manifest" href="../manifest.json">
     <style>
         .option-card {
             border: 2px solid #eee;
@@ -48,6 +49,9 @@
         </div>
 
         <div style="text-align: center; margin-bottom: 30px;">
+            <p style="color: #7f8c8d; margin-top: 10px;">
+                How was your session with <span class="student-code">SR-01</span>?
+            </p>
             <div
                 style="font-size: 0.9em; color: #7f8c8d; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">
                 Rating</div>
@@ -108,8 +112,8 @@
             document.getElementById('ratingLabel').textContent = labels[r]; checkSubmit();
         } let selectedPath = null; function
             selectPath(path) {
-                selectedPath = path; document.querySelectorAll('.option-card').forEach(card =>
-                    card.classList.remove('selected'));
+            selectedPath = path; document.querySelectorAll('.option-card').forEach(card =>
+                card.classList.remove('selected'));
             event.currentTarget.classList.add('selected');
             checkSubmit();
         }
@@ -133,6 +137,7 @@
             }
         }
     </script>
+    <script src="../pwa-init.js"></script>
 </body>
 
 </html>

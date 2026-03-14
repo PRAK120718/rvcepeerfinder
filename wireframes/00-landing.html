@@ -6,131 +6,255 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neopeer - Login</title>
     <link rel="stylesheet" href="../styles.css">
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#6366F1">
 </head>
 
 <body style="background: var(--bg-main);">
-    <div class="wireframe-container">
-        <div class="wireframe-content"
-            style="display: flex; flex-direction: column; justify-content: center; min-height: 700px;">
-            <div style="text-align: center;">
-                <div style="margin-bottom: 48px;">
-                    <div
-                        style="width: 80px; height: 80px; background: var(--primary); border-radius: 24px; margin: 0 auto 24px; display: flex; align-items: center; justify-content: center; font-size: 2.5em; transform: rotate(-5deg); box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);">
-                        🧑‍🤝‍🧑</div>
-                    <h1
-                        style="font-size: 3.2em; font-weight: 800; color: var(--primary); margin-bottom: 32px; letter-spacing: -1.5px; display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;">
-                        Neopeer <span
-                            style="font-size: 0.25em; font-weight: 800; color: var(--primary); background: rgba(99, 102, 241, 0.1); padding: 4px 10px; border-radius: 8px; letter-spacing: 0.8px; text-transform: uppercase; border: 1px solid rgba(99, 102, 241, 0.2);">No
-                            More Figuring Out Alone</span></h1>
-                    <p
-                        style="font-size: 0.95em; color: var(--text-dim); max-width: 320px; margin: 0 auto; line-height: 1.5; font-weight: 400;">
-                        Verified mentors and peers walking your path from day one.<br>
-                    </p>
-                    <div style="margin-top: 20px;">
-                        <a href="valueproposition.html"
-                            style="color: var(--primary); text-decoration: none; font-weight: 600; font-size: 0.9em;">
-                        </a>
+    <div class="landing-split-container" id="landingContainer">
+
+        <!-- Panel 1: Discovery -->
+        <aside class="discovery-panel" id="discoveryPanel">
+            <h2 style="margin-bottom: 8px; font-size: 2em;">Find verified RVCE mentors and peers walking your path from
+                day one</h2>
+            <p style="color: var(--text-dim); margin-bottom: 32px;">Explore active peers and mentors without logging in.
+            </p>
+
+            <div class="aspiration-selector">
+                <label class="label">Filter by Aspiration</label>
+                <select class="aspiration-dropdown" id="aspirationFilter" onchange="handleAspirationChange()">
+                    <option value="">Select Aspiration...</option>
+                    <option value="academics">Academics</option>
+                    <option value="jobs">Jobs/Internships</option>
+                    <option value="skills">Skill Development</option>
+                    <option value="team">Team Projects / Competitions</option>
+                    <option value="entrance">Entrance Prep (UPSC, GRE, etc.)</option>
+                    <option value="sports">Competitive Sports</option>
+                    <option value="relationships">Relationships & Social</option>
+                    <option value="fitness">Fitness & Wellness</option>
+                    <option value="business">Business/Entrepreneurship</option>
+                </select>
+            </div>
+
+            <!-- Aggregate Stats (Visible by Default) -->
+            <div id="aggregateStats">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="number">280+</span>
+                        <span class="label">Total Peers</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="number">65</span>
+                        <span class="label">Verified Mentors</span>
                     </div>
                 </div>
 
-
+                <h4 style="margin-bottom: 16px; font-size: 1em; color: var(--text-main);">Platform Activity</h4>
                 <div
-                    style="text-align: left; background: var(--bg-card); padding: 24px; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow);">
-                    <label class="label" style="font-weight: 600;">EMAIL</label>
-                    <input type="email" id="email" class="input-field" placeholder="your.email@rvce.edu.in"
-                        style="margin-bottom: 24px; background: var(--bg-surface); border-color: var(--border-light);">
-
-                    <button class="btn btn-primary" onclick="sendOTP()"
-                        style="height: 54px; font-size: 1.1em; letter-spacing: 0.5px; box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);">
-                        Login to Explore →
-                    </button>
-                </div>
-
-                <div id="errorMessage"
-                    style="display: none; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 12px; padding: 14px; margin-top: 24px; color: #ef4444; font-size: 0.9em;">
-                    <strong>Error:</strong> <span id="errorText"></span>
-                </div>
-
-
-                <!-- Mentor Ad Teaser (Moved to Bottom, Styled as Ad) -->
-                <div style="margin-top: auto; padding-top: 48px;">
-                    <div class="card"
-                        style="background: #F8FAFC; border: 1px dashed #CBD5E1; border-radius: 16px; padding: 16px; text-align: left; position: relative; overflow: hidden;">
-                        <div
-                            style="position: absolute; top: 0; right: 0; background: #64748B; color: white; font-size: 0.6em; padding: 2px 8px; border-bottom-left-radius: 8px; text-transform: uppercase; letter-spacing: 1px;">
-                            Pay It Forward</div>
-
-                        <h4
-                            style="color: #475569; margin: 12px 0 12px 0; font-size: 0.85em; font-weight: 700; display: flex; align-items: center; gap: 8px;">
-                            <span>🎓</span> Help as faculty, senior, or alumni?
-                        </h4>
-
-                        <ul
-                            style="margin: 0 0 16px 0; padding: 0 0 0 18px; color: #64748B; font-size: 0.75em; line-height: 1.6;">
-                            <li>Help like-background, committed aspirants improve their chances to succeed.</li>
-                            <li>Earn for your invaluable, personalised mentoring.</li>
-                        </ul>
-
-                        <a href="37-mentor-onboarding-intro.html"
-                            style="display: inline-block; font-size: 0.8em; font-weight: 600; color: var(--primary); text-decoration: none; border-bottom: 1px solid var(--primary); padding-bottom: 2px;">
-                            Join as Mentor →
-                        </a>
+                    style="background: var(--bg-card); border-radius: 16px; padding: 16px; border: 1px solid var(--border);">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.85em;">
+                        <span>Jobs & Internships</span>
+                        <span style="font-weight: 800; color: var(--primary);">82 active</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.85em;">
+                        <span>Skill Development</span>
+                        <span style="font-weight: 800; color: var(--primary);">56 active</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.85em;">
+                        <span>Entrance Prep</span>
+                        <span style="font-weight: 800; color: var(--primary);">44 active</span>
                     </div>
                 </div>
             </div>
 
+            <!-- Specific Widgets (Visible when Aspiration Selected) -->
+            <div id="discoveryWidgets" style="display: none;">
+                <!-- Widgets injected here -->
+            </div>
+        </aside>
+
+        <!-- Panel 2: Login -->
+        <main class="login-panel" id="loginPanel">
+            <button class="back-to-discovery" onclick="toggleLoginState(false)" title="Back to Discovery">
+                ←
+            </button>
+
+            <div class="login-header">
+                <!-- Logo + Brand lockup on one line -->
+                <div
+                    style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 20px; padding-top: 150px;">
+                    <div
+                        style="width: 56px; height: 56px; background: var(--primary); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8em; transform: rotate(-5deg); box-shadow: 0 12px 28px rgba(99, 102, 241, 0.35); flex-shrink: 0;">
+                        🧑‍🤝‍🧑
+                    </div>
+                    <h1
+                        style="font-size: 2.8em; font-weight: 800; color: var(--primary); letter-spacing: -1.5px; margin: 0;">
+                        Neopeer
+                    </h1>
+                </div>
+
+                <p
+                    style="font-size: 0.9em; font-weight: 800; color: var(--primary); background: rgba(99, 102, 241, 0.1); padding: 6px 14px; border-radius: 12px; letter-spacing: 0.8px; text-transform: uppercase; border: 1px solid rgba(99, 102, 241, 0.2); display: inline-block; margin-bottom: 24px;">
+                    No More Figuring Out Alone
+                </p>
+                <p style="font-size: 1em; color: var(--text-dim); max-width: 320px; margin: 0 auto; line-height: 1.5;">
+                    Verified mentors and peers walking your path from day one.
+                </p>
+            </div>
+
+            <!-- Aspirant Login Widget -->
+            <div class="login-widget">
+                <h3>Login</h3>
+                <label class="label">College Email</label>
+                <input type="email" class="input-field aspirant-email" placeholder="your.name@rvce.edu.in"
+                    style="margin-bottom: 20px;">
+                <button class="btn btn-primary" onclick="handleLogin('aspirant')">Login →</button>
+            </div>
+
+            <div class="login-divider">OR</div>
+
+            <!-- Mentor Login Widget -->
+            <div class="login-widget" style="background: #F8FAFC; border-style: dashed;">
+                <h3><span>🎓</span> Become A Mentor and Earn</h3>
+                <p style="font-size: 0.85em; color: var(--text-dim); margin-bottom: 20px;">
+                    Faculty, student, or alumni?
+                    Help like-background, committed aspirants improve their chances to succeed.
+                </p>
+                <p>Earn for your invaluable, personalised mentoring.</p>
+                <button class="btn btn-outline" onclick="window.location.href='37-mentor-onboarding-intro.html'"
+                    style="color: var(--text-main);">Pay It Forward →</button>
+            </div>
+
+            <div id="errorMessage"
+                style="display: none; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 12px; padding: 14px; margin-top: 24px; color: #ef4444; font-size: 0.9em; width: 100%; max-width: 400px; text-align: center;">
+                <strong>Error:</strong> <span id="errorText"></span>
+            </div>
+        </main>
+    </div>
+
+    <!-- Detail View Modal -->
+    <div class="modal-overlay" id="detailModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div id="modalBody"></div>
         </div>
     </div>
 
     <script>
-        function sendOTP() {
-            const emailInput = document.getElementById('email');
+        const discoveryData = [
+            { id: 1, name: "M. R. (Internal)", type: "mentor", category: "jobs", role: "SDE @ Microsoft", stats: { sessions: 42, rating: 4.9 }, emoji: "💻", inputs: "Specialized in backend scaling and high-load systems. Can guide on internship prep for Tier-1 firms.", hurdles: "Self-taught specialized frameworks while managing degree coursework." },
+            { id: 2, name: "Peer #1402", type: "peer", category: "jobs", role: "3rd Year, ISE", stats: { projects: 4, quality: "Gold" }, emoji: "📈", inputs: "Cracked 3 summer internships. Passionate about Product Analytics and SQL.", hurdles: "Inititally struggled with technical communication; overcame through mock loops." },
+            { id: 3, name: "S. K. (Verified)", type: "mentor", category: "entrance", role: "UPSC Expert", stats: { papers: 8, rating: 5.0 }, emoji: "📖", inputs: "Engineered a strategy for Optional subjects. Strong focus on current affairs synthesis.", hurdles: "Balancing full-time professional commitment with rigorous study hours." },
+            { id: 4, name: "Peer #882", type: "peer", category: "skills", role: "2nd Year, CSE", stats: { experience: "1y", rating: 4.8 }, emoji: "🎨", inputs: "Mastering UI/UX design. Looking for a peer to build a portfolio project with.", hurdles: "Moving from purely technical dev to a design-first mindset." },
+            { id: 5, name: "A. V. (Mentor)", type: "mentor", category: "business", role: "Seed Funded Founder", stats: { exit: "1x", rating: 4.9 }, emoji: "🚀", inputs: "Can guide on finding PMF and building the first MVP on a shoestring budget.", hurdles: "Navigating the 'valley of death' during the first 6 months of startup life." },
+            { id: 6, name: "Peer #319", type: "peer", category: "relationships", role: "Final Year student", stats: { empathy: "High" }, emoji: "🤝", inputs: "Passionate about mental well-being and building healthy social boundaries in college.", hurdles: "Overcame severe social anxiety in 2nd year through peer support." },
+            { id: 7, name: "Expert #12", type: "mentor", category: "fitness", role: "Nutrition & Strength Coach", stats: { clients: 50 }, emoji: "💪", inputs: "Combining engineering discipline with physical fitness. Science-based approach to wellness.", hurdles: "Recovered from a major sport injury while maintaining academic consistency." }
+        ];
+
+        function handleAspirationChange() {
+            const val = document.getElementById('aspirationFilter').value;
+            const stats = document.getElementById('aggregateStats');
+            const widgets = document.getElementById('discoveryWidgets');
+
+            if (!val) {
+                stats.style.display = 'block';
+                widgets.style.display = 'none';
+            } else {
+                stats.style.display = 'none';
+                widgets.style.display = 'block';
+                renderWidgets(val);
+            }
+        }
+
+        function renderWidgets(category) {
+            const container = document.getElementById('discoveryWidgets');
+            container.innerHTML = '';
+
+            const filtered = discoveryData.filter(d => d.category === category);
+
+            if (filtered.length === 0) {
+                container.innerHTML = `<p style="text-align: center; color: var(--text-dim); margin-top: 40px;">No exact matches active right now. Check Software Engineering!</p>`;
+                return;
+            }
+
+            filtered.forEach(item => {
+                const widget = document.createElement('div');
+                widget.className = 'peer-mentor-widget';
+                widget.innerHTML = `
+                    <div class="widget-header">
+                        <div class="widget-avatar">${item.emoji}</div>
+                        <div class="widget-info">
+                            <h4>${item.name}</h4>
+                            <p>${item.role}</p>
+                        </div>
+                        <div class="widget-tag">${item.type}</div>
+                    </div>
+                    <div class="widget-mentoring">"${item.inputs.substring(0, 60)}..."</div>
+                    <div class="widget-actions">
+                        <button class="widget-btn" onclick="showDetail(${item.id})">Learn More</button>
+                        <button class="widget-btn primary" onclick="toggleLoginState(true)">Show Interest</button>
+                    </div>
+                `;
+                container.appendChild(widget);
+            });
+        }
+
+        function toggleLoginState(showLoginFull) {
+            const container = document.getElementById('landingContainer');
+            if (showLoginFull) {
+                container.classList.add('state-login-full');
+            } else {
+                container.classList.remove('state-login-full');
+            }
+        }
+
+        function showDetail(id) {
+            const item = discoveryData.find(d => d.id === id);
+            const body = document.getElementById('modalBody');
+            body.innerHTML = `
+                <div style="text-align: center; margin-bottom: 24px;">
+                    <div class="widget-avatar" style="width: 80px; height: 80px; margin: 0 auto 16px; font-size: 2.5em;">${item.emoji}</div>
+                    <h3>${item.name}</h3>
+                    <p style="color: var(--primary); font-weight: 800; font-size: 0.8em;">${item.type.toUpperCase()} • ${item.role}</p>
+                </div>
+                <div style="background: var(--bg-card); padding: 20px; border-radius: 16px; margin-bottom: 20px;">
+                    <h5 style="text-transform: uppercase; font-size: 0.7em; color: var(--text-dim); margin-bottom: 8px;">Inputs</h5>
+                    <p style="margin: 0; font-size: 0.95em;">${item.inputs}</p>
+                </div>
+                <div style="background: #FFFBEB; padding: 20px; border-radius: 16px; margin-bottom: 32px;">
+                    <h5 style="text-transform: uppercase; font-size: 0.7em; color: #92400E; margin-bottom: 8px;">Hurdles Overcome</h5>
+                    <p style="margin: 0; font-size: 0.95em; color: #92400E;">${item.hurdles}</p>
+                </div>
+                <button class="btn btn-primary" onclick="closeModal(); toggleLoginState(true)">Connect to Talk</button>
+            `;
+            document.getElementById('detailModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('detailModal').style.display = 'none';
+        }
+
+        function handleLogin(type) {
+            const emailInput = document.querySelector('.aspirant-email');
             const email = emailInput.value.trim();
             const errorDiv = document.getElementById('errorMessage');
             const errorText = document.getElementById('errorText');
 
-            // Hide error message
             errorDiv.style.display = 'none';
 
-            // Validate email format
-            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-            if (!emailPattern.test(email)) {
-                errorText.textContent = 'Please enter a valid email address';
+            if (!email || !email.includes('@')) {
+                errorText.textContent = 'Please enter a valid college email';
                 errorDiv.style.display = 'block';
-                emailInput.focus();
                 return;
             }
 
-            // Store email in localStorage
             localStorage.setItem('rvce_user_email', email);
-
-            // In a real app, this would send OTP to the email
-            // For wireframe purposes, we'll simulate this and go to OTP page
-            // Simulate OTP sending (in production, this would be an API call)
-            const otpData = {
-                email: email,
-                sentAt: new Date().toISOString(),
-                // In production, OTP would be generated on server
-                // For wireframe demo, we'll use a fixed OTP: 123456
-                otp: '123456'
-            };
-            localStorage.setItem('rvce_otp_data', JSON.stringify(otpData));
-
-            // Navigate to OTP verification page
             window.location.href = '00-otp-verification.html';
         }
 
-        // Allow Enter key to submit
-        document.getElementById('email').addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                sendOTP();
-            }
-        });
-
-        // Auto-focus email input on load
-        window.addEventListener('DOMContentLoaded', function () {
-            document.getElementById('email').focus();
-        });
+        // PWA Registration
+    </script>
+    <script src="../pwa-init.js"></script>
     </script>
 </body>
 

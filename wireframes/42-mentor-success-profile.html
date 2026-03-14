@@ -86,7 +86,7 @@
             const params = new URLSearchParams(window.location.search);
             const mentor = params.get('mentor');
 
-            if (mentor === 'sanjay') {
+            if (mentor === 'SR-01' || mentor === 'sanjay') {
                 document.title = 'SR-01 - Mentor Profile';
                 document.querySelector('h2').textContent = 'Student Mentor SR-01';
                 document.querySelector('p').textContent = 'Final Year Student • Community Verified ✨';
@@ -109,7 +109,7 @@
                 badges[0].textContent = 'Peer Perspective';
                 badges[1].textContent = 'Exam Strategy';
                 badges[2].textContent = 'Relatable Path';
-            } else if (mentor === 'ananya') {
+            } else if (mentor === 'AK-01' || mentor === 'ananya') {
                 document.title = 'AK-01 - Mentor Profile';
                 document.querySelector('h2').textContent = 'Student Mentor AK-01';
                 document.querySelector('p').textContent = '3rd Year Student • Community Verified ✨';
@@ -132,7 +132,7 @@
                 badges[0].textContent = 'Introvert Friendly';
                 badges[1].textContent = 'Skill Builder';
                 badges[2].textContent = 'Encouraging';
-            } else if (mentor === 'varun') {
+            } else if (mentor === 'VK-01' || mentor === 'varun') {
                 document.title = 'VK-01 - Mentor Profile';
                 document.querySelector('h2').textContent = 'Expert Mentor VK-01';
                 document.querySelector('p').textContent = 'RVCE Alumni • Neopeer Verified ✓';
@@ -160,7 +160,7 @@
                 badges[0].textContent = 'Technical Depth';
                 badges[1].textContent = 'Fullstack Expert';
                 badges[2].textContent = 'Clear Roadmaps';
-            } else if (mentor === 'megha') {
+            } else if (mentor === 'MS-01' || mentor === 'megha') {
                 document.title = 'MS-01 - Mentor Profile';
                 document.querySelector('h2').textContent = 'Student Mentor MS-01';
                 document.querySelector('p').textContent = '4th Year Student • Community Verified ✨';
@@ -188,7 +188,7 @@
                 badges[0].textContent = 'UX Specialist';
                 badges[1].textContent = 'Creative Thinker';
                 badges[2].textContent = 'Actionable Feedback';
-            } else if (mentor === 'rohit') {
+            } else if (mentor === 'RP-01' || mentor === 'rohit') {
                 document.title = 'RP-01 - Mentor Profile';
                 document.querySelector('h2').textContent = 'Expert Mentor RP-01';
                 document.querySelector('p').textContent = 'RVCE Alumni • Neopeer Verified ✓';
@@ -219,6 +219,7 @@
             }
         });
     </script>
+    <script src="../pwa-init.js"></script>
 </body>
 
 </html>

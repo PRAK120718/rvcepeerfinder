@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirm Sanjay - RVCE Peer Finder</title>
+    <title>Payment - SR-01</title>
     <link rel="stylesheet" href="../styles.css">
+    <link rel="manifest" href="../manifest.json">
 </head>
 
 <body>
@@ -17,8 +18,7 @@
         </div>
         <div class="wireframe-content">
             <div class="card" style="margin-top: 20px;">
-                <h3 style="margin-top: 0; font-size: 1em; color: #7f8c8d; text-transform: uppercase;">Peer Session
-                    Summary</h3>
+                <h2>Payment for SR-01</h2>
                 <div style="border-bottom: 1px solid #eee; padding: 15px 0;">
                     <p style="margin: 0; color: #2c3e50; font-weight: 600;">Student Mentor SR-01</p>
                     <p style="margin: 5px 0 0 0; color: #7f8c8d; font-size: 0.85em;">Internship Prep & Math Strategy</p>
@@ -43,7 +43,7 @@
                         style="width: 40px; height: 40px; background: #e67e22; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
                         S</div>
                     <div style="flex: 1;">
-                        <div style="font-weight: 600; color: #e67e22;">Student Pay</div>
+                        <div class="card-title">Session with <span class="student-code">SR-01</span></div>
                         <div style="font-size: 0.85em; color: #7f8c8d;">Balance: ₹1,240.00</div>
                     </div>
                     <div style="color: #27ae60; font-weight: bold;">✓</div>
@@ -68,6 +68,7 @@
             }, 1200);
         }
     </script>
+    <script src="../pwa-init.js"></script>
 </body>
 
 </html>

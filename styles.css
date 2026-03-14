@@ -14,6 +14,8 @@
     --radius-lg: 24px;
     --radius-md: 16px;
     --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.12);
 }
 
 * {
@@ -98,64 +100,158 @@ body {
     font-weight: 300;
 }
 
-/* Wireframe Styles */
+/* Responsive Layout System */
+.app-shell {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: var(--bg-main);
+}
+
+.main-container {
+    flex: 1;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .main-container {
+        flex-direction: row;
+        padding: 0;
+    }
+
+    .desktop-sidebar {
+        width: 280px;
+        background: var(--bg-surface);
+        border-right: 1px solid var(--border);
+        height: 100vh;
+        position: sticky;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        padding: 32px 24px;
+        z-index: 50;
+    }
+
+    .content-area {
+        flex: 1;
+        padding: 64px 80px;
+        max-width: 1200px;
+        margin: 0;
+        background: var(--bg-surface);
+        min-height: 100vh;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.02);
+    }
+
+    h2 {
+        font-size: 2.4em;
+        margin-bottom: 24px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .wireframe-header h1 {
+        font-size: 1.5em;
+    }
+
+    .mobile-only {
+        display: none !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .desktop-sidebar {
+        display: none !important;
+    }
+
+    .content-area {
+        padding: 24px;
+        padding-bottom: 100px;
+        /* Space for bottom nav */
+    }
+
+    .desktop-only {
+        display: none !important;
+    }
+}
+
+/* Original Wireframe Adaptations */
 .wireframe-container {
-    max-width: 414px;
-    margin: 40px auto;
-    background: var(--bg-surface);
-    border-radius: 40px;
-    /* Modern phone curvature */
-    box-shadow: var(--shadow);
-    min-height: 844px;
-    /* iPhone 13 height */
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    min-height: auto;
     position: relative;
-    overflow-y: auto;
-    border: 12px solid #111;
-    /* Sleek dark bezel for contrast */
-    scrollbar-width: none;
+    overflow-y: visible;
+    border: none;
 }
 
 .wireframe-header {
     background: var(--bg-surface);
     color: var(--text-main);
-    padding: 24px 24px;
+    padding: 20px 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid var(--border);
-}
-
-.wireframe-header h1 {
-    font-size: 1.1em;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-    text-transform: uppercase;
-}
-
-.back-btn {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    color: var(--text-main);
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 1.1em;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.back-btn:hover {
-    transform: scale(1.05);
-    border-color: var(--primary);
+    position: sticky;
+    top: 0;
+    z-index: 40;
 }
 
 .wireframe-content {
-    padding: 24px;
-    min-height: calc(844px - 88px);
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .wireframe-content {
+        max-width: 1000px;
+    }
+}
+
+/* Responsive Components */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    display: flex;
+    justify-content: space-around;
+    padding: 12px 0;
+    border-top: 1px solid var(--border);
+    z-index: 100;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.7em;
+    font-weight: 700;
+}
+
+.nav-item.active {
+    color: var(--primary);
+}
+
+.nav-icon {
+    font-size: 1.5em;
 }
 
 /* Typography */
@@ -407,9 +503,310 @@ p {
 
 .message-time {
     font-size: 0.7em;
+}
+
+/* Split-View Landing Page Styles */
+.landing-split-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background: var(--bg-main);
+}
+
+.discovery-panel {
+    flex: 1;
+    height: 100%;
+    overflow-y: auto;
+    background: var(--bg-surface);
+    border-right: 1px solid var(--border);
+    padding: 40px;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 10;
+}
+
+.login-panel {
+    flex: 1;
+    height: 100%;
+    overflow-y: auto;
+    background: var(--bg-main);
+    padding: 40px;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* State: Hero Login Mode (Discovery Collapsed) */
+.state-login-full .discovery-panel {
+    flex: 0;
+    padding: 0;
+    opacity: 0;
+    pointer-events: none;
+    border: none;
+}
+
+.state-login-full .login-panel {
+    flex: 1;
+    width: 100%;
+}
+
+.back-to-discovery {
+    position: absolute;
+    top: 32px;
+    left: 40px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: all 0.2s;
+    z-index: 100;
+}
+
+.state-login-full .back-to-discovery {
+    display: flex;
+}
+
+.back-to-discovery:hover {
+    transform: scale(1.1);
+    border-color: var(--primary);
+}
+
+/* Discovery UI Components */
+.aspiration-selector {
+    margin-bottom: 40px;
+}
+
+.aspiration-dropdown {
+    width: 100%;
+    padding: 16px 20px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--text-main);
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 18px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 24px;
+    text-align: center;
+}
+
+.stat-card .number {
+    font-size: 2.5em;
+    font-weight: 800;
+    color: var(--primary);
+    display: block;
+}
+
+.stat-card .label {
+    font-size: 0.75em;
+    font-weight: 700;
     color: var(--text-dim);
-    margin-top: 6px;
-    padding: 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+}
+
+.peer-mentor-widget {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s;
+}
+
+.peer-mentor-widget:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+    border-color: var(--primary);
+}
+
+.widget-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.widget-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: var(--bg-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+}
+
+.widget-info h4 {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: 800;
+}
+
+.widget-info p {
+    margin: 0;
+    font-size: 0.85em;
+    color: var(--text-dim);
+}
+
+.widget-tag {
+    font-size: 0.65em;
+    font-weight: 800;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary);
+    text-transform: uppercase;
+    margin-left: auto;
+}
+
+.widget-mentoring {
+    font-size: 0.9em;
+    line-height: 1.5;
+    color: var(--text-main);
+    margin-bottom: 20px;
+    padding: 12px;
+    background: var(--bg-card);
+    border-radius: 12px;
+}
+
+.widget-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.widget-btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 0.85em;
+    font-weight: 700;
+    border: 1px solid var(--border);
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.widget-btn.primary {
+    background: var(--primary);
+    color: white;
+    border: none;
+}
+
+.widget-btn:hover {
+    background: var(--bg-card);
+}
+
+.widget-btn.primary:hover {
+    filter: brightness(0.95);
+}
+
+/* Login Panel Components */
+.login-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.login-widget {
+    width: 100%;
+    max-width: 400px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 32px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+}
+
+.login-widget h3 {
+    margin-bottom: 20px;
+    font-size: 1.25em;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.login-divider {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 8px 0 32px 0;
+    color: var(--text-dim);
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+.login-divider::before,
+.login-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+@media (max-width: 991px) {
+    .landing-split-container {
+        flex-direction: column;
+        height: auto;
+        overflow-y: auto;
+    }
+
+    .discovery-panel,
+    .login-panel {
+        width: 100%;
+        height: auto;
+        flex: none;
+        padding: 40px 24px;
+    }
+
+    .discovery-panel {
+        order: 2;
+        border-right: none;
+        border-top: 1px solid var(--border);
+    }
+
+    .login-panel {
+        order: 1;
+        min-height: 100vh;
+    }
+
+    .state-login-full .discovery-panel {
+        display: none;
+    }
 }
 
 .chat-input {
@@ -885,6 +1282,7 @@ p {
         height: 30px;
     }
 }
+
 
 .voice-time {
     font-size: 0.75em;

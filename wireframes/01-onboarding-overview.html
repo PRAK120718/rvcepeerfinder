@@ -4,41 +4,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onboarding Overview - Neopeer</title>
+    <title>Neopeer - Onboarding</title>
     <link rel="stylesheet" href="../styles.css">
+    <link rel="manifest" href="../manifest.json">
 </head>
 
-<body>
-    <div class="wireframe-container">
-        <div class="wireframe-header">
-            <a href="32-peer-mentor-selection.html" class="back-btn">←</a>
-            <h1>Neopeer</h1>
-            <div style="width: 60px;"></div>
-        </div>
-        <div class="wireframe-content">
-            <div style="text-align: center; padding: 40px 24px;">
+<body style="background: var(--bg-main);">
+    <div class="app-shell">
+        <div class="main-container">
+            <!-- Desktop Sidebar -->
+            <aside class="desktop-sidebar">
                 <div
-                    style="width: 100px; height: 100px; background: var(--primary); border-radius: 24px; margin: 0 auto 24px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3em; transform: rotate(-5deg); box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);">
-                    🧑‍🎓
+                    style="font-size: 1.5em; font-weight: 800; color: var(--primary); margin-bottom: 40px; display: flex; align-items: center; gap: 12px;">
+                    <span>🧑‍🤝‍🧑</span> Neopeer
                 </div>
-                <h2 style="font-size: 1.8em; margin-bottom: 12px;">Your Personal Guide</h2>
-                <p style="color: var(--text-dim); margin-top: 16px; line-height: 1.6; font-size: 1em;">
-                    I'm here to analyze your journey and find the perfect peer matches for your ambitions.
-                </p>
-                <p style="color: var(--text-dim); margin-top: 12px; line-height: 1.6; font-size: 1em;">
-                    Share your story, your hurdles, and your goals. I'll take care of the rest.
-                </p>
-                <button class="btn btn-primary" style="margin-top: 40px; border-radius: 16px;"
-                    onclick="startConversation()">
-                    Let's Talk
-                </button>
-                <a href="21-settings.html"
-                    style="display: block; text-align: center; margin-top: 24px; color: var(--primary); text-decoration: none; font-weight: 700; font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px;">
-                    ⚙️ Journey Settings
-                </a>
-            </div>
+                <nav style="display: flex; flex-direction: column; gap: 8px;">
+                    <a href="00-landing.html" class="nav-link">🏠 Return Home</a>
+                    <a href="01-onboarding-overview.html" class="nav-link active">🧑‍🎓 Guide</a>
+                </nav>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="content-area">
+                <div class="container" style="max-width: none; background: transparent; padding: 0;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 32px;">
+                        <a href="32-peer-mentor-selection.html"
+                            style="text-decoration: none; color: var(--text-dim); font-size: 1.2em;">←</a>
+                        <h1 style="margin: 0;">Neopeer</h1>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; justify-content: center; min-height: 60vh;">
+                        <div style="text-align: center; padding: 40px 24px;">
+                            <div
+                                style="width: 100px; height: 100px; background: var(--primary); border-radius: 24px; margin: 0 auto 24px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3em; transform: rotate(-5deg); box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);">
+                                🧑‍🎓
+                            </div>
+                            <h2 style="font-size: 2em; margin-bottom: 12px;">Your Personal Guide</h2>
+                            <p
+                                style="color: var(--text-dim); margin-top: 16px; line-height: 1.6; font-size: 1.1em; max-width: 500px; margin-left: auto; margin-right: auto;">
+                                I'm here to analyze your journey and find the perfect peer matches for your ambitions.
+                            </p>
+                            <p
+                                style="color: var(--text-dim); margin-top: 12px; line-height: 1.6; font-size: 1.1em; max-width: 500px; margin-left: auto; margin-right: auto;">
+                                Share your story, your hurdles, and your goals. I'll take care of the rest.
+                            </p>
+                            <button class="btn btn-primary"
+                                style="margin-top: 40px; border-radius: 16px; padding: 16px 40px; font-size: 1.1em; width: auto;"
+                                onclick="startConversation()">
+                                Let's Talk
+                            </button>
+                            <a href="21-settings.html"
+                                style="display: block; text-align: center; margin-top: 24px; color: var(--primary); text-decoration: none; font-weight: 700; font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px;">
+                                ⚙️ Journey Settings
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </main>
         </div>
     </div>
+
+    <!-- Mobile Bottom Nav -->
+    <nav class="bottom-nav mobile-only">
+        <a href="00-landing.html" class="nav-item">
+            <span class="nav-icon">🏠</span>
+            <span>Home</span>
+        </a>
+        <a href="01-onboarding-overview.html" class="nav-item active">
+            <span class="nav-icon">🧑‍🎓</span>
+            <span>Guide</span>
+        </a>
+    </nav>
 
     <script>
         // Check if user is authenticated
@@ -63,6 +99,7 @@
             }
         }
     </script>
+    <script src="../pwa-init.js"></script>
 </body>
 
 </html>

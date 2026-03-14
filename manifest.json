@@ -1,0 +1,22 @@
+{
+  "name": "Neopeer - Find Your Path",
+  "short_name": "Neopeer",
+  "description": "Verified mentors and peers walking your path from day one.",
+  "start_url": "/wireframes/00-landing.html",
+  "display": "standalone",
+  "background_color": "#F4F7F6",
+  "theme_color": "#6366F1",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

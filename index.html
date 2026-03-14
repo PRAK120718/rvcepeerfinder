@@ -4,676 +4,804 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neopeer App - Wireframe Navigation</title>
+    <title>Neopeer - Dashboard</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
 </head>
 
-<body>
-    <div class="container">
-        <h1>Neopeer</h1>
-        <p class="subtitle">Find like-aspirational, like-background Peers and Mentors</p>
-
-        <!-- Vision Statement -->
-        <div
-            style="background: var(--bg-surface); color: var(--text-main); padding: 40px; border-radius: var(--radius-lg); margin: 48px 0; border: 1px solid var(--border); box-shadow: var(--shadow);">
-            <div style="display: flex; justify-content: space-between; align-items: center; gap: 40px;">
-                <div style="flex: 1;">
-                    <div
-                        style="font-size: 0.7em; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); font-weight: 800; margin-bottom: 16px;">
-                        The Neopeer Vision</div>
-                    <p
-                        style="font-size: 1.4em; line-height: 1.5; margin: 0; font-weight: 600; color: var(--text-main);">
-                        To enable every student to improve their odds by becoming aware of the right steps to take and
-                        taking them to the <span style="color: var(--primary);">best of their capability</span>.
-                    </p>
-                </div>
-                <div style="text-align: center; display: flex; gap: 12px;">
-                    <a href="wireframes/valueproposition.html" class="btn btn-primary"
-                        style="width: auto; padding: 14px 28px; border-radius: 14px; background: var(--primary); color: white; border: none; box-shadow: var(--shadow);">
-                        ✨ Our Philosophy
-                    </a>
-                    <a href="wireframe-flow-diagram.html" class="btn btn-primary"
-                        style="width: auto; padding: 14px 28px; border-radius: 14px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-main); box-shadow: none;">
-                        🗺️ Logic Diagram
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- End-to-End Flow Chart -->
-        <div class="flow-chart">
-            <h2>📊 Complete App Flow Chart</h2>
-            <div class="flow-container">
-                <!-- Authentication Phase -->
-                <!-- Main Entry Section -->
-                <div class="flow-row">
-                    <div class="flow-section-title">Getting Started</div>
-                </div>
-                <div class="flow-row">
-                    <a href="wireframes/valueproposition.html" class="flow-box"
-                        style="background: var(--primary); color: white; border: none;">✨ Our Philosophy & Research</a>
-                    <div class="flow-arrow horizontal">→</div>
-                    <a href="wireframes/00-landing.html" class="flow-box"
-                        style="background: var(--primary); color: white;">🏠 Landing Page & Auth</a>
-                </div>
-
-                <div class="flow-divider">
-                    <div class="flow-divider-line"></div>
-                </div>
-
-                <div class="flow-row" style="margin: 20px 0;">
-                    <div style="width: 50%; border-right: 2px dashed #ddd; height: 30px;"></div>
-                    <div style="width: 50%; height: 30px;"></div>
-                </div>
-
-                <!-- Parallel Worlds -->
-                <div class="flow-row" style="align-items: flex-start; gap: 40px;">
-
-                    <!-- STUDENT WORLD -->
-                    <div
-                        style="flex: 1; padding: 20px; border-radius: 12px; background: #ebf5fb; border: 2px solid #3498db;">
-                        <h3 style="color: #3498db; margin-top: 0; text-align: center; font-size: 1em;">👤 STUDENT WORLD
-                        </h3>
-                        <div
-                            style="display: flex; flex-direction: column; gap: 12px; align-items: center; margin-top: 15px;">
-                            <a href="wireframes/00-otp-verification.html" class="flow-box">OTP Login</a>
-                            <div class="flow-arrow">↓</div>
-                            <a href="wireframes/00-overall-consent.html" class="flow-box"
-                                style="background: rgba(99, 102, 241, 0.1); color: var(--primary); border: 1px solid rgba(99, 102, 241, 0.2);">Master
-                                DPDP Consent</a>
-                            <div class="flow-arrow">↓</div>
-                            <a href="wireframes/02-get-to-know-you.html" class="flow-box">Get to Know You Chat</a>
-                            <div class="flow-arrow">↓</div>
-                            <a href="wireframes/49-support-type-selection.html" class="flow-box"
-                                style="background: #f1c40f; font-weight: bold;">DECISION: Match Preference</a>
-
-                            <!-- Internal Student Branch -->
-                            <div style="display: flex; gap: 10px; width: 100%;">
-                                <div style="flex: 1; text-align: center;">
-                                    <div style="font-size: 0.6em; color: #7f8c8d;">Peer Path</div>
-                                    <a href="wireframes/04-student-list.html" class="flow-box"
-                                        style="font-size: 0.8em; padding: 6px;">Peer Matches</a>
-                                    <div class="flow-arrow" style="margin: 3px 0;">↓</div>
-                                    <div
-                                        style="padding: 5px; border: 1px solid #f1c40f; background: #fffde7; border-radius: 5px; font-size: 0.6em; font-weight: bold; text-align: center; color: #856404; margin-bottom: 3px;">
-                                        <a href="wireframes/66-commitment-payment.html"
-                                            style="text-decoration: none; color: inherit;">Commitment: Rs 49</a>
-                                    </div>
-                                    <div class="flow-arrow" style="margin: 3px 0;">↓</div>
-                                    <a href="wireframes/07-mutual-match.html" class="flow-box"
-                                        style="font-size: 0.75em; padding: 5px; background: #27ae60; color: white;">Match
-                                        ✓</a>
-                                </div>
-                                <div style="flex: 1; text-align: center;">
-                                    <div style="font-size: 0.6em; color: #7f8c8d;">Mentor Path</div>
-                                    <a href="wireframes/39-mentor-recommendations.html" class="flow-box"
-                                        style="font-size: 0.8em; padding: 6px; border-color: #e67e22;">Expert List</a>
-                                    <div class="flow-arrow" style="margin: 3px 0;">↓</div>
-                                    <a href="wireframes/42-mentor-success-profile.html" class="flow-box"
-                                        style="font-size: 0.7em; padding: 5px; border-color: #e67e22;">Expert
-                                        Profile</a>
-                                    <div class="flow-arrow" style="margin: 3px 0;">↓</div>
-                                    <a href="wireframes/71-student-talks-to-mentor-agent.html" class="flow-box"
-                                        style="font-size: 0.65em; padding: 5px; background: var(--primary); color: white;">Agent
-                                        Vetting</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- MENTOR WORLD -->
-                    <div
-                        style="flex: 1; padding: 20px; border-radius: 12px; background: #fffcf5; border: 2px solid #e67e22;">
-                        <h3 style="color: #e67e22; margin-top: 0; text-align: center; font-size: 1em;">🌟 MENTOR WORLD
-                        </h3>
-                        <div
-                            style="display: flex; flex-direction: column; gap: 12px; align-items: center; margin-top: 15px;">
-                            <a href="wireframes/44-mentor-email-login.html" class="flow-box">Mentor Login</a>
-                            <div class="flow-arrow">↓</div>
-                            <a href="wireframes/38-mentor-agent-conversation.html" class="flow-box">Onboarding Chat</a>
-                            <div class="flow-arrow">↓</div>
-                            <a href="wireframes/43-mentor-credential-verification.html" class="flow-box">Set Profile</a>
-                            <div class="flow-arrow">↓</div>
-                            <a href="wireframes/73-mentor-onboarding-call.html" class="flow-box">Schedule Call</a>
-                            <div class="flow-arrow">↓</div>
-                            <a href="wireframes/72-mentor-verification-progress.html" class="flow-box"
-                                style="background: #e67e22; color: white;">Verification</a>
-                            <div class="flow-arrow">↓</div>
-                            <a href="wireframes/47-mentor-schedule.html" class="flow-box">Set Availability</a>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Convergence -->
-                <div class="flow-divider">
-                    <div class="flow-divider-line" style="border-top: 3px solid #ddd;"></div>
-                    <div
-                        style="font-size: 0.8em; color: #999; font-weight: bold; background: white; padding: 0 15px; margin-top: -12px;">
-                        CONVERGENCE: THE SESSION</div>
-                </div>
-
-                <div class="flow-row">
-                    <a href="wireframes/64-mentor-video-call.html" class="flow-box"
-                        style="border-color: var(--accent); color: var(--accent);">🎥 Expert Video Session</a>
-                </div>
-                <div class="flow-row" style="margin-top: 10px;">
-                    <a href="wireframes/16-meeting-interface.html" class="flow-box"
-                        style="background: var(--primary); color: white; width: 300px;">📞 Peer Audio Match (Screen
-                        16)</a>
-                </div>
-
-                <div class="flow-row" style="margin-top: 20px;">
-                    <a href="wireframes/65-mentor-session-feedback.html" class="flow-box"
-                        style="border-color: #e67e22;">Expert Feedback</a>
-                    <div style="width: 20px;"></div>
-                    <a href="wireframes/55-video-call-feedback.html" class="flow-box"
-                        style="border-color: #3498db;">Student Feedback</a>
-                </div>
-                <div class="flow-row" style="margin-top: 20px;">
-                    <a href="wireframes/19-connected.html" class="flow-box"
-                        style="background: #27ae60; color: white; width: 300px;">🤝 Anonymous Match Found ✓</a>
-                </div>
-
-                <div class="flow-divider">
-                    <div class="flow-divider-line" style="border-top: 3px dashed #9b59b6;"></div>
-                    <div
-                        style="font-size: 0.8em; color: #9b59b6; font-weight: bold; background: white; padding: 0 15px; margin-top: -12px;">
-                        CYCLE CULMINATION: SUCCESS SOP</div>
-                </div>
-
-                <div class="flow-row">
-                    <a href="wireframes/67-sop-dashboard.html" class="flow-box"
-                        style="background: #9b59b6; color: white; width: 300px;">🏆 SUCCESS SOP Dashboard (Screen
-                        67)</a>
-                </div>
-
-                <div class="flow-row" style="margin-top: 15px;">
-                    <a href="wireframes/68-sop-editor.html" class="flow-box" style="border-color: #9b59b6;">Refine &
-                        Edit SOP</a>
-                    <div class="flow-arrow horizontal">→</div>
-                    <a href="wireframes/69-sop-reminders-motivations.html" class="flow-box"
-                        style="border-color: #9b59b6;">Alerts & Coaching</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Institutional Framework & Ethical Guidelines -->
-        <div class="institutional-framework" style="margin-top: 60px;">
-            <div style="text-align: center; margin-bottom: 40px;">
-                <h2 style="font-size: 2em; margin-bottom: 10px;">🛡️ Institutional Framework & Ethical Guidelines</h2>
-                <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto;">Establishing trust through
-                    rigorous data ethics, risk mitigation, and institutional alignment.</p>
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px;">
-                <!-- Usage Guidelines -->
+<body style="background: var(--bg-main);">
+    <div class="app-shell">
+        <div class="main-container">
+            <!-- Desktop Sidebar -->
+            <aside class="desktop-sidebar">
                 <div
-                    style="background: var(--bg-card); padding: 30px; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
-                    <h3 style="color: var(--primary); margin-top: 0; display: flex; align-items: center; gap: 10px;">
-                        🚫 Usage Guidelines
-                    </h3>
-                    <p style="font-size: 0.9em; margin-bottom: 20px; color: var(--text-muted);">Strict protocols to
-                        maintain student trust and institutional integrity.</p>
-                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 15px;">
-                        <li style="display: flex; gap: 12px; font-size: 0.95em;">
-                            <span style="color: var(--accent);">•</span>
-                            <span><strong>No Academic Targeting:</strong> Individual data is never used for grading or
-                                student profiling. Data remains anonymous at the institutional level.</span>
-                        </li>
-                        <li style="display: flex; gap: 12px; font-size: 0.95em;">
-                            <span style="color: var(--accent);">•</span>
-                            <span><strong>Strict Privacy:</strong> Student data is never shared or commercialized with
-                                third-party recruiters or EdTech companies.</span>
-                        </li>
-                        <li style="display: flex; gap: 12px; font-size: 0.95em;">
-                            <span style="color: var(--accent);">•</span>
-                            <span><strong>Safe Disclosure:</strong> Information shared during discovery is never used as
-                                grounds for disciplinary action.</span>
-                        </li>
-                        <li style="display: flex; gap: 12px; font-size: 0.95em;">
-                            <span style="color: var(--accent);">•</span>
-                            <span><strong>Purpose-Limited AI:</strong> Voice and text analysis are used solely for
-                                sentiment and matching, not for permanent biometric surveillance.</span>
-                        </li>
-                    </ul>
+                    style="font-size: 1.5em; font-weight: 800; color: var(--primary); margin-bottom: 40px; display: flex; align-items: center; gap: 12px;">
+                    <span>🧑‍🤝‍🧑</span> Neopeer
                 </div>
+                <nav style="display: flex; flex-direction: column; gap: 8px;">
+                    <a href="wireframes/00-landing.html" class="nav-link">🏠 Discovery</a>
+                    <a href="index.html" class="nav-link active">🗺️ Dashboard</a>
+                    <a href="wireframes/valueproposition.html" class="nav-link">✨ Insights</a>
+                </nav>
+            </aside>
 
-                <!-- Strategic Value -->
+            <!-- Main Content Area -->
+            <main class="content-area">
+                <h1>Neopeer</h1>
+                <p class="subtitle">Find like-aspirational, like-background Peers and Mentors</p>
+
+                <!-- Vision Statement -->
                 <div
-                    style="background: var(--bg-card); padding: 30px; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
-                    <h3 style="color: var(--primary); margin-top: 0; display: flex; align-items: center; gap: 10px;">
-                        💡 Institutional Value
-                    </h3>
-                    <p style="font-size: 0.9em; margin-bottom: 20px; color: var(--text-muted);">How Neopeer strengthens
-                        the campus ecosystem.</p>
-                    <div style="display: flex; flex-direction: column; gap: 20px;">
-                        <div>
-                            <h4 style="margin: 0 0 5px 0; color: var(--text-main);">Success Continuity Loop</h4>
-                            <p style="margin: 0; font-size: 0.9em; line-height: 1.4;">Capturing the 'silent struggles'
-                                of seniors and matching them with juniors ensures tribal success knowledge stays within
-                                the campus.</p>
-                        </div>
-                        <div>
-                            <h4 style="margin: 0 0 5px 0; color: var(--text-main);">Faculty Support</h4>
-                            <p style="margin: 0; font-size: 0.9em; line-height: 1.4;">Reduces the load on faculty
-                                mentors by providing students with relatable peer support for everyday hurdles.</p>
-                        </div>
-                        <div>
-                            <h4 style="margin: 0 0 5px 0; color: var(--text-main);">Campus Pulse Insights</h4>
-                            <p style="margin: 0; font-size: 0.9em; line-height: 1.4;">Aggregate, de-identified trends
-                                reveal high-stress areas (subjects/semesters), allowing proactive improvements to
-                                student services.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Risk Mitigation -->
-            <div
-                style="background: var(--bg-surface); padding: 40px; border-radius: var(--radius-lg); border: 1px solid var(--border);">
-                <h3 style="margin-top: 0; margin-bottom: 25px;">⚠️ Risk Mitigation & Platform Integrity</h3>
-                <div style="overflow-x: auto;">
-                    <table style="width: 100%; border-collapse: collapse; font-size: 0.95em;">
-                        <thead>
-                            <tr style="border-bottom: 2px solid var(--border);">
-                                <th style="text-align: left; padding: 15px; width: 30%;">Potential Concern</th>
-                                <th style="text-align: left; padding: 15px;">Mitigation Strategy</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="border-bottom: 1px solid var(--border);">
-                                <td style="padding: 15px; font-weight: 600;">"Spyware" Perception</td>
-                                <td style="padding: 15px; line-height: 1.4;"><strong>Anonymity-by-Design:</strong>
-                                    Discovery is 100% anonymous. The institution only sees de-identified, aggregated
-                                    sentiment reports to improve campus life.</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid var(--border);">
-                                <td style="padding: 15px; font-weight: 600;">Institutional Liability</td>
-                                <td style="padding: 15px; line-height: 1.4;"><strong>Verification &
-                                        Accountability:</strong> Every mentor is campus-verified. Systems include
-                                    built-in reporting and session-end disclaimers labeling advice as peer-to-peer.</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid var(--border);">
-                                <td style="padding: 15px; font-weight: 600;">Commercial Exploitation</td>
-                                <td style="padding: 15px; line-height: 1.4;"><strong>Capped Honorarium:</strong>
-                                    Relevancy-based matching prioritizes support over tutoring. Mentorship fees are
-                                    capped to maintain a community-first culture.</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 15px; font-weight: 600;">Echo Chambers</td>
-                                <td style="padding: 15px; line-height: 1.4;"><strong>Growth-Match Logic:</strong> AI
-                                    algorithm suggests "bridge" mentors—those who achieved similar goals from different
-                                    initial backgrounds—to ensure diverse perspectives.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <div class="wireframe-nav">
-            <div class="flow-section">
-                <h2>0. Authentication & Onboarding</h2>
-                <a href="wireframes/00-landing.html" class="nav-link">Landing Page (RVCE Login)</a>
-                <a href="wireframes/00-otp-verification.html" class="nav-link">OTP Verification</a>
-                <a href="wireframes/00-privacy-consent.html" class="nav-link">Privacy & Data Consent</a>
-                <a href="wireframes/00-first-time-onboarding.html" class="nav-link">First-Time Onboarding</a>
-                <a href="wireframes/00-aspiration-selection.html" class="nav-link">Aspiration Selection</a>
-                <a href="wireframes/01-agent-intro.html" class="nav-link">Agent Introduction</a>
-                <a href="wireframes/36-voice-consent.html" class="nav-link">Voice Recording Consent (AI Agent)</a>
-            </div>
-
-            <div class="flow-section">
-                <h2>1. Agent Conversation Flow</h2>
-                <a href="wireframes/02-agent-conversation.html" class="nav-link">Agent Conversation (Voice)</a>
-                <a href="wireframes/29-submit-conversation.html" class="nav-link">Submit Conversation Confirmation</a>
-                <a href="wireframes/03-agent-retry.html" class="nav-link">Re-attempt Conversation</a>
-            </div>
-
-            <div class="flow-section">
-                <h2>1b. Multiple Aspirations</h2>
-                <a href="wireframes/23-manage-aspirations.html" class="nav-link">Manage Aspirations</a>
-                <a href="wireframes/27-new-aspiration.html" class="nav-link">Create New Aspiration</a>
-                <a href="wireframes/30-aspiration-availability.html" class="nav-link">Aspiration Availability
-                    Calendar</a>
-            </div>
-
-            <div class="flow-section">
-                <h2>2. Student Recommendations</h2>
-                <a href="wireframes/04-student-list.html" class="nav-link">Recommended Students List (AI Agent)</a>
-                <a href="wireframes/05-student-agent-chat.html" class="nav-link">Chat with Student Agent</a>
-            </div>
-
-            <div class="flow-section">
-                <h2>3. Matching Flow</h2>
-                <a href="wireframes/06-interest-indication.html" class="nav-link">Interest Indication</a>
-                <a href="wireframes/07-mutual-match.html" class="nav-link">Mutual Match Found</a>
-                <a href="wireframes/08-no-match.html" class="nav-link">No Match / Decline</a>
-            </div>
-
-            <div class="flow-section">
-                <h2>4. Scheduling Flow</h2>
-                <a href="wireframes/09-schedule-slots.html" class="nav-link">Share Time Slots</a>
-                <a href="wireframes/10-matching-slots.html" class="nav-link">App Finds Matching Slots</a>
-                <a href="wireframes/11-confirm-slot.html" class="nav-link">Confirm Slot</a>
-                <a href="wireframes/12-suggest-alternative.html" class="nav-link">Suggest Alternative Slot</a>
-                <a href="wireframes/13-share-time-range.html" class="nav-link">Share Time Range</a>
-            </div>
-
-            <div class="flow-section">
-                <h2>5. Pre-Meeting</h2>
-                <a href="wireframes/14-icebreaker-questions.html" class="nav-link">Icebreaker Questions</a>
-                <a href="wireframes/15-meeting-scheduled.html" class="nav-link">Meeting Scheduled</a>
-            </div>
-
-            <div class="flow-section">
-                <h2>6. Meeting</h2>
-                <a href="wireframes/16-meeting-interface.html" class="nav-link">Meeting Interface (No Camera)</a>
-                <a href="wireframes/17-meeting-notes.html" class="nav-link">Meeting Notes/Summary</a>
-            </div>
-
-            <div class="flow-section">
-                <h2>7. Post-Meeting</h2>
-                <a href="wireframes/18-consent-options.html" class="nav-link">Post-Meeting Consent</a>
-                <a href="wireframes/19-connected.html" class="nav-link">Connected Status</a>
-                <a href="wireframes/20-partial-interest.html" class="nav-link">Partial Interest Notification</a>
-            </div>
-
-            <div class="flow-section" style="border-left: 5px solid #e67e22;">
-                <h2>8. Mentor & Expert Hub (Paid)</h2>
-                <div
-                    style="background: #fffcf5; padding: 15px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #ffeeba;">
-                    <p style="font-size: 0.85em; color: #e67e22; font-weight: bold; margin-bottom: 10px;">Primary
-                        Dashboard</p>
-                    <a href="wireframes/46-mentor-student-leads.html" class="nav-link"
-                        style="background: #e67e22;">Mentor Home Page (Locked)</a>
-                    <a href="wireframes/46-mentor-dashboard-unlocked.html" class="nav-link"
-                        style="background: #27ae60; border-color: #27ae60;">Mentor Home Page (UNLOCKED)</a>
-                </div>
-
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                    <div>
-                        <p style="font-size: 0.75em; color: #7f8c8d; font-weight: bold; text-transform: uppercase;">
-                            Mentor Onboarding</p>
-                        <a href="wireframes/37-mentor-onboarding-intro.html" class="nav-link">Onboarding Intro</a>
-                        <a href="wireframes/44-mentor-email-login.html" class="nav-link">Email Login</a>
-                        <a href="wireframes/38-mentor-onboarding-chat.html" class="nav-link">Onboarding Chat</a>
-                        <a href="wireframes/43-mentor-credential-verification.html" class="nav-link">Set Profile</a>
-                        <a href="wireframes/73-mentor-onboarding-call.html" class="nav-link">Schedule Call</a>
-                        <a href="wireframes/72-mentor-verification-progress.html" class="nav-link">Verification</a>
-                    </div>
-                    <div>
-                        <p style="font-size: 0.75em; color: #7f8c8d; font-weight: bold; text-transform: uppercase;">
-                            Session Execution</p>
-                        <a href="wireframes/63-mentor-reviews-aspiration.html" class="nav-link">Review Aspiration</a>
-                        <a href="wireframes/47-mentor-schedule.html" class="nav-link">Scheduling Flow</a>
-                        <a href="wireframes/48-mentor-meeting-confirmed.html" class="nav-link"
-                            style="font-size: 0.8em;">Meeting Fixed</a>
-                        <a href="wireframes/64-mentor-video-call.html" class="nav-link" style="font-size: 0.8em;">Video
-                            Call (Expert)</a>
-                        <a href="wireframes/65-mentor-session-feedback.html" class="nav-link"
-                            style="font-size: 0.8em;">Mentor Feedback</a>
-                    </div>
-                </div>
-
-                <div style="margin-top: 20px;">
-                    <p style="font-size: 0.75em; color: #7f8c8d; font-weight: bold; text-transform: uppercase;">Student
-                        View (Requesting Expert)</p>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                        <a href="wireframes/39-mentor-recommendations.html" class="nav-link"
-                            style="background: #3498db;">Expert List</a>
-                        <a href="wireframes/50-group-mentor-recommendations.html" class="nav-link"
-                            style="background: #3498db;">Group List</a>
-                        <a href="wireframes/42-mentor-success-profile.html" class="nav-link"
-                            style="background: #3498db;">Expert Profile</a>
-                        <a href="wireframes/71-student-reviews-mentor.html" class="nav-link"
-                            style="background: #3498db;">Review Profile Summary</a>
-                        <a href="wireframes/41-video-call-request.html" class="nav-link"
-                            style="background: #3498db;">Booking Flow</a>
-                        <a href="wireframes/51-video-call-status.html" class="nav-link"
-                            style="background: #3498db;">Call Status</a>
-                        <a href="wireframes/52-video-call-payment.html" class="nav-link"
-                            style="background: #3498db;">RVCE-Pay</a>
-                        <a href="wireframes/54-video-call-interface.html" class="nav-link"
-                            style="background: #3498db;">Video Call</a>
-                        <a href="wireframes/55-video-call-feedback.html" class="nav-link"
-                            style="background: #3498db;">User Feedback</a>
-                        <a href="wireframes/74-mentor-badge-unlocked.html" class="nav-link"
-                            style="background: #f1c40f; color: #2c3e50;">Badge Unlock Celeb</a>
-                    </div>
-                </div>
-
-                <div style="margin-top: 15px; padding-left: 10px; border-left: 2px solid #e67e22;">
-                    <p style="font-size: 0.8em; color: #e67e22; font-weight: bold; margin-bottom: 5px;">Student Mentor
-                        SR-01's
-                        Dedicated Flow (Full Pipeline)</p>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
-                        <a href="wireframes/56-sanjay-success-profile.html" class="nav-link"
-                            style="background: #fff; color: #e67e22; border: 1px solid #e67e22; font-size: 0.7em;">1.
-                            Success Profile (SR-01)</a>
-                        <a href="wireframes/71-student-reviews-mentor.html?mentor=sanjay" class="nav-link"
-                            style="background: #fff; color: #e67e22; border: 1px solid #e67e22; font-size: 0.7em;">2.
-                            Consult Onboarding Guide</a>
-                        <a href="wireframes/57-sanjay-call-request.html" class="nav-link"
-                            style="background: #fff; color: #e67e22; border: 1px solid #e67e22; font-size: 0.7em;">3.
-                            Call Request</a>
-                        <a href="wireframes/58-sanjay-call-status.html" class="nav-link"
-                            style="background: #fff; color: #e67e22; border: 1px solid #e67e22; font-size: 0.7em;">4.
-                            Call Status</a>
-                        <a href="wireframes/59-sanjay-call-payment.html" class="nav-link"
-                            style="background: #fff; color: #e67e22; border: 1px solid #e67e22; font-size: 0.7em;">5.
-                            Session Payment</a>
-                        <a href="wireframes/60-sanjay-call-icebreakers.html" class="nav-link"
-                            style="background: #fff; color: #e67e22; border: 1px solid #e67e22; font-size: 0.7em;">6.
-                            Icebreakers</a>
-                        <a href="wireframes/61-sanjay-call-interface.html" class="nav-link"
-                            style="background: #fff; color: #e67e22; border: 1px solid #e67e22; font-size: 0.7em;">7.
-                            Video Call</a>
-                        <a href="wireframes/62-sanjay-call-feedback.html" class="nav-link"
-                            style="background: #fff; color: #e67e22; border: 1px solid #e67e22; font-size: 0.7em;">8.
-                            Feedback</a>
-                        <a href="wireframes/70-mentor-next-steps.html" class="nav-link"
-                            style="background: #e67e22; color: #fff; border: 1px solid #e67e22; font-size: 0.7em; grid-column: span 2;">9.
-                            Next Steps (Options)</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flow-section" style="border-left: 5px solid #9b59b6;">
-                <h2>10. Goal Execution (Success SOP)</h2>
-                <a href="wireframes/67-sop-dashboard.html" class="nav-link" style="background: #9b59b6;">SOP Dashboard
-                    (Primary)</a>
-                <a href="wireframes/68-sop-editor.html" class="nav-link">SOP Refinement Editor</a>
-                <a href="wireframes/69-sop-reminders-motivations.html" class="nav-link">Reminders & Coaching Style</a>
-            </div>
-
-            <div class="flow-section">
-                <h2>11. Settings & Data Management</h2>
-                <a href="wireframes/21-settings.html" class="nav-link">Settings</a>
-                <a href="wireframes/28-my-profile.html" class="nav-link">My Profile</a>
-                <a href="wireframes/22-delete-memory.html" class="nav-link">Delete My Data</a>
-                <a href="wireframes/24-download-data.html" class="nav-link">Download My Data</a>
-                <a href="wireframes/25-privacy-settings.html" class="nav-link">Privacy Settings</a>
-                <a href="wireframes/26-delete-account.html" class="nav-link">Delete Account</a>
-            </div>
-        </div>
-        <!-- Detailed Discovery Engine Logic Diagram -->
-        <div
-            style="margin: 64px 0; padding: 48px; background: #fdfefe; border-radius: var(--radius-lg); border: 2px solid #e2e8f0; box-shadow: var(--shadow);">
-            <div style="text-align: center; margin-bottom: 48px;">
-                <div
-                    style="font-size: 0.8em; text-transform: uppercase; letter-spacing: 3px; color: var(--primary); font-weight: 800; margin-bottom: 12px;">
-                    Technical Architecture</div>
-                <h2 style="font-size: 2.2em; font-weight: 800; color: #1e293b; margin: 0;">The Discovery Engine Logic
-                </h2>
-                <p style="color: #64748b; margin-top: 12px; font-size: 1.1em;">A 3-phase high-conviction matching
-                    framework</p>
-            </div>
-
-            <div style="display: flex; flex-direction: column; gap: 40px; max-width: 900px; margin: 0 auto;">
-
-                <!-- Phase 1: Context Sync -->
-                <div style="display: flex; gap: 32px; align-items: flex-start;">
+                    style="background: var(--bg-surface); color: var(--text-main); padding: 40px; border-radius: var(--radius-lg); margin: 48px 0; border: 1px solid var(--border); box-shadow: var(--shadow);">
                     <div
-                        style="width: 50px; height: 50px; background: var(--primary); color: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0; font-size: 1.2em;">
-                        1</div>
-                    <div style="flex: 1;">
-                        <h3 style="font-size: 1.3em; font-weight: 800; color: #1e293b; margin-bottom: 16px;">Phase 1:
-                            Context Sync</h3>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                        style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 40px;">
+                        <div style="flex: 1; min-width: 300px;">
                             <div
-                                style="background: white; border: 1px solid #e2e8f0; padding: 16px; border-radius: var(--radius-md);">
-                                <div style="font-size: 0.7em; color: #94a3b8; font-weight: 800; margin-bottom: 8px;">
-                                    BASICS CAPTURE</div>
-                                <ul style="margin: 0; padding: 0 0 0 16px; font-size: 0.85em; color: #475569;">
-                                    <li>Branch (CSE, ISE, ECE, EEE, etc.)</li>
-                                    <li>Year (1st - 4th Yr)</li>
-                                </ul>
-                            </div>
-                            <div
-                                style="background: white; border: 1px solid #e2e8f0; padding: 16px; border-radius: var(--radius-md);">
-                                <div style="font-size: 0.7em; color: #94a3b8; font-weight: 800; margin-bottom: 8px;">
-                                    ACADEMIC LENS</div>
-                                <ul style="margin: 0; padding: 0 0 0 16px; font-size: 0.85em; color: #475569;">
-                                    <li>Background (Technical, Product, etc.)</li>
-                                    <li>Primary Hurdle (Skills, Networking, etc.)</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="width: 2px; height: 30px; background: #e2e8f0; margin-left: 24px;"></div>
-
-                <!-- Phase 2: Vetting Filter -->
-                <div style="display: flex; gap: 32px; align-items: flex-start;">
-                    <div
-                        style="width: 50px; height: 50px; background: var(--primary); color: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0; font-size: 1.2em;">
-                        2</div>
-                    <div style="flex: 1;">
-                        <h3 style="font-size: 1.3em; font-weight: 800; color: #1e293b; margin-bottom: 16px;">Phase 2:
-                            Vetting Filter (Preferences)</h3>
-                        <p style="font-size: 0.95em; color: #64748b; line-height: 1.6; margin-bottom: 20px;">Users
-                            define
-                            the <strong>objective traits</strong> they require in a peer/mentor.</p>
-                        <div style="background: #f1f5f9; padding: 24px; border-radius: var(--radius-md);">
-                            <div
-                                style="font-size: 0.75em; font-weight: 800; color: #475569; margin-bottom: 16px; text-transform: uppercase;">
-                                Vetting Categories</div>
-                            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-                                <span
-                                    style="background: white; padding: 8px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 700; border: 1px solid #e2e8f0;">Personality</span>
-                                <span
-                                    style="background: white; padding: 8px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 700; border: 1px solid #e2e8f0;">Aspiration</span>
-                                <span
-                                    style="background: white; padding: 8px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 700; border: 1px solid #e2e8f0;">Achievements</span>
-                                <span
-                                    style="background: white; padding: 8px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 700; border: 1px solid #e2e8f0;">Journey
-                                    Phase</span>
-                                <span
-                                    style="background: #e2e8f0; padding: 8px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 700; color: #64748b;">+
-                                    Other (Subjective)</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="width: 2px; height: 30px; background: #e2e8f0; margin-left: 24px;"></div>
-
-                <!-- Phase 3: Alignment Logic -->
-                <div style="display: flex; gap: 32px; align-items: flex-start;">
-                    <div
-                        style="width: 50px; height: 50px; background: #27ae60; color: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0; font-size: 1.2em;">
-                        3</div>
-                    <div style="flex: 1;">
-                        <h3 style="font-size: 1.3em; font-weight: 800; color: #1e293b; margin-bottom: 16px;">Phase 3:
-                            Alignment Check (Matching)</h3>
-                        <div
-                            style="background: rgba(39, 174, 96, 0.05); border: 2px solid rgba(39, 174, 96, 0.1); padding: 24px; border-radius: var(--radius-md);">
-                            <div style="display: grid; grid-template-columns: 1fr 40px 1fr; align-items: center;">
-                                <div style="text-align: center;">
-                                    <div
-                                        style="font-size: 0.7em; color: #27ae60; font-weight: 800; margin-bottom: 8px;">
-                                        USER A</div>
-                                    <div
-                                        style="background: white; padding: 12px; border-radius: 12px; border: 1px solid #27ae60; font-size: 0.85em; font-weight: 700;">
-                                        Self-Reflection</div>
-                                </div>
-                                <div style="text-align: center; color: #27ae60; font-size: 1.2em; font-weight: 800;">↔
-                                </div>
-                                <div style="text-align: center;">
-                                    <div
-                                        style="font-size: 0.7em; color: #27ae60; font-weight: 800; margin-bottom: 8px;">
-                                        USER B</div>
-                                    <div
-                                        style="background: white; padding: 12px; border-radius: 12px; border: 1px solid #27ae60; font-size: 0.85em; font-weight: 700;">
-                                        Vetting Filter</div>
-                                </div>
-                            </div>
-                            <p style="font-size: 0.85em; color: #64748b; margin-top: 20px; text-align: center;">
-                                Matches only trigger when <strong>A's reflection</strong> satisfies <strong>B's
-                                    vetting</strong> AND <strong>B's reflection</strong> satisfies <strong>A's
-                                    vetting</strong>.
+                                style="font-size: 0.7em; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); font-weight: 800; margin-bottom: 16px;">
+                                The Neopeer Vision</div>
+                            <p
+                                style="font-size: 1.4em; line-height: 1.5; margin: 0; font-weight: 600; color: var(--text-main);">
+                                To enable every student to improve their odds by becoming aware of the right steps to
+                                take and
+                                taking them to the <span style="color: var(--primary);">best of their capability</span>.
                             </p>
                         </div>
+                        <div style="text-align: center; display: flex; gap: 12px; flex-wrap: wrap;">
+                            <a href="wireframes/valueproposition.html" class="btn btn-primary"
+                                style="width: auto; padding: 14px 28px; border-radius: 14px; background: var(--primary); color: white; border: none; box-shadow: var(--shadow); text-decoration: none;">
+                                ✨ Our Philosophy
+                            </a>
+                            <a href="wireframe-flow-diagram.html" class="btn btn-primary"
+                                style="width: auto; padding: 14px 28px; border-radius: 14px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-main); box-shadow: none; text-decoration: none;">
+                                🗺️ Logic Diagram
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <!-- Full Reference Decision Tree -->
-                <div style="margin-top: 48px; border-top: 1px solid #e2e8f0; padding-top: 32px;">
+
+                <div class="flow-chart">
+                    <h2>📊 Complete App Flow Chart</h2>
+                    <div class="flow-container">
+                        <div class="flow-row">
+                            <div class="flow-section-title">Getting Started</div>
+                        </div>
+                        <div class="flow-row">
+                            <a href="wireframes/valueproposition.html" class="flow-box"
+                                style="background: var(--primary); color: white; border: none;">✨ Our Philosophy &
+                                Research</a>
+                            <div class="flow-arrow horizontal">→</div>
+                            <a href="wireframes/00-landing.html" class="flow-box"
+                                style="background: var(--primary); color: white;">🏠 Landing
+                                Page & Auth</a>
+                        </div>
+
+                        <div class="flow-divider">
+                            <div class="flow-divider-line"></div>
+                        </div>
+
+                        <div class="flow-row" style="margin: 20px 0;">
+                            <div style="width: 50%; border-right: 2px dashed #ddd; height: 30px;"></div>
+                            <div style="width: 50%; height: 30px;"></div>
+                        </div>
+
+                        <!-- Parallel Worlds -->
+                        <div class="flow-row" style="align-items: flex-start; gap: 40px;">
+
+                            <!-- STUDENT WORLD -->
+                            <div
+                                style="flex: 1; padding: 20px; border-radius: 12px; background: #ebf5fb; border: 2px solid #3498db;">
+                                <h3 style="color: #3498db; margin-top: 0; text-align: center; font-size: 1em;">👤
+                                    STUDENT WORLD
+                                </h3>
+                                <div
+                                    style="display: flex; flex-direction: column; gap: 12px; align-items: center; margin-top: 15px;">
+                                    <a href="wireframes/00-otp-verification.html" class="flow-box">OTP Login</a>
+                                    <div class="flow-arrow">↓</div>
+                                    <a href="wireframes/00-overall-consent.html" class="flow-box"
+                                        style="background: rgba(99, 102, 241, 0.1); color: var(--primary); border: 1px solid rgba(99, 102, 241, 0.2);">Master
+                                        DPDP Consent</a>
+                                    <div class="flow-arrow">↓</div>
+                                    <a href="wireframes/02-get-to-know-you.html" class="flow-box">Get to Know You
+                                        Chat</a>
+                                    <div class="flow-arrow">↓</div>
+                                    <a href="wireframes/49-support-type-selection.html" class="flow-box"
+                                        style="background: #f1c40f; font-weight: bold;">DECISION: Match Preference</a>
+
+                                    <!-- Internal Student Branch -->
+                                    <div style="display: flex; gap: 10px; width: 100%;">
+                                        <div style="flex: 1; text-align: center;">
+                                            <div style="font-size: 0.6em; color: #7f8c8d;">Peer Path</div>
+                                            <a href="wireframes/04-student-list.html" class="flow-box"
+                                                style="font-size: 0.8em; padding: 6px;">Peer Matches</a>
+                                            <div class="flow-arrow" style="margin: 3px 0;">↓</div>
+                                            <div
+                                                style="padding: 5px; border: 1px solid #f1c40f; background: #fffde7; border-radius: 5px; font-size: 0.6em; font-weight: bold; text-align: center; color: #856404; margin-bottom: 3px;">
+                                                <a href="wireframes/66-commitment-payment.html"
+                                                    style="text-decoration: none; color: inherit;">Commitment: Rs 49</a>
+                                            </div>
+                                            <div class="flow-arrow" style="margin: 3px 0;">↓</div>
+                                            <a href="wireframes/07-mutual-match.html" class="flow-box"
+                                                style="font-size: 0.75em; padding: 5px; background: #27ae60; color: white;">Match
+                                                ✓</a>
+                                        </div>
+                                        <div style="flex: 1; text-align: center;">
+                                            <div style="font-size: 0.6em; color: #7f8c8d;">Mentor Path</div>
+                                            <a href="wireframes/39-mentor-recommendations.html" class="flow-box"
+                                                style="font-size: 0.8em; padding: 6px; border-color: #e67e22;">Expert
+                                                List</a>
+                                            <div class="flow-arrow" style="margin: 3px 0;">↓</div>
+                                            <a href="wireframes/42-mentor-success-profile.html" class="flow-box"
+                                                style="font-size: 0.7em; padding: 5px; border-color: #e67e22;">Expert
+                                                Profile</a>
+                                            <div class="flow-arrow" style="margin: 3px 0;">↓</div>
+                                            <a href="wireframes/71-student-talks-to-mentor-agent.html" class="flow-box"
+                                                style="font-size: 0.65em; padding: 5px; background: var(--primary); color: white;">Agent
+                                                Vetting</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- MENTOR WORLD -->
+                            <div
+                                style="flex: 1; padding: 20px; border-radius: 12px; background: #fffcf5; border: 2px solid #e67e22;">
+                                <h3 style="color: #e67e22; margin-top: 0; text-align: center; font-size: 1em;">🌟 MENTOR
+                                    WORLD
+                                </h3>
+                                <div
+                                    style="display: flex; flex-direction: column; gap: 12px; align-items: center; margin-top: 15px;">
+                                    <a href="wireframes/44-mentor-email-login.html" class="flow-box">Mentor Login</a>
+                                    <div class="flow-arrow">↓</div>
+                                    <a href="wireframes/38-mentor-agent-conversation.html" class="flow-box">Onboarding
+                                        Chat</a>
+                                    <div class="flow-arrow">↓</div>
+                                    <a href="wireframes/43-mentor-credential-verification.html" class="flow-box">Set
+                                        Profile</a>
+                                    <div class="flow-arrow">↓</div>
+                                    <a href="wireframes/73-mentor-onboarding-call.html" class="flow-box">Schedule
+                                        Call</a>
+                                    <div class="flow-arrow">↓</div>
+                                    <a href="wireframes/72-mentor-verification-progress.html" class="flow-box"
+                                        style="background: #e67e22; color: white;">Verification</a>
+                                    <div class="flow-arrow">↓</div>
+                                    <a href="wireframes/47-mentor-schedule.html" class="flow-box">Set Availability</a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Convergence -->
+                        <div class="flow-divider">
+                            <div class="flow-divider-line" style="border-top: 3px solid #ddd;"></div>
+                            <div
+                                style="font-size: 0.8em; color: #999; font-weight: bold; background: white; padding: 0 15px; margin-top: -12px;">
+                                CONVERGENCE: THE SESSION</div>
+                        </div>
+
+                        <div class="flow-row">
+                            <a href="wireframes/64-mentor-video-call.html" class="flow-box"
+                                style="border-color: var(--accent); color: var(--accent);">🎥 Expert Video Session</a>
+                        </div>
+                        <div class="flow-row" style="margin-top: 10px;">
+                            <a href="wireframes/16-meeting-interface.html" class="flow-box"
+                                style="background: var(--primary); color: white; width: 300px;">📞 Peer Audio Match
+                                (Screen
+                                16)</a>
+                        </div>
+
+                        <div class="flow-row" style="margin-top: 20px;">
+                            <a href="wireframes/65-mentor-session-feedback.html" class="flow-box"
+                                style="border-color: #e67e22;">Expert
+                                Feedback</a>
+                            <div style="width: 20px;"></div>
+                            <a href="wireframes/55-video-call-feedback.html" class="flow-box"
+                                style="border-color: #3498db;">Student
+                                Feedback</a>
+                        </div>
+                        <div class="flow-row" style="margin-top: 20px;">
+                            <a href="wireframes/19-connected.html" class="flow-box"
+                                style="background: #27ae60; color: white; width: 300px;">🤝
+                                Anonymous Match Found ✓</a>
+                        </div>
+
+                        <div class="flow-divider">
+                            <div class="flow-divider-line" style="border-top: 3px dashed #9b59b6;"></div>
+                            <div
+                                style="font-size: 0.8em; color: #9b59b6; font-weight: bold; background: white; padding: 0 15px; margin-top: -12px;">
+                                CYCLE CULMINATION: SUCCESS SOP</div>
+                        </div>
+
+                        <div class="flow-row">
+                            <a href="wireframes/67-sop-dashboard.html" class="flow-box"
+                                style="background: #9b59b6; color: white; width: 300px;">🏆 SUCCESS SOP Dashboard
+                                (Screen
+                                67)</a>
+                        </div>
+
+                        <div class="flow-row" style="margin-top: 15px;">
+                            <a href="wireframes/68-sop-editor.html" class="flow-box"
+                                style="border-color: #9b59b6;">Refine &
+                                Edit SOP</a>
+                            <div class="flow-arrow horizontal">→</div>
+                            <a href="wireframes/69-sop-reminders-motivations.html" class="flow-box"
+                                style="border-color: #9b59b6;">Alerts &
+                                Coaching</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Institutional Framework & Ethical Guidelines -->
+                <div class="institutional-framework" style="margin-top: 60px;">
+                    <div style="text-align: center; margin-bottom: 40px;">
+                        <h2 style="font-size: 2em; margin-bottom: 10px;">🛡️ Institutional Framework & Ethical
+                            Guidelines</h2>
+                        <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto;">Establishing trust
+                            through
+                            rigorous data ethics, risk mitigation, and institutional alignment.</p>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px;">
+                        <!-- Usage Guidelines -->
+                        <div
+                            style="background: var(--bg-card); padding: 30px; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
+                            <h3
+                                style="color: var(--primary); margin-top: 0; display: flex; align-items: center; gap: 10px;">
+                                🚫 Usage Guidelines
+                            </h3>
+                            <p style="font-size: 0.9em; margin-bottom: 20px; color: var(--text-muted);">Strict protocols
+                                to
+                                maintain student trust and institutional integrity.</p>
+                            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 15px;">
+                                <li style="display: flex; gap: 12px; font-size: 0.95em;">
+                                    <span style="color: var(--accent);">•</span>
+                                    <span><strong>No Academic Targeting:</strong> Individual data is never used for
+                                        grading or
+                                        student profiling. Data remains anonymous at the institutional level.</span>
+                                </li>
+                                <li style="display: flex; gap: 12px; font-size: 0.95em;">
+                                    <span style="color: var(--accent);">•</span>
+                                    <span><strong>Strict Privacy:</strong> Student data is never shared or
+                                        commercialized with
+                                        third-party recruiters or EdTech companies.</span>
+                                </li>
+                                <li style="display: flex; gap: 12px; font-size: 0.95em;">
+                                    <span style="color: var(--accent);">•</span>
+                                    <span><strong>Safe Disclosure:</strong> Information shared during discovery is never
+                                        used as
+                                        grounds for disciplinary action.</span>
+                                </li>
+                                <li style="display: flex; gap: 12px; font-size: 0.95em;">
+                                    <span style="color: var(--accent);">•</span>
+                                    <span><strong>Purpose-Limited AI:</strong> Voice and text analysis are used solely
+                                        for
+                                        sentiment and matching, not for permanent biometric surveillance.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Strategic Value -->
+                        <div
+                            style="background: var(--bg-card); padding: 30px; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
+                            <h3
+                                style="color: var(--primary); margin-top: 0; display: flex; align-items: center; gap: 10px;">
+                                💡 Institutional Value
+                            </h3>
+                            <p style="font-size: 0.9em; margin-bottom: 20px; color: var(--text-muted);">How Neopeer
+                                strengthens
+                                the campus ecosystem.</p>
+                            <div style="display: flex; flex-direction: column; gap: 20px;">
+                                <div>
+                                    <h4 style="margin: 0 0 5px 0; color: var(--text-main);">Success Continuity Loop</h4>
+                                    <p style="margin: 0; font-size: 0.9em; line-height: 1.4;">Capturing the 'silent
+                                        struggles'
+                                        of seniors and matching them with juniors ensures tribal success knowledge stays
+                                        within
+                                        the campus.</p>
+                                </div>
+                                <div>
+                                    <h4 style="margin: 0 0 5px 0; color: var(--text-main);">Faculty Support</h4>
+                                    <p style="margin: 0; font-size: 0.9em; line-height: 1.4;">Reduces the load on
+                                        faculty
+                                        mentors by providing students with relatable peer support for everyday hurdles.
+                                    </p>
+                                </div>
+                                <div>
+                                    <h4 style="margin: 0 0 5px 0; color: var(--text-main);">Campus Pulse Insights</h4>
+                                    <p style="margin: 0; font-size: 0.9em; line-height: 1.4;">Aggregate, de-identified
+                                        trends
+                                        reveal high-stress areas (subjects/semesters), allowing proactive improvements
+                                        to
+                                        student services.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Risk Mitigation -->
                     <div
-                        style="font-size: 0.75em; font-weight: 800; color: #94a3b8; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px;">
-                        Full Algorithm Reference (Question Pool)</div>
+                        style="background: var(--bg-surface); padding: 40px; border-radius: var(--radius-lg); border: 1px solid var(--border);">
+                        <h3 style="margin-top: 0; margin-bottom: 25px;">⚠️ Risk Mitigation & Platform Integrity</h3>
+                        <div style="overflow-x: auto;">
+                            <table style="width: 100%; border-collapse: collapse; font-size: 0.95em;">
+                                <thead>
+                                    <tr style="border-bottom: 2px solid var(--border);">
+                                        <th style="text-align: left; padding: 15px; width: 30%;">Potential Concern</th>
+                                        <th style="text-align: left; padding: 15px;">Mitigation Strategy</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border-bottom: 1px solid var(--border);">
+                                        <td style="padding: 15px; font-weight: 600;">"Spyware" Perception</td>
+                                        <td style="padding: 15px; line-height: 1.4;">
+                                            <strong>Anonymity-by-Design:</strong>
+                                            Discovery is 100% anonymous. The institution only sees de-identified,
+                                            aggregated
+                                            sentiment reports to improve campus life.
+                                        </td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid var(--border);">
+                                        <td style="padding: 15px; font-weight: 600;">Institutional Liability</td>
+                                        <td style="padding: 15px; line-height: 1.4;"><strong>Verification &
+                                                Accountability:</strong> Every mentor is campus-verified. Systems
+                                            include
+                                            built-in reporting and session-end disclaimers labeling advice as
+                                            peer-to-peer.</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid var(--border);">
+                                        <td style="padding: 15px; font-weight: 600;">Commercial Exploitation</td>
+                                        <td style="padding: 15px; line-height: 1.4;"><strong>Capped Honorarium:</strong>
+                                            Relevancy-based matching prioritizes support over tutoring. Mentorship fees
+                                            are
+                                            capped to maintain a community-first culture.</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 15px; font-weight: 600;">Echo Chambers</td>
+                                        <td style="padding: 15px; line-height: 1.4;"><strong>Growth-Match
+                                                Logic:</strong> AI
+                                            algorithm suggests "bridge" mentors—those who achieved similar goals from
+                                            different
+                                            initial backgrounds—to ensure diverse perspectives.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
 
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
-                        <!-- Category: Basics -->
-                        <div style="background: white; padding: 20px; border-radius: 12px; border: 1px solid #f1f5f9;">
-                            <h4 style="font-size: 0.9em; font-weight: 800; color: var(--primary); margin-bottom: 12px;">
-                                1. Basics</h4>
-                            <div style="font-size: 0.85em; color: #475569; line-height: 1.6;">
-                                <p><strong>Branch:</strong> CSE, ISE, ECE, EEE, TCE, ME, CV, BT</p>
-                                <p><strong>Year:</strong> 1st, 2nd, 3rd, 4th Year</p>
-                                <p><strong>Background:</strong> Technical, Self-taught, Research, Product-focused</p>
-                                <p><strong>Main Hurdle:</strong> Skills, Time Management, Networking, Resources</p>
+                <div class="wireframe-nav">
+                    <div class="flow-section">
+                        <h2>0. Authentication & Onboarding</h2>
+                        <a href="wireframes/00-landing.html" class="nav-link">Landing Page (RVCE Login)</a>
+                        <a href="wireframes/00-otp-verification.html" class="nav-link">OTP Verification</a>
+                        <a href="wireframes/00-privacy-consent.html" class="nav-link">Privacy & Data Consent</a>
+                        <a href="wireframes/00-first-time-onboarding.html" class="nav-link">First-Time Onboarding</a>
+                        <a href="wireframes/00-aspiration-selection.html" class="nav-link">Aspiration Selection</a>
+                        <a href="wireframes/01-agent-intro.html" class="nav-link">Agent Introduction</a>
+                        <a href="wireframes/36-voice-consent.html" class="nav-link">Voice Recording Consent (AI
+                            Agent)</a>
+                    </div>
+
+                    <div class="flow-section">
+                        <h2>1. Agent Conversation Flow</h2>
+                        <a href="wireframes/02-agent-conversation.html" class="nav-link">Agent Conversation (Voice)</a>
+                        <a href="wireframes/29-submit-conversation.html" class="nav-link">Submit Conversation
+                            Confirmation</a>
+                        <a href="wireframes/03-agent-retry.html" class="nav-link">Re-attempt Conversation</a>
+                    </div>
+
+                    <div class="flow-section">
+                        <h2>1b. Multiple Aspirations</h2>
+                        <a href="wireframes/23-manage-aspirations.html" class="nav-link">Manage Aspirations</a>
+                        <a href="wireframes/27-new-aspiration.html" class="nav-link">Create New Aspiration</a>
+                        <a href="wireframes/30-aspiration-availability.html" class="nav-link">Aspiration Availability
+                            Calendar</a>
+                    </div>
+
+                    <div class="flow-section">
+                        <h2>2. Student Recommendations</h2>
+                        <a href="wireframes/04-student-list.html" class="nav-link">Recommended Students List (AI
+                            Agent)</a>
+                        <a href="wireframes/05-student-agent-chat.html" class="nav-link">Chat with Student Agent</a>
+                    </div>
+
+                    <div class="flow-section">
+                        <h2>3. Matching Flow</h2>
+                        <a href="wireframes/06-interest-indication.html" class="nav-link">Interest Indication</a>
+                        <a href="wireframes/07-mutual-match.html" class="nav-link">Mutual Match Found</a>
+                        <a href="wireframes/08-no-match.html" class="nav-link">No Match / Decline</a>
+                    </div>
+
+                    <div class="flow-section">
+                        <h2>4. Scheduling Flow</h2>
+                        <a href="wireframes/09-schedule-slots.html" class="nav-link">Share Time Slots</a>
+                        <a href="wireframes/10-matching-slots.html" class="nav-link">App Finds Matching Slots</a>
+                        <a href="wireframes/11-confirm-slot.html" class="nav-link">Confirm Slot</a>
+                        <a href="wireframes/12-suggest-alternative.html" class="nav-link">Suggest Alternative Slot</a>
+                        <a href="wireframes/13-share-time-range.html" class="nav-link">Share Time Range</a>
+                    </div>
+
+                    <div class="flow-section">
+                        <h2>5. Pre-Meeting</h2>
+                        <a href="wireframes/14-icebreaker-questions.html" class="nav-link">Icebreaker Questions</a>
+                        <a href="wireframes/15-meeting-scheduled.html" class="nav-link">Meeting Scheduled</a>
+                    </div>
+
+                    <div class="flow-section">
+                        <h2>6. Meeting</h2>
+                        <a href="wireframes/16-meeting-interface.html" class="nav-link">Meeting Interface (No
+                            Camera)</a>
+                        <a href="wireframes/17-meeting-notes.html" class="nav-link">Meeting Notes/Summary</a>
+                    </div>
+
+                    <div class="flow-section">
+                        <h2>7. Post-Meeting</h2>
+                        <a href="wireframes/18-consent-options.html" class="nav-link">Post-Meeting Consent</a>
+                        <a href="wireframes/19-connected.html" class="nav-link">Connected Status</a>
+                        <a href="wireframes/20-partial-interest.html" class="nav-link">Partial Interest Notification</a>
+                    </div>
+
+                    <div class="flow-section" style="border-left: 5px solid #e67e22;">
+                        <h2>8. Mentor & Expert Hub (Paid)</h2>
+                        <div
+                            style="background: #fffcf5; padding: 15px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #ffeeba;">
+                            <p style="font-size: 0.85em; color: #e67e22; font-weight: bold; margin-bottom: 10px;">
+                                Primary
+                                Dashboard</p>
+                            <a href="wireframes/46-mentor-student-leads.html" class="nav-link"
+                                style="background: #e67e22;">Mentor Home
+                                Page (Locked)</a>
+                            <a href="wireframes/46-mentor-dashboard-unlocked.html" class="nav-link"
+                                style="background: #27ae60; border-color: #27ae60;">Mentor Home Page (UNLOCKED)</a>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div>
+                                <p
+                                    style="font-size: 0.75em; color: #7f8c8d; font-weight: bold; text-transform: uppercase;">
+                                    Mentor Onboarding</p>
+                                <a href="wireframes/37-mentor-onboarding-intro.html" class="nav-link">Onboarding
+                                    Intro</a>
+                                <a href="wireframes/44-mentor-email-login.html" class="nav-link">Email Login</a>
+                                <a href="wireframes/38-mentor-onboarding-chat.html" class="nav-link">Onboarding Chat</a>
+                                <a href="wireframes/43-mentor-credential-verification.html" class="nav-link">Set
+                                    Profile</a>
+                                <a href="wireframes/73-mentor-onboarding-call.html" class="nav-link">Schedule Call</a>
+                                <a href="wireframes/72-mentor-verification-progress.html"
+                                    class="nav-link">Verification</a>
+                            </div>
+                            <div>
+                                <p
+                                    style="font-size: 0.75em; color: #7f8c8d; font-weight: bold; text-transform: uppercase;">
+                                    Session Execution</p>
+                                <a href="wireframes/63-mentor-reviews-aspiration.html" class="nav-link">Review
+                                    Aspiration</a>
+                                <a href="wireframes/47-mentor-schedule.html" class="nav-link">Scheduling Flow</a>
+                                <a href="wireframes/48-mentor-meeting-confirmed.html" class="nav-link"
+                                    style="font-size: 0.8em;">Meeting
+                                    Fixed</a>
+                                <a href="wireframes/64-mentor-video-call.html" class="nav-link"
+                                    style="font-size: 0.8em;">Video
+                                    Call (Expert)</a>
+                                <a href="wireframes/65-mentor-session-feedback.html" class="nav-link"
+                                    style="font-size: 0.8em;">Mentor
+                                    Feedback</a>
                             </div>
                         </div>
 
-                        <!-- Category: Personality -->
-                        <div style="background: white; padding: 20px; border-radius: 12px; border: 1px solid #f1f5f9;">
-                            <h4 style="font-size: 0.9em; font-weight: 800; color: var(--primary); margin-bottom: 12px;">
-                                2.
-                                Personality</h4>
-                            <div style="font-size: 0.85em; color: #475569; line-height: 1.6;">
-                                <p><strong>Style:</strong> Analytical, Creative, Organized, Spontaneous</p>
-                                <p><strong>Mentality:</strong> Growth, Results, Resilient, Disciplined</p>
-                                <p><strong>Workstyle:</strong> Deep Solo, Collaborative, Structured, Flexible</p>
+                        <div style="margin-top: 20px;">
+                            <p style="font-size: 0.75em; color: #7f8c8d; font-weight: bold; text-transform: uppercase;">
+                                Student
+                                View (Requesting Expert)</p>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                                <a href="wireframes/39-mentor-recommendations.html" class="nav-link"
+                                    style="background: #3498db;">Expert
+                                    List</a>
+                                <a href="wireframes/50-group-mentor-recommendations.html" class="nav-link"
+                                    style="background: #3498db;">Group List</a>
+                                <a href="wireframes/42-mentor-success-profile.html" class="nav-link"
+                                    style="background: #3498db;">Expert
+                                    Profile</a>
+                                <a href="wireframes/71-student-reviews-mentor.html" class="nav-link"
+                                    style="background: #3498db;">Review
+                                    Profile Summary</a>
+                                <a href="wireframes/41-video-call-request.html" class="nav-link"
+                                    style="background: #3498db;">Booking
+                                    Flow</a>
+                                <a href="wireframes/51-video-call-status.html" class="nav-link"
+                                    style="background: #3498db;">Call
+                                    Status</a>
+                                <a href="wireframes/52-video-call-payment.html" class="nav-link"
+                                    style="background: #3498db;">RVCE-Pay</a>
+                                <a href="wireframes/54-video-call-interface.html" class="nav-link"
+                                    style="background: #3498db;">Video
+                                    Call</a>
+                                <a href="wireframes/55-video-call-feedback.html" class="nav-link"
+                                    style="background: #3498db;">User
+                                    Feedback</a>
+                                <a href="wireframes/74-mentor-badge-unlocked.html" class="nav-link"
+                                    style="background: #f1c40f; color: #2c3e50;">Badge Unlock Celeb</a>
                             </div>
                         </div>
 
-                        <!-- Category: Aspiration -->
-                        <div style="background: white; padding: 20px; border-radius: 12px; border: 1px solid #f1f5f9;">
-                            <h4 style="font-size: 0.9em; font-weight: 800; color: #27ae60; margin-bottom: 12px;">3.
-                                Aspiration</h4>
-                            <div style="font-size: 0.85em; color: #475569; line-height: 1.6;">
-                                <p><strong>Seriousness:</strong> Range 1 - 10</p>
-                                <p><strong>Source:</strong> Project-based, Theoretical, Hands-on, Mentorship</p>
+                        <div style="margin-top: 15px; padding-left: 10px; border-left: 2px solid #e67e22;">
+                            <p style="font-size: 0.8em; color: #e67e22; font-weight: bold; margin-bottom: 5px;">Student
+                                Mentor
+                                SR-01's
+                                Dedicated Flow (Full Pipeline)</p>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
+                                <a href="wireframes/56-sanjay-success-profile.html" class="nav-link"
+                                    style="background: #fff; color: #e67e22; border: 1px solid #e67e22; font-size: 0.7em;">1.
+                                    Success Profile (SR-01)</a>
+                                <a href="wireframes/71-student-reviews-mentor.html?mentor=sanjay" class="nav-link"
+                                    style="background: #fff; color: #e67e22; border: 1px solid #e67e22; font-size: 0.7em;">2.
+                                    Consult Onboarding Guide</a>
+                                <a href="wireframes/57-sanjay-call-request.html" class="nav-link"
+                                    style="background: #fff; color: #e67e22; border: 1px solid #e67e22; font-size: 0.7em;">3.
+                                    Call Request</a>
+                                <a href="wireframes/58-sanjay-call-status.html" class="nav-link"
+                                    style="background: #fff; color: #e67e22; border: 1px solid #e67e22; font-size: 0.7em;">4.
+                                    Call Status</a>
+                                <a href="wireframes/59-sanjay-call-payment.html" class="nav-link"
+                                    style="background: #fff; color: #e67e22; border: 1px solid #e67e22; font-size: 0.7em;">5.
+                                    Session Payment</a>
+                                <a href="wireframes/60-sanjay-call-icebreakers.html" class="nav-link"
+                                    style="background: #fff; color: #e67e22; border: 1px solid #e67e22; font-size: 0.7em;">6.
+                                    Icebreakers</a>
+                                <a href="wireframes/61-sanjay-call-interface.html" class="nav-link"
+                                    style="background: #fff; color: #e67e22; border: 1px solid #e67e22; font-size: 0.7em;">7.
+                                    Video Call</a>
+                                <a href="wireframes/62-sanjay-call-feedback.html" class="nav-link"
+                                    style="background: #fff; color: #e67e22; border: 1px solid #e67e22; font-size: 0.7em;">8.
+                                    Feedback</a>
+                                <a href="wireframes/70-mentor-next-steps.html" class="nav-link"
+                                    style="background: #e67e22; color: #fff; border: 1px solid #e67e22; font-size: 0.7em; grid-column: span 2;">9.
+                                    Next Steps (Options)</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flow-section" style="border-left: 5px solid #9b59b6;">
+                        <h2>10. Goal Execution (Success SOP)</h2>
+                        <a href="wireframes/67-sop-dashboard.html" class="nav-link" style="background: #9b59b6;">SOP
+                            Dashboard
+                            (Primary)</a>
+                        <a href="wireframes/68-sop-editor.html" class="nav-link">SOP Refinement Editor</a>
+                        <a href="wireframes/69-sop-reminders-motivations.html" class="nav-link">Reminders & Coaching
+                            Style</a>
+                    </div>
+
+                    <div class="flow-section">
+                        <h2>11. Settings & Data Management</h2>
+                        <a href="wireframes/21-settings.html" class="nav-link">Settings</a>
+                        <a href="wireframes/28-my-profile.html" class="nav-link">My Profile</a>
+                        <a href="wireframes/22-delete-memory.html" class="nav-link">Delete My Data</a>
+                        <a href="wireframes/24-download-data.html" class="nav-link">Download My Data</a>
+                        <a href="wireframes/25-privacy-settings.html" class="nav-link">Privacy Settings</a>
+                        <a href="wireframes/26-delete-account.html" class="nav-link">Delete Account</a>
+                    </div>
+                </div>
+                <!-- Detailed Discovery Engine Logic Diagram -->
+                <div
+                    style="margin: 64px 0; padding: 48px; background: #fdfefe; border-radius: var(--radius-lg); border: 2px solid #e2e8f0; box-shadow: var(--shadow);">
+                    <div style="text-align: center; margin-bottom: 48px;">
+                        <div
+                            style="font-size: 0.8em; text-transform: uppercase; letter-spacing: 3px; color: var(--primary); font-weight: 800; margin-bottom: 12px;">
+                            Technical Architecture</div>
+                        <h2 style="font-size: 2.2em; font-weight: 800; color: #1e293b; margin: 0;">The Discovery Engine
+                            Logic
+                        </h2>
+                        <p style="color: #64748b; margin-top: 12px; font-size: 1.1em;">A 3-phase high-conviction
+                            matching
+                            framework</p>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 40px; max-width: 900px; margin: 0 auto;">
+
+                        <!-- Phase 1: Context Sync -->
+                        <div style="display: flex; gap: 32px; align-items: flex-start;">
+                            <div
+                                style="width: 50px; height: 50px; background: var(--primary); color: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0; font-size: 1.2em;">
+                                1</div>
+                            <div style="flex: 1;">
+                                <h3 style="font-size: 1.3em; font-weight: 800; color: #1e293b; margin-bottom: 16px;">
+                                    Phase 1:
+                                    Context Sync</h3>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                                    <div
+                                        style="background: white; border: 1px solid #e2e8f0; padding: 16px; border-radius: var(--radius-md);">
+                                        <div
+                                            style="font-size: 0.7em; color: #94a3b8; font-weight: 800; margin-bottom: 8px;">
+                                            BASICS CAPTURE</div>
+                                        <ul style="margin: 0; padding: 0 0 0 16px; font-size: 0.85em; color: #475569;">
+                                            <li>Branch (CSE, ISE, ECE, EEE, etc.)</li>
+                                            <li>Year (1st - 4th Yr)</li>
+                                        </ul>
+                                    </div>
+                                    <div
+                                        style="background: white; border: 1px solid #e2e8f0; padding: 16px; border-radius: var(--radius-md);">
+                                        <div
+                                            style="font-size: 0.7em; color: #94a3b8; font-weight: 800; margin-bottom: 8px;">
+                                            ACADEMIC LENS</div>
+                                        <ul style="margin: 0; padding: 0 0 0 16px; font-size: 0.85em; color: #475569;">
+                                            <li>Background (Technical, Product, etc.)</li>
+                                            <li>Primary Hurdle (Skills, Networking, etc.)</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Category: Achievements -->
-                        <div style="background: white; padding: 20px; border-radius: 12px; border: 1px solid #f1f5f9;">
-                            <h4 style="font-size: 0.9em; font-weight: 800; color: #e67e22; margin-bottom: 12px;">4.
-                                Achievements</h4>
-                            <div style="font-size: 0.85em; color: #475569; line-height: 1.6;">
-                                <p><strong>Area:</strong> Hackathons, Research, Open Source, Internships, CGPA</p>
-                                <p><strong>Value:</strong> Portfolio, Certifications, Experience, Depth</p>
+                        <div style="width: 2px; height: 30px; background: #e2e8f0; margin-left: 24px;"></div>
+
+                        <!-- Phase 2: Vetting Filter -->
+                        <div style="display: flex; gap: 32px; align-items: flex-start;">
+                            <div
+                                style="width: 50px; height: 50px; background: var(--primary); color: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0; font-size: 1.2em;">
+                                2</div>
+                            <div style="flex: 1;">
+                                <h3 style="font-size: 1.3em; font-weight: 800; color: #1e293b; margin-bottom: 16px;">
+                                    Phase 2:
+                                    Vetting Filter (Preferences)</h3>
+                                <p style="font-size: 0.95em; color: #64748b; line-height: 1.6; margin-bottom: 20px;">
+                                    Users
+                                    define
+                                    the <strong>objective traits</strong> they require in a peer/mentor.</p>
+                                <div style="background: #f1f5f9; padding: 24px; border-radius: var(--radius-md);">
+                                    <div
+                                        style="font-size: 0.75em; font-weight: 800; color: #475569; margin-bottom: 16px; text-transform: uppercase;">
+                                        Vetting Categories</div>
+                                    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                                        <span
+                                            style="background: white; padding: 8px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 700; border: 1px solid #e2e8f0;">Personality</span>
+                                        <span
+                                            style="background: white; padding: 8px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 700; border: 1px solid #e2e8f0;">Aspiration</span>
+                                        <span
+                                            style="background: white; padding: 8px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 700; border: 1px solid #e2e8f0;">Achievements</span>
+                                        <span
+                                            style="background: white; padding: 8px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 700; border: 1px solid #e2e8f0;">Journey
+                                            Phase</span>
+                                        <span
+                                            style="background: #e2e8f0; padding: 8px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 700; color: #64748b;">+
+                                            Other (Subjective)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="width: 2px; height: 30px; background: #e2e8f0; margin-left: 24px;"></div>
+
+                        <!-- Phase 3: Alignment Logic -->
+                        <div style="display: flex; gap: 32px; align-items: flex-start;">
+                            <div
+                                style="width: 50px; height: 50px; background: #27ae60; color: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0; font-size: 1.2em;">
+                                3</div>
+                            <div style="flex: 1;">
+                                <h3 style="font-size: 1.3em; font-weight: 800; color: #1e293b; margin-bottom: 16px;">
+                                    Phase 3:
+                                    Alignment Check (Matching)</h3>
+                                <div
+                                    style="background: rgba(39, 174, 96, 0.05); border: 2px solid rgba(39, 174, 96, 0.1); padding: 24px; border-radius: var(--radius-md);">
+                                    <div
+                                        style="display: grid; grid-template-columns: 1fr 40px 1fr; align-items: center;">
+                                        <div style="text-align: center;">
+                                            <div
+                                                style="font-size: 0.7em; color: #27ae60; font-weight: 800; margin-bottom: 8px;">
+                                                USER A</div>
+                                            <div
+                                                style="background: white; padding: 12px; border-radius: 12px; border: 1px solid #27ae60; font-size: 0.85em; font-weight: 700;">
+                                                Self-Reflection</div>
+                                        </div>
+                                        <div
+                                            style="text-align: center; color: #27ae60; font-size: 1.2em; font-weight: 800;">
+                                            ↔
+                                        </div>
+                                        <div style="text-align: center;">
+                                            <div
+                                                style="font-size: 0.7em; color: #27ae60; font-weight: 800; margin-bottom: 8px;">
+                                                USER B</div>
+                                            <div
+                                                style="background: white; padding: 12px; border-radius: 12px; border: 1px solid #27ae60; font-size: 0.85em; font-weight: 700;">
+                                                Vetting Filter</div>
+                                        </div>
+                                    </div>
+                                    <p style="font-size: 0.85em; color: #64748b; margin-top: 20px; text-align: center;">
+                                        Matches only trigger when <strong>A's reflection</strong> satisfies <strong>B's
+                                            vetting</strong> AND <strong>B's reflection</strong> satisfies <strong>A's
+                                            vetting</strong>.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Full Reference Decision Tree -->
+                        <div style="margin-top: 48px; border-top: 1px solid #e2e8f0; padding-top: 32px;">
+                            <div
+                                style="font-size: 0.75em; font-weight: 800; color: #94a3b8; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px;">
+                                Full Algorithm Reference (Question Pool)</div>
+
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                                <!-- Category: Basics -->
+                                <div
+                                    style="background: white; padding: 20px; border-radius: 12px; border: 1px solid #f1f5f9;">
+                                    <h4
+                                        style="font-size: 0.9em; font-weight: 800; color: var(--primary); margin-bottom: 12px;">
+                                        1. Basics</h4>
+                                    <div style="font-size: 0.85em; color: #475569; line-height: 1.6;">
+                                        <p><strong>Branch:</strong> CSE, ISE, ECE, EEE, TCE, ME, CV, BT</p>
+                                        <p><strong>Year:</strong> 1st, 2nd, 3rd, 4th Year</p>
+                                        <p><strong>Background:</strong> Technical, Self-taught, Research,
+                                            Product-focused</p>
+                                        <p><strong>Main Hurdle:</strong> Skills, Time Management, Networking, Resources
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Category: Personality -->
+                                <div
+                                    style="background: white; padding: 20px; border-radius: 12px; border: 1px solid #f1f5f9;">
+                                    <h4
+                                        style="font-size: 0.9em; font-weight: 800; color: var(--primary); margin-bottom: 12px;">
+                                        2.
+                                        Personality</h4>
+                                    <div style="font-size: 0.85em; color: #475569; line-height: 1.6;">
+                                        <p><strong>Style:</strong> Analytical, Creative, Organized, Spontaneous</p>
+                                        <p><strong>Mentality:</strong> Growth, Results, Resilient, Disciplined</p>
+                                        <p><strong>Workstyle:</strong> Deep Solo, Collaborative, Structured, Flexible
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Category: Aspiration -->
+                                <div
+                                    style="background: white; padding: 20px; border-radius: 12px; border: 1px solid #f1f5f9;">
+                                    <h4
+                                        style="font-size: 0.9em; font-weight: 800; color: #27ae60; margin-bottom: 12px;">
+                                        3.
+                                        Aspiration</h4>
+                                    <div style="font-size: 0.85em; color: #475569; line-height: 1.6;">
+                                        <p><strong>Categories:</strong> Academics, Jobs, Skill Dev, Team Projects,
+                                            Entrance Prep, Sports, Relationships, Fitness, Business</p>
+                                        <p><strong>Seriousness:</strong> Range 1 - 10</p>
+                                    </div>
+                                </div>
+
+                                <!-- Category: Achievements -->
+                                <div
+                                    style="background: white; padding: 20px; border-radius: 12px; border: 1px solid #f1f5f9;">
+                                    <h4
+                                        style="font-size: 0.9em; font-weight: 800; color: #e67e22; margin-bottom: 12px;">
+                                        4.
+                                        Achievements</h4>
+                                    <div style="font-size: 0.85em; color: #475569; line-height: 1.6;">
+                                        <p><strong>Area:</strong> Hackathons, Research, Open Source, Internships, CGPA
+                                        </p>
+                                        <p><strong>Value:</strong> Portfolio, Certifications, Experience, Depth</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </main>
+
+            <!-- Mobile Bottom Nav -->
+            <nav class="bottom-nav mobile-only">
+                <a href="wireframes/00-landing.html" class="nav-item">
+                    <span class="nav-icon">🏠</span>
+                    <span>Home</span>
+                </a>
+                <a href="index.html" class="nav-item active">
+                    <span class="nav-icon">🗺️</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="wireframes/valueproposition.html" class="nav-item">
+                    <span class="nav-icon">✨</span>
+                    <span>Insights</span>
+                </a>
+            </nav>
         </div>
     </div>
+
+    <script src="pwa-init.js"></script>
 </body>
 
 </html>

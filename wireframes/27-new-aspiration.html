@@ -39,65 +39,85 @@
             </div>
 
             <div style="margin-top: 30px;">
-                <label class="label">Give your aspiration a name (optional)</label>
-                <input type="text" class="input-field" placeholder="e.g., AI Startup, Research Project, etc."
-                    id="aspirationName">
-                <p style="font-size: 0.85em; color: #7f8c8d;">
-                    You can name it later if you prefer
-                </p>
-            </div>
+                <label class="label">Select your aspiration</label>
+                <select class="aspiration-dropdown" id="aspirationCategory"
+                    style="margin-bottom: 20px; width: 100%; padding: 14px; border-radius: 12px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-main); font-weight: 600;">
+                    <option value="">Select Category...</option>
+                    <option value="Academics">Academics</option>
+                    <option value="Jobs/Internships">Jobs/Internships</option>
+                    <option value="Skill Development">Skill Development</option>
+                    <option value="Team Projects">Team Based Competition/Group Projects</option>
+                    <option value="Entrance Prep">Entrance Prep (UPSC, GMAT, GRE, GATE)</option>
+                    <option value="Competitive Sports">Competitive Sports</option>
+                    <option value="Relationships">Relationships</option>
+                    <option value="Fitness">Fitness</option>
+                    <option value="Business">Business/Entrepreneurship</option>
+                </select>
 
-            <div style="margin-top: 30px;">
-                <div class="consent-checkbox">
-                    <input type="checkbox" id="useExistingMemory">
-                    <label for="useExistingMemory">
-                        <strong>Use insights from previous conversations (Optional)</strong>
-                        <div class="consent-text">
-                            Allow the agent to reference your personality traits and preferences
-                            from other aspirations to speed up the conversation.
-                        </div>
-                    </label>
+                <label class="label">Custom Name (Optional)</label>
+                <input type="text" class="input-field" placeholder="e.g., Summer Internship Prep, Yoga Journey"
+                    id="aspirationName">
+
+                <div style="margin-top: 30px;">
+                    <div class="consent-checkbox">
+                        <input type="checkbox" id="useExistingMemory">
+                        <label for="useExistingMemory">
+                            <strong>Use insights from previous conversations (Optional)</strong>
+                            <div class="consent-text">
+                                Allow the agent to reference your personality traits and preferences
+                                from other aspirations to speed up the conversation.
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <button class="btn btn-primary" onclick="startNewAspiration()">
+                        Start New Aspiration Conversation
+                    </button>
+                </div>
+
+                <div style="margin-top: 30px; padding: 15px; background: #f8f9fa; border-radius: 5px;">
+                    <p style="font-size: 0.9em; color: #7f8c8d;">
+                        <strong>Note:</strong> You'll go through a voice conversation with the agent to define
+                        this aspiration. All existing privacy and consent settings will apply.
+                    </p>
                 </div>
             </div>
-
-            <div style="margin-top: 30px;">
-                <button class="btn btn-primary" onclick="startNewAspiration()">
-                    Start New Aspiration Conversation
-                </button>
-            </div>
-
-            <div style="margin-top: 30px; padding: 15px; background: #f8f9fa; border-radius: 5px;">
-                <p style="font-size: 0.9em; color: #7f8c8d;">
-                    <strong>Note:</strong> You'll go through a voice conversation with the agent to define
-                    this aspiration. All existing privacy and consent settings will apply.
-                </p>
-            </div>
         </div>
-    </div>
 
-    <script>
-        function startNewAspiration() {
-            const name = document.getElementById('aspirationName').value;
-            const useMemory = document.getElementById('useExistingMemory').checked;
+        <script>
+            function startNewAspiration() {
+                const category = document.getElementById('aspirationCategory').value;
+                const customName = document.getElementById('aspirationName').value;
+                const useMemory = document.getElementById('useExistingMemory').checked;
 
-            // Create and save aspiration
-            const aspiration = addAspiration({
-                name: name || 'New Aspiration',
-                description: '',
-                status: 'active'
-            });
+                if (!category && !customName) {
+                    alert('Please select a category or give your aspiration a name.');
+                    return;
+                }
 
-            // Set as current aspiration
-            localStorage.setItem('current_aspiration', JSON.stringify({
-                id: aspiration.id,
-                name: aspiration.name,
-                useExistingMemory: useMemory,
-                createdAt: aspiration.createdAt
-            }));
+                const finalName = customName ? `${category}: ${customName}` : category;
 
-            window.location.href = '02-get-to-know-you.html?new=true';
-        }
-    </script>
+                // Create and save aspiration
+                const aspiration = addAspiration({
+                    name: finalName || 'New Aspiration',
+                    description: '',
+                    category: category,
+                    status: 'active'
+                });
+
+                // Set as current aspiration
+                localStorage.setItem('current_aspiration', JSON.stringify({
+                    id: aspiration.id,
+                    name: aspiration.name,
+                    useExistingMemory: useMemory,
+                    createdAt: aspiration.createdAt
+                }));
+
+                window.location.href = '02-get-to-know-you.html?new=true';
+            }
+        </script>
 </body>
 
 </html>
